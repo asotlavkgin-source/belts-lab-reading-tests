@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 15 Academic Reading Test 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 15 Academic Reading Test 2</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2 id="could-urban-engineers-learn-from-dance?"><strong>Could urban engineers learn from dance?</strong></h2>
+<p><strong>A</strong></p>
+<p>The way we travel around cities has a major impact on whether they are sustainable. Transportation is estimated to account for 30% of energy consumption in most of the world’s most developed nations, so lowering the need for energy-using vehicles is essential for decreasing the environmental impact of mobility. But as more and more people move to cities, it is important to think about other kinds of sustainable travel too. The ways we travel affect our physical and mental health, our social lives, our access to work and culture, and the air we breathe. Engineers are tasked with changing how we travel round cities through urban design, but the engineering industry still works on the assumptions that led to the creation of the energy-consuming transport systems we have now: the emphasis placed solely on efficiency, speed, and quantitative data. We need radical changes, to make it healthier, more enjoyable, and less environmentally damaging to travel around cities.</p>
+<p><strong>B</strong></p>
+<p>Dance might hold some of the answers. That is not to suggest everyone should dance their way to work, however healthy and happy it might make us, but rather that the techniques used by choreographers to experiment with and design movement in dance could provide engineers with tools to stimulate new ideas in city-making. Richard Sennett, an influential urbanist and sociologist who has transformed ideas about the way cities are made, argues that urban design has suffered from a separation between mind and body since the introduction of the architectural blueprint.</p>
+<p><strong>C</strong></p>
+<p>Whereas medieval builders improvised and adapted construction through their intimate knowledge of materials and personal experience of the conditions on a site, building designs are now conceived and stored in media technologies that detach the designer from the physical and social realities they are creating. While the design practices created by these new technologies are essential for managing the technical complexity of the modern city, they have the drawback of simplifying reality in the process.</p>
+<p><strong>D</strong></p>
+<p>To illustrate, Sennett discusses the Peachtree Center in Atlanta, USA, a development typical of the modernist approach to urban planning prevalent in the 1970s. Peachtree created a grid of streets and towers intended as a new pedestrian-friendly downtown for Atlanta. According to Sennett, this failed because its designers had invested too much faith in computer-aided design to tell them how it would operate. They failed to take into account that purpose-built street cafés could not operate in the hot sun without the protective awnings common in older buildings, and would need energy-consuming air conditioning instead, or that its giant car park would feel so unwelcoming that it would put people off getting out of their cars. What seems entirely predictable and controllable on screen has unexpected results when translated into reality.</p>
+<p><strong>E</strong></p>
+<p>The same is true in transport engineering, which uses models to predict and shape the way people move through the city. Again, these models are necessary, but they are built on specific world views in which certain forms of efficiency and safety are considered and other experience of the city ignored. Designs that seem logical in models appear counter-intuitive in the actual experience of their users. The guard rails that will be familiar to anyone who has attempted to cross a British road, for example, were an engineering solution to pedestrian safety based on models that prioritise the smooth flow of traffic. On wide major roads, they often guide pedestrians to specific crossing points and slow down their progress across the road by using staggered access points divide the crossing into two – one for each carriageway. In doing so they make crossings feel longer, introducing psychological barriers greatly impacting those that are the least mobile, and encouraging others to make dangerous crossings to get around the guard rails. These barriers don’t just make it harder to cross the road: they divide communities and decrease opportunities for healthy transport. As a result, many are now being removed, causing disruption, cost, and waste.</p>
+<p><strong>F</strong></p>
+<p>If their designers had had the tools to think with their bodies – like dancers – and imagine how these barriers would feel, there might have been a better solution. In order to bring about fundamental changes to the ways we use our cities, engineering will need to develop a richer understanding of why people move in certain ways, and how this movement affects them. Choreography may not seem an obvious choice for tackling this problem. Yet it shares with engineering the aim of designing patterns of movement within limitations of space. It is an art form developed almost entirely by trying out ideas with the body, and gaining instant feedback on how the results feel. Choreographers have deep understanding of the psychological, aesthetic, and physical implications of different ways of moving.</p>
+<p><strong>G</strong></p>
+<p>Observing the choreographer Wayne McGregor, cognitive scientist David Kirsh described how he ‘thinks with the body’, Kirsh argues that by using the body to simulate outcomes, McGregor is able to imagine solutions that would not be possible using purely abstract thought. This kind of physical knowledge is valued in many areas of expertise, but currently has no place in formal engineering design processes. A suggested method for transport engineers is to improvise design solutions and instant feedback about how they would work from their own experience of them, or model designs at full scale in the way choreographers experiment with groups of dancers. Above all, perhaps, they might learn to design for emotional as well as functional effects.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2 id="should-we-try-to-bring-extinct-species-back-to-life?"><strong>Should we try to bring extinct species back to life?</strong></h2>
+<p><strong>A</strong></p>
+<p>The passenger pigeon was a legendary species. Flying in vast numbers across North America, with potentially many millions within a single flock, their migration was once one of nature’s great spectacles. Sadly, the passenger pigeon’s existence came to an end on 1 September 1914, when the last living specimen died at Cincinnati Zoo. Geneticist Ben Novak is lead researcher on an ambitious project which now aims to bring the bird back to life through a process known as ‘de-extinction’. The basic premise involves using cloning technology to turn the DNA of extinct animals into a fertilised embryo, which is carried by the nearest relative still in existence – in this case, the abundant band-tailed pigeon – before being born as a living, breathing animal. Passenger pigeons are one of the pioneering species in this field, but they are far from the only ones on which this cutting-edge technology is being trialled.</p>
+<p><strong>B</strong></p>
+<p>In Australia, the thylacine, more commonly known as the Tasmanian tiger, is another extinct creature which genetic scientists are striving to bring back to life. ‘There is no carnivore now in Tasmania that fills the niche which thylacines once occupied,’ explains Michael Archer of the University of New South Wales. He points out that in the decades since the thylacine went extinct, there has been a spread in a ‘dangerously debilitating’ facial tumour syndrome which threatens the existence of the Tasmanian devils, the island’s other notorious resident. Thylacines would have prevented this spread because they would have killed significant numbers of Tasmanian devils. ‘If that contagious cancer had popped up previously, it would have burned out in whatever region it started. The return of thylacines to Tasmania could help to ensure that devils are never again subjected to risks of this kind.’</p>
+<p><strong>C</strong></p>
+<p>If extinct species can be brought back to life, can humanity begin to correct the damage it has caused to the natural world over the past few millennia? ‘The idea of de-extinction is that we can reverse this process, bringing species that no longer exist back to life,’ says Beth Shapiro of University of California Santa Cruz’s Genomics Institute. ‘I don’t think that we can do this. There is no way to bring back something that is 100 per cent identical to a species that went extinct a long time ago.’ A more practical approach for long-extinct species is to take the DNA of existing species as a template, ready for the insertion of strands of extinct animal DNA to create something new; a hybrid, based on the living species, but which looks and/or acts like the animal which died out.</p>
+<p><strong>D</strong></p>
+<p>This complicated process and questionable outcome begs the question: what is the actual point of this technology? ‘For us, the goal has always been replacing the extinct species with a suitable replacement,’ explains Novak. ‘When it comes to breeding, band-tailed pigeons scatter and make maybe one or two nests per hectare, whereas passenger pigeons were very social and would make 10,000 or more nests in one hectare.’ Since the disappearance of this key species, ecosystems in the eastern US have suffered, as the lack of disturbance caused by thousands of passenger pigeons wrecking trees and branches means there has been minimal need for regrowth. This has left forests stagnant and therefore unwelcoming to the plants and animals which evolved to help regenerate the forest after a disturbance. According to Novak, a hybridized band-tailed pigeon, with the added nesting habits of a passenger pigeon, could, in theory, re-establish that forest disturbance, thereby creating a habitat necessary for a great many other native species to thrive.</p>
+<p><strong>E</strong></p>
+<p>Another popular candidate for this technology is the woolly mammoth. George Church, professor at Harvard Medical School and leader of the Woolly Mammoth Revival Project, has been focusing on cold resistance, the main way in which the extinct woolly mammoth and its nearest living relative, the Asian elephant, differ. By pinpointing which genetic traits made it possible for mammoths to survive the icy climate of the tundra, the project’s goal is to return mammoths, or a mammoth-like species, to the area. ‘My highest priority would be preserving the endangered Asian elephant,’ says Church, ‘expanding their range to the huge ecosystem of the tundra. Necessary adaptations would include smaller ears, thicker hair, and extra insulating fat, all for the purpose of reducing heat loss in the tundra, and all traits found in the now extinct woolly mammoth.’ This repopulation of the tundra and boreal forests of Eurasia and North America with large mammals could also be a useful factor in reducing carbon emissions – elephants punch holes through snow and knock down trees, which encourages grass growth. This grass growth would reduce temperature, and mitigate emissions from melting permafrost.</p>
+<p><strong>F</strong></p>
+<p>While the prospect of bringing extinct animals back to life might capture imaginations, it is, of course, far easier to try to save an existing species which is merely threatened with extinction. ‘Many of the technologies that people have in mind when they think about de-extinction can be used as a form of “genetic rescue”,’ explains Shapiro. She prefers to focus the debate on how this emerging technology could be used to fully understand why various species went extinct in the first place, and therefore how we could use it to make genetic modifications which could prevent mass extinctions in the future. ‘I would also say there’s an incredible moral hazard to not do anything at all,’ she continues. ‘We know that what we are doing today is not enough, and we have to be willing to take some calculated and measured risks.’</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2 id="having-a-laugh"><strong>Having a laugh</strong></h2>
+<p><em>The findings of psychological scientists reveal the importance of humour</em></p>
+<p>Humans start developing a sense of humour as early as six weeks old, when babies begin to laugh and smile in response to stimuli. Laughter is universal across all human cultures and even exists in some form in rats, chimps, and bonobos. Like other human emotions and expressions, laughter and humour provide psychological scientists with rich resources for studying human psychology, ranging from the development of language to the neuroscience of social perception.</p>
+<p>Theories focusing on the evolution of laughter point to it as an important adaptation for social communication. Take, for example, the recorded laughter in TV comedy shows. Back in 1950, US sound engineer Charley Douglass hated dealing with the unpredictable laughter of live audiences, so started recording his own ‘laugh tracks’. These were intended to help people at home feel like they were in a social situation, such as a crowded theatre. Douglass even recorded various types of laughter, as well as mixtures of laugher from men, women, and children. In doing so, he picked up on a quality of laughter that is now interesting researchers: a simple ‘haha’ communicates a remarkable amount of socially relevant information.</p>
+<p>In one study conducted in 2016, samples of laughter from pairs of English-speaking students were recorded at the University of California, Santa Cruz. A team made up of more than 30 psychological scientists, anthropologists, and biologists then played these recording to listeners from 24 diverse societies, from indigenous tribes in New Guinea to city-dwellers in India and Europe. Participants were asked whether they thought the people laughing were friends or strangers. On average, the results were remarkably consistent: worldwide, people’s guesses were correct approximately 60% of the time.</p>
+<p>Researchers have also found that different types of laughter serve as codes to complex human social hierarchies. A team led by Christopher Oveis from the University of California, San Diego, found that high-status individuals had different laughs from low-status individuals, and that strangers’ judgements of an individual’s social status were influenced by the dominant or submissive quality of their laughter. In their study, 48 male college students were randomly assigned to groups of four, with each group composed of two low-status members, who had just joined their college fraternity group, and two high-status members, older student took a turn at being teased by the others, involving the use of mildly insulting nicknames. Analysis revealed that, as expected, high-status individuals produced more dominant laughs and fewer submissive laughs relative to the low-status individuals. Meanwhile, low-status individuals were more likely to change their laughter based on their position of power; that is, the newcomers produced more dominant laughs when they were in the ‘powerful’ role of teasers. Dominant laughter was higher in pitch, louder, and more variable in tone than submissive laughter.</p>
+<p>A random group of volunteers then listened to an equal number of dominant and submissive laughs from both the high- and low-status individuals, and were asked to estimate the social status of the laughter. In line with predictions, laughers producing dominant laughs were perceived to be significantly higher in status than laughers producing submissive laughs. ‘This was particularly true for low-status individuals, who were rated as significantly higher in status when displaying a dominant versus submissive laugh,’ Oveis and colleagues note. ‘Thus, by strategically displaying more dominant laughter when the context allows, low-status individuals may achieve higher status in the eyes of others.’ However, high-status individuals were rated as high-status whether they produced their natural dominant laugh or tried to do a submissive one.</p>
+<p>Another study, conducted by David Cheng and Lu Wang of Australian National University, was based on the hypothesis that humour might provide a respite from tedious situations in the workplace. This ‘mental break’ might facilitate the replenishment of mental resources. To test this theory, the researchers recruited 74 business students, ostensibly for an experiment on perception. First, the students performed a tedious task in which they had to cross out every instance of the letter ‘e’ over two pages of text. The students then were randomly assigned to watch a video clip eliciting either humour, contentment, or neutral feelings. Some watched a clip of the BBC comedy <em>Mr. Bean</em>, others a relaxing scene with dolphins swimming in the ocean, and others a factual video about the management profession.</p>
+<p>The students then completed a task requiring persistence in which they were asked to guess the potential performance of employees based on provided profiles, and were told that making 10 correct assessments in a row would lead to a win. However, the software was programmed such that is was nearly impossible to achieve 10 consecutive correct answers. Participants were allowed to quit the task at any point. Students who had watched the <em>Mr. Bean </em>video ended up spending significantly more time working on the task, making twice as many predictions as the other two groups.</p>
+<p>Cheng and Wang then replicated these results in a second study, during which they had participants complete long multiplication questions by hand. Again, participants who watched the humorous video spent significantly more time working on this tedious task and completed more questions correctly than did the students in either of the other groups.</p>
+<p>‘Although humour has been found to help relieve stress and facilitate social relationships, traditional view of task performance implies that individuals should avoid things such as humour that may distract them from the accomplishment of task goals,’ Cheng and Wang conclude. ‘We suggest that humour is not only enjoyable but more importantly, energising.’</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-6</div><div class="section-copy">
+                                            <p>The Reading Passage has seven paragraphs, <strong>A-G</strong>.</p>
+<p>Which paragraph contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-G</strong>, in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="1"><span class="q-chip" data-qn="1" data-q-chip="1">1</span><div class="q-label"><span> <span>reference to an appealing way of using dance that the writer is not proposing</span></span></div><select class="q-select" name="ielts_reading_answer_9211_1" id="ielts_reading_answer_9211_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="2"><span class="q-chip" data-qn="2" data-q-chip="2">2</span><div class="q-label"><span> <span>an example of a contrast between past and present approaches to building</span></span></div><select class="q-select" name="ielts_reading_answer_9211_2" id="ielts_reading_answer_9211_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="3"><span class="q-chip" data-qn="3" data-q-chip="3">3</span><div class="q-label"><span> <span>mention of an objective of both dance and engineering</span></span></div><select class="q-select" name="ielts_reading_answer_9211_3" id="ielts_reading_answer_9211_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="4"><span class="q-chip" data-qn="4" data-q-chip="4">4</span><div class="q-label"><span> <span>reference to an unforeseen problem arising from ignoring the climate</span></span></div><select class="q-select" name="ielts_reading_answer_9211_4" id="ielts_reading_answer_9211_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="5"><span class="q-chip" data-qn="5" data-q-chip="5">5</span><div class="q-label"><span> <span>why some measures intended to help people are being reversed</span></span></div><select class="q-select" name="ielts_reading_answer_9211_5" id="ielts_reading_answer_9211_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="6"><span class="q-chip" data-qn="6" data-q-chip="6">6</span><div class="q-label"><span> <span>reference to how transport has an impact on human lives</span></span></div><select class="q-select" name="ielts_reading_answer_9211_6" id="ielts_reading_answer_9211_6"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 7-13</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<p></p>
+<p>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h4><strong>Guard rails</strong></h4>
+<p>Guard rails were introduced on British roads to improve the <span class="lab-inline-item" data-q-key="7"><span class="lab-inline-num" data-qn="7">7</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9213_1" id="ielts_reading_answer_9213_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> of pedestrians, while ensuring that the movement of <span class="lab-inline-item" data-q-key="8"><span class="lab-inline-num" data-qn="8">8</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9213_2" id="ielts_reading_answer_9213_2" autocomplete="off"><span class="lab-feedback-slot"></span></span> is not disrupted. Pedestrians are led to access points, and encouraged to cross one <span class="lab-inline-item" data-q-key="9"><span class="lab-inline-num" data-qn="9">9</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9213_3" id="ielts_reading_answer_9213_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;at a time.</p>
+<p>An unintended effect is to create psychological difficulties in crossing the road, particularly for less <span class="lab-inline-item" data-q-key="10"><span class="lab-inline-num" data-qn="10">10</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9213_4" id="ielts_reading_answer_9213_4" autocomplete="off"><span class="lab-feedback-slot"></span></span> people. Another result is that some people cross the road in a <span class="lab-inline-item" data-q-key="11"><span class="lab-inline-num" data-qn="11">11</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9213_5" id="ielts_reading_answer_9213_5" autocomplete="off"><span class="lab-feedback-slot"></span></span> way. The guard rails separate <span class="lab-inline-item" data-q-key="12"><span class="lab-inline-num" data-qn="12">12</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9213_6" id="ielts_reading_answer_9213_6" autocomplete="off"><span class="lab-feedback-slot"></span></span>, and make it more difficult to introduce forms of transport that are <span class="lab-inline-item" data-q-key="13"><span class="lab-inline-num" data-qn="13">13</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9213_7" id="ielts_reading_answer_9213_7" autocomplete="off"><span class="lab-feedback-slot"></span></span></p>
+<p>&nbsp;</p></div>
+                                        </div></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-17</div><div class="section-copy">
+                                            <p>The Reading Passage has six paragraphs, <strong>A-F</strong>.</p>
+<p>Which paragraph contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-F</strong>, in boxes on your answer sheet.</em></p>
+<p><strong><em>NB</em></strong><em>&nbsp;&nbsp; You may use any letter more than once.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>a reference to how further disappearance of multiple species could be avoided.</span></span></div><select class="q-select" name="ielts_reading_answer_9215_1" id="ielts_reading_answer_9215_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>explanation of a way of reproducing an extinct animal using the DNA of only that species</span></span></div><select class="q-select" name="ielts_reading_answer_9215_2" id="ielts_reading_answer_9215_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>reference to a habitat which has suffered following the extinction of a species</span></span></div><select class="q-select" name="ielts_reading_answer_9215_3" id="ielts_reading_answer_9215_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>mention of the exact point at which a particular species became extinct</span></span></div><select class="q-select" name="ielts_reading_answer_9215_4" id="ielts_reading_answer_9215_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 18-22</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<p></p>
+<p>Choose&nbsp;<strong>NO MORE THAN TWO WORDS</strong>&nbsp;from the passage for each answer.</p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h4><strong>The woolly mammoth revival project</strong></h4>
+<p>Professor George Church and his team are trying to identify the <span class="lab-inline-item" data-q-key="18"><span class="lab-inline-num" data-qn="18">18</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9217_1" id="ielts_reading_answer_9217_1" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;which enabled mammoths to live in the tundra. The findings could help preserve the mammoth’s close relative, the endangered Asian elephant.</p>
+<p>According to Church, introducing Asian elephants to the tundra would involve certain physical adaptations to minimise <span class="lab-inline-item" data-q-key="19"><span class="lab-inline-num" data-qn="19">19</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9217_2" id="ielts_reading_answer_9217_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>. To survive in the tundra, the species would need to have the mammoth-like features of thicker hair, <span class="lab-inline-item" data-q-key="20"><span class="lab-inline-num" data-qn="20">20</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9217_3" id="ielts_reading_answer_9217_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> of a reduced size and more <span class="lab-inline-item" data-q-key="21"><span class="lab-inline-num" data-qn="21">21</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9217_4" id="ielts_reading_answer_9217_4" autocomplete="off"><span class="lab-feedback-slot"></span></span></p>
+<p>Repopulating the tundra with mammoths or Asian elephant/mammoth hybrids would also have an impact on the environment, which could help to reduce temperatures and decrease <span class="lab-inline-item" data-q-key="22"><span class="lab-inline-num" data-qn="22">22</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9217_5" id="ielts_reading_answer_9217_5" autocomplete="off"><span class="lab-feedback-slot"></span></span></p></div>
+                                        </div><div class="section-heading">Questions 23-26</div><div class="section-copy">
+                                            <p>Look at the following statements and the list of people below.</p>
+<p>Match each statement with the correct person,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>&nbsp;or&nbsp;<strong>C</strong>.</p>
+<p><em>Write the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>&nbsp;or&nbsp;<strong>C</strong>, in boxes on your answer sheet.</em></p>
+<p><strong><em>NB</em></strong><em>&nbsp;&nbsp; You may use any letter more than once.</em></p>
+<p><strong>List of People</strong></p>
+<p><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp; Ben Novak</p>
+<p><strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp; Michael Archer</p>
+<p><strong>C</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Beth Shapiro</p>
+                                        </div><section class="q-card" data-q-key="23"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><div class="q-label"><span> <span>Reintroducing an extinct species to its original habitat could improve the health of a particular species living there.</span></span></div><select class="q-select" name="ielts_reading_answer_9219_1" id="ielts_reading_answer_9219_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="24"><span class="q-chip" data-qn="24" data-q-chip="24">24</span><div class="q-label"><span> <span>It is important to concentrate on the causes of an animal’s extinction.</span></span></div><select class="q-select" name="ielts_reading_answer_9219_2" id="ielts_reading_answer_9219_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="25"><span class="q-chip" data-qn="25" data-q-chip="25">25</span><div class="q-label"><span> <span>A species brought back from extinction could have an important beneficial impact on the vegetation of its habitat.</span></span></div><select class="q-select" name="ielts_reading_answer_9219_3" id="ielts_reading_answer_9219_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="26"><span class="q-chip" data-qn="26" data-q-chip="26">26</span><div class="q-label"><span> <span>Our current efforts at preserving biodiversity are insufficient.</span></span></div><select class="q-select" name="ielts_reading_answer_9219_4" id="ielts_reading_answer_9219_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-31</div><div class="section-copy">
+                                            <p>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>&nbsp;or&nbsp;<strong>D</strong>.</p>
+<p><em>Write the correct letter in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>When referring to laughter in the first paragraphs, the writer emphasises</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_1" value="A" id="ielts_reading_answer_9221_1_0-0"><span class="option-letter">A</span><span>its impact on language.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_1" value="B" id="ielts_reading_answer_9221_1_0-1"><span class="option-letter">B</span><span>its function in human culture.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_1" value="C" id="ielts_reading_answer_9221_1_0-2"><span class="option-letter">C</span><span>its value to scientific research.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_1" value="D" id="ielts_reading_answer_9221_1_0-3"><span class="option-letter">D</span><span>its universality in animal societies.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>What does the writer suggest about Charley Douglass?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_2" value="A" id="ielts_reading_answer_9221_2_0-0"><span class="option-letter">A</span><span>He understood the importance of enjoying humour in a group setting.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_2" value="B" id="ielts_reading_answer_9221_2_0-1"><span class="option-letter">B</span><span>He believed that TV viewers at home needed to be told when to laugh.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_2" value="C" id="ielts_reading_answer_9221_2_0-2"><span class="option-letter">C</span><span>He wanted his shows to appeal to audiences across the social spectrum.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_2" value="D" id="ielts_reading_answer_9221_2_0-3"><span class="option-letter">D</span><span>He preferred shows where audiences were present in the recording studio.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>What makes the Santa Cruz study particularly significant?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_3" value="A" id="ielts_reading_answer_9221_3_0-0"><span class="option-letter">A</span><span>the various different types of laughter that were studied</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_3" value="B" id="ielts_reading_answer_9221_3_0-1"><span class="option-letter">B</span><span>the similar results produced by a wide range of cultures</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_3" value="C" id="ielts_reading_answer_9221_3_0-2"><span class="option-letter">C</span><span>the number of different academic disciplines involved</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_3" value="D" id="ielts_reading_answer_9221_3_0-3"><span class="option-letter">D</span><span>the many kinds of people whose laughter was recorded</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>Which of the following happened in the San Diego study?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_4" value="A" id="ielts_reading_answer_9221_4_0-0"><span class="option-letter">A</span><span>Some participants became very upset.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_4" value="B" id="ielts_reading_answer_9221_4_0-1"><span class="option-letter">B</span><span>Participants exchanged roles.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_4" value="C" id="ielts_reading_answer_9221_4_0-2"><span class="option-letter">C</span><span>Participants who had not met before became friends.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_4" value="D" id="ielts_reading_answer_9221_4_0-3"><span class="option-letter">D</span><span>Some participants were unable to laugh.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="31"><span class="q-chip" data-qn="31" data-q-chip="31">31</span><div class="q-label"><span> <span>In the fifth paragraph, what did the results of the San Diego study suggest?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_5" value="A" id="ielts_reading_answer_9221_5_0-0"><span class="option-letter">A</span><span>It is clear whether a dominant laugh is produced by a high- or low-status person.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_5" value="B" id="ielts_reading_answer_9221_5_0-1"><span class="option-letter">B</span><span>Low-status individuals in a position of power will still produce submissive laughs.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_5" value="C" id="ielts_reading_answer_9221_5_0-2"><span class="option-letter">C</span><span>The submissive laughs of low- and high-status individuals are surprisingly similar.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9221_5" value="D" id="ielts_reading_answer_9221_5_0-3"><span class="option-letter">D</span><span>High-status individuals can always be identified by their way of laughing.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 32-36</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary using the list of words,&nbsp;<strong>A-H</strong>, below.<p></p>
+<p><em>Write the correct letter,&nbsp;<strong>A-H</strong>, in boxes on your answer sheet.</em></p>
+<p><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp; laughter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp; relaxing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>C</strong>&nbsp;&nbsp;&nbsp;&nbsp; boring</p>
+<p><strong>D</strong>&nbsp;&nbsp;&nbsp;&nbsp; anxiety&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>E&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;stimulating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>F</strong>&nbsp;&nbsp;&nbsp;&nbsp; emotion</p>
+<p><strong>G</strong>&nbsp;&nbsp;&nbsp;&nbsp; enjoyment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>H</strong>&nbsp;&nbsp;&nbsp;&nbsp; amusing</p>
+<h4><strong>The benefits of humour</strong></h4>
+<p>In one study at Australian National University, randomly chosen groups of participants were shown one of three videos, each designed to generate a different kind of <span class="lab-inline-item" data-q-key="32"><span class="lab-inline-num" data-qn="32">32</span><select class="lab-inline-select" name="ielts_reading_answer_9226_1" id="ielts_reading_answer_9226_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>. When all participants were then given a deliberately frustrating task to do, it was found that those who had watched the <span class="lab-inline-item" data-q-key="33"><span class="lab-inline-num" data-qn="33">33</span><select class="lab-inline-select" name="ielts_reading_answer_9226_2" id="ielts_reading_answer_9226_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>&nbsp;video persisted with the task for longer and tried harder to accomplish the task than either of the other two groups.</p>
+<p>A second study in which participants were asked to perform a particularly <span class="lab-inline-item" data-q-key="34"><span class="lab-inline-num" data-qn="34">34</span><select class="lab-inline-select" name="ielts_reading_answer_9226_3" id="ielts_reading_answer_9226_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span> task produced similar results. According to researchers David Cheng and Lu Wang, these findings suggest that humour not only reduces <span class="lab-inline-item" data-q-key="35"><span class="lab-inline-num" data-qn="35">35</span><select class="lab-inline-select" name="ielts_reading_answer_9226_4" id="ielts_reading_answer_9226_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span> and helps build social connections but it may also have a <span class="lab-inline-item" data-q-key="36"><span class="lab-inline-num" data-qn="36">36</span><select class="lab-inline-select" name="ielts_reading_answer_9226_5" id="ielts_reading_answer_9226_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>&nbsp;Effect on the body and mind.</p></div>
+                                        </div><div class="section-heading">Questions 37-40</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in the Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><strong>TRUE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the claims of the writer</p>
+<p><strong>FALSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the claims of the writer</p>
+<p><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if it is impossible to say what the writer thinks about this</p>
+                                        </div><section class="q-card" data-q-key="37"><span class="q-chip" data-qn="37" data-q-chip="37">37</span><div class="q-label"><span> <span>Participants in the Santa Cruz study were more accurate at identifying the laughs of friends than those of strangers.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_1" value="TRUE" id="ielts_reading_answer_9231_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_1" value="FALSE" id="ielts_reading_answer_9231_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_1" value="NOT GIVEN" id="ielts_reading_answer_9231_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="38"><span class="q-chip" data-qn="38" data-q-chip="38">38</span><div class="q-label"><span> <span>The researchers in the San Diego study were correct in their predictions regarding the behaviour of the high-status individuals.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_2" value="TRUE" id="ielts_reading_answer_9231_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_2" value="FALSE" id="ielts_reading_answer_9231_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_2" value="NOT GIVEN" id="ielts_reading_answer_9231_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="39"><span class="q-chip" data-qn="39" data-q-chip="39">39</span><div class="q-label"><span> <span>The participants in the Australian National University study were given a fixed amount of time to complete the task focusing on employee profiles.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_3" value="TRUE" id="ielts_reading_answer_9231_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_3" value="FALSE" id="ielts_reading_answer_9231_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_3" value="NOT GIVEN" id="ielts_reading_answer_9231_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="40"><span class="q-chip" data-qn="40" data-q-chip="40">40</span><div class="q-label"><span> <span>Cheng and Wang’s conclusions were in line with established notions regarding task performance.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_4" value="TRUE" id="ielts_reading_answer_9231_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_4" value="FALSE" id="ielts_reading_answer_9231_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9231_4" value="NOT GIVEN" id="ielts_reading_answer_9231_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 15 Academic Reading Test 2","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-15-academic-reading-test-2/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9211_1","promptHtml":"\u003cspan> \u003cspan>reference to an appealing way of using dance that the writer is not proposing\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9211_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9211_2","promptHtml":"\u003cspan> \u003cspan>an example of a contrast between past and present approaches to building\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9211_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9211_3","promptHtml":"\u003cspan> \u003cspan>mention of an objective of both dance and engineering\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9211_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9211_4","promptHtml":"\u003cspan> \u003cspan>reference to an unforeseen problem arising from ignoring the climate\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9211_4","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9211_5","promptHtml":"\u003cspan> \u003cspan>why some measures intended to help people are being reversed\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9211_5","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9211_6","promptHtml":"\u003cspan> \u003cspan>reference to how transport has an impact on human lives\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9211_6","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9213_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9213_1","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9213_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9213_2","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9213_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9213_3","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9213_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9213_4","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9213_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9213_5","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9213_6","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9213_6","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9213_7","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9213_7","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9215_1","promptHtml":"\u003cspan> \u003cspan>a reference to how further disappearance of multiple species could be avoided.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9215_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9215_2","promptHtml":"\u003cspan> \u003cspan>explanation of a way of reproducing an extinct animal using the DNA of only that species\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9215_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9215_3","promptHtml":"\u003cspan> \u003cspan>reference to a habitat which has suffered following the extinction of a species\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9215_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9215_4","promptHtml":"\u003cspan> \u003cspan>mention of the exact point at which a particular species became extinct\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9215_4","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9217_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9217_1","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9217_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9217_2","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9217_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9217_3","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9217_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9217_4","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9217_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9217_5","limit":null},"23":{"key":"23","nums":[23],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9219_1","promptHtml":"\u003cspan> \u003cspan>Reintroducing an extinct species to its original habitat could improve the health of a particular species living there.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9219_1","limit":null},"24":{"key":"24","nums":[24],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9219_2","promptHtml":"\u003cspan> \u003cspan>It is important to concentrate on the causes of an animal’s extinction.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9219_2","limit":null},"25":{"key":"25","nums":[25],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9219_3","promptHtml":"\u003cspan> \u003cspan>A species brought back from extinction could have an important beneficial impact on the vegetation of its habitat.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9219_3","limit":null},"26":{"key":"26","nums":[26],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9219_4","promptHtml":"\u003cspan> \u003cspan>Our current efforts at preserving biodiversity are insufficient.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9219_4","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9221_1","promptHtml":"\u003cspan> \u003cspan>When referring to laughter in the first paragraphs, the writer emphasises\u003c/span>\u003c/span>","options":[{"value":"A","label":"its impact on language."},{"value":"B","label":"its function in human culture."},{"value":"C","label":"its value to scientific research."},{"value":"D","label":"its universality in animal societies."}],"sourceAnswerId":"ielts_reading_answer_9221_1_0","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9221_2","promptHtml":"\u003cspan> \u003cspan>What does the writer suggest about Charley Douglass?\u003c/span>\u003c/span>","options":[{"value":"A","label":"He understood the importance of enjoying humour in a group setting."},{"value":"B","label":"He believed that TV viewers at home needed to be told when to laugh."},{"value":"C","label":"He wanted his shows to appeal to audiences across the social spectrum."},{"value":"D","label":"He preferred shows where audiences were present in the recording studio."}],"sourceAnswerId":"ielts_reading_answer_9221_2_0","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9221_3","promptHtml":"\u003cspan> \u003cspan>What makes the Santa Cruz study particularly significant?\u003c/span>\u003c/span>","options":[{"value":"A","label":"the various different types of laughter that were studied"},{"value":"B","label":"the similar results produced by a wide range of cultures"},{"value":"C","label":"the number of different academic disciplines involved"},{"value":"D","label":"the many kinds of people whose laughter was recorded"}],"sourceAnswerId":"ielts_reading_answer_9221_3_0","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9221_4","promptHtml":"\u003cspan> \u003cspan>Which of the following happened in the San Diego study?\u003c/span>\u003c/span>","options":[{"value":"A","label":"Some participants became very upset."},{"value":"B","label":"Participants exchanged roles."},{"value":"C","label":"Participants who had not met before became friends."},{"value":"D","label":"Some participants were unable to laugh."}],"sourceAnswerId":"ielts_reading_answer_9221_4_0","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9221_5","promptHtml":"\u003cspan> \u003cspan>In the fifth paragraph, what did the results of the San Diego study suggest?\u003c/span>\u003c/span>","options":[{"value":"A","label":"It is clear whether a dominant laugh is produced by a high- or low-status person."},{"value":"B","label":"Low-status individuals in a position of power will still produce submissive laughs."},{"value":"C","label":"The submissive laughs of low- and high-status individuals are surprisingly similar."},{"value":"D","label":"High-status individuals can always be identified by their way of laughing."}],"sourceAnswerId":"ielts_reading_answer_9221_5_0","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9226_1","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9226_1","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9226_2","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9226_2","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9226_3","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9226_3","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9226_4","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9226_4","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9226_5","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9226_5","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9231_1","promptHtml":"\u003cspan> \u003cspan>Participants in the Santa Cruz study were more accurate at identifying the laughs of friends than those of strangers.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9231_1_0","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9231_2","promptHtml":"\u003cspan> \u003cspan>The researchers in the San Diego study were correct in their predictions regarding the behaviour of the high-status individuals.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9231_2_0","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9231_3","promptHtml":"\u003cspan> \u003cspan>The participants in the Australian National University study were given a fixed amount of time to complete the task focusing on employee profiles.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9231_3_0","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9231_4","promptHtml":"\u003cspan> \u003cspan>Cheng and Wang’s conclusions were in line with established notions regarding task performance.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9231_4_0","limit":null}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23","part":2},"24":{"key":"24","part":2},"25":{"key":"25","part":2},"26":{"key":"26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || '').match(/cambridge(?:_ielts)?_(\d+)(?:_academic_reading)?_test_(\d+)\.html$/);
+  return match ? 'ielts_score_cambridge_' + match[1] + '_reading_test_' + match[2] : '';
+}
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString('en-GB')
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

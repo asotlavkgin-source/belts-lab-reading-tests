@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 16 Academic Reading Test 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 16 Academic Reading Test 2</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2 id="the-white-horse-of-uffington">The White Horse of Uffington</h2>
+<p>The cutting of huge figures or <em><strong>geoglyphs</strong></em> into the earth of English hillsides has taken place for more than 3,000 years. There are 56 hill figures scattered around England, with the vast majority on the chalk downlands of the country’s southern counties. The figures include giants, horses, crosses and regimental badges. Although the majority of these geoglyphs date within the last 300 years or so, there are one or two that are much older.</p>
+<p>The most famous of these figures is perhaps also the most mysterious — <strong>the Uffington White Horse</strong> in Oxfordshire. <span class="highlighted" data-timestamp="1686906676865" data-highlighted="true" data-uid="8876943f-3fce-49c3-9ead-0c271f156882">The White Horse has recently been re-dated and shown to be even older than its previously assigned ancient </span><em><span class="highlighted" data-timestamp="1686906676865" data-highlighted="true" data-uid="8876943f-3fce-49c3-9ead-0c271f156882">pre-Roman Iron Age</span></em><span class="highlighted" data-timestamp="1686906676865" data-highlighted="true" data-uid="8876943f-3fce-49c3-9ead-0c271f156882"> date.</span> More controversial is the date of the enigmatic Long Man of Wilmington in Sussex. While many historians are convinced the figure is prehistoric, others believe that it was the work of an artistic monk from a nearby priory and was created between the 11th and 15th centuries.</p>
+<p>The method of cutting these huge figures was simply to remove the overlying grass to reveal the gleaming white chalk below. However, the grass would soon grow over the geoglyph again unless it was regularly cleaned or scoured by a fairly large team of people. One reason that the vast majority of hill figures have disappeared is that when the traditions associated with the figures faded, people no longer bothered or remembered to clear away the grass to expose the chalk outline. Furthermore, over hundreds of years the outlines would sometimes change due to people not always cutting in exactly the same place, thus creating a different shape to the original geoglyph. The fact that any ancient hill figures survive at all in England today is testament to the strength and continuity of local customs and beliefs which, in one case at least, must stretch back over millennia.</p>
+<p>The Uffington White Horse is a unique, stylised representation of a horse consisting of a long, sleek back, thin disjointed legs, a streaming tail, and a bird-like beaked head. The elegant creature almost melts into the landscape. The horse is situated 2.5 km from Uffington village on a steep slope close to the Late Bronze Age (c. 7th century BCE) hillfort of Uffington Castle and below the Ridgeway, a long-distance Neolithic track.</p>
+<p>The Uffington Horse is also surrounded by Bronze Age burial mounds. It is not far from the Bronze Age cemetery of Lambourn Seven Barrows, which consists of more than 30 well-preserved burial mounds. The carving has been placed in such a way as to make it extremely difficult to see from close quarters, and like many geoglyphs is best appreciated from the air. Nevertheless, there are certain areas of the Vale of the White Horse, the valley containing and named after the enigmatic creature, from which an adequate impression may be gained. Indeed on a clear day the carving can be seen from up to 30 km away.</p>
+<p>The earliest evidence of a horse at Uffington is from the 1070s CE when ‘White Horse Hill’ is mentioned in documents from the nearby Abbey of Abingdon, and the first reference to the horse itself is soon after, in 1190 CE. However, the carving is believed to date back much further than that. Due to the similarity of the Uffington White Horse to the stylised depictions of horses on 1st century BCE coins, it had been thought that the creature must also date to that period.</p>
+<p>However, in 1995 Optically Stimulated Luminescence (OSL) testing was carried out by the Oxford Archaeological Unit on soil from two of the lower layers of the horse’s body, and from another cut near the base. The result was a date for the horse’s construction somewhere between 1400 and 600 BCE — in other words, it had a Late Bronze Age or Early Iron Age origin.</p>
+<p>The latter end of this date range would tie the carving of the horse in with occupation of the nearby Uffington hillfort, indicating that it may represent a tribal emblem marking the land of the inhabitants of the hillfort. Alternatively, the carving may have been carried out during a Bronze or Iron Age ritual. Some researchers see the horse as representing the Celtic horse goddess Epona, who was worshipped as a protector of horses, and for her associations with fertility. However, the cult of Epona was not imported from Gaul (France) until around the first century CE. This date is at least six centuries after the Uffington Horse was probably carved. Nevertheless, the horse had great ritual and economic significance during the Bronze and Iron Ages, as attested by its depictions on jewellery and other metal objects. It is possible that the carving represents a goddess in native mythology, such as Rhiannon, described in later Welsh mythology as a beautiful woman dressed in gold and riding a white horse.</p>
+<p>The fact that geoglyphs can disappear easily, along with their associated rituals and meaning, indicates that they were never intended to be anything more than temporary gestures. But this does not lessen their importance. These giant carvings are a fascinating glimpse into the minds of their creators and how they viewed the landscape in which they lived.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2 id="i-contain-multitudes">I contain multitudes</h2>
+<p><em>Wendy Moore reviews Ed Yong’s book about microbes</em></p>
+<p><strong>Microbes</strong>, most of them bacteria, have populated this planet since long before animal life developed and they will outlive us. Invisible to the naked eye, they are ubiquitous. They inhabit the soil, air, rocks and water and are present within every form of life, from seaweed and coral to dogs and humans. And, as Yong explains in his utterly absorbing and hugely important book, we mess with them at our peril.</p>
+<p>Every species has its own colony of microbes, called a <em>‘microbiome’</em>, and these microbes vary not only between species but also between individuals and within different parts of each individual. What is amazing is that while the number of human cells in the average person is about 30 trillion, the number of microbial ones is higher — about 39 trillion. At best, Yong informs us, we are only 50 per cent human. Indeed, some scientists even suggest we should think of each species and its microbes as a single unit, dubbed a <em>‘holobiont’</em>.</p>
+<p>In each human there are microbes that live only in the stomach, the mouth or the armpit and by and large they do so peacefully. So ‘bad’ microbes are just microbes out of context. Microbes that sit contentedly in the human gut (where there are more microbes than there are stars in the galaxy) can become deadly if they find their way into the bloodstream. These communities are constantly changing too. The right hand shares just one sixth of its microbes with the left hand. And, of course, we are surrounded by microbes. Every time we eat, we swallow a million microbes in each gram of food; we are continually swapping microbes with other humans, pets and the world at large.</p>
+<p>It’s a fascinating topic and Yong, a young British science journalist, is an extraordinarily adept guide. Writing with lightness and panache, he has a knack of explaining complex science in terms that are both easy to understand and totally enthralling. Yong is on a mission. Leading us gently by the hand, he takes us into the world of microbes — a bizarre, alien planet — in a bid to persuade us to love them as much as he does. By the end, we do.</p>
+<p>For most of human history we had no idea that microbes existed. The first man to see these extraordinarily potent creatures was a Dutch lens-maker called Antony van Leeuwenhoek in the 1670s. Using microscopes of his own design that could magnify up to 270 times, he examined a drop of water from a nearby lake and found it teeming with tiny creatures he called <em>‘animalcules’</em>. It wasn’t until nearly two hundred years later that the research of French biologist Louis Pasteur indicated that some microbes caused disease. It was Pasteur’s ‘germ theory’ that gave bacteria the poor image that endures today.</p>
+<p>Yong’s book is in many ways a plea for microbial tolerance, pointing out that while fewer than one hundred species of bacteria bring disease, many thousands more play a vital role in maintaining our health. The book also acknowledges that our attitude towards bacteria is not a simple one. We tend to see the dangers posed by bacteria, yet at the same time we are sold yoghurts and drinks that supposedly nurture ‘friendly’ bacteria. In reality, says Yong, bacteria should not be viewed as either friends or foes, villains or heroes. Instead we should realise we have a symbiotic relationship, that can be mutually beneficial or mutually destructive.</p>
+<p>What then do these millions of organisms do? The answer is pretty much everything. New research is now unravelling the ways in which bacteria aid digestion, regulate our immune systems, eliminate toxins, produce vitamins, affect our behaviour and even combat obesity. ‘They actually help us become who we are,’ says Yong. But we are facing a growing problem. Our obsession with hygiene, our overuse of antibiotics and our unhealthy, low-fibre diets are disrupting the bacterial balance and may be responsible for soaring rates of allergies and immune problems, such as inflammatory bowel disease (IBD).</p>
+<p>The most recent research actually turns accepted norms upside down. For example, there are studies indicating that the excessive use of household detergents and antibacterial products actually destroys the microbes that normally keep the more dangerous germs at bay. Other studies show that keeping a dog as a pet gives children early exposure to a diverse range of bacteria, which may help protect them against allergies later.</p>
+<p>The readers of Yong’s book must be prepared for a decidedly unglamorous world. Among the less appealing case studies is one about a fungus that is wiping out entire populations of frogs and that can be halted by a rare microbial bacterium. Another is about squid that carry luminescent bacteria that protect them against predators. However, if you can overcome your distaste for some of the investigations, the reasons for Yong’s enthusiasm become clear. The microbial world is a place of wonder. Already, in an attempt to stop mosquitoes spreading dengue fever — a disease that infects 400 million people a year — mosquitoes are being loaded with a bacterium to block the disease. In the future, our ability to manipulate microbes means we could construct buildings with useful microbes built into their walls to fight off infections. Just imagine a neonatal hospital ward coated in a specially mixed cocktail of microbes so that babies get the best start in life.</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2 id="how-to-make-wise-decisions">How to make wise decisions</h2>
+<p>Across cultures, wisdom has been considered one of the most revered human qualities. Although the truly wise may seem few and far between, empirical research examining wisdom suggests that it isn’t an exceptional trait possessed by a small handful of bearded philosophers after all — in fact, the latest studies suggest that most of us have the ability to make wise decisions, given the right context.</p>
+<p>‘It appears that experiential, situational, and cultural factors are even more powerful in shaping wisdom than previously imagined,’ says Associate Professor Igor Grossmann of the University of Waterloo in Ontario, Canada. ‘Recent empirical findings from cognitive, developmental, social, and personality psychology cumulatively suggest that people’s ability to reason wisely varies dramatically across experiential and situational contexts. Understanding the role of such contextual factors offers unique insights into understanding wisdom in daily life, as well as how it can be enhanced and taught.’</p>
+<p>It seems that it’s not so much that some people simply possess wisdom and others lack it, but that our ability to reason wisely depends on a variety of external factors. ‘It is impossible to characterize thought processes attributed to wisdom without considering the role of contextual factors,’ explains Grossmann. ‘In other words, wisdom is not solely an “inner quality” but rather unfolds as a function of situations people happen to be in. Some situations are more likely to promote wisdom than others.’</p>
+<p>Coming up with a definition of wisdom is challenging, but Grossmann and his colleagues have identified <em>four key characteristics</em> as part of a framework of wise reasoning. One is intellectual humility or recognition of the limits of our own knowledge, and another is appreciation of perspectives wider than the issue at hand. Sensitivity to the possibility of change in social relations is also key, along with compromise or integration of different attitudes and beliefs.</p>
+<p>Grossmann and his colleagues have also found that one of the most reliable ways to support wisdom in our own day-to-day decisions is to look at scenarios from a third-party perspective, as though giving advice to a friend. Research suggests that when adopting a first-person viewpoint we focus on ‘the focal features of the environment’ and when we adopt a third-person, ‘observer’ viewpoint we reason more broadly and focus more on interpersonal and moral ideals such as justice and impartiality. Looking at problems from this more expansive viewpoint appears to foster cognitive processes related to wise decisions.</p>
+<p>What are we to do, then, when confronted with situations like a disagreement with a spouse or negotiating a contract at work, that require us to take a personal stake? Grossmann argues that even when we aren’t able to change the situation, we can still evaluate these experiences from different perspectives.</p>
+<p>For example, in one experiment that took place during the peak of a recent economic recession, graduating college seniors were asked to reflect on their job prospects. The students were instructed to imagine their career either ‘as if you were a distant observer’ or ‘before your own eyes as if you were right there’. Participants in the group assigned to the ‘distant observer’ role displayed more wisdom-related reasoning (intellectual humility and recognition of change) than did participants in the control group.</p>
+<p>In another study, couples in long-term romantic relationships were instructed to visualize an unresolved relationship conflict either through the eyes of an outsider or from their own perspective. Participants then discussed the incident with their partner for 10 minutes, after which they wrote down their thoughts about it. Couples in the ‘other’s eyes’ condition were significantly more likely to rely on wise reasoning — recognizing others’ perspectives and searching for a compromise — compared to the couples in the egocentric condition.</p>
+<p><strong>‘Ego-decentering</strong> promotes greater focus on others and enables a bigger picture, conceptual view of the experience, affording recognition of intellectual humility and change,’ says Grossmann.</p>
+<p>We might associate wisdom with intelligence or particular personality traits, but research shows only a small positive relationship between wise thinking and crystallized intelligence and the personality traits of openness and agreeableness. ‘It is remarkable how much people can vary in their wisdom from one situation to the next, and how much stronger such contextual effects are for understanding the relationship between wise judgment and its social and affective outcomes as compared to the generalized “traits”,’ Grossmann explains. ‘That is, knowing how wisely a person behaves in a given situation is more informative for understanding their emotions or likelihood to forgive [or] retaliate as compared to knowing whether the person may be wise “in general”.</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-8</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in the Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><strong>TRUE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the information</p>
+<p><strong>FALSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the information</p>
+<p><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if there is no information on this</p>
+                                        </div><section class="q-card" data-q-key="1"><span class="q-chip" data-qn="1" data-q-chip="1">1</span><div class="q-label"><span> <span>Most geoglyphs in England are located in a particular area of the country.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_1" value="TRUE" id="ielts_reading_answer_9038_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_1" value="FALSE" id="ielts_reading_answer_9038_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_1" value="NOT GIVEN" id="ielts_reading_answer_9038_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="2"><span class="q-chip" data-qn="2" data-q-chip="2">2</span><div class="q-label"><span> <span>There are more geoglyphs in the shape of a horse than any other creature.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_2" value="TRUE" id="ielts_reading_answer_9038_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_2" value="FALSE" id="ielts_reading_answer_9038_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_2" value="NOT GIVEN" id="ielts_reading_answer_9038_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="3"><span class="q-chip" data-qn="3" data-q-chip="3">3</span><div class="q-label"><span> <span>A recent dating of the Uffington White Horse indicates that people were mistaken about its age.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_3" value="TRUE" id="ielts_reading_answer_9038_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_3" value="FALSE" id="ielts_reading_answer_9038_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_3" value="NOT GIVEN" id="ielts_reading_answer_9038_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="4"><span class="q-chip" data-qn="4" data-q-chip="4">4</span><div class="q-label"><span> <span>Historians have come to an agreement about the origins of the Long Man of Wilmington.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_4" value="TRUE" id="ielts_reading_answer_9038_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_4" value="FALSE" id="ielts_reading_answer_9038_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_4" value="NOT GIVEN" id="ielts_reading_answer_9038_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="5"><span class="q-chip" data-qn="5" data-q-chip="5">5</span><div class="q-label"><span> <span>Geoglyphs were created by people placing white chalk on the hillside.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_5" value="TRUE" id="ielts_reading_answer_9038_5_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_5" value="FALSE" id="ielts_reading_answer_9038_5_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_5" value="NOT GIVEN" id="ielts_reading_answer_9038_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="6"><span class="q-chip" data-qn="6" data-q-chip="6">6</span><div class="q-label"><span> <span>Many geoglyphs in England are no longer visible.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_6" value="TRUE" id="ielts_reading_answer_9038_6_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_6" value="FALSE" id="ielts_reading_answer_9038_6_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_6" value="NOT GIVEN" id="ielts_reading_answer_9038_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="7"><span class="q-chip" data-qn="7" data-q-chip="7">7</span><div class="q-label"><span> <span>The shape of some geoglyphs has been altered over time.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_7" value="TRUE" id="ielts_reading_answer_9038_7_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_7" value="FALSE" id="ielts_reading_answer_9038_7_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_7" value="NOT GIVEN" id="ielts_reading_answer_9038_7_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="8"><span class="q-chip" data-qn="8" data-q-chip="8">8</span><div class="q-label"><span> <span>The fame of the Uffington White Horse is due to its size.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_8" value="TRUE" id="ielts_reading_answer_9038_8_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_8" value="FALSE" id="ielts_reading_answer_9038_8_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9038_8" value="NOT GIVEN" id="ielts_reading_answer_9038_8_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 9-13</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<p></p>
+<p>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</p>
+<p><em>Write your answers in boxes<b>&nbsp;</b>on your answer sheet.</em></p>
+<h3><strong>The Uffington White Horse</strong></h3>
+<p><strong>The location of the Uffington White Horse:</strong></p>
+<ul>
+<li>a distance of 2.5 km from Uffington village</li>
+<li>near an ancient road known as the <span class="lab-inline-item" data-q-key="9"><span class="lab-inline-num" data-qn="9">9</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9040_1" id="ielts_reading_answer_9040_1" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>close to an ancient cemetery that has a number of burial mounds</li>
+</ul>
+<p><strong>Dating the Uffington White Horse:</strong></p>
+<ul>
+<li>first reference to White Horse Hill appears in <span class="lab-inline-item" data-q-key="10"><span class="lab-inline-num" data-qn="10">10</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9040_2" id="ielts_reading_answer_9040_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;from the 1070s</li>
+<li>horses shown on coins from the period 100 BCE – 1 BCE are similar in appearance</li>
+<li>according to analysis of the surrounding <span class="lab-inline-item" data-q-key="11"><span class="lab-inline-num" data-qn="11">11</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9040_3" id="ielts_reading_answer_9040_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>, the Horse is Late Bronze Age / Early Iron Age</li>
+</ul>
+<p><strong>Possible reasons for creation of the Uffington White Horse:</strong></p>
+<ul>
+<li>an emblem to indicate land ownership</li>
+<li>formed part of an ancient ritual</li>
+<li>was a representation of goddess Epona – associated with protection of horses and <span class="lab-inline-item" data-q-key="12"><span class="lab-inline-num" data-qn="12">12</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9040_4" id="ielts_reading_answer_9040_4" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>was a representation of a Welsh goddess called <span class="lab-inline-item" data-q-key="13"><span class="lab-inline-num" data-qn="13">13</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9040_5" id="ielts_reading_answer_9040_5" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+</ul>
+</div>
+                                        </div></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-16</div><div class="section-copy">
+                                            <p>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>&nbsp;or&nbsp;<strong>D</strong>.</p>
+<p><em>Write the correct letter in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>What point does the writer make about microbes in the first paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_1" value="A" id="ielts_reading_answer_9042_1_0-0"><span class="option-letter">A</span><span>They adapt quickly to their environment.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_1" value="B" id="ielts_reading_answer_9042_1_0-1"><span class="option-letter">B</span><span>The risk they pose has been exaggerated.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_1" value="C" id="ielts_reading_answer_9042_1_0-2"><span class="option-letter">C</span><span>They are more plentiful in animal life than plant life.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_1" value="D" id="ielts_reading_answer_9042_1_0-3"><span class="option-letter">D</span><span>They will continue to exist for longer than the human race.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>In the second paragraph, the writer is impressed by the fact that</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_2" value="A" id="ielts_reading_answer_9042_2_0-0"><span class="option-letter">A</span><span>each species tends to have vastly different microbes.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_2" value="B" id="ielts_reading_answer_9042_2_0-1"><span class="option-letter">B</span><span>some parts of the body contain relatively few microbes.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_2" value="C" id="ielts_reading_answer_9042_2_0-2"><span class="option-letter">C</span><span>the average individual has more microbial cells than human ones.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_2" value="D" id="ielts_reading_answer_9042_2_0-3"><span class="option-letter">D</span><span>scientists have limited understanding of how microbial cells behave.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>What is the writer doing in the fifth paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_3" value="A" id="ielts_reading_answer_9042_3_0-0"><span class="option-letter">A</span><span>explaining how a discovery was made</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_3" value="B" id="ielts_reading_answer_9042_3_0-1"><span class="option-letter">B</span><span>comparing scientists’ theories about microbes</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_3" value="C" id="ielts_reading_answer_9042_3_0-2"><span class="option-letter">C</span><span>describing confusion among scientists</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9042_3" value="D" id="ielts_reading_answer_9042_3_0-3"><span class="option-letter">D</span><span>giving details of how microbes cause disease</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 17-20</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary using the list of words,&nbsp;<strong>A-H</strong>, below.<p></p>
+<p><em>Write the correct letter, A-H, in boxes on your answer sheet.</em></p>
+<p><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp; solution&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;partnership&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>C&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;destruction</p>
+<p><strong>D</strong>&nbsp;&nbsp;&nbsp;&nbsp; exaggeration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>E&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;cleanliness&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>F&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;regulations</p>
+<p><strong>G</strong>&nbsp;&nbsp;&nbsp;&nbsp; illness&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>H&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;nutrition</p>
+<h3><strong>We should be more tolerant of microbes</strong></h3>
+<p>Yong’s book argues that we should be more tolerant of microbes. Many have a beneficial effect, and only a relatively small number lead to <span class="lab-inline-item" data-q-key="17"><span class="lab-inline-num" data-qn="17">17</span><select class="lab-inline-select" name="ielts_reading_answer_9044_1" id="ielts_reading_answer_9044_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>. And although it is misleading to think of microbes as ‘friendly’, we should also stop thinking of them as the enemy. In fact, we should accept that our relationship with microbes is one based on <span class="lab-inline-item" data-q-key="18"><span class="lab-inline-num" data-qn="18">18</span><select class="lab-inline-select" name="ielts_reading_answer_9044_2" id="ielts_reading_answer_9044_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>.</p>
+<p>New research shows that microbes have numerous benefits for humans. Amongst other things, they aid digestion, remove poisons, produce vitamins and may even help reduce obesity. However, there is a growing problem. Our poor <span class="lab-inline-item" data-q-key="19"><span class="lab-inline-num" data-qn="19">19</span><select class="lab-inline-select" name="ielts_reading_answer_9044_3" id="ielts_reading_answer_9044_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>, our overuse of antibiotics, and our excessive focus on <span class="lab-inline-item" data-q-key="20"><span class="lab-inline-num" data-qn="20">20</span><select class="lab-inline-select" name="ielts_reading_answer_9044_4" id="ielts_reading_answer_9044_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>&nbsp;are upsetting the bacterial balance and may be contributing to the huge increase in allergies and immune system problems.</p></div>
+                                        </div><div class="section-heading">Questions 21-26</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in the Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><strong>YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>if the statement agrees with the claims of the writer</p>
+<p><strong>NO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>if the statement contradicts the claims of the writer</p>
+<p><strong>NOT GIVEN</strong>&nbsp; &nbsp; if it is impossible to say what the writer thinks about this</p>
+                                        </div><section class="q-card" data-q-key="21"><span class="q-chip" data-qn="21" data-q-chip="21">21</span><div class="q-label"><span> <span>It is possible that using antibacterial products in the home fails to have the desired effect.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_1" value="YES" id="ielts_reading_answer_9048_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_1" value="NO" id="ielts_reading_answer_9048_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_1" value="NOT GIVEN" id="ielts_reading_answer_9048_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="22"><span class="q-chip" data-qn="22" data-q-chip="22">22</span><div class="q-label"><span> <span>It is a good idea to ensure that children come into contact with as few bacteria as possible.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_2" value="YES" id="ielts_reading_answer_9048_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_2" value="NO" id="ielts_reading_answer_9048_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_2" value="NOT GIVEN" id="ielts_reading_answer_9048_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="23"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><div class="q-label"><span> <span>Yong’s book contains more cause studies than are necessary.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_3" value="YES" id="ielts_reading_answer_9048_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_3" value="NO" id="ielts_reading_answer_9048_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_3" value="NOT GIVEN" id="ielts_reading_answer_9048_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="24"><span class="q-chip" data-qn="24" data-q-chip="24">24</span><div class="q-label"><span> <span>The case study about bacteria that prevent squid from being attacked may have limited appeal.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_4" value="YES" id="ielts_reading_answer_9048_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_4" value="NO" id="ielts_reading_answer_9048_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_4" value="NOT GIVEN" id="ielts_reading_answer_9048_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="25"><span class="q-chip" data-qn="25" data-q-chip="25">25</span><div class="q-label"><span> <span>Efforts to control dengue fever have been surprisingly successful</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_5" value="YES" id="ielts_reading_answer_9048_5_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_5" value="NO" id="ielts_reading_answer_9048_5_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_5" value="NOT GIVEN" id="ielts_reading_answer_9048_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="26"><span class="q-chip" data-qn="26" data-q-chip="26">26</span><div class="q-label"><span> <span>Microbes that reduce the risk of infection have already been put inside the walls of some hospital wards.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_6" value="YES" id="ielts_reading_answer_9048_6_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_6" value="NO" id="ielts_reading_answer_9048_6_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9048_6" value="NOT GIVEN" id="ielts_reading_answer_9048_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-30</div><div class="section-copy">
+                                            <p>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>&nbsp;or&nbsp;<strong>D</strong>.</p>
+<p><em>Write the correct letter in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>What point does the writer make in the first paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_1" value="A" id="ielts_reading_answer_9050_1_0-0"><span class="option-letter">A</span><span>Wisdom appears to be unique to the human race.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_1" value="B" id="ielts_reading_answer_9050_1_0-1"><span class="option-letter">B</span><span>A basic assumption about wisdom may be wrong.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_1" value="C" id="ielts_reading_answer_9050_1_0-2"><span class="option-letter">C</span><span>Concepts of wisdom may depend on the society we belong to.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_1" value="D" id="ielts_reading_answer_9050_1_0-3"><span class="option-letter">D</span><span>There is still much to be discovered about the nature of wisdom.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>What does Igor Grossmann suggest about the ability to make wise decisions?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_2" value="A" id="ielts_reading_answer_9050_2_0-0"><span class="option-letter">A</span><span>It can vary greatly from one person to another.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_2" value="B" id="ielts_reading_answer_9050_2_0-1"><span class="option-letter">B</span><span>Earlier research into it was based on unreliable data.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_2" value="C" id="ielts_reading_answer_9050_2_0-2"><span class="option-letter">C</span><span>The importance of certain influences on it was underestimated.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_2" value="D" id="ielts_reading_answer_9050_2_0-3"><span class="option-letter">D</span><span>Various branches of psychology define it according to their own criteria.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>According to the third paragraph, Grossmann claims that the level of wisdom an individual shows</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_3" value="A" id="ielts_reading_answer_9050_3_0-0"><span class="option-letter">A</span><span>can be greater than they think it is.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_3" value="B" id="ielts_reading_answer_9050_3_0-1"><span class="option-letter">B</span><span>will be different in different circumstances.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_3" value="C" id="ielts_reading_answer_9050_3_0-2"><span class="option-letter">C</span><span>may be determined by particular aspects of their personality.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_3" value="D" id="ielts_reading_answer_9050_3_0-3"><span class="option-letter">D</span><span>should develop over time as a result of their life experiences.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>What is described in the fifth paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_4" value="A" id="ielts_reading_answer_9050_4_0-0"><span class="option-letter">A</span><span>a difficulty encountered when attempting to reason wisely</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_4" value="B" id="ielts_reading_answer_9050_4_0-1"><span class="option-letter">B</span><span>an example of the type of person who is likely to reason wisely</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_4" value="C" id="ielts_reading_answer_9050_4_0-2"><span class="option-letter">C</span><span>a controversial view about the benefits of reasoning wisely</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9050_4" value="D" id="ielts_reading_answer_9050_4_0-3"><span class="option-letter">D</span><span>a recommended strategy that can help people to reason wisely</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 31-35</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary using the list of words,&nbsp;<strong>A-J</strong>, below.<p></p>
+<p><em>Write the correct letter,&nbsp;<strong>A-J</strong>, in boxes on your answer sheet.</em></p>
+<p><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp; opinions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp; confidence&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>C</strong>&nbsp;&nbsp; &nbsp;&nbsp;view</p>
+<p><strong>D</strong>&nbsp;&nbsp;&nbsp;&nbsp; modesty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>E&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;problems &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>F</strong>&nbsp;&nbsp;&nbsp;&nbsp; objectivity</p>
+<p><strong>G</strong>&nbsp;&nbsp;&nbsp;&nbsp; fairness&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>H</strong>&nbsp;&nbsp;&nbsp;&nbsp; experiences&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>I</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; range</p>
+<p><strong>J</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reasons</p>
+<h3><strong>The characteristics of wise reasoning</strong></h3>
+<p>Igor Grossmann and colleagues have established four characteristics which enable us to make wise decisions. It is important to have a certain degree of <span class="lab-inline-item" data-q-key="31"><span class="lab-inline-num" data-qn="31">31</span><select class="lab-inline-select" name="ielts_reading_answer_9053_1" id="ielts_reading_answer_9053_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> regarding the extent of our knowledge, and to take into account <span class="lab-inline-item" data-q-key="32"><span class="lab-inline-num" data-qn="32">32</span><select class="lab-inline-select" name="ielts_reading_answer_9053_2" id="ielts_reading_answer_9053_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> which may not be the same as our own. We should also be able to take a broad <span class="lab-inline-item" data-q-key="33"><span class="lab-inline-num" data-qn="33">33</span><select class="lab-inline-select" name="ielts_reading_answer_9053_3" id="ielts_reading_answer_9053_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span>&nbsp;of any situation. Another key characteristic is being aware of the likelihood of alterations in the way that people relate to each other.</p>
+<p>Grossmann also believes that it is better to regard scenarios with <span class="lab-inline-item" data-q-key="34"><span class="lab-inline-num" data-qn="34">34</span><select class="lab-inline-select" name="ielts_reading_answer_9053_4" id="ielts_reading_answer_9053_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span>. By avoiding the first-person perspective, we focus more on <span class="lab-inline-item" data-q-key="35"><span class="lab-inline-num" data-qn="35">35</span><select class="lab-inline-select" name="ielts_reading_answer_9053_5" id="ielts_reading_answer_9053_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span>&nbsp;and on other moral ideals, which in turn leads to wiser decision-making.</p></div>
+                                        </div><div class="section-heading">Questions 36-40</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in the Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><strong>TRUE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the information</p>
+<p><strong>FALSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the information</p>
+<p><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if there is no information on this</p>
+                                        </div><section class="q-card" data-q-key="36"><span class="q-chip" data-qn="36" data-q-chip="36">36</span><div class="q-label"><span> <span>Students participating in the job prospects experiment could choose one of two perspectives to take.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_1" value="TRUE" id="ielts_reading_answer_9055_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_1" value="FALSE" id="ielts_reading_answer_9055_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_1" value="NOT GIVEN" id="ielts_reading_answer_9055_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="37"><span class="q-chip" data-qn="37" data-q-chip="37">37</span><div class="q-label"><span> <span>Participants in the couples experiment were aware that they were taking part in a study about wise reasoning.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_2" value="TRUE" id="ielts_reading_answer_9055_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_2" value="FALSE" id="ielts_reading_answer_9055_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_2" value="NOT GIVEN" id="ielts_reading_answer_9055_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="38"><span class="q-chip" data-qn="38" data-q-chip="38">38</span><div class="q-label"><span> <span>In the couples experiments, the length of the couples’ relationships had an impact on the results.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_3" value="TRUE" id="ielts_reading_answer_9055_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_3" value="FALSE" id="ielts_reading_answer_9055_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_3" value="NOT GIVEN" id="ielts_reading_answer_9055_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="39"><span class="q-chip" data-qn="39" data-q-chip="39">39</span><div class="q-label"><span> <span>In both experiments, the participants who looked at the situation from a more detached viewpoint tended to make wiser decisions.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_4" value="TRUE" id="ielts_reading_answer_9055_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_4" value="FALSE" id="ielts_reading_answer_9055_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_4" value="NOT GIVEN" id="ielts_reading_answer_9055_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="40"><span class="q-chip" data-qn="40" data-q-chip="40">40</span><div class="q-label"><span> <span>Grossmann believes that a person’s wisdom is determined by their intelligence to only a very limited extent.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_5" value="TRUE" id="ielts_reading_answer_9055_5_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_5" value="FALSE" id="ielts_reading_answer_9055_5_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9055_5" value="NOT GIVEN" id="ielts_reading_answer_9055_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 16 Academic Reading Test 2","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-16-academic-reading-test-2/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_1","promptHtml":"\u003cspan> \u003cspan>Most geoglyphs in England are located in a particular area of the country.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_1_0","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_2","promptHtml":"\u003cspan> \u003cspan>There are more geoglyphs in the shape of a horse than any other creature.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_2_0","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_3","promptHtml":"\u003cspan> \u003cspan>A recent dating of the Uffington White Horse indicates that people were mistaken about its age.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_3_0","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_4","promptHtml":"\u003cspan> \u003cspan>Historians have come to an agreement about the origins of the Long Man of Wilmington.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_4_0","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_5","promptHtml":"\u003cspan> \u003cspan>Geoglyphs were created by people placing white chalk on the hillside.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_5_0","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_6","promptHtml":"\u003cspan> \u003cspan>Many geoglyphs in England are no longer visible.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_6_0","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_7","promptHtml":"\u003cspan> \u003cspan>The shape of some geoglyphs has been altered over time.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_7_0","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9038_8","promptHtml":"\u003cspan> \u003cspan>The fame of the Uffington White Horse is due to its size.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9038_8_0","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9040_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9040_1","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9040_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9040_2","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9040_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9040_3","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9040_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9040_4","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9040_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9040_5","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9042_1","promptHtml":"\u003cspan> \u003cspan>What point does the writer make about microbes in the first paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"They adapt quickly to their environment."},{"value":"B","label":"The risk they pose has been exaggerated."},{"value":"C","label":"They are more plentiful in animal life than plant life."},{"value":"D","label":"They will continue to exist for longer than the human race."}],"sourceAnswerId":"ielts_reading_answer_9042_1_0","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9042_2","promptHtml":"\u003cspan> \u003cspan>In the second paragraph, the writer is impressed by the fact that\u003c/span>\u003c/span>","options":[{"value":"A","label":"each species tends to have vastly different microbes."},{"value":"B","label":"some parts of the body contain relatively few microbes."},{"value":"C","label":"the average individual has more microbial cells than human ones."},{"value":"D","label":"scientists have limited understanding of how microbial cells behave."}],"sourceAnswerId":"ielts_reading_answer_9042_2_0","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9042_3","promptHtml":"\u003cspan> \u003cspan>What is the writer doing in the fifth paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"explaining how a discovery was made"},{"value":"B","label":"comparing scientists’ theories about microbes"},{"value":"C","label":"describing confusion among scientists"},{"value":"D","label":"giving details of how microbes cause disease"}],"sourceAnswerId":"ielts_reading_answer_9042_3_0","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":true,"type":"select","name":"ielts_reading_answer_9044_1","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9044_1","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":true,"type":"select","name":"ielts_reading_answer_9044_2","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9044_2","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":true,"type":"select","name":"ielts_reading_answer_9044_3","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9044_3","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":true,"type":"select","name":"ielts_reading_answer_9044_4","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_9044_4","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9048_1","promptHtml":"\u003cspan> \u003cspan>It is possible that using antibacterial products in the home fails to have the desired effect.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9048_1_0","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9048_2","promptHtml":"\u003cspan> \u003cspan>It is a good idea to ensure that children come into contact with as few bacteria as possible.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9048_2_0","limit":null},"23":{"key":"23","nums":[23],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9048_3","promptHtml":"\u003cspan> \u003cspan>Yong’s book contains more cause studies than are necessary.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9048_3_0","limit":null},"24":{"key":"24","nums":[24],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9048_4","promptHtml":"\u003cspan> \u003cspan>The case study about bacteria that prevent squid from being attacked may have limited appeal.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9048_4_0","limit":null},"25":{"key":"25","nums":[25],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9048_5","promptHtml":"\u003cspan> \u003cspan>Efforts to control dengue fever have been surprisingly successful\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9048_5_0","limit":null},"26":{"key":"26","nums":[26],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_9048_6","promptHtml":"\u003cspan> \u003cspan>Microbes that reduce the risk of infection have already been put inside the walls of some hospital wards.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9048_6_0","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9050_1","promptHtml":"\u003cspan> \u003cspan>What point does the writer make in the first paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"Wisdom appears to be unique to the human race."},{"value":"B","label":"A basic assumption about wisdom may be wrong."},{"value":"C","label":"Concepts of wisdom may depend on the society we belong to."},{"value":"D","label":"There is still much to be discovered about the nature of wisdom."}],"sourceAnswerId":"ielts_reading_answer_9050_1_0","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9050_2","promptHtml":"\u003cspan> \u003cspan>What does Igor Grossmann suggest about the ability to make wise decisions?\u003c/span>\u003c/span>","options":[{"value":"A","label":"It can vary greatly from one person to another."},{"value":"B","label":"Earlier research into it was based on unreliable data."},{"value":"C","label":"The importance of certain influences on it was underestimated."},{"value":"D","label":"Various branches of psychology define it according to their own criteria."}],"sourceAnswerId":"ielts_reading_answer_9050_2_0","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9050_3","promptHtml":"\u003cspan> \u003cspan>According to the third paragraph, Grossmann claims that the level of wisdom an individual shows\u003c/span>\u003c/span>","options":[{"value":"A","label":"can be greater than they think it is."},{"value":"B","label":"will be different in different circumstances."},{"value":"C","label":"may be determined by particular aspects of their personality."},{"value":"D","label":"should develop over time as a result of their life experiences."}],"sourceAnswerId":"ielts_reading_answer_9050_3_0","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9050_4","promptHtml":"\u003cspan> \u003cspan>What is described in the fifth paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"a difficulty encountered when attempting to reason wisely"},{"value":"B","label":"an example of the type of person who is likely to reason wisely"},{"value":"C","label":"a controversial view about the benefits of reasoning wisely"},{"value":"D","label":"a recommended strategy that can help people to reason wisely"}],"sourceAnswerId":"ielts_reading_answer_9050_4_0","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9053_1","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9053_1","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9053_2","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9053_2","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9053_3","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9053_3","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9053_4","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9053_4","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_9053_5","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9053_5","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9055_1","promptHtml":"\u003cspan> \u003cspan>Students participating in the job prospects experiment could choose one of two perspectives to take.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9055_1_0","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9055_2","promptHtml":"\u003cspan> \u003cspan>Participants in the couples experiment were aware that they were taking part in a study about wise reasoning.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9055_2_0","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9055_3","promptHtml":"\u003cspan> \u003cspan>In the couples experiments, the length of the couples’ relationships had an impact on the results.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9055_3_0","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9055_4","promptHtml":"\u003cspan> \u003cspan>In both experiments, the participants who looked at the situation from a more detached viewpoint tended to make wiser decisions.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9055_4_0","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9055_5","promptHtml":"\u003cspan> \u003cspan>Grossmann believes that a person’s wisdom is determined by their intelligence to only a very limited extent.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9055_5_0","limit":null}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23","part":2},"24":{"key":"24","part":2},"25":{"key":"25","part":2},"26":{"key":"26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || '').match(/cambridge(?:_ielts)?_(\d+)(?:_academic_reading)?_test_(\d+)\.html$/);
+  return match ? 'ielts_score_cambridge_' + match[1] + '_reading_test_' + match[2] : '';
+}
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString('en-GB')
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

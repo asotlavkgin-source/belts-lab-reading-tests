@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 17 Academic Reading Test 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 17 Academic Reading Test 2</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2><strong>The Dead Sea Scrolls</strong></h2>
+<p>In late 1946 or early 1947, three Bedouin teenagers were tending their goats and sheep near the ancient settlement of Qumran, located on the northwest shore of the Dead Sea in what is now known as the West Bank. One of these young shepherds tossed a rock into an opening on the side of a cliff and was surprised to hear a shattering sound. He and his companions later entered the cave and stumbled across a collection of large clay jars, seven of which contained scrolls with writing on them. The teenagers took the seven scrolls to a nearby town where they were sold for a small sum to a local antiquities dealer. Word of the find spread, and Bedouins and archaeologists eventually unearthed tens of thousands of additional scroll fragments from 10 nearby caves; together they make up between 800 and 900 manuscripts. It soon became clear that this was one of the greatest archaeological discoveries ever made.</p>
+<p>The origin of the Dead Sea Scrolls, which were written around 2,000 years ago between 150 BCE and 70 CE, is still the subject of scholarly debate even today. According to the prevailing theory, they are the work of a population that inhabited the area until Roman troops destroyed the settlement around 70 CE. The area was known as Judea at that time, and the people are thought to have belonged to a group called the Essenes, a devout Jewish sect.</p>
+<p>The majority of the texts on the Dead Sea Scrolls are in Hebrew, with some fragments written in an ancient version of its alphabet thought to have fallen out of use in the fifth century BCE. But there are other languages as well. Some scrolls are in Aramaic, the language spoken by many inhabitants of the region from the sixth century BCE to the siege of Jerusalem in 70 CE. In addition, several texts feature translations of the Hebrew Bible into Greek.</p>
+<p>The Dead Sea Scrolls include fragments from every book of the Old Testament of the Bible except for the Book of Esther. The only entire book of the Hebrew Bible preserved among the manuscripts from Qumran is Isaiah; this copy, dated to the first century BCE, is considered the earliest biblical manuscript still in existence. Along with biblical texts, the scrolls include documents about sectarian regulations and religious writings that do not appear in the Old Testament.</p>
+<p>The writing on the Dead Sea Scrolls is mostly in black or occasionally red ink, and the scrolls themselves are nearly all made of either parchment (animal skin) or an early form of paper called ‘papyrus’. The only exception is the scroll numbered 3Q15, which was created out of a combination of copper and tin. Known as the Copper Scroll, this curious document features letters chiselled onto metal - perhaps, as some have theorized, to better withstand the passage of time. One of the most intriguing manuscripts from Qumran, this is a sort of ancient treasure map that lists dozens of gold and silver caches. Using an unconventional vocabulary and odd spelling, it describes 64 underground hiding places that supposedly contain riches buried for safekeeping. None of these hoards have been recovered, possibly because the Romans pillaged Judea during the first century CE. According to various hypotheses, the treasure belonged to local people, or was rescued from the Second Temple before its destruction or never existed to begin with.</p>
+<p>Some of the Dead Sea Scrolls have been on interesting journeys. In 1948, a Syrian Orthodox archbishop known as Mar Samuel acquired four of the original seven scrolls from a Jerusalem shoemaker and part-time antiquity dealer, paying less than $100 for them. He then travelled to the United States and unsuccessfully offered them to a number of universities, including Yale. Finally, in 1954, he placed an advertisement in the business newspaper The Wall Street Journal - under the category ‘Miscellaneous Items for Sale’ - that read: ‘Biblical Manuscripts dating back to at least 200 B.C. are for sale. This would be an ideal gift to an educational or religious institution by an individual or group.’ Fortunately, Israeli archaeologist and statesman Yigael Yadin negotiated their purchase and brought the scrolls back to Jerusalem, where they remain to this day.</p>
+<p>In 2017, researchers from the University of Haifa restored and deciphered one of the last untranslated scrolls. The university’s Eshbal Ratson and Jonathan Ben-Dov spent one year reassembling the 60 fragments that make up the scroll. Deciphered from a band of coded text on parchment, the find provides insight into the community of people who wrote it and the 364-day calendar they would have used. The scroll names celebrations that indicate shifts in seasons and details two yearly religious events known from another Dead Sea Scroll. Only one more known scroll remains untranslated.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2><strong>A second attempt at domesticating the tomato</strong></h2>
+<p><strong>A</strong></p>
+<p>It took at least 3,000 years for humans to learn how to domesticate the wild tomato and cultivate it for food. Now two separate teams in Brazil and China have done it all over again in less than three years. And they have done it better in some ways, as the re-domesticated tomatoes are more nutritious than the ones we eat at present.</p>
+<p>This approach relies on the revolutionary CRISPR genome editing technique, in which changes are deliberately made to the DNA of a living cell, allowing genetic material to be added, removed or altered. The technique could not only improve existing crops, but could also be used to turn thousands of wild plants into useful and appealing foods. In fact, a third team in the US has already begun to do this with a relative of the tomato called the groundcherry.</p>
+<p>This fast-track domestication could help make the world’s food supply healthier and far more resistant to diseases, such as the rust fungus devastating wheat crops.</p>
+<p>'This could transform what we eat,' says Jorg Kudla at the University of Munster in Germany, a member of the Brazilian team. 'There are 50,000 edible plants in the world, but 90 percent of our energy comes from just 15 crops.'</p>
+<p>‘We can now mimic the known domestication course of major crops like rice, maize, sorghum or others,’ says Caixia Gao of the Chinese Academy of Sciences in Beijing. Then we might try to domesticate plants that have never been domesticated.’</p>
+<p><strong>B</strong></p>
+<p>Wild tomatoes, which are native to the Andes region in South America, produce pea-sized fruits. Over many generations, peoples such as the Aztecs and Incas transformed the plant by selecting and breeding plants with mutations* in their genetic structure, which resulted in desirable traits such as larger fruit.</p>
+<p>But every time a single plant with a mutation is taken from a larger population for breeding, much genetic diversity is lost. And sometimes the desirable mutations come with less desirable traits. For instance, the tomato strains grown for supermarkets have lost much of their flavour.</p>
+<p>By comparing the genomes of modern plants to those of their wild relatives, biologists have been working out what genetic changes occurred as plants were domesticated. The teams in Brazil and China have now used this knowledge to reintroduce these changes from scratch while maintaining or even enhancing the desirable traits of wild strains.</p>
+<p><strong>C </strong></p>
+<p>Kudla’s team made six changes altogether. For instance, they tripled the size of fruit by editing a gene called FRUIT WEIGHT, and increased the number of tomatoes per truss by editing another called MULTIFLORA.</p>
+<p>While the historical domestication of tomatoes reduced levels of the red pigment lycopene - thought to have potential health benefits - the team in Brazil managed to boost it instead. The wild tomato has twice as much lycopene as cultivated ones; the newly domesticated one has five times as much.</p>
+<p>'They are quite tasty,' says Kudla. ‘A little bit strong. And very aromatic.’</p>
+<p>The team in China re-domesticated several strains of wild tomatoes with desirable traits lost in domesticated tomatoes. In this way they managed to create a strain resistant to a common disease called bacterial spot race, which can devastate yields. They also created another strain that is more salt tolerant - and has higher levels of vitamin C.</p>
+<p><strong>D</strong></p>
+<p>Meanwhile, Joyce Van Eck at the Boyce Thompson Institute in New York state decided to use the same approach to domesticate the groundcherry or goldenberry (Physalis pruinosa) for the first time. This fruit looks similar to the closely related Cape gooseberry (Physalis peruviana).</p>
+<p>Groundcherries are already sold to a limited extent in the US but they are hard to produce because the plant has a sprawling growth habit and the small fruits fall off the branches when ripe. Van Eck’s team has edited the plants to increase fruit size, make their growth more compact and to stop fruits dropping. ‘There’s potential for this to be a commercial crop,’ says Van Eck. But she adds that taking the work further would be expensive because of the need to pay for a licence for the CRISPR technology and get regulatory approval.</p>
+<p><strong>E</strong></p>
+<p>This approach could boost the use of many obscure plants, says Jonathan Jones of the Sainsbury Lab in the UK. But it will be hard for new foods to grow so popular with farmers and consumers that they become new staple crops, he thinks.</p>
+<p>The three teams already have their eye on other plants that could be ‘catapulted into the mainstream’, including foxtail, oat-grass and cowpea. By choosing wild plants that are drought or heat tolerant, says Gao, we could create crops that will thrive even as the planet warms.</p>
+<p>But Kudla didn’t want to reveal which species were in his team’s sights, because CRISPR has made the process so easy. ‘Any one with the right skills could go to their lab and do this.’</p>
+<p><em>*mutations: changes in an organism’s genetic structure that can be passed down to later generations</em></p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2><strong>Insight or evolution?</strong></h2>
+<p><em>Two scientists consider the origins of discoveries and other innovative behavior</em></p>
+<p>Scientific discovery is popularly believed to result from the sheer genius of such intellectual stars as naturalist Charles Darwin and theoretical physicist Albert Einstein. Our view of such unique contributions to science often disregards the person’s prior experience and the efforts of their lesser-known predecessors. Conventional wisdom also places great weight on insight in promoting breakthrough scientific achievements, as if ideas spontaneously pop into someone’s head - fully formed and functional.</p>
+<p>There may be some limited truth to this view. However, we believe that it largely misrepresents the real nature of scientific discovery, as well as that of creativity and innovation in many other realms of human endeavor.</p>
+<p>Setting aside such greats as Darwin and Einstein - whose monumental contributions are duly celebrated - we suggest that innovation is more a process of trial and error, where two steps forward may sometimes come with one step back, as well as one or more steps to the right or left. This evolutionary view of human innovation undermines the notion of creative genius and recognizes the cumulative nature of scientific progress.</p>
+<p>Consider one unheralded scientist: John Nicholson, a mathematical physicist working in the 1910s who postulated the existence of‘proto-elements’ in outer space. By combining different numbers of weights of these proto-elements’ atoms, Nicholson could recover the weights of all the elements in the then-known periodic table. These successes are all the more noteworthy given the fact that Nicholson was wrong about the presence of proto-elements: they do not actually exist. Yet, amid his often fanciful theories and wild speculations, Nicholson also proposed a novel theory about the structure of atoms. Niels Bohr, the Nobel prize-winning father of modern atomic theory, jumped off from this interesting idea to conceive his now-famous model of the atom.</p>
+<p>What are we to make of this story? One might simply conclude that science is a collective and cumulative enterprise. That may be true, but there may be a deeper insight to be gleaned. We propose that science is constantly evolving, much as species of animals do. In biological systems, organisms may display new characteristics that result from random genetic mutations. In the same way, random, arbitrary or accidental mutations of ideas may help pave the way for advances in science. If mutations prove beneficial, then the animal or the scientific theory will continue to thrive and perhaps reproduce.</p>
+<p>Support for this evolutionary view of behavioral innovation comes from many domains. Consider one example of an influential innovation in US horseracing. The so-called ‘acey-deucy’ stirrup placement, in which the rider’s foot in his left stirrup is placed as much as 25 centimeters lower than the right, is believed to confer important speed advantages when turning on oval tracks. It was developed by a relatively unknown jockey named Jackie Westrope. Had Westrope conducted methodical investigations or examined extensive film records in a shrewd plan to outrun his rivals? Had he foreseen the speed advantage that would be conferred by riding acey-deucy? No. He suffered a leg injury, which left him unable to fully bend his left knee. His modification just happened to coincide with enhanced left-hand turning performance. This led to the rapid and widespread adoption of riding acey-deucy by many riders, a racing style which continues in today’s thoroughbred racing.</p>
+<p>Plenty of other stories show that fresh advances can arise from error, misadventure, and also pure serendipity - a happy accident. For example, in the early 1970s, two employees of the company 3M each had a problem: Spencer Silver had a product - a glue which was only slightly sticky - and no use for it, while his colleague Art Fry was trying to figure out how to affix temporary bookmarks in his hymn book without damaging its pages. The solution to both these problems was the invention of the brilliantly simple yet phenomenally successful Post-It note. Such examples give lie to the claim that ingenious, designing minds are responsible for human creativity and invention. Far more banal and mechanical forces may be at work; forces that are fundamentally connected to the laws of science.</p>
+<p>The notions of insight, creativity and genius are often invoked, but they remain vague and of doubtful scientific utility, especially when one considers the diverse and enduring contributions of individuals such as Plato, Leonardo da Vinci, Shakespeare, Beethoven, Galileo, Newton, Kepler, Curie, Pasteur and Edison. These notions merely label rather than explain the evolution of human innovations. We need another approach, and there is a promising candidate.</p>
+<p>The Law of Effect was advanced by psychologist Edward Thorndike in 1898, some 40 years after Charles Darwin published his groundbreaking work on biological evolution, On the Origin of Species. This simple law holds that organisms tend to repeat successful behaviors and to refrain from performing unsuccessful ones. Just like Darwin’s Law of Natural Selection, the Law of Effect involves an entirely mechanical process of variation and selection, without any end objective in sight.</p>
+<p>Of course, the origin of human innovation demands much further study. In particular, the provenance of the raw material on which the Law of Effect operates is not as clearly known as that of the genetic mutations on which the Law of Natural Selection operates. The generation of novel ideas and behaviors may not be entirely random, but constrained by prior successes and failures - of the current individual (such as Bohr) or of predecessors (such as Nicholson).</p>
+<p>The time seems right for abandoning the naive notions of intelligent design and genius, and for scientifically exploring the true origins of creative behavior.</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-5</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the notes below.</em><p></p>
+<p><em>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</em></p>
+<p><em>Write your answers in boxes&nbsp;on your answer sheet.</em></p>
+<h3><strong>The Dead Sea Scrolls</strong></h3>
+<p><strong>Discovery</strong></p>
+<p>Qumran, 1946/7</p>
+<ul>
+<li>three Bedouin shepherds in their teens were near an opening on side of cliff</li>
+<li>heard a noise of breaking when one teenager threw a <span class="lab-inline-item" data-q-key="1"><span class="lab-inline-num" data-qn="1">1</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8487_1" id="ielts_reading_answer_8487_1" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>teenagers went into the <span class="lab-inline-item" data-q-key="2"><span class="lab-inline-num" data-qn="2">2</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8487_2" id="ielts_reading_answer_8487_2" autocomplete="off"><span class="lab-feedback-slot"></span></span> and found a number of containers made of <span class="lab-inline-item" data-q-key="3"><span class="lab-inline-num" data-qn="3">3</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8487_3" id="ielts_reading_answer_8487_3" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+</ul>
+<p><strong>The scrolls</strong></p>
+<ul>
+<li>date from between 150 BCE and 70 CE</li>
+<li>thought to have been written by group of people known as the <span class="lab-inline-item" data-q-key="4"><span class="lab-inline-num" data-qn="4">4</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8487_4" id="ielts_reading_answer_8487_4" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>written mainly in the <span class="lab-inline-item" data-q-key="5"><span class="lab-inline-num" data-qn="5">5</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8487_5" id="ielts_reading_answer_8487_5" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;language</li>
+<li>most are on religious topics, written using ink on parchment or papyrus</li>
+</ul>
+</div>
+                                        </div><div class="section-heading">Questions 6-13</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in the Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><em><strong>TRUE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the information</em></p>
+<p><em><strong>FALSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the information</em></p>
+<p><em><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if there is no information on this</em></p>
+                                        </div><section class="q-card" data-q-key="6"><span class="q-chip" data-qn="6" data-q-chip="6">6</span><div class="q-label"><span> <span>The Bedouin teenagers who found the scrolls were disappointed by how little money they received for them.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_1" value="TRUE" id="ielts_reading_answer_8489_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_1" value="FALSE" id="ielts_reading_answer_8489_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_1" value="NOT GIVEN" id="ielts_reading_answer_8489_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="7"><span class="q-chip" data-qn="7" data-q-chip="7">7</span><div class="q-label"><span> <span>There is agreement among academics about the origin of the Dead Sea Scrolls.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_2" value="TRUE" id="ielts_reading_answer_8489_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_2" value="FALSE" id="ielts_reading_answer_8489_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_2" value="NOT GIVEN" id="ielts_reading_answer_8489_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="8"><span class="q-chip" data-qn="8" data-q-chip="8">8</span><div class="q-label"><span> <span>Most of the books of the Bible written on the scrolls are incomplete.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_3" value="TRUE" id="ielts_reading_answer_8489_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_3" value="FALSE" id="ielts_reading_answer_8489_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_3" value="NOT GIVEN" id="ielts_reading_answer_8489_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="9"><span class="q-chip" data-qn="9" data-q-chip="9">9</span><div class="q-label"><span> <span>The information on the Copper Scroll is written in an unusual way.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_4" value="TRUE" id="ielts_reading_answer_8489_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_4" value="FALSE" id="ielts_reading_answer_8489_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_4" value="NOT GIVEN" id="ielts_reading_answer_8489_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="10"><span class="q-chip" data-qn="10" data-q-chip="10">10</span><div class="q-label"><span> <span>Mar Samuel was given some of the scrolls as a gift.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_5" value="TRUE" id="ielts_reading_answer_8489_5_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_5" value="FALSE" id="ielts_reading_answer_8489_5_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_5" value="NOT GIVEN" id="ielts_reading_answer_8489_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="11"><span class="q-chip" data-qn="11" data-q-chip="11">11</span><div class="q-label"><span> <span>In the early 1950s, a number of educational establishments in the US were keen to buy scrolls from Mar Samuel.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_6" value="TRUE" id="ielts_reading_answer_8489_6_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_6" value="FALSE" id="ielts_reading_answer_8489_6_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_6" value="NOT GIVEN" id="ielts_reading_answer_8489_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="12"><span class="q-chip" data-qn="12" data-q-chip="12">12</span><div class="q-label"><span> <span>The scroll that was pieced together in 2017 contains information about annual occasions in the Qumran area 2,000 years ago.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_7" value="TRUE" id="ielts_reading_answer_8489_7_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_7" value="FALSE" id="ielts_reading_answer_8489_7_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_7" value="NOT GIVEN" id="ielts_reading_answer_8489_7_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="13"><span class="q-chip" data-qn="13" data-q-chip="13">13</span><div class="q-label"><span> <span>Academics at the University of Haifa are currently researching how to decipher the final scroll.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_8" value="TRUE" id="ielts_reading_answer_8489_8_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_8" value="FALSE" id="ielts_reading_answer_8489_8_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8489_8" value="NOT GIVEN" id="ielts_reading_answer_8489_8_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-18</div><div class="section-copy">
+                                            <p>The Reading Passage has five paragraphs, <strong>A-E</strong>.</p>
+<p>Which section contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-E</strong>, in boxes on your answer sheet.</em></p>
+<p><strong><em>NB</em></strong><em>&nbsp;&nbsp; You may use any letter more than once.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>a reference to a type of tomato that can resist a dangerous infection.</span></span></div><select class="q-select" name="ielts_reading_answer_8504_1" id="ielts_reading_answer_8504_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>an explanation of how problems can arise from focusing only on a certain type of tomato plant.</span></span></div><select class="q-select" name="ielts_reading_answer_8504_2" id="ielts_reading_answer_8504_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>a number of examples of plants that are not cultivated at present but could be useful as food sources.</span></span></div><select class="q-select" name="ielts_reading_answer_8504_3" id="ielts_reading_answer_8504_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>a comparison between the early domestication of the tomato and more recent research</span></span></div><select class="q-select" name="ielts_reading_answer_8504_4" id="ielts_reading_answer_8504_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="18"><span class="q-chip" data-qn="18" data-q-chip="18">18</span><div class="q-label"><span> <span>a personal reaction to the flavour of a tomato that has been genetically edited</span></span></div><select class="q-select" name="ielts_reading_answer_8504_5" id="ielts_reading_answer_8504_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 19-23</div><div class="section-copy">
+                                            <p><em>Look at the following statements and the list of researchers below.</em></p>
+<p><em>Match each statement with the correct researcher,&nbsp;<strong>A-D</strong>.</em></p>
+<p><em>Write the correct letter,&nbsp;<strong>A-D</strong>, in boxes on your answer sheet.</em></p>
+<p><strong><em>NB</em></strong><em>&nbsp;&nbsp; You may use any letter more than once.</em></p>
+<p><strong>A&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;Jorg Kudla</p>
+<p><strong>B&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;Caixia Gao</p>
+<p><strong>C&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;Joyce Van Eck</p>
+<p><strong>D&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;Jonathan Jones</p>
+                                        </div><section class="q-card" data-q-key="19"><span class="q-chip" data-qn="19" data-q-chip="19">19</span><div class="q-label"><span> <span>Domestication of certain plants could allow them to adapt to future environmental challenges.</span></span></div><select class="q-select" name="ielts_reading_answer_8510_1" id="ielts_reading_answer_8510_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="20"><span class="q-chip" data-qn="20" data-q-chip="20">20</span><div class="q-label"><span> <span>The idea of growing and eating unusual plants may not be accepted on a large scale.</span></span></div><select class="q-select" name="ielts_reading_answer_8510_2" id="ielts_reading_answer_8510_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="21"><span class="q-chip" data-qn="21" data-q-chip="21">21</span><div class="q-label"><span> <span>It is not advisable for the future direction of certain research to be made public.</span></span></div><select class="q-select" name="ielts_reading_answer_8510_3" id="ielts_reading_answer_8510_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="22"><span class="q-chip" data-qn="22" data-q-chip="22">22</span><div class="q-label"><span> <span>Present efforts to domesticate one wild fruit are limited by the costs involved.</span></span></div><select class="q-select" name="ielts_reading_answer_8510_4" id="ielts_reading_answer_8510_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="23"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><div class="q-label"><span> <span>Humans only make use of a small proportion of the plant food available on Earth.</span></span></div><select class="q-select" name="ielts_reading_answer_8510_5" id="ielts_reading_answer_8510_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 24-26</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the sentences below.</em><p></p>
+<p><em>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</em></p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<ul>
+<li>An undesirable trait such as loss of <span class="lab-inline-item" data-q-key="24"><span class="lab-inline-num" data-qn="24">24</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8516_1" id="ielts_reading_answer_8516_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> may be caused by a mutation in a tomato gene.</li>
+<li>By modifying one gene in a tomato plant, researchers made the tomato three times its original <span class="lab-inline-item" data-q-key="25"><span class="lab-inline-num" data-qn="25">25</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8516_2" id="ielts_reading_answer_8516_2" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>A type of tomato which was not badly affected by <span class="lab-inline-item" data-q-key="26"><span class="lab-inline-num" data-qn="26">26</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_8516_3" id="ielts_reading_answer_8516_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>, and was rich in vitamin C, was produced by a team of researchers in China.</li>
+</ul>
+</div>
+                                        </div></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-31</div><div class="section-copy">
+                                            <p><em>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>&nbsp;or&nbsp;<strong>D</strong>.</em></p>
+<p><em>Write the correct letter in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>The purpose of the first paragraph is to</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_1" value="A" id="ielts_reading_answer_8523_1_0-0"><span class="option-letter">A</span><span>defend particular ideas.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_1" value="B" id="ielts_reading_answer_8523_1_0-1"><span class="option-letter">B</span><span>compare certain beliefs.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_1" value="C" id="ielts_reading_answer_8523_1_0-2"><span class="option-letter">C</span><span>disprove a widely held view.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_1" value="D" id="ielts_reading_answer_8523_1_0-3"><span class="option-letter">D</span><span>outline a common assumption.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>What are the writers doing in the second paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_2" value="A" id="ielts_reading_answer_8523_2_0-0"><span class="option-letter">A</span><span>criticising an opinion</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_2" value="B" id="ielts_reading_answer_8523_2_0-1"><span class="option-letter">B</span><span>justifying a standpoint</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_2" value="C" id="ielts_reading_answer_8523_2_0-2"><span class="option-letter">C</span><span>explaining an approach</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_2" value="D" id="ielts_reading_answer_8523_2_0-3"><span class="option-letter">D</span><span>supporting an argument</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>In the third paragraph, what do the writers suggest about Darwin and Einstein?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_3" value="A" id="ielts_reading_answer_8523_3_0-0"><span class="option-letter">A</span><span>They represent an exception to a general rule.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_3" value="B" id="ielts_reading_answer_8523_3_0-1"><span class="option-letter">B</span><span>Their way of working has been misunderstood.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_3" value="C" id="ielts_reading_answer_8523_3_0-2"><span class="option-letter">C</span><span>They are an ideal which others should aspire to.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_3" value="D" id="ielts_reading_answer_8523_3_0-3"><span class="option-letter">D</span><span>Their achievements deserve greater recognition.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>John Nicholson is an example of a person whose idea</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_4" value="A" id="ielts_reading_answer_8523_4_0-0"><span class="option-letter">A</span><span>established his reputation as an influential scientist.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_4" value="B" id="ielts_reading_answer_8523_4_0-1"><span class="option-letter">B</span><span>was only fully understood at a later point in history.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_4" value="C" id="ielts_reading_answer_8523_4_0-2"><span class="option-letter">C</span><span>laid the foundations for someone else’s breakthrough.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_4" value="D" id="ielts_reading_answer_8523_4_0-3"><span class="option-letter">D</span><span>initially met with scepticism from the scientific community.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="31"><span class="q-chip" data-qn="31" data-q-chip="31">31</span><div class="q-label"><span> <span>What is the key point of interest about the ‘acey-deucy’ stirrup placement?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_5" value="A" id="ielts_reading_answer_8523_5_0-0"><span class="option-letter">A</span><span>the simple reason why it was invented</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_5" value="B" id="ielts_reading_answer_8523_5_0-1"><span class="option-letter">B</span><span>the enthusiasm with which it was adopted</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_5" value="C" id="ielts_reading_answer_8523_5_0-2"><span class="option-letter">C</span><span>the research that went into its development</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8523_5" value="D" id="ielts_reading_answer_8523_5_0-3"><span class="option-letter">D</span><span>the cleverness of the person who first used it</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 32-36</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in the Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><em><strong>YES</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the claims of the writer</em></p>
+<p><em><strong>NO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the claims of the writer</em></p>
+<p><em><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if it is impossible to say what the writer thinks about this</em></p>
+                                        </div><section class="q-card" data-q-key="32"><span class="q-chip" data-qn="32" data-q-chip="32">32</span><div class="q-label"><span> <span>Acknowledging people such as Plato or da Vinci as geniuses will help us understand the process by which great minds create new ideas.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_1" value="YES" id="ielts_reading_answer_8527_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_1" value="NO" id="ielts_reading_answer_8527_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_1" value="NOT GIVEN" id="ielts_reading_answer_8527_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="33"><span class="q-chip" data-qn="33" data-q-chip="33">33</span><div class="q-label"><span> <span>The Law of Effect was discovered at a time when psychologists were seeking a scientific reason why creativity occurs.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_2" value="YES" id="ielts_reading_answer_8527_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_2" value="NO" id="ielts_reading_answer_8527_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_2" value="NOT GIVEN" id="ielts_reading_answer_8527_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="34"><span class="q-chip" data-qn="34" data-q-chip="34">34</span><div class="q-label"><span> <span>The Law of Effect states that no planning is involved in the behaviour of organisms.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_3" value="YES" id="ielts_reading_answer_8527_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_3" value="NO" id="ielts_reading_answer_8527_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_3" value="NOT GIVEN" id="ielts_reading_answer_8527_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="35"><span class="q-chip" data-qn="35" data-q-chip="35">35</span><div class="q-label"><span> <span>The Law of Effect sets out clear explanations about the sources of new ideas and behaviours.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_4" value="YES" id="ielts_reading_answer_8527_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_4" value="NO" id="ielts_reading_answer_8527_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_4" value="NOT GIVEN" id="ielts_reading_answer_8527_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="36"><span class="q-chip" data-qn="36" data-q-chip="36">36</span><div class="q-label"><span> <span>Many scientists are now turning away from the notion of intelligent design and genius.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_5" value="YES" id="ielts_reading_answer_8527_5_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_5" value="NO" id="ielts_reading_answer_8527_5_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_8527_5" value="NOT GIVEN" id="ielts_reading_answer_8527_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 37-40</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the summary using the list of words,&nbsp;<strong>A-G</strong>, below.</em><p></p>
+<p><em>Write the correct letter,&nbsp;<strong>A-G</strong>, in boxes on your answer sheet.</em></p>
+<p><strong>A&nbsp;</strong>&nbsp;&nbsp;invention &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>B</strong>&nbsp;&nbsp; goals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>C&nbsp;</strong>&nbsp;&nbsp;compromise</p>
+<p><strong>D&nbsp;</strong>&nbsp;&nbsp;mistakes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>E&nbsp;</strong>&nbsp;&nbsp;luck&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>F&nbsp;&nbsp;</strong>&nbsp;inspiration</p>
+<p><strong>G&nbsp;</strong>&nbsp;&nbsp;experiments</p>
+<h3><strong>The origins of creative behaviour</strong></h3>
+<p>The traditional view of scientific discovery is that breakthroughs happen when a single great mind has sudden <span class="lab-inline-item" data-q-key="37"><span class="lab-inline-num" data-qn="37">37</span><select class="lab-inline-select" name="ielts_reading_answer_8492_1" id="ielts_reading_answer_8492_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><span class="lab-feedback-slot"></span></span> . Although this can occur, it is not often the case. Advances are more likely to be the result of a longer process. In some cases, this process involves <span class="lab-inline-item" data-q-key="38"><span class="lab-inline-num" data-qn="38">38</span><select class="lab-inline-select" name="ielts_reading_answer_8492_2" id="ielts_reading_answer_8492_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><span class="lab-feedback-slot"></span></span>, such as Nicholson’s theory about proto-elements. In others, simple necessity may provoke innovation, as with Westrope’s decision to modify the position of his riding stirrups. There is also often an element of <span class="lab-inline-item" data-q-key="39"><span class="lab-inline-num" data-qn="39">39</span><select class="lab-inline-select" name="ielts_reading_answer_8492_3" id="ielts_reading_answer_8492_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><span class="lab-feedback-slot"></span></span>, for example, the coincidence of ideas that led to the invention of the Post-It note. With both the Law of Natural Selection and the Law of Effect, there may be no clear <span class="lab-inline-item" data-q-key="40"><span class="lab-inline-num" data-qn="40">40</span><select class="lab-inline-select" name="ielts_reading_answer_8492_4" id="ielts_reading_answer_8492_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><span class="lab-feedback-slot"></span></span>&nbsp;involved, but merely a process of variation and selection.</p>
+<p>&nbsp;</p></div>
+                                        </div></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 17 Academic Reading Test 2","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-17-academic-reading-test-2/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_8487_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8487_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_8487_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8487_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_8487_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8487_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_8487_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8487_4","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_8487_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8487_5","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_1","promptHtml":"\u003cspan> \u003cspan>The Bedouin teenagers who found the scrolls were disappointed by how little money they received for them.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_1_0","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_2","promptHtml":"\u003cspan> \u003cspan>There is agreement among academics about the origin of the Dead Sea Scrolls.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_2_0","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_3","promptHtml":"\u003cspan> \u003cspan>Most of the books of the Bible written on the scrolls are incomplete.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_3_0","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_4","promptHtml":"\u003cspan> \u003cspan>The information on the Copper Scroll is written in an unusual way.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_4_0","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_5","promptHtml":"\u003cspan> \u003cspan>Mar Samuel was given some of the scrolls as a gift.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_5_0","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_6","promptHtml":"\u003cspan> \u003cspan>In the early 1950s, a number of educational establishments in the US were keen to buy scrolls from Mar Samuel.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_6_0","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_7","promptHtml":"\u003cspan> \u003cspan>The scroll that was pieced together in 2017 contains information about annual occasions in the Qumran area 2,000 years ago.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_7_0","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_8489_8","promptHtml":"\u003cspan> \u003cspan>Academics at the University of Haifa are currently researching how to decipher the final scroll.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8489_8_0","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8504_1","promptHtml":"\u003cspan> \u003cspan>a reference to a type of tomato that can resist a dangerous infection.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_8504_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8504_2","promptHtml":"\u003cspan> \u003cspan>an explanation of how problems can arise from focusing only on a certain type of tomato plant.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_8504_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8504_3","promptHtml":"\u003cspan> \u003cspan>a number of examples of plants that are not cultivated at present but could be useful as food sources.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_8504_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8504_4","promptHtml":"\u003cspan> \u003cspan>a comparison between the early domestication of the tomato and more recent research\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_8504_4","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8504_5","promptHtml":"\u003cspan> \u003cspan>a personal reaction to the flavour of a tomato that has been genetically edited\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_8504_5","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8510_1","promptHtml":"\u003cspan> \u003cspan>Domestication of certain plants could allow them to adapt to future environmental challenges.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_8510_1","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8510_2","promptHtml":"\u003cspan> \u003cspan>The idea of growing and eating unusual plants may not be accepted on a large scale.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_8510_2","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8510_3","promptHtml":"\u003cspan> \u003cspan>It is not advisable for the future direction of certain research to be made public.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_8510_3","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8510_4","promptHtml":"\u003cspan> \u003cspan>Present efforts to domesticate one wild fruit are limited by the costs involved.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_8510_4","limit":null},"23":{"key":"23","nums":[23],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_8510_5","promptHtml":"\u003cspan> \u003cspan>Humans only make use of a small proportion of the plant food available on Earth.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_8510_5","limit":null},"24":{"key":"24","nums":[24],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_8516_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8516_1","limit":null},"25":{"key":"25","nums":[25],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_8516_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8516_2","limit":null},"26":{"key":"26","nums":[26],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_8516_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_8516_3","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8523_1","promptHtml":"\u003cspan> \u003cspan>The purpose of the first paragraph is to\u003c/span>\u003c/span>","options":[{"value":"A","label":"defend particular ideas."},{"value":"B","label":"compare certain beliefs."},{"value":"C","label":"disprove a widely held view."},{"value":"D","label":"outline a common assumption."}],"sourceAnswerId":"ielts_reading_answer_8523_1_0","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8523_2","promptHtml":"\u003cspan> \u003cspan>What are the writers doing in the second paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"criticising an opinion"},{"value":"B","label":"justifying a standpoint"},{"value":"C","label":"explaining an approach"},{"value":"D","label":"supporting an argument"}],"sourceAnswerId":"ielts_reading_answer_8523_2_0","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8523_3","promptHtml":"\u003cspan> \u003cspan>In the third paragraph, what do the writers suggest about Darwin and Einstein?\u003c/span>\u003c/span>","options":[{"value":"A","label":"They represent an exception to a general rule."},{"value":"B","label":"Their way of working has been misunderstood."},{"value":"C","label":"They are an ideal which others should aspire to."},{"value":"D","label":"Their achievements deserve greater recognition."}],"sourceAnswerId":"ielts_reading_answer_8523_3_0","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8523_4","promptHtml":"\u003cspan> \u003cspan>John Nicholson is an example of a person whose idea\u003c/span>\u003c/span>","options":[{"value":"A","label":"established his reputation as an influential scientist."},{"value":"B","label":"was only fully understood at a later point in history."},{"value":"C","label":"laid the foundations for someone else’s breakthrough."},{"value":"D","label":"initially met with scepticism from the scientific community."}],"sourceAnswerId":"ielts_reading_answer_8523_4_0","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8523_5","promptHtml":"\u003cspan> \u003cspan>What is the key point of interest about the ‘acey-deucy’ stirrup placement?\u003c/span>\u003c/span>","options":[{"value":"A","label":"the simple reason why it was invented"},{"value":"B","label":"the enthusiasm with which it was adopted"},{"value":"C","label":"the research that went into its development"},{"value":"D","label":"the cleverness of the person who first used it"}],"sourceAnswerId":"ielts_reading_answer_8523_5_0","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8527_1","promptHtml":"\u003cspan> \u003cspan>Acknowledging people such as Plato or da Vinci as geniuses will help us understand the process by which great minds create new ideas.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8527_1_0","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8527_2","promptHtml":"\u003cspan> \u003cspan>The Law of Effect was discovered at a time when psychologists were seeking a scientific reason why creativity occurs.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8527_2_0","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8527_3","promptHtml":"\u003cspan> \u003cspan>The Law of Effect states that no planning is involved in the behaviour of organisms.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8527_3_0","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8527_4","promptHtml":"\u003cspan> \u003cspan>The Law of Effect sets out clear explanations about the sources of new ideas and behaviours.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8527_4_0","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_8527_5","promptHtml":"\u003cspan> \u003cspan>Many scientists are now turning away from the notion of intelligent design and genius.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_8527_5_0","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_8492_1","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_8492_1","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_8492_2","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_8492_2","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_8492_3","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_8492_3","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_8492_4","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_8492_4","limit":null}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23","part":2},"24":{"key":"24","part":2},"25":{"key":"25","part":2},"26":{"key":"26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || "").match(/cambridge_(\d+)_test_(\d+)\.html/i);
+  return match ? "ielts_score_cambridge_" + match[1] + "_reading_test_" + match[2] : "";
+}
+// Firebase initialization for score saving
+let firebaseDatabase = null;
+let firebaseAuth = null;
+let currentUser = null;
+
+async function initFirebaseForScoring() {
+  try {
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js');
+    const { getDatabase } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-database.js');
+    const { getAuth } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js');
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAW3dtKV7EAh3SOK71UIX0yWEonuBZ_T5A",
+      authDomain: "ieltslab-e049d.firebaseapp.com",
+      projectId: "ieltslab-e049d",
+      storageBucket: "ieltslab-e049d.firebasestorage.app",
+      messagingSenderId: "674420790977",
+      appId: "1:674420790977:web:89c5fdf8ea8e0c4b5b2640",
+      measurementId: "G-GYZ39NHTGH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    firebaseDatabase = getDatabase(app);
+    firebaseAuth = getAuth(app);
+    
+    // Get current user
+    if (firebaseAuth.currentUser) {
+      currentUser = firebaseAuth.currentUser;
+    }
+  } catch (e) {
+    console.log('Firebase init for scoring skipped:', e.message);
+  }
+}
+
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFirebaseForScoring();
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString("en-GB")
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 20 Academic Reading Test 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 20 Academic Reading Test 2</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2><span id="Manatees">Manatees</span></h2>
+<p>Manatees, also known as sea cows, are aquatic mammals that belong to a group of animals called Sirenia. This group also contains dugongs. Dugongs and manatees look quite alike - they are similar in size, colour and shape, and both have flexible flippers for forelimbs. However, the manatee has a broad, rounded tail, whereas the dugongs is fluked, like that of a whale. There are three species of manatees: the West Indian manatee (Trichechus manatus), the African manatee (Trichechus senegalensis) and the Amazonian manatee (Trichechus inunguis).</p>
+<p>Unlike most mammals, manatees have only six bones in their neck – most others, including humans and giraffes, have seven. This short neck allows a manatee to move its head up and down, but not side to side. To see something on its left or its right, a manatee must turn its entire body, steering with its flippers. Manatees have pectoral flippers but no back limbs, only a tail for propulsion. They do have pelvic bones, however – a leftover from their evolution from a four-legged to a fully aquatic animal. Manatees share some visual similarities to elephants. Like elephants, manatees have thick, wrinkled skin. They also have some hairs covering their bodies which help them sense vibrations in the water around them.</p>
+<p>Seagrasses and other marine plants make up most of a manatee’s diet. Manatees spend about eight hours each day grazing and uprooting plants. They eat up to 15% of their weight in food each day. African manatees are omnivorous – studies have shown that molluscs and fish make up a small part of their diets. West Indian and Amazonian manatees are both herbivores.</p>
+<div class="code-block code-block-14"> </div>
+<p>Manatees’ teeth are all molars - flat, rounded teeth for grinding food. Due to manatees’ abrasive aquatic plant diet, these teeth get worn down and they eventually fall out, so they continually grow new teeth that get pushed forward to replace the ones they lose. Instead of having incisors to grasp their food, manatees have lips which function like a pair of hands to help tear food away from the seafloor.</p>
+<p>Manatees are fully aquatic, but as mammals, they need to come up to the surface to breathe. When awake, they typically surface every two to four minutes, but they can hold their breath for much longer. Adult manatees sleep underwater for 10-12 hours a day, but they come up for air every 15-20 minutes. Active manatees need to breathe more frequently. It’s thought that manatees use their muscular diaphragm and breathing to adjust their buoyancy. They may use diaphragm contractions to compress and store gas in folds in their large intestine to help them float.</p>
+<p>The West Indian manatee reaches about 3.5 metros long and weighs on average around 500 kilo grammes. It moves between fresh water and salt water, taking advantage of coastal mangroves and coral reefs, rivers, lakes and inland lagoons. There are two subspecies of West Indian manatee: the Antillean manatee is found in waters from the Bahamas to Brazil, whereas the Florida manatee is found in US waters, although some individuals have been recorded in the Bahamas. In winter, the Florida manatee is typically restricted to Florida. When the ambient water temperature drops below 20°C, it takes refuge in naturally and artificially warmed water, such as at the warm-water outfalls from powerplants.</p>
+<p>The African manatee is also about 3.5 metros long and found in the sea along the west coast of Africa, from Mauritania down to Angola. The species also makes use of rivers, with the mammals seen in landlocked countries such as Mali and Niger. The Amazonian manatee is the smallest species, though it is still a big animal. It grows to about 2.5 metros long and 350 kilo grammes. Amazonian manatees favour calm, shallow waters that are above 23°C This species is found in fresh water in the Amazon Basin in Brazil, as well as in Colombia, Ecuador and Peru.</p>
+<p>All three manatee species are endangered or at a heightened risk of extinction. The African manatee and Amazonian manatee are both listed as Vulnerable by the International Union for Conservation of Nature (IUCN). It is estimated that 140,000 Amazonian manatees were killed between 1935 and 1954 for their meat, fat and skin, with the latter used to make leather. In more recent years, African manatee decline has been tied to incidental capture in fishing nets and hunting. Manatee hunting is now illegal in every country the African species is found in.</p>
+<p>The two subspecies of West Indian manatee are listed as Endangered by the IUCN. Both are also expected to undergo a decline of 20% over the next 40 years. A review of almost 1,800 cases of entanglement in fishing nets and of plastic consumption among marine mammals in US waters from 2009 to 2020 found that at least 700 cases involved manatees. The chief cause of death in Florida manatees is boat strikes. However, laws in certain parts of Florida now limit boat speeds during winter, allowing slow-moving manatees more time to respond.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2><span id="Procrastination">Procrastination</span></h2>
+<p>A psychologist explains why we put off important tasks and how we can break this habit</p>
+<p><strong>A</strong> Procrastination is the habit of delaying a necessary task, usually by focusing on less urgent, more enjoyable, and easier activities instead. We all do it from time to time. We might be composing a message to a friend who we have to let down, or putting together an important report for college or work, we’re doing our best to avoid doing the job at hand, but deep down we know that we should just be getting on with it. Unfortunately, berating ourselves won’t stop us procrastinating again. In fact, it’s one of the worst things we can do. This matters because, as my research shows, procrastination doesn’t just waste time, but is actually linked to other problems, too.</p>
+<p><strong>B</strong> Contrary to popular belief, procrastination is not due to laziness or poor time management. Scientific studies suggest procrastination is, in fact, caused by poor mood management. This makes sense if we consider that people are more likely to put off starting or completing tasks that they are really not keen to do. If just thinking about the task threatens our sense of self-worth or makes us anxious, we will be more likely to put it off. Research involving brain imaging has found that areas of the brain linked to detection of threats and emotion regulation are actually different in people who chronically procrastinate compared to those who don’t procrastinate frequently.</p>
+<p><strong>C</strong> Tasks that are emotionally loaded or difficult, such as preparing for exams, are prime candidates for procrastination. People with low self-esteem are more likely to procrastinate. Another group of people who tend to procrastinate are perfectionists, who worry their work will be judged harshly by others. We know that if we don’t finish that report or complete those home repairs, then what we did can’t be evaluated. When we avoid such tasks, we also avoid the negative emotions associated with them. This is rewarding, and it conditions us to use procrastination to repair our mood. If we engage in more enjoyable tasks instead, we get another mood boost. In the long run, however, procrastination isn’t an effective way of managing emotions. The ‘mood repair’ we experience is temporary. Afterwards, people tend to be left with a sense of guilt that not only increases their negative mood, but also reinforces their tendency to procrastinate.</p>
+<p><strong>D</strong> So why is this such a problem? When most people think of the costs of procrastination, they think of the toll on productivity. For example, studies have shown that procrastination negatively impacts on student performance. But putting off reading textbooks and writing essays may affect other areas of students’ lives. In one study of over 3,000 German students over a six-month period, those who reported procrastinating over their university work were also more likely to engage in study-related misconduct, such as cheating and plagiarism. But the behaviour that procrastination was most closely linked with was using fraudulent excuses to get deadline extensions. Other research shows that employees on average spend almost a quarter of their workday procrastinating, and again this is linked with negative outcomes. In fact, in one US survey of over 22,000 employees, participants who said they regularly procrastinated had less annual income and less employment stability. For every one-point increase on a measure of chronic procrastination, annual income decreased by US$15,000.</p>
+<p><strong>E</strong> Procrastination also correlates with serious health and well-being problems. A tendency to procrastinate is linked to poor mental health, including higher levels of depression and anxiety. Across numerous studies, I’ve found people who regularly procrastinate report a greater number of health issues, such as headaches, flu and colds, and digestive issues. They also experience higher levels of stress and poor sleep quality. They are less likely to practise healthy behaviours, such as eating a healthy diet and regularly exercising, and use destructive coping strategies to manage their stress. In one study of over 700 people, I found people prone to procrastination had a 63% greater risk ofpoor heart health after accounting for other personality traits and demographics.</p>
+<div class="code-block code-block-14"> </div>
+<p><strong>F</strong> Finding better ways of managing our emotions is one route out of the vicious cycle of procrastination. An important first step is to manage our environment and how we view the task. There are a number of evidence-based strategies that can help us fend off distractions that can occupy our minds when we should be focusing on the thing we should be getting on with. For example, reminding ourselves about why the task is important and valuable can increase positive feelings towards it. Forgiving ourselves and feeling compassion when we procrastinate can help break the procrastination cycle. We should admit that we feel bad, but not be overly critical of ourselves. We should remind ourselves that we’re not the first person to procrastinate, nor the last. Doing this can take the edge off the negative feelings we have about ourselves when we procrastinate. This can all make it easier to get back on track.</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h3><span id="Invasion_of_the_Robot_Umpires">Invasion of the Robot Umpires</span></h3>
+<p>A few years ago, Fred DeJesus from Brooklyn, New York became the first umpire in a minor league baseball game to use something called the Automated Ball-Strike System (ABS), often referred to as the ‘rob-umpire’. Instead of making any judgments himself about a strike*, DeJesus had decisions fed to him through an earpiece, connected to a modified missile-tracking system. The contraption looked like a large black pizza box with one glowing green eye, it was mounted above the press stand.</p>
+<p>Major League Baseball (MLB), who had commissioned the system, wanted human umpires to announce the calls, just as they would have done in the past. When the first pitch came in, a recorded voice told DeJesus it was a strike. Previously, calling a strike was a judgment call on the part of the umpire. Even if the batter does not hit the ball, a pitch that passes through the ‘strike zone’ (an imaginary zone about seventeen inches wide, stretching from the batter’s knees to the middle of his chest) is considered a strike. During that first game, when DeJesus announced calls, there was no heckling and no shouted disagreement. Nobody said a word.</p>
+<p>For a hundred and fifty years or so, the strike zone has been the game’s animating force - countless arguments between a team’s manager and the umpire have taken place over its boundaries and whether a ball had crossed through it. The rules of play have evolved in various stages. Today, everyone knows that you may scream your disagreement in an umpire’s face, but you must never shout personal abuse at them or touch them. That’s a no-no. When the robe-umpires came, however, the arguments stopped.</p>
+<p>During the first robe-umpire season, players complained about some strange calls. In response, MLB decided to tweak the dimensions of the zone, and the following year the consensus was that ABS is profoundly consistent. MLB says the device is near-perfect, precise to within fractions of an inch. “It’ll reduce controversy in the game, and be good for the game,” says Rob Manfred, who is Commissioner for MLB. But the question is whether controversy is worth reducing, or whether it is the sign of a human hand.</p>
+<p>A human, at least, yells back. When I spoke with Frank Viola, a coach for a North Carolina team, he said that ABS works as designed, but that it was also unforgiving and pedantic, almost legalistic. “Manfred is a lawyer,” Viola noted. Some pitchers have complained that, compared with a humans, the robot’s strike zone seems too precise. Viola was once a major-league player himself. When he was pitching, he explained, umpires rewarded skill. “Throw it where you aimed, and it would be a strike, even if it was an inch or two outside. There was a dialogue between pitcher and umpire.”</p>
+<div class="code-block code-block-14"> </div>
+<p>The executive tasked with running the experiment for MLB is Morgan Sword, who’s in charge of baseball operations. According to Sword, ABS was part of a larger project to make baseball more exciting since executives are terrified of losing younger fans, as has been the case with horse racing and boxing. He explains how they began the process by asking fans what version of baseball they found most exciting. The results showed that everyone wanted more action: more hits, more defense, more baserunning. This type of baseball essentially hasn’t existed since the 1960s, when the hundred-mile-an-hour fastball, which is difficult to hit and control, entered the game. It flattened the game into strikeouts, walks, and home runs - a type of play lacking much action.</p>
+<p>Sword’s team brainstormed potential fixes. Any rule that existed, they talked about changing - from changing the bats to changing the geometry of the field. But while all of these were ruled out as potential fixes, ABS was seen as a perfect vehicle for change. According to Sword, once you get the technology right, you can load any strike zone you want into the system. “It might be a triangle, or a blob, or something shaped like Texas. Over time, as baseball evolves, ABS can allow the zone to change with it.”</p>
+<p>“In the past twenty years, sports have moved away from judgment calls. Soccer has Video Assistant Referees (for offside decisions, for example). Tennis has Hawk-Eye (for line calls, for example). For almost a decade, baseball has used instant replay on the base paths. This is widely liked, even if the precision can sometimes cause problems. But these applications deal with something physical: bases, lines, goals. The boundaries of action are precise, delineated like the keys of a piano. This is not the case with ABS and the strike zone. Historically, a certain discretion has been appreciated.”</p>
+<p>I decided to email Alva Noe, a professor at Berkeley University and a baseball fan, for his opinion. “Hardly a day goes by that I don’t wake up and run through the reasons that this [robe-umpires] is such a terrible idea,” he replied. He later told me, “This is part of a movement to use algorithms to take the hard choices of living out of life.” Perhaps he’s right. We watch baseball to kill time, not to maximize it. Some players I have met take a dissenting stance toward the robots too, believing that accuracy is not the answer.<br>According to Joe Russo, who plays for a New Jersey team, “With technology, people just want everything to be perfect. That’s not reality. I think perfect would be weird. Your teams are always winning, work is always just great, there’s always money in your pocket, your car never breaks down. What is there to talk about?”</p>
+<p>*strike: a strike is when the batter swings at a ball and misses or when the batter does not swing at a ball that passes through the strike zone.</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-6</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the notes below.<br>
+Choose&nbsp;<strong>ONE WORD AND/OR A NUMBER</strong>&nbsp;from the passage for each answer.<p></p>
+<p><strong>Appearance</strong><br>
+– look similar to dugongs, but with a differently shaped <span class="lab-inline-item" data-q-key="1"><span class="lab-inline-num" data-qn="1">1</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596771_1" id="ielts_reading_answer_1596771_1" autocomplete="off"><span class="lab-feedback-slot"></span></span><br>
+<strong>Movement</strong><br>
+– have fewer neck bones than most mammals<br>
+– need to use their <span class="lab-inline-item" data-q-key="2"><span class="lab-inline-num" data-qn="2">2</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596771_2" id="ielts_reading_answer_1596771_2" autocomplete="off"><span class="lab-feedback-slot"></span></span> to help to turn their bodies around in order<br>
+to look sideways<br>
+– sense vibrations in the water by means of <span class="lab-inline-item" data-q-key="3"><span class="lab-inline-num" data-qn="3">3</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596771_3" id="ielts_reading_answer_1596771_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> on their skin<br>
+<strong>Feeding</strong><br>
+– eat mainly aquatic vegetation, such as <span class="lab-inline-item" data-q-key="4"><span class="lab-inline-num" data-qn="4">4</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596771_4" id="ielts_reading_answer_1596771_4" autocomplete="off"><span class="lab-feedback-slot"></span></span><br>
+– grasp and pull up plants with their <span class="lab-inline-item" data-q-key="5"><span class="lab-inline-num" data-qn="5">5</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596771_5" id="ielts_reading_answer_1596771_5" autocomplete="off"><span class="lab-feedback-slot"></span></span></p>
+<p><strong>Breathing</strong><br>
+– come to the surface for air every 2-4 minutes when awake and every 15-20 while<br>
+sleeping<br>
+– may regulate the <span class="lab-inline-item" data-q-key="6"><span class="lab-inline-num" data-qn="6">6</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596771_6" id="ielts_reading_answer_1596771_6" autocomplete="off"><span class="lab-feedback-slot"></span></span> of their bodies by using muscles of diaphragm to store air internally</p></div>
+                                        </div><div class="section-heading">Questions 7-13</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in Reading Passage?<br>
+in boxes<b> </b>on your answer sheet, write</p>
+<p><strong>TRUE</strong>&nbsp; if the statement agrees with the information<br>
+<strong>FALSE</strong>&nbsp; if the statement contradicts the information<br>
+<strong>NOT GIVEN</strong>&nbsp; if there is no information on this</p>
+                                        </div><section class="q-card" data-q-key="7"><span class="q-chip" data-qn="7" data-q-chip="7">7</span><div class="q-label"><span> <span>West Indian manatees can be found in a variety of different aquatic habitats.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_1" value="TRUE" id="ielts_reading_answer_1596871_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_1" value="FALSE" id="ielts_reading_answer_1596871_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_1" value="NOT GIVEN" id="ielts_reading_answer_1596871_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="8"><span class="q-chip" data-qn="8" data-q-chip="8">8</span><div class="q-label"><span> <span>The Florida manatee lives in warmer waters than the Antillean manatee.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_2" value="TRUE" id="ielts_reading_answer_1596871_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_2" value="FALSE" id="ielts_reading_answer_1596871_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_2" value="NOT GIVEN" id="ielts_reading_answer_1596871_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="9"><span class="q-chip" data-qn="9" data-q-chip="9">9</span><div class="q-label"><span> <span>The African manatee’s range is limited to coastal waters between the West African countries of Mauritania and Angola.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_3" value="TRUE" id="ielts_reading_answer_1596871_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_3" value="FALSE" id="ielts_reading_answer_1596871_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_3" value="NOT GIVEN" id="ielts_reading_answer_1596871_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="10"><span class="q-chip" data-qn="10" data-q-chip="10">10</span><div class="q-label"><span> <span>The extent of the loss of Amazonian manatees in the mid-twentieth century was only revealed many years later.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_4" value="TRUE" id="ielts_reading_answer_1596871_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_4" value="FALSE" id="ielts_reading_answer_1596871_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_4" value="NOT GIVEN" id="ielts_reading_answer_1596871_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="11"><span class="q-chip" data-qn="11" data-q-chip="11">11</span><div class="q-label"><span> <span>It is predicted that West Indian manatee populations will fall in the coming decades.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_5" value="TRUE" id="ielts_reading_answer_1596871_5_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_5" value="FALSE" id="ielts_reading_answer_1596871_5_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_5" value="NOT GIVEN" id="ielts_reading_answer_1596871_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="12"><span class="q-chip" data-qn="12" data-q-chip="12">12</span><div class="q-label"><span> <span>The risk to manatees from entanglement and plastic consumption increased significantly in the period 2009-2020.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_6" value="TRUE" id="ielts_reading_answer_1596871_6_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_6" value="FALSE" id="ielts_reading_answer_1596871_6_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_6" value="NOT GIVEN" id="ielts_reading_answer_1596871_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="13"><span class="q-chip" data-qn="13" data-q-chip="13">13</span><div class="q-label"><span> <span>There is some legislation in place which aims to reduce the likelihood of boat strikes on manatees in Florida.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_7" value="TRUE" id="ielts_reading_answer_1596871_7_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_7" value="FALSE" id="ielts_reading_answer_1596871_7_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1596871_7" value="NOT GIVEN" id="ielts_reading_answer_1596871_7_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-16</div><div class="section-copy">
+                                            <p>Reading Passage has six paragraphs,<br>
+Which paragraph contains the following information?<br>
+Write the correct letter,&nbsp;<strong>A-F,</strong> in boxes on your answer sheet.</p>
+<p><strong>NB</strong>&nbsp;You may use any letter more than once.</p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>mention of false assumptions about why people procrastinate</span></span></div><select class="q-select" name="ielts_reading_answer_1596897_1" id="ielts_reading_answer_1596897_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>reference to the realisation that others also procrastinate</span></span></div><select class="q-select" name="ielts_reading_answer_1596897_2" id="ielts_reading_answer_1596897_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>neurological evidence of a link between procrastination and emotion</span></span></div><select class="q-select" name="ielts_reading_answer_1596897_3" id="ielts_reading_answer_1596897_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 17-22</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<br>
+Choose&nbsp;<strong>ONE WORD ONLY&nbsp;</strong>from the passage for each answer.<br>
+Write your answers in boxes&nbsp;on your answer sheet.<p></p>
+<p><strong>What makes us procrastinate?</strong></p>
+<p>Many people think that procrastination is the result of <span class="lab-inline-item" data-q-key="17"><span class="lab-inline-num" data-qn="17">17</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596929_1" id="ielts_reading_answer_1596929_1" autocomplete="off"><span class="lab-feedback-slot"></span></span><br>
+Others believe it to be the result of an inability to organise time efficiently.</p>
+<p>But scientific studies suggest that procrastination is actually due to poor mood management. The tasks we are most likely to put off are those that could damage our self-esteem or cause us to feel <span class="lab-inline-item" data-q-key="18"><span class="lab-inline-num" data-qn="18">18</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596929_2" id="ielts_reading_answer_1596929_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>. when we think about them. Research comparing chronic procrastinators with other people even found differences in the brain regions associated with regulating emotions and identifying <span class="lab-inline-item" data-q-key="19"><span class="lab-inline-num" data-qn="19">19</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596929_3" id="ielts_reading_answer_1596929_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>.</p>
+<p>Emotionally loaded and difficult tasks often cause us to procrastinate.<br>
+Getting ready to take <span class="lab-inline-item" data-q-key="20"><span class="lab-inline-num" data-qn="20">20</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596929_4" id="ielts_reading_answer_1596929_4" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;might be a typical example of one such task.</p>
+<p>People who are likely to procrastinate tend to be either <span class="lab-inline-item" data-q-key="21"><span class="lab-inline-num" data-qn="21">21</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596929_5" id="ielts_reading_answer_1596929_5" autocomplete="off"><span class="lab-feedback-slot"></span></span> or those with low self-esteem.</p>
+<p>Procrastination is only a short-term measure for managing emotions. It’s often followed by a feeling of <span class="lab-inline-item" data-q-key="22"><span class="lab-inline-num" data-qn="22">22</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_1596929_6" id="ielts_reading_answer_1596929_6" autocomplete="off"><span class="lab-feedback-slot"></span></span>, which worsens our mood and leads to more procrastination.</p></div>
+                                        </div><div class="section-heading">Questions 23-24</div><div class="section-copy">
+                                            <p>Choose&nbsp;<strong>TWO</strong>&nbsp;letters<strong>, A-E</strong><br>
+Write the correct letters in boxes on your answer sheet.</p>
+                                        </div><section class="q-card" data-q-key="23-24"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><span class="q-chip" data-qn="24" data-q-chip="24">24</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;comparisons between employees who often procrastinate and those who do not are mentioned in the text?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596955_2[]" value="A" data-limit="2" id="ielts_reading_answer_1596955_2_0-0"><span class="option-letter">A</span><span>Their salaries are lower.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596955_2[]" value="B" data-limit="2" id="ielts_reading_answer_1596955_2_0-1"><span class="option-letter">B</span><span>The quality of their work is inferior.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596955_2[]" value="C" data-limit="2" id="ielts_reading_answer_1596955_2_0-2"><span class="option-letter">C</span><span>They don’t keep their jobs for as long.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596955_2[]" value="D" data-limit="2" id="ielts_reading_answer_1596955_2_0-3"><span class="option-letter">D</span><span>They don’t enjoy their working lives as much.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596955_2[]" value="E" data-limit="2" id="ielts_reading_answer_1596955_2_0-4"><span class="option-letter">E</span><span>They have poorer relationships with colleagues.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 25-26</div><div class="section-copy">
+                                            <p>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,<strong>&nbsp;A-E</strong><br>
+Write the correct letters in boxes on your answer sheet.</p>
+                                        </div><section class="q-card" data-q-key="25-26"><span class="q-chip" data-qn="25" data-q-chip="25">25</span><span class="q-chip" data-qn="26" data-q-chip="26">26</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;recommendations for getting out of a cycle of procrastination does the writer give?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596967_2[]" value="A" data-limit="2" id="ielts_reading_answer_1596967_2_0-0"><span class="option-letter">A</span><span>not judging ourselves harshly</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596967_2[]" value="B" data-limit="2" id="ielts_reading_answer_1596967_2_0-1"><span class="option-letter">B</span><span>setting ourselves manageable aims</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596967_2[]" value="C" data-limit="2" id="ielts_reading_answer_1596967_2_0-2"><span class="option-letter">C</span><span>rewarding ourselves for tasks achieved</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596967_2[]" value="D" data-limit="2" id="ielts_reading_answer_1596967_2_0-3"><span class="option-letter">D</span><span>prioritising tasks according to their importance</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_1596967_2[]" value="E" data-limit="2" id="ielts_reading_answer_1596967_2_0-4"><span class="option-letter">E</span><span>avoiding things that stop us concentrating on our tasks</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-32</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in Reading Passage?<br>
+In boxes on your answer sheet, write</p>
+<p><strong>YES</strong>&nbsp;if the statement agrees with the claims of the writer<br>
+<strong>NO</strong>&nbsp;if the statement contradicts the claims of the writer<br>
+<strong>NOT GIVEN</strong>&nbsp;if it is impossible to say what the writer thinks about this</p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>When DeJesus first used ABS, he shared decision-making about strikes with it.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_1" value="YES" id="ielts_reading_answer_1597003_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_1" value="NO" id="ielts_reading_answer_1597003_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_1" value="NOT GIVEN" id="ielts_reading_answer_1597003_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>MLB considered it necessary to amend the size of the strike zone when criticisms were received from players.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_2" value="YES" id="ielts_reading_answer_1597003_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_2" value="NO" id="ielts_reading_answer_1597003_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_2" value="NOT GIVEN" id="ielts_reading_answer_1597003_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>MLB is keen to justify the money spent on improving the accuracy of ABS’s calculations.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_3" value="YES" id="ielts_reading_answer_1597003_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_3" value="NO" id="ielts_reading_answer_1597003_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_3" value="NOT GIVEN" id="ielts_reading_answer_1597003_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>The hundred-mile-an-hour fastball led to a more exciting style of play.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_4" value="YES" id="ielts_reading_answer_1597003_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_4" value="NO" id="ielts_reading_answer_1597003_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_4" value="NOT GIVEN" id="ielts_reading_answer_1597003_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="31"><span class="q-chip" data-qn="31" data-q-chip="31">31</span><div class="q-label"><span> <span>The differing proposals for alterations to the baseball bat led to fierce debate on Sword’s team.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_5" value="YES" id="ielts_reading_answer_1597003_5_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_5" value="NO" id="ielts_reading_answer_1597003_5_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_5" value="NOT GIVEN" id="ielts_reading_answer_1597003_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="32"><span class="q-chip" data-qn="32" data-q-chip="32">32</span><div class="q-label"><span> <span>ABS makes changes to the shape of the strike zone feasible.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_6" value="YES" id="ielts_reading_answer_1597003_6_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_6" value="NO" id="ielts_reading_answer_1597003_6_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597003_6" value="NOT GIVEN" id="ielts_reading_answer_1597003_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 33-37</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary using the list ofphrases,&nbsp;<strong>A-H,</strong>&nbsp;below.<br>
+Write the correct letter,&nbsp;<strong>A-H</strong>, in boxes on your answer sheet.<p></p>
+<p><strong>Calls by the umpire</strong></p>
+<p>Even after ABS was developed, MLB still wanted human umpires to shout out decisions as they had in their <span class="lab-inline-item" data-q-key="33"><span class="lab-inline-num" data-qn="33">33</span><select class="lab-inline-select" name="ielts_reading_answer_1597045_1" id="ielts_reading_answer_1597045_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>. The umpire’s job had, at one time, required a <span class="lab-inline-item" data-q-key="34"><span class="lab-inline-num" data-qn="34">34</span><select class="lab-inline-select" name="ielts_reading_answer_1597045_2" id="ielts_reading_answer_1597045_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span> about whether a ball was a strike. A ball is considered a strike when the batter does not hit it and it crosses through a <span class="lab-inline-item" data-q-key="35"><span class="lab-inline-num" data-qn="35">35</span><select class="lab-inline-select" name="ielts_reading_answer_1597045_3" id="ielts_reading_answer_1597045_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span> extending approximately from the batter’s knee to his chest.</p>
+<p>In the past, <span class="lab-inline-item" data-q-key="36"><span class="lab-inline-num" data-qn="36">36</span><select class="lab-inline-select" name="ielts_reading_answer_1597045_4" id="ielts_reading_answer_1597045_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span>&nbsp;over strike calls were not uncommon, but today everyone accepts the complete ban on pushing or shoving the umpire. One difference, however, is that during the first game DeJesus used ABS, strike calls were met with <span class="lab-inline-item" data-q-key="37"><span class="lab-inline-num" data-qn="37">37</span><select class="lab-inline-select" name="ielts_reading_answer_1597045_5" id="ielts_reading_answer_1597045_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><span class="lab-feedback-slot"></span></span></p>
+<p><strong>A</strong>&nbsp;pitch boundary<br>
+<strong>B</strong>&nbsp;numerous disputes<br>
+<strong>C</strong>&nbsp;team tactics<br>
+<strong>D</strong>&nbsp;subjective assessment<br>
+<strong>E</strong>&nbsp;widespread approval<br>
+<strong>F</strong>&nbsp;former roles<br>
+<strong>G</strong>&nbsp;total silence<br>
+<strong>H</strong>&nbsp;perceived area</p></div>
+                                        </div><div class="section-heading">Questions 38-40</div><div class="section-copy">
+                                            <p>Choose the correct letter,&nbsp;<strong>A, B, C or D.</strong></p>
+                                        </div><section class="q-card" data-q-key="38"><span class="q-chip" data-qn="38" data-q-chip="38">38</span><div class="q-label"><span> <span>What does the writer suggest about ABS in the fifth paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_1" value="A" id="ielts_reading_answer_1597126_1_0-0"><span class="option-letter">A</span><span>It is bound to make key decisions that are wrong.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_1" value="B" id="ielts_reading_answer_1597126_1_0-1"><span class="option-letter">B</span><span>It may reduce some of the appeal of the game.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_1" value="C" id="ielts_reading_answer_1597126_1_0-2"><span class="option-letter">C</span><span>It will lead to the disappearance of human umpires.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_1" value="D" id="ielts_reading_answer_1597126_1_0-3"><span class="option-letter">D</span><span>lt may increase calls for the rules of baseball to be changed.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="39"><span class="q-chip" data-qn="39" data-q-chip="39">39</span><div class="q-label"><span> <span>Morgan Sword says that the introduction of ABS</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_2" value="A" id="ielts_reading_answer_1597126_2_0-0"><span class="option-letter">A</span><span>was regarded as an experiment without a guaranteed outcome.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_2" value="B" id="ielts_reading_answer_1597126_2_0-1"><span class="option-letter">B</span><span>was intended to keep up with developments in other sports.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_2" value="C" id="ielts_reading_answer_1597126_2_0-2"><span class="option-letter">C</span><span>was a response to changing attitudes about the role of sport.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_2" value="D" id="ielts_reading_answer_1597126_2_0-3"><span class="option-letter">D</span><span>was an attempt to ensure baseball retained a young audience.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="40"><span class="q-chip" data-qn="40" data-q-chip="40">40</span><div class="q-label"><span> <span>Why does the writer include the views of Not and Russo?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_3" value="A" id="ielts_reading_answer_1597126_3_0-0"><span class="option-letter">A</span><span>to show that attitudes to technology vary widely</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_3" value="B" id="ielts_reading_answer_1597126_3_0-1"><span class="option-letter">B</span><span>to argue that people have unrealistic expectations of sport</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_3" value="C" id="ielts_reading_answer_1597126_3_0-2"><span class="option-letter">C</span><span>to indicate that accuracy is not the same thing as enjoyment</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_1597126_3" value="D" id="ielts_reading_answer_1597126_3_0-3"><span class="option-letter">D</span><span>to suggest that the number of baseball fans needs to increase</span></label></div><div class="lab-feedback-slot"></div></section></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 20 Academic Reading Test 2","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_1596771_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596771_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_1596771_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596771_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_1596771_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596771_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_1596771_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596771_4","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_1596771_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596771_5","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_1596771_6","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596771_6","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_1596871_1","promptHtml":"\u003cspan> \u003cspan>West Indian manatees can be found in a variety of different aquatic habitats.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1596871_1_0","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_1596871_2","promptHtml":"\u003cspan> \u003cspan>The Florida manatee lives in warmer waters than the Antillean manatee.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1596871_2_0","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_1596871_3","promptHtml":"\u003cspan> \u003cspan>The African manatee’s range is limited to coastal waters between the West African countries of Mauritania and Angola.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1596871_3_0","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_1596871_4","promptHtml":"\u003cspan> \u003cspan>The extent of the loss of Amazonian manatees in the mid-twentieth century was only revealed many years later.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1596871_4_0","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_1596871_5","promptHtml":"\u003cspan> \u003cspan>It is predicted that West Indian manatee populations will fall in the coming decades.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1596871_5_0","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_1596871_6","promptHtml":"\u003cspan> \u003cspan>The risk to manatees from entanglement and plastic consumption increased significantly in the period 2009-2020.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1596871_6_0","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_1596871_7","promptHtml":"\u003cspan> \u003cspan>There is some legislation in place which aims to reduce the likelihood of boat strikes on manatees in Florida.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1596871_7_0","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_1596897_1","promptHtml":"\u003cspan> \u003cspan>mention of false assumptions about why people procrastinate\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_1596897_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_1596897_2","promptHtml":"\u003cspan> \u003cspan>reference to the realisation that others also procrastinate\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_1596897_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_1596897_3","promptHtml":"\u003cspan> \u003cspan>neurological evidence of a link between procrastination and emotion\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_1596897_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_1596929_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596929_1","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_1596929_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596929_2","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_1596929_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596929_3","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_1596929_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596929_4","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_1596929_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596929_5","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_1596929_6","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_1596929_6","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597003_1","promptHtml":"\u003cspan> \u003cspan>When DeJesus first used ABS, he shared decision-making about strikes with it.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1597003_1_0","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597003_2","promptHtml":"\u003cspan> \u003cspan>MLB considered it necessary to amend the size of the strike zone when criticisms were received from players.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1597003_2_0","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597003_3","promptHtml":"\u003cspan> \u003cspan>MLB is keen to justify the money spent on improving the accuracy of ABS’s calculations.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1597003_3_0","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597003_4","promptHtml":"\u003cspan> \u003cspan>The hundred-mile-an-hour fastball led to a more exciting style of play.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1597003_4_0","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597003_5","promptHtml":"\u003cspan> \u003cspan>The differing proposals for alterations to the baseball bat led to fierce debate on Sword’s team.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1597003_5_0","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597003_6","promptHtml":"\u003cspan> \u003cspan>ABS makes changes to the shape of the strike zone feasible.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_1597003_6_0","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_1597045_1","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_1597045_1","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_1597045_2","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_1597045_2","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_1597045_3","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_1597045_3","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_1597045_4","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_1597045_4","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_1597045_5","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_1597045_5","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597126_1","promptHtml":"\u003cspan> \u003cspan>What does the writer suggest about ABS in the fifth paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"It is bound to make key decisions that are wrong."},{"value":"B","label":"It may reduce some of the appeal of the game."},{"value":"C","label":"It will lead to the disappearance of human umpires."},{"value":"D","label":"lt may increase calls for the rules of baseball to be changed."}],"sourceAnswerId":"ielts_reading_answer_1597126_1_0","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597126_2","promptHtml":"\u003cspan> \u003cspan>Morgan Sword says that the introduction of ABS\u003c/span>\u003c/span>","options":[{"value":"A","label":"was regarded as an experiment without a guaranteed outcome."},{"value":"B","label":"was intended to keep up with developments in other sports."},{"value":"C","label":"was a response to changing attitudes about the role of sport."},{"value":"D","label":"was an attempt to ensure baseball retained a young audience."}],"sourceAnswerId":"ielts_reading_answer_1597126_2_0","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_1597126_3","promptHtml":"\u003cspan> \u003cspan>Why does the writer include the views of Not and Russo?\u003c/span>\u003c/span>","options":[{"value":"A","label":"to show that attitudes to technology vary widely"},{"value":"B","label":"to argue that people have unrealistic expectations of sport"},{"value":"C","label":"to indicate that accuracy is not the same thing as enjoyment"},{"value":"D","label":"to suggest that the number of baseball fans needs to increase"}],"sourceAnswerId":"ielts_reading_answer_1597126_3_0","limit":null},"23-24":{"key":"23-24","nums":[23,24],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_1596955_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;comparisons between employees who often procrastinate and those who do not are mentioned in the text?\u003c/span>\u003c/span>","options":[{"value":"A","label":"Their salaries are lower."},{"value":"B","label":"The quality of their work is inferior."},{"value":"C","label":"They don’t keep their jobs for as long."},{"value":"D","label":"They don’t enjoy their working lives as much."},{"value":"E","label":"They have poorer relationships with colleagues."}],"sourceAnswerId":"ielts_reading_answer_1596955_2_0","limit":2},"25-26":{"key":"25-26","nums":[25,26],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_1596967_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;recommendations for getting out of a cycle of procrastination does the writer give?\u003c/span>\u003c/span>","options":[{"value":"A","label":"not judging ourselves harshly"},{"value":"B","label":"setting ourselves manageable aims"},{"value":"C","label":"rewarding ourselves for tasks achieved"},{"value":"D","label":"prioritising tasks according to their importance"},{"value":"E","label":"avoiding things that stop us concentrating on our tasks"}],"sourceAnswerId":"ielts_reading_answer_1596967_2_0","limit":2}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23-24","part":2},"24":{"key":"23-24","part":2},"25":{"key":"25-26","part":2},"26":{"key":"25-26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    localStorage.setItem('ielts_score_cambridge_20_reading_test_2', JSON.stringify({
+      score: correctCount,
+      band: band,
+      total: LAB_DATA.totalQuestions,
+      date: new Date().toLocaleDateString('en-GB')
+    }));
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

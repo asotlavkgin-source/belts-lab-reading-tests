@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 19 Academic Reading Test 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 19 Academic Reading Test 3</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><p><strong>Archaeologists discover evidence of prehistoric island settlers</strong></p>
+<p>In early April 2019, Dr Ceri Shipton and his colleagues from Australian National University became the first archaeologists to explore Obi, one of many tropical islands in Indonesia’s Maluku Utara province. The research team’s discoveries suggest that the prehistoric people who lived on Obi were adept on both land and sea, hunting in the dense rainforest, foraging on the seashore, and possibly even voyaging between islands.</p>
+<p>The excavations were part of a project to learn more about how people first dispersed from mainland Asia, through the Indonesian archipelago and into the prehistoric continent that once connected Australia and New Guinea. The team’s earlier research suggested that the northernmost islands in the group, known as the Wallacean islands,including Obi, would have offered the easiest migration route. It also seemed likely that these islands were crucial ‘stepping stones’ on humans’ island-hopping voyages through this region millennia ago. But to support this idea, they needed archaeological evidence for humans living in this remote area in the ancient past. So, they travelled to Obi to look for sites that might reveal evidence of early occupation.</p>
+<p>Just inland from the village of Kelo on Obi’s northern coast, Shipton and his colleagues found two caves containing prehistoric rock shelters that were suitable for excavation. With the permission and help of the local people of Kelo, they dug a small test excavation in each shelter. There they found numerous artefacts, including fragments of axes, some dating to about 14,000 years ago. The earliest axes at Kelo were made using clam shells. Axes made from clam shells from roughly the same time had also previously been found elsewhere in this region, including on the nearby island of Gebe to the northeast. As on Gebe, it is highly likely that Obi’s axes were used in the construction of canoes, thus allowing these early peoples to maintain connections between communities on neighbouring islands.</p>
+<p>The oldest cultural layers from the Kelo site provided the team with the earliest record for human occupation on Obi, dating back around 18,000 years. At this time the climate was drier and colder than today, and the island’s dense rainforests would likely have been much less impenetrable than they are now. Sea levels were about 120 metres lower, meaning Obi was a much larger island, encompassing what is today the separate island of Bisa, as well as several other small islands nearby.</p>
+<p>Roughly 11,700 years ago, as the most recent ice age ended, the climate became significantly warmer and wetter, no doubt making Obi’s jungle much thicker. According to the researchers, it is no coincidence that around this time the first axes crafted from stone rather than sea shells appear, likely in response to their heavy-duty use for clearing and modification of the increasingly dense rainforest. While stone takes about twice as long to grind into an axe compared to shell, the harder material keeps its sharp edge for longer.</p>
+<p>Judging by the bones which the researchers unearthed in the Kelo caves, people living there mainly hunted the Rothschild’s cuscus, a possum-like creature that still lives on Obi today. As the forest grew more dense, people probably used axes to clear patches of forest and make hunting easier. Shipton’s team’s excavation of the shelters at the Kelo site unearthed a volcanic glass substance called obsidian, which must have been brought over from another island, as there is no known source on Obi. It also revealed particular types of beads, similar to those previously found on islands in southern Wallacea. These finds again support the idea that Obi islanders routinely travelled to other islands.</p>
+<p>The excavations suggest people successfully lived in the two Kelo shelters for about 10,000 years. But then, about 8,000 years ago, both were abandoned. Did the residents leave Obi completely, or move elsewhere on the island? Perhaps the jungle had grown so thick that axes were no longer a match for the dense undergrowth. Perhaps people simply moved to the coast and turned to fishing rather than hunting as a means of survival.</p>
+<p>Whatever the reason for the departure, there is no evidence for use of the Kelo shelters after this time, until about 1,000 years ago, when they were re-occupied by people who owned pottery as well as items made out of gold and silver. It seems likely, in view of Obi’s location, that this final phase of occupation also saw the Kelo shelters used by people involved in the historic trade in spices between the Maluku islands and the rest of the world.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><p><strong>The global importance of wetlands</strong></p>
+<p><strong>A</strong></p>
+<p>Wetlands are areas where water covers the soil, or is present either at or near the surface of the soil, for all or part of the year. These are complex ecosystems, rich in unique plant and animal life. But according to the World Wide Fund for Nature (WWFN), half of the world’s wetlands have disappeared since 1990 – converted or destroyed for commercial development, drainage schemes and the extraction of minerals and peat. Many of those that remain have been damaged by agricultural pesticides and fertilizers, industrial pollutants, and construction works.</p>
+<p><strong>B</strong></p>
+<p>Throughout history, humans have gathered around wetlands, and their fertile ecosystems have played an important part in human development. Consequently, they are of considerable religious, historical and archaeological value to many communities around the world. ‘Wetlands directly support the livelihoods and well-being of millions of people,’ says Dr Matthew McCartney, principal researcher and hydrologist at the International Water Management Institute (IWMI). ‘In many developing countries, large numbers of people are dependent on wetland agriculture for their livelihoods.’</p>
+<p><strong>C</strong></p>
+<p>They also serve a crucial environmental purpose. ‘Wetlands are one of the key tools in mitigating climate change across the planet,’ says Pieter van Eijk, head of Climate Adaptation at Wetlands International (WI), pointing to their use as buffers that protect coastal areas from sea-level rise and extreme weather events such as hurricanes and flooding. Wetland coastal forests provide food and water, as well as shelter from storms, and WI and other agencies are working to restore those forests which have been lost. ‘It can be as simple as planting a few trees per hectare to create shade and substantially change a microclimate,’ he says. ‘Implementing climate change projects isn’t so much about money.’</p>
+<p><strong>D</strong></p>
+<p>The world’s wetlands are, unfortunately, rich sources for in-demand commodities, such as palm oil and pulpwood. Peatlands – wetlands with a waterlogged organic soil layer – are particularly targeted. When peatlands are drained for cultivation, they become net carbon emitters instead of active carbon stores, and, according to Marcel Silvius, head of Climate-smart Land-use at WI, this practice causes six per cent of all global carbon emissions. The clearance of peatlands for planting also increases the risk of forest fires, which release huge amounts of CO₂. ‘We’re seeing huge peatland forests with extremely high biodiversity value being lost for a few decades of oil palm revenues,’ says Silvius.</p>
+<p><strong>E</strong></p>
+<p>The damage starts when logging companies arrive to clear the trees. They dig ditches to enter the peat swamps by boat and then float the logs out the same way. These are then used to drain water out of the peatlands to allow for the planting of corn, oil palms or pulpwood trees. Once the water has drained away, bacteria and fungi then break down the carbon in the peat and turn it into CO₂ and methane. Meanwhile, the remainder of the solid matter in the peat starts to move downwards, in a process known as subsidence. Peat comprises 90 per cent water, so this is one of the most alarming consequences of peatland clearances. ‘In the tropics, peat subsides at about four centimetres a year, so within half a century, very large landscapes on Sumatra and Borneo will become flooded as the peat drops below water level,’ says Silvius. ‘It’s a huge catastrophe that’s in preparation. Some provinces will lose 40 per cent of their landmass.’</p>
+<p><strong>F</strong></p>
+<p>And while these industries affect wetlands in ways that can easily be documented, Dr Dave Tickner of the WWFN believes that more subtle impacts can be even more devastating. ‘Sediment run-off and fertilizers can be pretty invisible,’ says Tickner. ‘Over-extraction of water is equally invisible. You do get shock stories about rivers running red, or even catching fire, but there’s seldom one big impact that really hurts a wetland.’ Tickner does not blame anyone for deliberate damage, however. ‘I’ve worked on wetland issues for 20 years and have never met anybody who wanted to damage a wetland,’ he says. ‘It isn’t something that people generally set out to do. Quite often, the effects simply come from people trying to make a living.’</p>
+<p><strong>G</strong></p>
+<p>Silvius also acknowledges the importance of income generation. ‘It’s not that we just want to restore the biodiversity of wetlands – which we do – but we recognise there’s a need to provide an income for local people.’ This approach is supported by IWMI. ‘The idea is that people in a developing country will only protect wetlands if they value and profit from them,’ says McCartney. ‘For sustainability, it’s essential that local people are involved in wetland planning and decision making and have clear rights to use wetlands.’</p>
+<p><strong>H</strong></p>
+<p>The fortunes of wetlands would be improved, Silvius suggests, if more governments recognized their long-term value. ‘Different governments have different attitudes,’ he says, and goes on to explain that some countries place a high priority on restoring wetlands, while others still deny the issue. McCartney is cautiously optimistic, however. ‘Awareness of the importance of wetlands is growing,’ he says. ‘It’s true that wetland degradation still continues at a rapid pace, but my impression is that things are slowly changing.’</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><p><strong>Is the era of artificial speech translation upon us?</strong></p>
+<p>Once the stuff of science fiction, technology that enables people to talk using different languages is now here. But how effective is it?</p>
+<p>Noise, Alex Waibel tells me, is one of the major challenges that artificial speech translation has to meet. A device may be able to recognize speech in a laboratory, or a meeting room, but will struggle to cope with the kind of background noise I can hear in my office surrounding Professor Waibel as he speaks to me from Kyoto station in Japan. I’m struggling to follow him in English, on a scratchy line that reminds me we are nearly 10,000 kilometers apart-and that distance is still an obstacle to communication even if you’re speaking the same language, as we are. We haven’t reached the future yet. If we had, Waibel would have been able to speak more comfortably in his native German and I would have been able to hear his words in English.</p>
+<p>At Karlsruhe Institute of Technology, where he is a professor of computer science, Waibel and his colleagues already give lectures in German that their students can follow in English via an electronic translator. The system generates text that students can read on their laptops or phones, so the process is somewhat similar to subtitling. It helps that lecturers speak clearly, don’t have to compete with background chatter, and say much the same thing each year.</p>
+<p>The idea of artificial speech translation has been around for a long time. Douglas Adams’ science fiction novel, The Hitchhiker’s Guide to the Galaxy, published in 1979, featured a life form called the ‘Babel fish’ which, when placed in the ear, enabled a listener to understand any language in the universe. It came to represent one of those devices that technology enthusiasts dream of long before they become practically realizable, like TVs flat enough to hang on walls: objects that we once could only dream of having but that are now commonplace. Now devices that look like prototype Babel fish have started to appear, riding a wave of advances in artificial translation and voice recognition.</p>
+<p>At this stage, however, they seem to be regarded as eye-catching novelties rather than steps towards what Waibel calls ‘making a language-transparent society.’ They tend to be domestic devices or applications suitable for hotel check-ins, for example, providing a practical alternative to speaking traveler’s English. The efficiency of the translator is less important than the social function. However, ‘Professionals are less inclined to be patient in a conversation,’ founder and CEO at Waverly Labs, Andrew Ochoa, observes. To redress this, Waverly is now preparing a new model for professional applications, which entails performance improvements in speech recognition, translation accuracy and the time it takes to deliver the translated speech.</p>
+<p>For a conversation, both speakers need to have devices called Pilots (translator earpieces) in their ears. ‘We find that there’s a barrier with sharing one of the earphones with a stranger,’ says Ochoa. That can’t have been totally unexpected. The problem would be solved if earpiece translators became sufficiently prevalent that strangers would be likely to already have their own in their ears. Whether that happens, and how quickly, will probably depend not so much on the earpieces themselves, but on the prevalence of voice-controlled devices and artificial translation in general.</p>
+<p>Waibel highlights the significance of certain Asian nations, noting that voice translation has really taken off in countries such as Japan with a range of systems. There is still a long way to go, though. A translation system needs to be simultaneous, like the translator’s voice speaking over the foreign politician being interviewed on the TV, rather than in sections that oblige speakers to pause after every few remarks and wait for the translation to be delivered. It needs to work offline, for situations where internet access isn’t possible, and to address apprehensions about the amount of private speech data accumulating in the cloud, having been sent to servers for processing.</p>
+<p>Systems not only need to cope with physical challenges such as noise, they will also need to be socially aware by addressing people in the right way. Some cultural traditions demand solemn respect for academic status, for example, and it is only polite to respect this. Etiquette-sensitive artificial translators could relieve people of the need to know these differing cultural norms. At the same time, they might help to preserve local customs, slowing the spread of habits associated with international English, such as its readiness to get on first-name terms.</p>
+<p>Professors and other professionals will not outsource language awareness to software, though. If the technology matures into seamless, ubiquitous artificial speech translation, it will actually add value to language skills. Whether it will help people conduct their family lives or relationships is open to question-though one noteworthy possibility is that it could overcome the language barriers that often arise between generations after migration, leaving children and their grandparents without a shared language.</p>
+<p>Whatever uses it is put to, though, it will never be as good as the real thing. Even if voice-morphing technology simulates the speaker’s voice, their lip movements won’t match, and they will look like they are in a dubbed movie. The contrast will underline the value of shared languages, and the value of learning them. Sharing a language can promote a sense of belonging and community, as with the international scientists who use English as a lingua franca, where their predecessors used Latin. Though the practical need for a common language will diminish, the social value of sharing one will persist. And software will never be a substitute for the subtle but vital understanding that comes with knowledge of a language.</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-7</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in Reading Passage?<br>
+<em>In boxes on your answer sheet, write</em></p>
+<p><strong>TRUE</strong>&nbsp;if the statement agrees with the information<br>
+<strong>FALSE</strong>&nbsp;if the statement contradicts the information<br>
+<strong>NOT GIVEN</strong>&nbsp;if there is no information on this</p>
+                                        </div><section class="q-card" data-q-key="1"><span class="q-chip" data-qn="1" data-q-chip="1">1</span><div class="q-label"><span> <span>Archaeological research had taken place on the island of Obi before the arrival of Ceri Shipton and his colleagues.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_1" value="TRUE" id="ielts_reading_answer_147518_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_1" value="FALSE" id="ielts_reading_answer_147518_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_1" value="NOT GIVEN" id="ielts_reading_answer_147518_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="2"><span class="q-chip" data-qn="2" data-q-chip="2">2</span><div class="q-label"><span> <span>At the Kelo sites, the researchers found the first clam shell axes ever to be discovered in the region.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_2" value="TRUE" id="ielts_reading_answer_147518_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_2" value="FALSE" id="ielts_reading_answer_147518_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_2" value="NOT GIVEN" id="ielts_reading_answer_147518_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="3"><span class="q-chip" data-qn="3" data-q-chip="3">3</span><div class="q-label"><span> <span>The size of Obi today is less than it was 18,000 years ago.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_3" value="TRUE" id="ielts_reading_answer_147518_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_3" value="FALSE" id="ielts_reading_answer_147518_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_3" value="NOT GIVEN" id="ielts_reading_answer_147518_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="4"><span class="q-chip" data-qn="4" data-q-chip="4">4</span><div class="q-label"><span> <span>A change in the climate around 11,700 years ago had a greater impact on Obi than on the surrounding islands.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_4" value="TRUE" id="ielts_reading_answer_147518_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_4" value="FALSE" id="ielts_reading_answer_147518_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_4" value="NOT GIVEN" id="ielts_reading_answer_147518_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="5"><span class="q-chip" data-qn="5" data-q-chip="5">5</span><div class="q-label"><span> <span>The researchers believe there is a connection between warmer, wetter weather and a change in the material used to make axes.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_5" value="TRUE" id="ielts_reading_answer_147518_5_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_5" value="FALSE" id="ielts_reading_answer_147518_5_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_5" value="NOT GIVEN" id="ielts_reading_answer_147518_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="6"><span class="q-chip" data-qn="6" data-q-chip="6">6</span><div class="q-label"><span> <span>Shipton's team were surprised to find evidence of the Obi islanders’ hunting practices.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_6" value="TRUE" id="ielts_reading_answer_147518_6_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_6" value="FALSE" id="ielts_reading_answer_147518_6_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_6" value="NOT GIVEN" id="ielts_reading_answer_147518_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="7"><span class="q-chip" data-qn="7" data-q-chip="7">7</span><div class="q-label"><span> <span>It is thought that the Kelo shelters were occupied continuously until about 1,000 years ago.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_7" value="TRUE" id="ielts_reading_answer_147518_7_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_7" value="FALSE" id="ielts_reading_answer_147518_7_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_147518_7" value="NOT GIVEN" id="ielts_reading_answer_147518_7_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 8-13</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the notes below.<br>
+Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.<br>
+Write your answers in boxes on your answer sheet.</em><p></p>
+<p style="text-align: center"><strong>Archaeological findings on Obi</strong></p>
+<p>Excavations of rock shelters inside <span class="lab-inline-item" data-q-key="8"><span class="lab-inline-num" data-qn="8">8</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_147527_1" id="ielts_reading_answer_147527_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> near the village of Kelo revealed:</p>
+<p>– axes from around 14,000 years ago, probably used to make canoes</p>
+<p>– axes made out of <span class="lab-inline-item" data-q-key="9"><span class="lab-inline-num" data-qn="9">9</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_147527_2" id="ielts_reading_answer_147527_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>, dating from around 11,700 years ago</p>
+<p>– &nbsp;<span class="lab-inline-item" data-q-key="10"><span class="lab-inline-num" data-qn="10">10</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_147527_3" id="ielts_reading_answer_147527_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> of an animal: evidence of what ancient islanders ate</p>
+<p>– evidence of travel between islands:</p>
+<p>+ obsidian: a material that is not found naturally on Obi</p>
+<p>+ <span class="lab-inline-item" data-q-key="11"><span class="lab-inline-num" data-qn="11">11</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_147527_4" id="ielts_reading_answer_147527_4" autocomplete="off"><span class="lab-feedback-slot"></span></span> which resembled ones found on other islands.</p>
+<p>It is thought that from 8,000 years ago, Obi islanders:</p>
+<p>– may have switched from hunting to fishing</p>
+<p>– had <span class="lab-inline-item" data-q-key="12"><span class="lab-inline-num" data-qn="12">12</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_147527_5" id="ielts_reading_answer_147527_5" autocomplete="off"><span class="lab-feedback-slot"></span></span> as well as items made out of metal</p>
+<p>– probably took part in the production and sale of <span class="lab-inline-item" data-q-key="13"><span class="lab-inline-num" data-qn="13">13</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_147527_6" id="ielts_reading_answer_147527_6" autocomplete="off"><span class="lab-feedback-slot"></span></span></p></div>
+                                        </div></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-17</div><div class="section-copy">
+                                            <p>Which paragraph contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-H</strong>, in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>reference to the need to ensure that inhabitants of wetland regions continue to benefit from them</span></span></div><select class="q-select" name="ielts_reading_answer_148112_1" id="ielts_reading_answer_148112_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>the proportion of wetlands which have already been lost</span></span></div><select class="q-select" name="ielts_reading_answer_148112_2" id="ielts_reading_answer_148112_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>reference to the idea that people are beginning to appreciate the value of wetlands</span></span></div><select class="q-select" name="ielts_reading_answer_148112_3" id="ielts_reading_answer_148112_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>mention of the cultural significance of wetlands</span></span></div><select class="q-select" name="ielts_reading_answer_148112_4" id="ielts_reading_answer_148112_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 18-22</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the sentences below.<br>
+Choose ONE WORD ONLY from the passage for each answer.<br>
+Write your answers in boxes on your answer sheet.<p></p>
+<ul>
+<li>Peatlands which have been drained begin to release <span class="lab-inline-item" data-q-key="18"><span class="lab-inline-num" data-qn="18">18</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_148119_1" id="ielts_reading_answer_148119_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> instead of storing it.</li>
+<li>Once peatland areas have been cleared, <span class="lab-inline-item" data-q-key="19"><span class="lab-inline-num" data-qn="19">19</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_148119_2" id="ielts_reading_answer_148119_2" autocomplete="off"><span class="lab-feedback-slot"></span></span> are more likely to occur.</li>
+<li>Clearing peatland forests to make way for oil palm plantations destroys the <span class="lab-inline-item" data-q-key="20"><span class="lab-inline-num" data-qn="20">20</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_148119_3" id="ielts_reading_answer_148119_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> of the local environment.</li>
+<li>Water is drained out of peatlands through the <span class="lab-inline-item" data-q-key="21"><span class="lab-inline-num" data-qn="21">21</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_148119_4" id="ielts_reading_answer_148119_4" autocomplete="off"><span class="lab-feedback-slot"></span></span> which are created by logging companies.</li>
+<li>Draining peatlands leads to <span class="lab-inline-item" data-q-key="22"><span class="lab-inline-num" data-qn="22">22</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_148119_5" id="ielts_reading_answer_148119_5" autocomplete="off"><span class="lab-feedback-slot"></span></span> : a serious problem which can eventually result in coastal flooding and land loss.</li>
+</ul>
+</div>
+                                        </div><div class="section-heading">Questions 23-26</div><div class="section-copy">
+                                            <p>Look at the following statements and the list of experts below.<br>
+Match each statement with the correct expert, A-D.<br>
+Write the correct letter, A-D, in boxes on your answer sheet.</p>
+<p dir="ltr"><strong>List of Experts</strong></p>
+<p dir="ltr">A Matthew McCartney</p>
+<p dir="ltr">B Pieter van Eijk</p>
+<p dir="ltr">C Marcel Silvius</p>
+<p dir="ltr">D Dave Tickner</p>
+                                        </div><section class="q-card" data-q-key="23"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><div class="q-label"><span> <span>Communities living in wetland regions must be included in discussions about the future of these areas</span></span></div><select class="q-select" name="ielts_reading_answer_148124_1" id="ielts_reading_answer_148124_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="24"><span class="q-chip" data-qn="24" data-q-chip="24">24</span><div class="q-label"><span> <span>Official policies towards wetlands vary from one nation to the next</span></span></div><select class="q-select" name="ielts_reading_answer_148124_2" id="ielts_reading_answer_148124_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="25"><span class="q-chip" data-qn="25" data-q-chip="25">25</span><div class="q-label"><span> <span>People cause harm to wetlands without having any intention to do so&nbsp;</span></span></div><select class="q-select" name="ielts_reading_answer_148124_3" id="ielts_reading_answer_148124_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="26"><span class="q-chip" data-qn="26" data-q-chip="26">26</span><div class="q-label"><span> <span>Initiatives to reverse environmental damage need not be complex.</span></span></div><select class="q-select" name="ielts_reading_answer_148124_4" id="ielts_reading_answer_148124_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-30</div><div class="section-copy">
+                                            <p>Choose the correct letter, A, B, C or D.<br>
+Write the correct letter in boxes on your answer sheet.</p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>What does the reader learn about the conversation in the first paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_1" value="A" id="ielts_reading_answer_148133_1_0-0"><span class="option-letter">A</span><span>The speakers are communicating in different languages.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_1" value="B" id="ielts_reading_answer_148133_1_0-1"><span class="option-letter">B</span><span>Neither of the speakers is familiar with their environment.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_1" value="C" id="ielts_reading_answer_148133_1_0-2"><span class="option-letter">C</span><span>The topic of the conversation is difficult for both speakers.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_1" value="D" id="ielts_reading_answer_148133_1_0-3"><span class="option-letter">D</span><span>Aspects of the conversation are challenging for both speakers.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>What assists the electronic translator during lectures at Karlsruhe Institute of Technology?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_2" value="A" id="ielts_reading_answer_148133_2_0-0"><span class="option-letter">A</span><span>the repeated content of lectures</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_2" value="B" id="ielts_reading_answer_148133_2_0-1"><span class="option-letter">B</span><span>the students’ reading skills</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_2" value="C" id="ielts_reading_answer_148133_2_0-2"><span class="option-letter">C</span><span>the languages used</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_2" value="D" id="ielts_reading_answer_148133_2_0-3"><span class="option-letter">D</span><span>the lecturers’ technical ability</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>When referring to The Hitchhiker's Guide to the Galaxy, the writer suggests that</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_3" value="A" id="ielts_reading_answer_148133_3_0-0"><span class="option-letter">A</span><span>the Babel fish was considered undesirable at the time.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_3" value="B" id="ielts_reading_answer_148133_3_0-1"><span class="option-letter">B</span><span>this book was not seriously intending to predict the future.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_3" value="C" id="ielts_reading_answer_148133_3_0-2"><span class="option-letter">C</span><span>artificial speech translation was not a surprising development.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_3" value="D" id="ielts_reading_answer_148133_3_0-3"><span class="option-letter">D</span><span>some speech translation techniques are better than others.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>What does the writer say about sharing earpieces?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_4" value="A" id="ielts_reading_answer_148133_4_0-0"><span class="option-letter">A</span><span>It is something people will get used to doing.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_4" value="B" id="ielts_reading_answer_148133_4_0-1"><span class="option-letter">B</span><span>The reluctance to do this is understandable.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_4" value="C" id="ielts_reading_answer_148133_4_0-2"><span class="option-letter">C</span><span>The equipment will be unnecessary in the future.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148133_4" value="D" id="ielts_reading_answer_148133_4_0-3"><span class="option-letter">D</span><span>It is something few people need to worry about.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 31-34</div><div class="section-copy">
+                                            <p><i>Complete each sentence with the correct ending,&nbsp;<b>A-F</b>, below.<br>
+Write the correct letter,&nbsp;<b>A-F</b>, in boxes on your answer sheet.</i></p>
+<p><strong>A.</strong> but there are concerns about this</p>
+<p><strong>B.</strong> as systems do not need to conform to standard practices.</p>
+<p><strong>C.</strong> but they are far from perfect.</p>
+<p><strong>D.</strong> despite the noise issues</p>
+<p><strong>E.</strong> because translation is immediate.</p>
+<p><strong>F.</strong> and have an awareness of good manners.</p>
+                                        </div><section class="q-card" data-q-key="31"><span class="q-chip" data-qn="31" data-q-chip="31">31</span><div class="q-label"><span> <div>Speech translation methods are developing fast in Japan</div></span></div><select class="q-select" name="ielts_reading_answer_148140_1" id="ielts_reading_answer_148140_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="32"><span class="q-chip" data-qn="32" data-q-chip="32">32</span><div class="q-label"><span> <span>TV interviews that use translation voiceover methods are successful</span></span></div><select class="q-select" name="ielts_reading_answer_148140_2" id="ielts_reading_answer_148140_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="33"><span class="q-chip" data-qn="33" data-q-chip="33">33</span><div class="q-label"><span> <span>Future translation systems should address people appropriately</span></span></div><select class="q-select" name="ielts_reading_answer_148140_3" id="ielts_reading_answer_148140_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="34"><span class="q-chip" data-qn="34" data-q-chip="34">34</span><div class="q-label"><span> <span>Users may be able to maintain their local customs</span></span></div><select class="q-select" name="ielts_reading_answer_148140_4" id="ielts_reading_answer_148140_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 35-40</div><div class="section-copy">
+                                            <p>Do the following statements agree with the views of the writer in Reading Passage?<br>
+<i>In boxes on your answer sheet, write</i><br>
+<b>YES</b>&nbsp;if the statement agrees with the views of the writer<br>
+<b>NO</b>&nbsp;if the statement contradicts the views of the writer<br>
+<b>NOT GIVEN</b>&nbsp;if it is impossible to say what the writer thinks about this</p>
+                                        </div><section class="q-card" data-q-key="35"><span class="q-chip" data-qn="35" data-q-chip="35">35</span><div class="q-label"><span> <span>&nbsp;Language translation systems will be seen as very useful throughout the academic and professional worlds.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_1" value="YES" id="ielts_reading_answer_148147_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_1" value="NO" id="ielts_reading_answer_148147_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_1" value="NOT GIVEN" id="ielts_reading_answer_148147_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="36"><span class="q-chip" data-qn="36" data-q-chip="36">36</span><div class="q-label"><span> <span>The overall value of automated translation to family life&nbsp;is yet to be shown.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_2" value="YES" id="ielts_reading_answer_148147_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_2" value="NO" id="ielts_reading_answer_148147_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_2" value="NOT GIVEN" id="ielts_reading_answer_148147_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="37"><span class="q-chip" data-qn="37" data-q-chip="37">37</span><div class="q-label"><span> <span>Automated translation could make life more difficult for immigrant families.&nbsp;</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_3" value="YES" id="ielts_reading_answer_148147_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_3" value="NO" id="ielts_reading_answer_148147_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_3" value="NOT GIVEN" id="ielts_reading_answer_148147_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="38"><span class="q-chip" data-qn="38" data-q-chip="38">38</span><div class="q-label"><span> <span>Visual aspects of language translation are being considered by scientists.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_4" value="YES" id="ielts_reading_answer_148147_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_4" value="NO" id="ielts_reading_answer_148147_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_4" value="NOT GIVEN" id="ielts_reading_answer_148147_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="39"><span class="q-chip" data-qn="39" data-q-chip="39">39</span><div class="q-label"><span> <span>International scientists have found English easier to translate into other languages than Latin.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_5" value="YES" id="ielts_reading_answer_148147_5_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_5" value="NO" id="ielts_reading_answer_148147_5_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_5" value="NOT GIVEN" id="ielts_reading_answer_148147_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="40"><span class="q-chip" data-qn="40" data-q-chip="40">40</span><div class="q-label"><span> <span>As far as language is concerned, there is a difference between people’s social and practical needs.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_6" value="YES" id="ielts_reading_answer_148147_6_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_6" value="NO" id="ielts_reading_answer_148147_6_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_148147_6" value="NOT GIVEN" id="ielts_reading_answer_148147_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 19 Academic Reading Test 3","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-3/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_147518_1","promptHtml":"\u003cspan> \u003cspan>Archaeological research had taken place on the island of Obi before the arrival of Ceri Shipton and his colleagues.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_147518_1_0","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_147518_2","promptHtml":"\u003cspan> \u003cspan>At the Kelo sites, the researchers found the first clam shell axes ever to be discovered in the region.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_147518_2_0","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_147518_3","promptHtml":"\u003cspan> \u003cspan>The size of Obi today is less than it was 18,000 years ago.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_147518_3_0","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_147518_4","promptHtml":"\u003cspan> \u003cspan>A change in the climate around 11,700 years ago had a greater impact on Obi than on the surrounding islands.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_147518_4_0","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_147518_5","promptHtml":"\u003cspan> \u003cspan>The researchers believe there is a connection between warmer, wetter weather and a change in the material used to make axes.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_147518_5_0","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_147518_6","promptHtml":"\u003cspan> \u003cspan>Shipton's team were surprised to find evidence of the Obi islanders’ hunting practices.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_147518_6_0","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_147518_7","promptHtml":"\u003cspan> \u003cspan>It is thought that the Kelo shelters were occupied continuously until about 1,000 years ago.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_147518_7_0","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_147527_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_147527_1","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_147527_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_147527_2","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_147527_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_147527_3","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_147527_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_147527_4","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_147527_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_147527_5","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_147527_6","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_147527_6","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148112_1","promptHtml":"\u003cspan> \u003cspan>reference to the need to ensure that inhabitants of wetland regions continue to benefit from them\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_148112_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148112_2","promptHtml":"\u003cspan> \u003cspan>the proportion of wetlands which have already been lost\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_148112_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148112_3","promptHtml":"\u003cspan> \u003cspan>reference to the idea that people are beginning to appreciate the value of wetlands\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_148112_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148112_4","promptHtml":"\u003cspan> \u003cspan>mention of the cultural significance of wetlands\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"}],"sourceAnswerId":"ielts_reading_answer_148112_4","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_148119_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_148119_1","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_148119_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_148119_2","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_148119_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_148119_3","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_148119_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_148119_4","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_148119_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_148119_5","limit":null},"23":{"key":"23","nums":[23],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148124_1","promptHtml":"\u003cspan> \u003cspan>Communities living in wetland regions must be included in discussions about the future of these areas\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_148124_1","limit":null},"24":{"key":"24","nums":[24],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148124_2","promptHtml":"\u003cspan> \u003cspan>Official policies towards wetlands vary from one nation to the next\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_148124_2","limit":null},"25":{"key":"25","nums":[25],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148124_3","promptHtml":"\u003cspan> \u003cspan>People cause harm to wetlands without having any intention to do so&nbsp;\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_148124_3","limit":null},"26":{"key":"26","nums":[26],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_148124_4","promptHtml":"\u003cspan> \u003cspan>Initiatives to reverse environmental damage need not be complex.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"}],"sourceAnswerId":"ielts_reading_answer_148124_4","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148133_1","promptHtml":"\u003cspan> \u003cspan>What does the reader learn about the conversation in the first paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"The speakers are communicating in different languages."},{"value":"B","label":"Neither of the speakers is familiar with their environment."},{"value":"C","label":"The topic of the conversation is difficult for both speakers."},{"value":"D","label":"Aspects of the conversation are challenging for both speakers."}],"sourceAnswerId":"ielts_reading_answer_148133_1_0","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148133_2","promptHtml":"\u003cspan> \u003cspan>What assists the electronic translator during lectures at Karlsruhe Institute of Technology?\u003c/span>\u003c/span>","options":[{"value":"A","label":"the repeated content of lectures"},{"value":"B","label":"the students’ reading skills"},{"value":"C","label":"the languages used"},{"value":"D","label":"the lecturers’ technical ability"}],"sourceAnswerId":"ielts_reading_answer_148133_2_0","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148133_3","promptHtml":"\u003cspan> \u003cspan>When referring to The Hitchhiker's Guide to the Galaxy, the writer suggests that\u003c/span>\u003c/span>","options":[{"value":"A","label":"the Babel fish was considered undesirable at the time."},{"value":"B","label":"this book was not seriously intending to predict the future."},{"value":"C","label":"artificial speech translation was not a surprising development."},{"value":"D","label":"some speech translation techniques are better than others."}],"sourceAnswerId":"ielts_reading_answer_148133_3_0","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148133_4","promptHtml":"\u003cspan> \u003cspan>What does the writer say about sharing earpieces?\u003c/span>\u003c/span>","options":[{"value":"A","label":"It is something people will get used to doing."},{"value":"B","label":"The reluctance to do this is understandable."},{"value":"C","label":"The equipment will be unnecessary in the future."},{"value":"D","label":"It is something few people need to worry about."}],"sourceAnswerId":"ielts_reading_answer_148133_4_0","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_148140_1","promptHtml":"\u003cspan> \u003cdiv>Speech translation methods are developing fast in Japan\u003c/div>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_148140_1","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_148140_2","promptHtml":"\u003cspan> \u003cspan>TV interviews that use translation voiceover methods are successful\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_148140_2","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_148140_3","promptHtml":"\u003cspan> \u003cspan>Future translation systems should address people appropriately\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_148140_3","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_148140_4","promptHtml":"\u003cspan> \u003cspan>Users may be able to maintain their local customs\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_148140_4","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148147_1","promptHtml":"\u003cspan> \u003cspan>&nbsp;Language translation systems will be seen as very useful throughout the academic and professional worlds.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_148147_1_0","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148147_2","promptHtml":"\u003cspan> \u003cspan>The overall value of automated translation to family life&nbsp;is yet to be shown.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_148147_2_0","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148147_3","promptHtml":"\u003cspan> \u003cspan>Automated translation could make life more difficult for immigrant families.&nbsp;\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_148147_3_0","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148147_4","promptHtml":"\u003cspan> \u003cspan>Visual aspects of language translation are being considered by scientists.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_148147_4_0","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148147_5","promptHtml":"\u003cspan> \u003cspan>International scientists have found English easier to translate into other languages than Latin.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_148147_5_0","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_148147_6","promptHtml":"\u003cspan> \u003cspan>As far as language is concerned, there is a difference between people’s social and practical needs.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_148147_6_0","limit":null}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23","part":2},"24":{"key":"24","part":2},"25":{"key":"25","part":2},"26":{"key":"26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || "").match(/cambridge_(\d+)_test_(\d+)\.html/i);
+  return match ? "ielts_score_cambridge_" + match[1] + "_reading_test_" + match[2] : "";
+}
+// Firebase initialization for score saving
+let firebaseDatabase = null;
+let firebaseAuth = null;
+let currentUser = null;
+
+async function initFirebaseForScoring() {
+  try {
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js');
+    const { getDatabase } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-database.js');
+    const { getAuth } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js');
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAW3dtKV7EAh3SOK71UIX0yWEonuBZ_T5A",
+      authDomain: "ieltslab-e049d.firebaseapp.com",
+      projectId: "ieltslab-e049d",
+      storageBucket: "ieltslab-e049d.firebasestorage.app",
+      messagingSenderId: "674420790977",
+      appId: "1:674420790977:web:89c5fdf8ea8e0c4b5b2640",
+      measurementId: "G-GYZ39NHTGH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    firebaseDatabase = getDatabase(app);
+    firebaseAuth = getAuth(app);
+    
+    // Get current user
+    if (firebaseAuth.currentUser) {
+      currentUser = firebaseAuth.currentUser;
+    }
+  } catch (e) {
+    console.log('Firebase init for scoring skipped:', e.message);
+  }
+}
+
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFirebaseForScoring();
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString("en-GB")
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

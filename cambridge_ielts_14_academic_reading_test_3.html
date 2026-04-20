@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 14 Academic Reading Test 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 14 Academic Reading Test 3</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2 id="the-concept-of-intelligence"><strong>The concept of intelligence</strong></h2>
+<p><strong>A</strong></p>
+<p>Looked at in one way, everyone knows what intelligence is; looked at in another way, no one does. In other words, people all have unconscious notions – known as ‘implicit theories’ – of intelligence, but no one knows for certain what it actually is. This chapter addresses how people conceptualize intelligence, whatever it may actually be.</p>
+<p>But why should we even care what people think intelligence is, as opposed only to valuing whatever it actually is? There are at least four reasons people’s conceptions of intelligence matter.</p>
+<p><strong>B</strong></p>
+<p>First, implicit theories of intelligence drive the way in which people perceive and evaluate their own intelligence and that of others. To better understand the judgments people make about their own and others’ abilities, it is useful to learn about people’s implicit theories. For example, parents’ implicit theories of their children’s language development will determine at what ages they will be willing to make various corrections in their children’s speech. More generally, parents’ implicit theories of intelligence will determine at what ages they believe their children are ready to perform various cognitive tasks. Job interviewers will make hiring decisions on the basis of their implicit theories of intelligence. People will decide who to be friends with on the basis of such theories. In sum, knowledge about implicit theories of intelligence is important because this knowledge is so often used by people to make judgments in the course of their everyday lives.</p>
+<p><strong>C</strong></p>
+<p>Second, the implicit theories of scientific investigators ultimately give rise to their explicit theories. Thus it is useful to find out what these implicit theories are. Implicit theories provide a framework that is useful in defining the general scope of a phenomenon – especially a not-well-understood phenomenon. These implicit theories can suggest what aspects of the phenomenon have been more or less attended to in previous investigations.</p>
+<p><strong>D</strong></p>
+<p>Third, implicit theories can be useful when an investigator suspects that existing explicit theories are wrong or misleading. If an investigation of implicit theories reveals little correspondence between the extant implicit and explicit theories, the implicit theories may be wrong. But the possibility also needs to be taken into account that the explicit theories are wrong and in need of correction or supplementation. For example, some implicit theories of intelligence suggest the need for expansion of some of our explicit theories of the construct.</p>
+<p><strong>E</strong></p>
+<p>Finally, understanding implicit theories of intelligence can help elucidate developmental and cross-cultural differences. As mentioned earlier, people have expectations for intellectual performances that differ for children of different ages. How these expectations differ is in part a function of culture. For example, expectations for children who participate in Western-style schooling are almost certain to be different from those for children who do not participate in such schooling.</p>
+<p><strong>F</strong></p>
+<p>I have suggested that there are three major implicit theories of how intelligence relates to society as a whole (Sternberg, 1997). These might be called Hamiltonian, Jeffersonian, and Jacksonian. These views are not based strictly, but rather, loosely, on the philosophies of Alexander Hamilton, Thomas Jefferson, and Andrew Jackson, three great statesmen in the history of the United States.</p>
+<p><strong>G</strong></p>
+<p>The Hamiltonian view, which is similar to the Platonic view, is that people are born with different levels of intelligence and that those who are less intelligent need the good offices of the more intelligent to keep them in line, whether they are called government officials or, in Plato’s term, philosopher-kings. Herrnstein and Murray (1994) seem to have shared this belief when they wrote about the emergence of a cognitive (high-IQ) elite, which eventually would have to take responsibility for the largely irresponsible masses of non-elite (low-IQ) people who cannot take care of themselves. Left to themselves, the unintelligent would create, as they always have created, a kind of chaos.</p>
+<p><strong>H</strong></p>
+<p>The Jeffersonian view is that people should have equal opportunities, but they do not necessarily avail themselves equally of these opportunities and are not necessarily equally rewarded for their accomplishments. People are rewarded for what they accomplish, if given equal opportunity. Low achievers are not rewarded to the same extent as high achievers. In the Jeffersonian view, the goal of education is not to favor or foster an elite, as in the Hamiltonian tradition, but rather to allow children the opportunities to make full use of the skills they have. My own views are similar to these (Sternberg, 1997).</p>
+<p><strong>I</strong></p>
+<p>The Jacksonian view is that all people are equal, not only as human beings but in terms of their competencies – that one person would serve as well as another in government or on a jury or in almost any position of responsibility. In this view of democracy, people are essentially intersubstitutable except for specialized skills, all of which can be learned. In this view, we do not need or want any institutions that might lead to favoring one group over another.</p>
+<p><strong>J</strong></p>
+<p>Implicit theories of intelligence and of the relationship of intelligence to society perhaps need to be considered more carefully than they have been because they often serve as underlying presuppositions for explicit theories and even experimental designs that are then taken as scientific contributions. Until scholars are able to discuss their implicit theories and thus their assumptions, they are likely to miss the point of what others are saying when discussing their explicit theories and their data.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2 id="saving-bugs-to-find-new-drugs"><strong>Saving bugs to find new drugs</strong></h2>
+<p><em>Zoologist Ross Piper looks at the potential of insects in pharmaceutical research</em></p>
+<p><strong>A</strong></p>
+<p>More drugs than you might think are derived from, or inspired by, compounds found in living things. Looking to nature for the soothing and curing of our ailments is nothing new – we have been doing it for tens of thousands of years. You only have to look at other primates – such as the capuchin monkeys who rub themselves with toxin-oozing millipedes to deter mosquitoes, or the chimpanzees who use noxious forest plants to rid themselves of intestinal parasites – to realise that our ancient ancestors too probably had a basic grasp of medicine.</p>
+<p><strong>B</strong></p>
+<p>Pharmaceutical science and chemistry built on these ancient foundations and perfected the extraction, characterization, modification and testing of these natural products. Then, for a while, modern pharmaceutical science moved its focus away from nature and into the laboratory, designing chemical compounds from scratch. The main cause of this shift is that although there are plenty of promising chemical compounds in nature, finding them is far from easy. Securing sufficient numbers of the organism in question, isolating and characterizing the compounds of interest, and producing large quantities of these compounds are all significant hurdles.</p>
+<p><strong>C</strong></p>
+<p>Laboratory-based drug discovery has achieved varying levels of success, something which has now prompted the development of new approaches focusing once again on natural products. With the ability to mine genomes for useful compounds, it is now evident that we have barely scratched the surface of nature’s molecular diversity. This realization, together with several looming health crises, such as antibiotic resistance, has put bioprospecting – the search for useful compounds in nature – firmly back on the map.</p>
+<p><strong>D</strong></p>
+<p>Insects are the undisputed masters of the terrestrial domain, where they occupy every possible niche. Consequently, they have a bewildering array of interactions with other organisms, something which has driven the evolution of an enormous range of very interesting compounds for defensive and offensive purposes. Their remarkable diversity exceeds that of every other group of animals on the planet combined. Yet even though insects are far and away the most diverse animals in existence, their potential as sources of therapeutic compounds is yet to be realised.</p>
+<p><strong>E</strong></p>
+<p>From the tiny proportion of insects that have been investigated, several promising compounds have been identified. For example, alloferon, an antimicrobial compound produced by blow fly larvae, is used as an antiviral and antitumor agent in South Korea and Russia. The larvae of a few other insect species are being investigated for the potent antimicrobial compounds they produce. Meanwhile, a compound from the venom of the wasp <em>Polybia paulista </em>has potential in cancer treatment.</p>
+<p><strong>F</strong></p>
+<p>Why is it that insects have received relatively little attention in bioprospecting? Firstly, there are so many insects that, without some manner of targeted approach, investigating this huge variety of species is a daunting task. Secondly, insects are generally very small, and the glands inside them that secrete potentially useful compounds are smaller still. This can make it difficult to obtain sufficient quantities of the compound for subsequent testing. Thirdly, although we consider insects to be everywhere, the reality of this ubiquity is vast numbers of a few extremely common species. Many insect species are infrequently encountered and very difficult to rear in captivity, which, again, can leave us with insufficient material to work with.</p>
+<p><strong>G</strong></p>
+<p>My colleagues and I at Aberystwyth University in the UK have developed an approach in which we use our knowledge of ecology as a guide to target our efforts. The creatures that particularly interest us are the many insects that secrete powerful poison for subduing prey and keeping it fresh for future consumption. There are even more insects that are masters of exploiting filthy habitats, such as faeces and carcasses, where they are regularly challenged by thousands of micro-organisms. These insects have many antimicrobial compounds for dealing with pathogenic bacteria and fungi, suggesting that there is certainly potential to find many compounds that can serve as or inspire new antibiotics.</p>
+<p><strong>H</strong></p>
+<p>Although natural history knowledge points us in the right direction, it doesn’t solve the problems associated with obtaining useful compounds from insects. Fortunately, it is now possible to snip out the stretches of the insect’s DNA that carry the codes for the interesting compounds and insert them into cell lines that allow larger quantities to be produced. And although the road from isolating and characterizing compounds with desirable qualities to developing a commercial product is very long and full of pitfalls, the variety of successful animal-derived pharmaceuticals on the market demonstrates there is a precedent here that is worth exploring.</p>
+<p><strong>I</strong></p>
+<p>With every bit of wilderness that disappears, we deprive ourselves of potential medicines. As much as I’d love to help develop a groundbreaking insect-derived medicine, my main motivation for looking at insects in this way is conservation. I sincerely believe that all species, however small and seemingly insignificant, have a right to exist for their own sake. If we can shine a light on the darker recesses of nature’s medicine cabinet, exploring the useful chemistry of the most diverse animals on the planet, I believe we can make people think differently about the value of nature.</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2 id="the-power-of-play"><strong>The power of play</strong></h2>
+<p>Virtually every child, the world over, plays. The drive to play is so intense that children will do so in any circumstances, for instance when they have no real toys, or when parents do not actively encourage the behavior. In the eyes of a young child, running, pretending, and building are fun. Researchers and educators know that these playful activities benefit the development of the whole child across social, cognitive, physical, and emotional domains. Indeed, play is such an instrumental component to healthy child development that the United Nation High Commission on Human Rights (1989) recognized play as a fundamental right of every child.</p>
+<p>Yet, while experts continue to expound a powerful argument for the importance of play in children’s lives, the actual time children spend playing continues to decrease. Today, children play eight hours less each week than their counterparts did two decades ago (Elkind 2008). Under pressure of rising academic standards, play is being replaced by test preparation in kindergartens and grade schools, and parents who aim to give their preschoolers a leg up are led to believe that flashcards and educational ‘toys’ are the path to success. Our society has created a false dichotomy between play and learning.</p>
+<p>Through play, children learn to regulate their behavior, lay the foundations for later learning in science and mathematics, figure out the complex negotiations of social relationships, build a repertoire of creative problem-solving skills, and so much more. There is also an important role for adults in guiding children through playful learning opportunities.</p>
+<p>Full consensus on a formal definition of play continues to elude the researchers and theorists who study it. Definitions range from discrete descriptions of various types of play such as physical, construction, language, or symbolic play (Miler &amp; Almon 2009), to lists of broad criteria, based on observations and attitudes, that are meant to capture the essence of all play behaviors (e.g. Rubin et al. 1983).</p>
+<p>A majority of the contemporary definitions of play focus on several key criteria. The founder of the National Institute for Play, Stuart Brown, has described play as ‘anything that spontaneously is done for its own sake’. More specifically, he says it ‘appears purposeless, produces pleasure and joy, [and] leads one to the next stage of mastery’ (as quoted in Tippett 2008). Similarly, Miller and Almon (2009) say that play includes ‘activities that are freely chosen and directed by children and arise from intrinsic motivation’. Often, play is defined along a continuum as more or less playful using the following set of behavioral and dispositional criteria (e.g. Rubin et al. 1983).</p>
+<p>Play is pleasurable: Children must enjoy the activity or it is not play. It is intrinsically motivated: Children engage in play simply for the satisfaction the behavior itself brings. It has no extrinsically motivated function or goal. Play is process oriented: When children play, the means are more important than the ends. It is freely chosen, spontaneous and voluntary. If a child is pressured, they will likely not think of the activity as play. Play is actively engaged: Players must be physically and/or mentally involved in the activity. Play is non-literal. It involves make-believe.</p>
+<p>According to this view, children’s playful behaviors can range in degree from 0% to 100% playful. Rubin and colleagues did not assign greater weight to any one dimension in determining playfulness; however, other researchers have suggested that process orientation and a lack of obvious functional purpose may be the most important aspects of play (e.g. Pellegrini 2009).</p>
+<p>From the perspective of a continuum, play can thus blend with other motives and attitudes that are less playful, such as work. Unlike play, work is typically not viewed as enjoyable and it is extrinsically motivated (i.e. it is goal oriented). Researcher Joan Goodman (1994) suggested that hybrid forms of work and play are not a detriment to learning; rather, they can provide optimal contexts for learning. For example, a child may be engaged in a difficult, goal-directed activity set up by their teacher, but they may still be actively engaged and intrinsically motivated. At this mid-point between play and work, the child’s motivation, coupled with guidance from an adult, can create robust opportunities for playful learning.</p>
+<p>Critically, recent research supports the idea that adults can facilitate children’s learning while maintaining a playful approach in interactions known as ‘guided play’ (Fisher et al. 2011). The adult’s role in play varies as a function of their educational goals and the child’s developmental level (Hirsch-Pasek et al. 2009).</p>
+<p>Guided play takes two forms. At a very basic level, adults can enrich the child’s environment by providing objects or experiences that promote aspects of a curriculum. In the more direct form of guided play, parents or other adults can support children’s play by joining in the fun as a co-player, raising thoughtful questions, commenting on children’s discoveries, or encouraging further exploration or new facets to the child’s activity. Although playful learning can be somewhat structured, it must also be child-centered (Nicolopolou et al. 2006). Play should stem from the child’s own desire.</p>
+<p>Both free and guided play are essential elements in a child-centered approach to playful learning. Intrinsically motivated free play provides the child with true autonomy, while guided play is an avenue through which parents and educators can provide more targeted learning experiences. In either case, play should be actively engaged, it should be predominantly child-directed, and it must be fun.</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-3</div><div class="section-copy">
+                                            <p>The Reading Passage has ten sections, <strong>A-J</strong></p>
+<p>Which section contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-J</strong>, in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="1"><span class="q-chip" data-qn="1" data-q-chip="1">1</span><div class="q-label"><span> <span>information about how non-scientists’ assumptions about intelligence influence their behavior towards others</span></span></div><select class="q-select" name="ielts_reading_answer_9341_1" id="ielts_reading_answer_9341_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="2"><span class="q-chip" data-qn="2" data-q-chip="2">2</span><div class="q-label"><span> <span>a reference to lack of clarity over the definition of intelligence</span></span></div><select class="q-select" name="ielts_reading_answer_9341_2" id="ielts_reading_answer_9341_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="3"><span class="q-chip" data-qn="3" data-q-chip="3">3</span><div class="q-label"><span> <span>the point that a researcher’s implicit and explicit theories may be very different</span></span></div><select class="q-select" name="ielts_reading_answer_9341_3" id="ielts_reading_answer_9341_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 4-6</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in the Reading Passage?</p>
+<p>In boxes on your answer sheet, write</p>
+<p><strong>YES</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the claims of the writer</p>
+<p><strong>NO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the claims of the writer</p>
+<p><strong>NOT GIVEN</strong>&nbsp; &nbsp; if it is impossible to say what the writer thinks about this</p>
+                                        </div><section class="q-card" data-q-key="4"><span class="q-chip" data-qn="4" data-q-chip="4">4</span><div class="q-label"><span> <span>Slow language development in children is likely to prove disappointing to their parents.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_1" value="YES" id="ielts_reading_answer_9344_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_1" value="NO" id="ielts_reading_answer_9344_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_1" value="NOT GIVEN" id="ielts_reading_answer_9344_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="5"><span class="q-chip" data-qn="5" data-q-chip="5">5</span><div class="q-label"><span> <span>People’s expectations of what children should gain from education are universal.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_2" value="YES" id="ielts_reading_answer_9344_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_2" value="NO" id="ielts_reading_answer_9344_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_2" value="NOT GIVEN" id="ielts_reading_answer_9344_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="6"><span class="q-chip" data-qn="6" data-q-chip="6">6</span><div class="q-label"><span> <span>Scholars may discuss theories without fully understanding each other.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_3" value="YES" id="ielts_reading_answer_9344_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_3" value="NO" id="ielts_reading_answer_9344_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9344_3" value="NOT GIVEN" id="ielts_reading_answer_9344_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 7-13</div><div class="section-copy">
+                                            <p>Look at the following statements and the list of theories below.</p>
+<p>Match each statement with the correct theory,&nbsp;<strong>A</strong>,<strong>&nbsp;B</strong>&nbsp;or&nbsp;<strong>C</strong>.</p>
+<p>Write the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>&nbsp;or&nbsp;<strong>C</strong>, in boxes on your answer sheet.</p>
+<p>NB&nbsp; You may use any letter more than once.</p>
+<p><strong>List of Theories</strong></p>
+<p><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp; Hamiltonian<br>
+<strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp; Jeffersonian<br>
+<strong>C</strong>&nbsp;&nbsp;&nbsp;&nbsp; Jacksonian</p>
+<p>&nbsp;</p>
+                                        </div><section class="q-card" data-q-key="7"><span class="q-chip" data-qn="7" data-q-chip="7">7</span><div class="q-label"><span> <span>It is desirable for the same possibilities to be open to everyone.</span></span></div><select class="q-select" name="ielts_reading_answer_9346_1" id="ielts_reading_answer_9346_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="8"><span class="q-chip" data-qn="8" data-q-chip="8">8</span><div class="q-label"><span> <span>No section of society should have preferential treatment at the expense of another.</span></span></div><select class="q-select" name="ielts_reading_answer_9346_2" id="ielts_reading_answer_9346_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="9"><span class="q-chip" data-qn="9" data-q-chip="9">9</span><div class="q-label"><span> <span>People should only gain benefits on the basis of what they actually achieve.</span></span></div><select class="q-select" name="ielts_reading_answer_9346_3" id="ielts_reading_answer_9346_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="10"><span class="q-chip" data-qn="10" data-q-chip="10">10</span><div class="q-label"><span> <span>Variation in intelligence begins at birth.</span></span></div><select class="q-select" name="ielts_reading_answer_9346_4" id="ielts_reading_answer_9346_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="11"><span class="q-chip" data-qn="11" data-q-chip="11">11</span><div class="q-label"><span> <span>The more intelligent people should be in positions of power.</span></span></div><select class="q-select" name="ielts_reading_answer_9346_5" id="ielts_reading_answer_9346_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="12"><span class="q-chip" data-qn="12" data-q-chip="12">12</span><div class="q-label"><span> <span>Everyone can develop the same abilities.</span></span></div><select class="q-select" name="ielts_reading_answer_9346_6" id="ielts_reading_answer_9346_6"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="13"><span class="q-chip" data-qn="13" data-q-chip="13">13</span><div class="q-label"><span> <span>People of low intelligence are likely to lead uncontrolled lives.</span></span></div><select class="q-select" name="ielts_reading_answer_9346_7" id="ielts_reading_answer_9346_7"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-20</div><div class="section-copy">
+                                            <p>The Reading Passage has nine paragraphs, <strong>A-I</strong></p>
+<p>Which paragraph contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-I</strong>, in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>mention of factors driving a renewed interest in natural medicinal compounds.</span></span></div><select class="q-select" name="ielts_reading_answer_9349_1" id="ielts_reading_answer_9349_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>how recent technological advances have made insect research easier</span></span></div><select class="q-select" name="ielts_reading_answer_9349_2" id="ielts_reading_answer_9349_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>examples of animals which use medicinal substances from nature</span></span></div><select class="q-select" name="ielts_reading_answer_9349_3" id="ielts_reading_answer_9349_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>reasons why it is challenging to use insects in drug research</span></span></div><select class="q-select" name="ielts_reading_answer_9349_4" id="ielts_reading_answer_9349_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="18"><span class="q-chip" data-qn="18" data-q-chip="18">18</span><div class="q-label"><span> <span>reference to how interest in drug research may benefit wildlife</span></span></div><select class="q-select" name="ielts_reading_answer_9349_5" id="ielts_reading_answer_9349_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="19"><span class="q-chip" data-qn="19" data-q-chip="19">19</span><div class="q-label"><span> <span>a reason why nature-based medicines fell out of favour for a period</span></span></div><select class="q-select" name="ielts_reading_answer_9349_6" id="ielts_reading_answer_9349_6"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="20"><span class="q-chip" data-qn="20" data-q-chip="20">20</span><div class="q-label"><span> <span>an example of an insect-derived medicine in use at the moment</span></span></div><select class="q-select" name="ielts_reading_answer_9349_7" id="ielts_reading_answer_9349_7"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 21-22</div><div class="section-copy">
+                                            <p>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,<strong>&nbsp;A-E</strong></p>
+<p><em>Write the correct letters in boxes<b> </b>on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="21-22"><span class="q-chip" data-qn="21" data-q-chip="21">21</span><span class="q-chip" data-qn="22" data-q-chip="22">22</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;of the following make insects interesting for drug research?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9351_2[]" value="A" data-limit="2" id="ielts_reading_answer_9351_2_0-0"><span class="option-letter">A</span><span>the huge number of individual insects in the world</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9351_2[]" value="B" data-limit="2" id="ielts_reading_answer_9351_2_0-1"><span class="option-letter">B</span><span>the variety of substances insects have developed to protect themselves</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9351_2[]" value="C" data-limit="2" id="ielts_reading_answer_9351_2_0-2"><span class="option-letter">C</span><span>the potential to extract and make use of insects’ genetic codes</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9351_2[]" value="D" data-limit="2" id="ielts_reading_answer_9351_2_0-3"><span class="option-letter">D</span><span>the similarities between different species of insect</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9351_2[]" value="E" data-limit="2" id="ielts_reading_answer_9351_2_0-4"><span class="option-letter">E</span><span>the manageable size of most insects</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 23-26</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<p></p>
+<p><em>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</em></p>
+<p>Write your answers in boxes on your answer sheet.</p>
+<h3><strong>Research at Aberystwyth University</strong></h3>
+<p>Ross Piper and fellow zoologists at Aberystwyth University are using their expertise in <span class="lab-inline-item" data-q-key="23"><span class="lab-inline-num" data-qn="23">23</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9353_1" id="ielts_reading_answer_9353_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> when undertaking bioprospecting with insects. They are especially interested in the compounds that insects produce to overpower and preserve their <span class="lab-inline-item" data-q-key="24"><span class="lab-inline-num" data-qn="24">24</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9353_2" id="ielts_reading_answer_9353_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>. They are also interested in compounds which insects use to protect themselves from pathogenic bacteria and fungi found in their <span class="lab-inline-item" data-q-key="25"><span class="lab-inline-num" data-qn="25">25</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9353_3" id="ielts_reading_answer_9353_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>. Piper hopes that these substances will be useful in the development of drugs such as <span class="lab-inline-item" data-q-key="26"><span class="lab-inline-num" data-qn="26">26</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9353_4" id="ielts_reading_answer_9353_4" autocomplete="off"><span class="lab-feedback-slot"></span></span></p></div>
+                                        </div></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-31</div><div class="section-copy">
+                                            <p>Look at the following statements and the list of researchers below.</p>
+<p>Match each statement with the correct researcher,&nbsp;<strong>A-G</strong>.</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-G</strong>, in boxes on your answer sheet.</em></p>
+<p><strong>List of Researchers</strong></p>
+<p><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp; Elkind<br>
+<strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp; Miller &amp; Almon<br>
+<strong>C</strong>&nbsp;&nbsp;&nbsp;&nbsp; Rubin et al.<br>
+<strong>D</strong>&nbsp;&nbsp;&nbsp;&nbsp; Stuart Brown<br>
+<strong>E</strong>&nbsp;&nbsp;&nbsp;&nbsp; Pellegrini<br>
+<strong>F</strong>&nbsp;&nbsp;&nbsp;&nbsp; Joan Goodman<br>
+<strong>G</strong>&nbsp;&nbsp;&nbsp;&nbsp; Girsch-Pasek et al.</p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>Play can be divided into a number of separate categories.</span></span></div><select class="q-select" name="ielts_reading_answer_9355_1" id="ielts_reading_answer_9355_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>Adults’ intended goals affect how they play with children.</span></span></div><select class="q-select" name="ielts_reading_answer_9355_2" id="ielts_reading_answer_9355_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>Combining work with play may be the best way for children to learn.</span></span></div><select class="q-select" name="ielts_reading_answer_9355_3" id="ielts_reading_answer_9355_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>Certain elements of play are more significant than others.</span></span></div><select class="q-select" name="ielts_reading_answer_9355_4" id="ielts_reading_answer_9355_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="31"><span class="q-chip" data-qn="31" data-q-chip="31">31</span><div class="q-label"><span> <span>Activities can be classified on a scale of playfulness.</span></span></div><select class="q-select" name="ielts_reading_answer_9355_5" id="ielts_reading_answer_9355_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 32-36</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in the Reading Passage?</p>
+<p>In boxes on your answer sheet, write</p>
+<p><strong>YES</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the claims of the winter</p>
+<p><strong>NO&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the claims of the writer</p>
+<p><strong>NOT GIVEN</strong>&nbsp; &nbsp; if it is impossible to say what the writer thinks about this</p>
+                                        </div><section class="q-card" data-q-key="32"><span class="q-chip" data-qn="32" data-q-chip="32">32</span><div class="q-label"><span> <span>Children need toys in order to play.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_1" value="YES" id="ielts_reading_answer_9357_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_1" value="NO" id="ielts_reading_answer_9357_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_1" value="NOT GIVEN" id="ielts_reading_answer_9357_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="33"><span class="q-chip" data-qn="33" data-q-chip="33">33</span><div class="q-label"><span> <span>It is a mistake to treat play and learning as separate types of activities.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_2" value="YES" id="ielts_reading_answer_9357_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_2" value="NO" id="ielts_reading_answer_9357_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_2" value="NOT GIVEN" id="ielts_reading_answer_9357_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="34"><span class="q-chip" data-qn="34" data-q-chip="34">34</span><div class="q-label"><span> <span>Play helps children to develop their artistic talents.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_3" value="YES" id="ielts_reading_answer_9357_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_3" value="NO" id="ielts_reading_answer_9357_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_3" value="NOT GIVEN" id="ielts_reading_answer_9357_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="35"><span class="q-chip" data-qn="35" data-q-chip="35">35</span><div class="q-label"><span> <span>Researchers have agreed on a definition of play.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_4" value="YES" id="ielts_reading_answer_9357_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_4" value="NO" id="ielts_reading_answer_9357_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_4" value="NOT GIVEN" id="ielts_reading_answer_9357_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="36"><span class="q-chip" data-qn="36" data-q-chip="36">36</span><div class="q-label"><span> <span>Work and play differ in terms of whether or not they have a target.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_5" value="YES" id="ielts_reading_answer_9357_5_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_5" value="NO" id="ielts_reading_answer_9357_5_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9357_5" value="NOT GIVEN" id="ielts_reading_answer_9357_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 37-40</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<p></p>
+<p><em>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</em></p>
+<p>Write your answers in boxes on your answer sheet.</p>
+<h3><strong>Guided play</strong></h3>
+<p>In the simplest form of guided play, an adult contributes to the environment in which the child is playing. Alternatively, an adult can play with a child and develop the play, for instance by <span class="lab-inline-item" data-q-key="37"><span class="lab-inline-num" data-qn="37">37</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9359_1" id="ielts_reading_answer_9359_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> the child to investigate different aspects of their game. Adults can help children to learn through play, and may make the activity rather structured, but it should still be based on the child’s <span class="lab-inline-item" data-q-key="38"><span class="lab-inline-num" data-qn="38">38</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9359_2" id="ielts_reading_answer_9359_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;to play.</p>
+<p>Play without the intervention of adults gives children real <span class="lab-inline-item" data-q-key="39"><span class="lab-inline-num" data-qn="39">39</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9359_3" id="ielts_reading_answer_9359_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>; with adults, play can be <span class="lab-inline-item" data-q-key="40"><span class="lab-inline-num" data-qn="40">40</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9359_4" id="ielts_reading_answer_9359_4" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;at particular goals. However, all forms of play should be an opportunity for children to have fun.</p></div>
+                                        </div></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 14 Academic Reading Test 3","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-14-academic-reading-test-3/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9341_1","promptHtml":"\u003cspan> \u003cspan>information about how non-scientists’ assumptions about intelligence influence their behavior towards others\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9341_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9341_2","promptHtml":"\u003cspan> \u003cspan>a reference to lack of clarity over the definition of intelligence\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9341_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9341_3","promptHtml":"\u003cspan> \u003cspan>the point that a researcher’s implicit and explicit theories may be very different\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_9341_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9344_1","promptHtml":"\u003cspan> \u003cspan>Slow language development in children is likely to prove disappointing to their parents.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9344_1_0","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9344_2","promptHtml":"\u003cspan> \u003cspan>People’s expectations of what children should gain from education are universal.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9344_2_0","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9344_3","promptHtml":"\u003cspan> \u003cspan>Scholars may discuss theories without fully understanding each other.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9344_3_0","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9346_1","promptHtml":"\u003cspan> \u003cspan>It is desirable for the same possibilities to be open to everyone.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9346_1","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9346_2","promptHtml":"\u003cspan> \u003cspan>No section of society should have preferential treatment at the expense of another.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9346_2","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9346_3","promptHtml":"\u003cspan> \u003cspan>People should only gain benefits on the basis of what they actually achieve.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9346_3","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9346_4","promptHtml":"\u003cspan> \u003cspan>Variation in intelligence begins at birth.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9346_4","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9346_5","promptHtml":"\u003cspan> \u003cspan>The more intelligent people should be in positions of power.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9346_5","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9346_6","promptHtml":"\u003cspan> \u003cspan>Everyone can develop the same abilities.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9346_6","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_9346_7","promptHtml":"\u003cspan> \u003cspan>People of low intelligence are likely to lead uncontrolled lives.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"}],"sourceAnswerId":"ielts_reading_answer_9346_7","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9349_1","promptHtml":"\u003cspan> \u003cspan>mention of factors driving a renewed interest in natural medicinal compounds.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"}],"sourceAnswerId":"ielts_reading_answer_9349_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9349_2","promptHtml":"\u003cspan> \u003cspan>how recent technological advances have made insect research easier\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"}],"sourceAnswerId":"ielts_reading_answer_9349_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9349_3","promptHtml":"\u003cspan> \u003cspan>examples of animals which use medicinal substances from nature\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"}],"sourceAnswerId":"ielts_reading_answer_9349_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9349_4","promptHtml":"\u003cspan> \u003cspan>reasons why it is challenging to use insects in drug research\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"}],"sourceAnswerId":"ielts_reading_answer_9349_4","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9349_5","promptHtml":"\u003cspan> \u003cspan>reference to how interest in drug research may benefit wildlife\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"}],"sourceAnswerId":"ielts_reading_answer_9349_5","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9349_6","promptHtml":"\u003cspan> \u003cspan>a reason why nature-based medicines fell out of favour for a period\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"}],"sourceAnswerId":"ielts_reading_answer_9349_6","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9349_7","promptHtml":"\u003cspan> \u003cspan>an example of an insect-derived medicine in use at the moment\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"}],"sourceAnswerId":"ielts_reading_answer_9349_7","limit":null},"23":{"key":"23","nums":[23],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9353_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9353_1","limit":null},"24":{"key":"24","nums":[24],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9353_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9353_2","limit":null},"25":{"key":"25","nums":[25],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9353_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9353_3","limit":null},"26":{"key":"26","nums":[26],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9353_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9353_4","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9355_1","promptHtml":"\u003cspan> \u003cspan>Play can be divided into a number of separate categories.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9355_1","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9355_2","promptHtml":"\u003cspan> \u003cspan>Adults’ intended goals affect how they play with children.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9355_2","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9355_3","promptHtml":"\u003cspan> \u003cspan>Combining work with play may be the best way for children to learn.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9355_3","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9355_4","promptHtml":"\u003cspan> \u003cspan>Certain elements of play are more significant than others.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9355_4","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9355_5","promptHtml":"\u003cspan> \u003cspan>Activities can be classified on a scale of playfulness.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9355_5","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9357_1","promptHtml":"\u003cspan> \u003cspan>Children need toys in order to play.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9357_1_0","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9357_2","promptHtml":"\u003cspan> \u003cspan>It is a mistake to treat play and learning as separate types of activities.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9357_2_0","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9357_3","promptHtml":"\u003cspan> \u003cspan>Play helps children to develop their artistic talents.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9357_3_0","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9357_4","promptHtml":"\u003cspan> \u003cspan>Researchers have agreed on a definition of play.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9357_4_0","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9357_5","promptHtml":"\u003cspan> \u003cspan>Work and play differ in terms of whether or not they have a target.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9357_5_0","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9359_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9359_1","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9359_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9359_2","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9359_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9359_3","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9359_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9359_4","limit":null},"21-22":{"key":"21-22","nums":[21,22],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_9351_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;of the following make insects interesting for drug research?\u003c/span>\u003c/span>","options":[{"value":"A","label":"the huge number of individual insects in the world"},{"value":"B","label":"the variety of substances insects have developed to protect themselves"},{"value":"C","label":"the potential to extract and make use of insects’ genetic codes"},{"value":"D","label":"the similarities between different species of insect"},{"value":"E","label":"the manageable size of most insects"}],"sourceAnswerId":"ielts_reading_answer_9351_2_0","limit":2}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21-22","part":2},"22":{"key":"21-22","part":2},"23":{"key":"23","part":2},"24":{"key":"24","part":2},"25":{"key":"25","part":2},"26":{"key":"26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || '').match(/cambridge(?:_ielts)?_(\d+)(?:_academic_reading)?_test_(\d+)\.html$/);
+  return match ? 'ielts_score_cambridge_' + match[1] + '_reading_test_' + match[2] : '';
+}
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString('en-GB')
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

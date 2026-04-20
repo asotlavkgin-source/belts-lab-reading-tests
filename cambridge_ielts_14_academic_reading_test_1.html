@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 14 Academic Reading Test 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 14 Academic Reading Test 1</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2 id="the-importance-of-children’s-play"><strong>THE IMPORTANCE OF CHILDREN’S PLAY</strong></h2>
+<p>Brick by brick, six-year-old Alice is building a magical kingdom. Imagining fairy-tale turrets and fire-breathing dragons, wicked witches and gallant heroes, she’s creating an enchanting world. Although she isn’t aware of it, this fantasy is helping her take her first steps towards her capacity for creativity and so it will have important repercussions in her adult life.</p>
+<p>Minutes later, Alice has abandoned the kingdom in favour of playing schools with her younger brother. When she bosses him around as his ‘teacher’, she’s practising how to regulate her emotions through pretence. Later on, when they tire of this and settle down with a board game, she’s learning about the need to follow rules and take turns with a partner.</p>
+<p>‘Play in all its rich variety is one of the highest achievements of the human species,’ says Dr David Whitebread from the Faculty of Education at the University of Cambridge, UK. ‘It underpins how we develop as intellectual, problem-solving adults and is crucial to our success as a highly adaptable species.’</p>
+<p>Recognizing the importance of play is not new: over two millennia ago, the Greek philosopher Plato extolled its virtues as a means of developing skills for adult life, and ideas about play-based learning have been developing since the 19th century.</p>
+<p>But we live in changing times, and Whitebread is mindful of a worldwide decline in play, pointing out that over half the people in the world now live in cities. ‘The opportunities for free play, which I experienced almost every day of my childhood, are becoming increasingly scarce,’ he says. Outdoor play is curtailed by perceptions of risk to do with traffic, as well as parents’ increased wish to protect their children from being the victims of crime, and by the emphasis on ‘earlier is better’ which is leading to greater competition in academic learning and schools.</p>
+<p>International bodies like the United Nations and the European Union have begun to develop policies concerned with children’s right to play, and to consider implications for leisure facilities and educational programmes. But what they often lack is the evidence to base policies on.</p>
+<p>‘The type of play we are interested in is child-initiated, spontaneous and unpredictable – but, as soon as you ask a five-year-old “to play”, then you as the researcher have intervened,’ explains Dr Sara Baker. ‘And we want to know what the long-term impact of play is. It’s a real challenge.’</p>
+<p>Dr Jenny Gibson agrees, pointing out that although some of the steps in the puzzle of how and why play is important have been looked at, there is very little data on the impact it has on the child’s later life.</p>
+<p>Now, thanks to the university’s new Centre for Research on Play in Education, Development and Learning (PEDAL), Whitebread, Baker, Gibson and a team of researchers hope to provide evidence on the role played by play in how a child develops.</p>
+<p>‘A strong possibility is that play supports the early development of children’s self-control,’ explains Baker. ‘This is our ability to develop awareness of our own thinking progresses – it influences how effectively we go about undertaking challenging activities.’</p>
+<p>In a study carried out by Baker with toddlers and young pre-schoolers, she found that children with greater self-control solved problems more quickly when exploring an unfamiliar set-up requiring scientific reasoning. ‘This sort of evidence makes up think that giving children the chance to play will make them more successful problem-solvers in the long run.’</p>
+<p>If playful experiences do facilitate this aspect of development, say the researchers, it could be extremely significant for educational practices, because the ability to self-regulate has been shown to be a key predictor of academic performance.</p>
+<p>Gibson adds: ‘Playful behavior is also an important indicator of healthy social and emotional development. In my previous research, I investigated how observing children at play can give us important clues about their well-being and can even be useful in the diagnosis of neurodevelopmental disorders like autism.’</p>
+<p>Whitebread’s recent research has involved developing a play-based approach to supporting children’s writing. ‘Many primary school children find writing difficult, but we showed in a previous study that a playful stimulus was far more effective than an instructional one.’ Children wrote longer and better-structured stories when they first played with dolls representing characters in the story. In the latest study, children first created their story with Lego*, with similar results. ‘Many teachers commented that they had always previously had children saying they didn’t know what to write about. With the Lego building, however, not a single child said this through the whole year of the project.’</p>
+<p>Whitebread, who directs PEDAL, trained as a primary school teacher in the early 1970s, when, as he describes, ‘the teaching of young children was largely a quiet backwater, untroubled by any serious intellectual debate or controversy.’ Now, the landscape is very different, with hotly debated topics such as school starting age.</p>
+<p>‘Somehow the importance of play has been lost in recent decades. It’s regarded as something trivial, or even as something negative that contrasts with “work”. Let’s not lose sight of its benefits, and the fundamental contributions it makes to human achievements in the arts, sciences and technology. Let’s make sure children have a rich diet of play experiences.’</p>
+<p>———————————<br>* Lego: coloured plastic building blocks and other pieces that can be joined together</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2 id="the-growth-of-bike-sharing-schemes-around-the-world"><strong>The growth of bike-sharing schemes around the world</strong></h2>
+<p><em>How Dutch engineer Luud Schimmelpennink helped to devise urban bike-sharing schemes</em></p>
+<p><strong>A</strong></p>
+<p>The original idea for an urban bike-sharing scheme dates back to a summer’s day in Amsterdam in 1965. Provo, the organization that came up with the idea, was a group of Dutch activists who wanted to change society. They believed the scheme, which was known as the Witte Fietsenplan, was an answer to the perceived threats of air pollution and consumerism. In the centre of Amsterdam, they painted a small number of used bikes white. They also distributed leaflets describing the dangers of cars and inviting people to use the white bikes. The bikes were then left unlocked at various locations around the city, to be used by anyone in need of transport.</p>
+<p><strong>B</strong></p>
+<p>Luud Schimmelpennink, a Dutch industrial engineer who still lives and cycles in Amsterdam, was heavily involved in the original scheme. He recalls how the scheme succeeded in attracting a great deal of attention – particularly when it came to publicising Provo’s aims – but struggled to get off the ground. The police were opposed to Provo’s initiatives and almost as soon as the white bikes were distributed around the city, they removed them. However, for Schimmelpennink and for bike-sharing schemes in general, this was just the beginning. ‘The first Witte Fietsenplan was just a symbolic thing,’ he says. ‘We painted a few bikes white, that was all. Things got more serious when I became a member of the Amsterdam city council two years later.’</p>
+<p><strong>C</strong></p>
+<p>Schimmelpennink seized this opportunity to present a more elaborate Witte Fietsenplan to the city council. ‘My idea was that the municipality of Amsterdam would distribute 10,000 white bikes over the city, for everyone to use,’ he explains. ‘I made serious calculations. It turned out that a white bicycle – per person, per kilometer – would cost the municipality only 10% of what it contributed to public transport per person per kilometer.’ Nevertheless, the council unanimously rejected the plan. ‘They said that the bicycle belongs to the past. They saw a glorious future for the car,’ says Schimmelpennink. But he was not in the least discouraged.</p>
+<p><strong>D</strong></p>
+<p>Schimmelpennink never stopped believing in bike-sharing, and in the mid-90s, two Danes asked for his help to set up a system in Copenhagen. The result was the world’s first large-scale bike-share programme. It worked on a deposit: ‘You dropped a coin in the bike and when you returned it, you got your money back.’ After setting up the Danish system, Schimmelpennink decided to try his luck again in the Netherlands – and this time he succeeded in arousing the interest of the Dutch Ministry of Transport. ‘Times had changed,’ he recalls. ‘People had become more environmentally conscious, and the Danish experiment had proved that bike-sharing was a real possibility.’ A new Witte Fietsenplan was launched in 1999 in Amsterdam. However, riding a white bike was no longer free; it cost one guilder per trip and payment was made with a chip card developed by the Dutch bank Postbank. Schimmelpennink designed conspicuous, sturdy white bikes locked in special racks which could be opened with the chip card – the plan started with 250 bikes, distributed over five stations.</p>
+<p><strong>E</strong></p>
+<p>Theo Molenaar, who was a system designer for the project, worked alongside Schimmelpennink. ‘I remember when we were testing the bike racks, he announced that he had already designed better ones. But of course, we had to go through with the ones we had.’ The system, however, was prone to vandalism and theft. ‘After every weekend there would always be a couple of bikes missing,’ Molenaar says. ‘I really have no idea what people did with them, because they could instantly be recognised as white bikes.’ But the biggest blow came when Postbank decided to abolish the chip card, because it wasn’t profitable. ‘That chip card was pivotal to the system,’ Molenaar says. ‘To continue the project we would have needed to set up another system, but the business partner had lost interest.’</p>
+<p><strong>F</strong></p>
+<p>Schimmelpennink was disappointed, but – characteristically – not for long. In 2002 he got a call from the French advertising corporation JC Decaux, who wanted to set up his bike-sharing scheme in Vienna. ‘That went really well. After Vienna, they set up a system in Lyon. Then in 2007, Paris followed. That was a decisive moment in the history of bike-sharing.’ The huge and unexpected success of the Parisian bike-sharing programme, which now boasts more than 20,000 bicycles, inspired cities all over the world to set up their own schemes, all modelled on Schimmelpennink’s. ‘It’s wonderful that this happened,’ he says. ‘But financially I didn’t really benefit from it, because I never filed for a patent.’</p>
+<p><strong>G</strong></p>
+<p>In Amsterdam today, 38% of all trips are made by bike and, along with Copenhagen, it is regarded as one of the two most cycle-friendly capitals in the world – but the city never got another Witte Fietsenplan. Molenaar believes this may be because everybody in Amsterdam already has a bike. Schimmelpennink, however, cannot see that this changes Amsterdam’s need for a bike-sharing scheme. ‘People who travel on the underground don’t carry their bikes around. But often they need additional transport to reach their final destination.’ Although he thinks it is strange that a city like Amsterdam does not have a successful bike-sharing scheme, he is optimistic about the future. ‘In the ‘60s we didn’t stand a chance because people were prepared to give their lives to keep cars in the city. But that mentality has totally changed. Today everybody longs for cities that are not dominated by cars.’</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2 id="motivational-factors-and-the-hospitality-industry"><strong>Motivational factors and the hospitality industry</strong></h2>
+<p>A critical ingredient in the success of hotels is developing and maintaining superior performance from their employees. How is that accomplished? What Human Resource Management (HRM) practices should organizations invest in to acquire and retain great employees?</p>
+<p>Some hotels aim to provide superior working conditions for their employees. The idea originated from workplaces – usually in the non-service sector – that emphasized fun and enjoyment as part of work-life balance. By contrast, the service sector, and more specifically hotels, has traditionally not extended these practices to address basic employee needs, such as good working conditions.</p>
+<p>Pfeffer (1994) emphasizes that in order to succeed in a global business environment, organizations must make investment in Human Resource Management (HRM) to allow them to acquire employees who possess better skills and capabilities than their competitors. This investment will be to their competitive advantage. Despite this recognition of the importance of employee development, the hospitality industry has historically been dominated by underdeveloped HR practices (Lucas, 2002).</p>
+<p>Lucas also points out that ‘the substance of HRM practices does not appear to be designed to foster constructive relations with employees or to represent a managerial approach that enables developing and drawing out the full potential of people, even though employees  may be broadly satisfied with many aspects of their work’ (Lucas, 2002). In addition, or maybe as a result, high employee turnover has been a recurring problem throughout the hospitality industry. Among the many cited reasons are low compensation, inadequate benefits, poor working conditions and compromised employee morale and attitudes (Maroudas et al., 2008).</p>
+<p>Ng and Sorensen (2008) demonstrated that when managers provide recognition to employees, motivate employees to work together, and remove obstacles preventing effective performance, employees feel more obligated to stay with the company. This was succinctly summarized by Michel et al. (2013): ‘[P]roviding support to employees gives them the confidence to perform their jobs better and the motivation to stay with the organization.’ Hospitality organizations can therefore enhance employee motivation and retention through the development and improvement of their working conditions. These conditions are inherently linked to the working environment.</p>
+<p>While it seems likely that employees’ reactions to their job characteristics could be affected by a predisposition to view their work environment negatively, no evidence exists to support this hypothesis (Spector et al., 2000). However, given the opportunity, many people will find something to complain about in relation to their workplace (Poulston, 2009). There is a strong link between the perceptions of employees and particular factors of their work environment that are separate from the work itself, including company policies, salary and vacations.</p>
+<p>Such conditions are particularly troubling for the luxury hotel market, where high-quality service, requiring a sophisticated approach to HRM, is recognized as a critical source of competitive advantage (Maroudas et al., 2008). In a real sense, the services of hotel employees represent their industry (Schneider and Bowen, 1993). This representation has commonly been limited to guest experiences. This suggests that there has been a dichotomy between the guest environment provided in luxury hotels and the working conditions of their employees.</p>
+<p>It is therefore essential for hotel management to develop HRM practices that enable them to inspire and retain competent employees. This requires an understanding of what motivates employees at different levels of management and different stages of their careers (Enz and Siguaw, 2000). This implies that it is beneficial for hotel managers to understand what practices are most favorable to increase employee satisfaction and retention.</p>
+<p>Herzberg (1966) proposes that people have two major types of needs, the first being extrinsic motivation factors relating to the context in which work is performed, rather than the work itself. These include working conditions and job security. When these factors are unfavorable, job dissatisfaction may result. Significantly, though, just fulfilling these needs does not result in satisfaction, but only in the reduction of dissatisfaction (Maroudas et al., 2008).</p>
+<p>Employees also have intrinsic motivation needs or motivators, which include such factors as achievement and recognition. Unlike extrinsic factors, motivator factors may ideally result in job satisfaction (Maroudas et al., 2008). Herzberg’s (1966) theory discusses the need for a ‘balance’ of these two types of needs.</p>
+<p>The impact of fun as a motivating factor at work has also been explored. For example, Tews, Michel and Stafford (2013) conducted a study focusing on staff from a chain of themed restaurants in the United States. It was found that fun activities had a favorable impact on performance and manager support for fun had a favorable impact in reducing turnover. Their findings support the view that fun may indeed have a beneficial effect, but the framing of that fun must be carefully aligned with both organizational goals and employee characteristics. ‘Managers must learn how to achieve the delicate balance of allowing employees the freedom to enjoy themselves at work while simultaneously high levels of performance’ (Tews et al., 2013).</p>
+<p>Deery (2008) has recommended several actions that can be adopted at the organizational level to retain good staff as well as assist in balancing work and family life. Those particularly appropriate to the hospitality industry include allowing adequate breaks during the working day, staff functions that involve families, and providing health and well-being opportunities.</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-8</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the notes below.<br>
+Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.<br>
+Write your answers in boxes on your answer sheet.<p></p>
+<p><strong>Children’s play</strong></p>
+<p><strong>Uses of children’s play</strong></p>
+<ul>
+<li>building a ‘magical kingdom’ may help develop <span class="lab-inline-item" data-q-key="1"><span class="lab-inline-num" data-qn="1">1</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_1" id="ielts_reading_answer_9301_1" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>board games involve <span class="lab-inline-item" data-q-key="2"><span class="lab-inline-num" data-qn="2">2</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_2" id="ielts_reading_answer_9301_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;and turn-taking</li>
+</ul>
+<p><strong>Recent changes affecting children’s play</strong></p>
+<ul>
+<li>population of <span class="lab-inline-item" data-q-key="3"><span class="lab-inline-num" data-qn="3">3</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_3" id="ielts_reading_answer_9301_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;have grown</li>
+<li>opportunities for free play are limited due to
+<ul>
+<li>fear of <span class="lab-inline-item" data-q-key="4"><span class="lab-inline-num" data-qn="4">4</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_4" id="ielts_reading_answer_9301_4" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>fear of <span class="lab-inline-item" data-q-key="5"><span class="lab-inline-num" data-qn="5">5</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_5" id="ielts_reading_answer_9301_5" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>increased <span class="lab-inline-item" data-q-key="6"><span class="lab-inline-num" data-qn="6">6</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_6" id="ielts_reading_answer_9301_6" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;in schools</li>
+</ul>
+</li>
+</ul>
+<p><strong>International policies on children’s play</strong></p>
+<ul>
+<li>it is difficult to find <span class="lab-inline-item" data-q-key="7"><span class="lab-inline-num" data-qn="7">7</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_7" id="ielts_reading_answer_9301_7" autocomplete="off"><span class="lab-feedback-slot"></span></span> to support new policies</li>
+<li>research needs to study the impact of play on the rest of the child’s <span class="lab-inline-item" data-q-key="8"><span class="lab-inline-num" data-qn="8">8</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9301_8" id="ielts_reading_answer_9301_8" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+</ul>
+</div>
+                                        </div><div class="section-heading">Questions 9-13</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in the Reading Passage?<br>
+In boxes on your answer sheet, write</p>
+<p><strong>TRUE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the information</p>
+<p><strong>FALSE&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the information</p>
+<p><strong>NOT GIVEN</strong>&nbsp; &nbsp; if there is no information on this</p>
+                                        </div><section class="q-card" data-q-key="9"><span class="q-chip" data-qn="9" data-q-chip="9">9</span><div class="q-label"><span> <span>Children with good self-control are known to be likely to do well at school later on.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_1" value="TRUE" id="ielts_reading_answer_9304_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_1" value="FALSE" id="ielts_reading_answer_9304_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_1" value="NOT GIVEN" id="ielts_reading_answer_9304_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="10"><span class="q-chip" data-qn="10" data-q-chip="10">10</span><div class="q-label"><span> <span>The way a child plays may provide information about possible medical problems.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_2" value="TRUE" id="ielts_reading_answer_9304_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_2" value="FALSE" id="ielts_reading_answer_9304_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_2" value="NOT GIVEN" id="ielts_reading_answer_9304_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="11"><span class="q-chip" data-qn="11" data-q-chip="11">11</span><div class="q-label"><span> <span>Playing with dolls was found to benefit girls’ writing more than boys’ writing.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_3" value="TRUE" id="ielts_reading_answer_9304_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_3" value="FALSE" id="ielts_reading_answer_9304_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_3" value="NOT GIVEN" id="ielts_reading_answer_9304_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="12"><span class="q-chip" data-qn="12" data-q-chip="12">12</span><div class="q-label"><span> <span>Children had problems thinking up ideas when they first created the story with Lego.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_4" value="TRUE" id="ielts_reading_answer_9304_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_4" value="FALSE" id="ielts_reading_answer_9304_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_4" value="NOT GIVEN" id="ielts_reading_answer_9304_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="13"><span class="q-chip" data-qn="13" data-q-chip="13">13</span><div class="q-label"><span> <span>People nowadays regard children’s play as less significant than they did in the past.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_5" value="TRUE" id="ielts_reading_answer_9304_5_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_5" value="FALSE" id="ielts_reading_answer_9304_5_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9304_5" value="NOT GIVEN" id="ielts_reading_answer_9304_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-18</div><div class="section-copy">
+                                            <p>The Reading Passage has seven paragraphs, <strong>A-G</strong>.<br>
+Which paragraph contains the following information?<br>
+<em>Write the correct letter,&nbsp;<strong>A-G</strong>, in boxes on your answer sheet.</em></p>
+<p><strong>NB</strong>&nbsp;&nbsp;<em>You may use any letter more than once.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>a description of how people misused a bike-sharing scheme</span></span></div><select class="q-select" name="ielts_reading_answer_9306_1" id="ielts_reading_answer_9306_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>an explanation of why a proposed bike-sharing scheme was turned down</span></span></div><select class="q-select" name="ielts_reading_answer_9306_2" id="ielts_reading_answer_9306_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>a reference to a person being unable to profit their work</span></span></div><select class="q-select" name="ielts_reading_answer_9306_3" id="ielts_reading_answer_9306_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>an explanation of the potential savings a bike-sharing scheme would bring</span></span></div><select class="q-select" name="ielts_reading_answer_9306_4" id="ielts_reading_answer_9306_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="18"><span class="q-chip" data-qn="18" data-q-chip="18">18</span><div class="q-label"><span> <span>a reference to the problems a bike-sharing scheme was intended to solve</span></span></div><select class="q-select" name="ielts_reading_answer_9306_5" id="ielts_reading_answer_9306_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 19-20</div><div class="section-copy">
+                                            <p>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,&nbsp;<strong>A-E<br>
+</strong><em>Write the correct letters in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="19-20"><span class="q-chip" data-qn="19" data-q-chip="19">19</span><span class="q-chip" data-qn="20" data-q-chip="20">20</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;of the following statements are made in the text about the Amsterdam bike-sharing scheme of 1999?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9309_2[]" value="A" data-limit="2" id="ielts_reading_answer_9309_2_0-0"><span class="option-letter">A</span><span>It was initially opposed by a government department.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9309_2[]" value="B" data-limit="2" id="ielts_reading_answer_9309_2_0-1"><span class="option-letter">B</span><span>It failed when a partner in the scheme withdrew support.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9309_2[]" value="C" data-limit="2" id="ielts_reading_answer_9309_2_0-2"><span class="option-letter">C</span><span>It aimed to be more successful than the Copenhagen scheme.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9309_2[]" value="D" data-limit="2" id="ielts_reading_answer_9309_2_0-3"><span class="option-letter">D</span><span>It was made possible by a change in people’s attitudes.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9309_2[]" value="E" data-limit="2" id="ielts_reading_answer_9309_2_0-4"><span class="option-letter">E</span><span>It attracted interest from a range of bike designers.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 21-22</div><div class="section-copy">
+                                            <p>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,&nbsp;<strong>A-E<br>
+</strong><em>Write the correct letters in boxes<b> </b>on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="21-22"><span class="q-chip" data-qn="21" data-q-chip="21">21</span><span class="q-chip" data-qn="22" data-q-chip="22">22</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;of the following statements are made in the text about Amsterdam today?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9311_2[]" value="A" data-limit="2" id="ielts_reading_answer_9311_2_0-0"><span class="option-letter">A</span><span>The majority of residents would like to prevent all cars from entering the city.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9311_2[]" value="B" data-limit="2" id="ielts_reading_answer_9311_2_0-1"><span class="option-letter">B</span><span>There is little likelihood of the city having another bike-sharing scheme.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9311_2[]" value="C" data-limit="2" id="ielts_reading_answer_9311_2_0-2"><span class="option-letter">C</span><span>More trips in the city are made by bike than by any other form of transport.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9311_2[]" value="D" data-limit="2" id="ielts_reading_answer_9311_2_0-3"><span class="option-letter">D</span><span>A bike-sharing scheme would benefit residents who use public transport.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9311_2[]" value="E" data-limit="2" id="ielts_reading_answer_9311_2_0-4"><span class="option-letter">E</span><span>The city has a reputation as a place that welcomes cyclists.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 23-26</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<br>
+Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.<p></p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h3><strong>The first urban bike-sharing scheme</strong></h3>
+<p>The first bike-sharing scheme was the idea of the Dutch group Provo. The people who belonged to this group were <span class="lab-inline-item" data-q-key="23"><span class="lab-inline-num" data-qn="23">23</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9313_1" id="ielts_reading_answer_9313_1" autocomplete="off"><span class="lab-feedback-slot"></span></span>. They were concerned about damage to the environment and about <span class="lab-inline-item" data-q-key="24"><span class="lab-inline-num" data-qn="24">24</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9313_2" id="ielts_reading_answer_9313_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>, and believed that the bike-sharing scheme would draw attention to these issues. As well as painting some bikes white, they handed out <span class="lab-inline-item" data-q-key="25"><span class="lab-inline-num" data-qn="25">25</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9313_3" id="ielts_reading_answer_9313_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;that condemned the use of cars.</p>
+<p>However, the scheme was not a great success: almost as quickly as Provo left the bikes around the city, the <span class="lab-inline-item" data-q-key="26"><span class="lab-inline-num" data-qn="26">26</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9313_4" id="ielts_reading_answer_9313_4" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;Took them away. According to Schimmelpennink, the scheme was intended to be symbolic. The idea was to get people thinking about the issues.</p></div>
+                                        </div></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-31</div><div class="section-copy">
+                                            <p>Look at the following statements and the list of researchers below.<br>
+Match each statement with the correct researcher,&nbsp;<strong>A-F</strong>.</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-F</strong>, in boxes on your answer sheet.</em></p>
+<p><strong>NB</strong>&nbsp;&nbsp;<em>You may use any letter more than once.</em></p>
+<p><strong>List of Researchers</strong></p>
+<p><strong>A</strong>&nbsp;&nbsp; Pfeffer<br>
+<strong>B</strong>&nbsp;&nbsp; Lucas<br>
+<strong>C</strong>&nbsp;&nbsp; Maroudas et al.<br>
+<strong>D</strong>&nbsp;&nbsp; Ng and Sorensen<br>
+<strong>E</strong>&nbsp;&nbsp; Enz and Siguaw<br>
+<strong>F</strong>&nbsp;&nbsp; Deery</p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>Hotel managers need to know what would encourage good staff to remain.</span></span></div><select class="q-select" name="ielts_reading_answer_9315_1" id="ielts_reading_answer_9315_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>The actions of managers may make staff feel they shouldn’t move to a different employer.</span></span></div><select class="q-select" name="ielts_reading_answer_9315_2" id="ielts_reading_answer_9315_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>Little is done in the hospitality industry to help workers improve their skills.</span></span></div><select class="q-select" name="ielts_reading_answer_9315_3" id="ielts_reading_answer_9315_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>Staff are less likely to change jobs if cooperation is encouraged.</span></span></div><select class="q-select" name="ielts_reading_answer_9315_4" id="ielts_reading_answer_9315_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="31"><span class="q-chip" data-qn="31" data-q-chip="31">31</span><div class="q-label"><span> <span>Dissatisfaction with pay is not the only reason why hospitality workers change jobs.</span></span></div><select class="q-select" name="ielts_reading_answer_9315_5" id="ielts_reading_answer_9315_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 32-35</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in the Reading Passage?<br>
+In boxes on your answer sheet, write</p>
+<p><strong>YES</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the claims of the writer</p>
+<p><strong>NO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the claims of the writer</p>
+<p><strong>NOT GIVEN</strong>&nbsp; &nbsp; if it is impossible to say what the writer thinks about this</p>
+                                        </div><section class="q-card" data-q-key="32"><span class="q-chip" data-qn="32" data-q-chip="32">32</span><div class="q-label"><span> <span>One reason for high staff turnover in the hospitality industry is poor morale.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_1" value="YES" id="ielts_reading_answer_9317_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_1" value="NO" id="ielts_reading_answer_9317_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_1" value="NOT GIVEN" id="ielts_reading_answer_9317_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="33"><span class="q-chip" data-qn="33" data-q-chip="33">33</span><div class="q-label"><span> <span>Research has shown that staff have a tendency to dislike their workplace.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_2" value="YES" id="ielts_reading_answer_9317_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_2" value="NO" id="ielts_reading_answer_9317_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_2" value="NOT GIVEN" id="ielts_reading_answer_9317_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="34"><span class="q-chip" data-qn="34" data-q-chip="34">34</span><div class="q-label"><span> <span>An improvement in working conditions and job security makes staff satisfied with their jobs.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_3" value="YES" id="ielts_reading_answer_9317_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_3" value="NO" id="ielts_reading_answer_9317_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_3" value="NOT GIVEN" id="ielts_reading_answer_9317_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="35"><span class="q-chip" data-qn="35" data-q-chip="35">35</span><div class="q-label"><span> <span>Staff should be allowed to choose when they take breaks during the working day.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_4" value="YES" id="ielts_reading_answer_9317_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_4" value="NO" id="ielts_reading_answer_9317_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9317_4" value="NOT GIVEN" id="ielts_reading_answer_9317_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 36-40</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<br>
+Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.<p></p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h3><strong>Fun at work</strong></h3>
+<p>Tews, Michel and Stafford carried out research on staff in an American chain of <span class="lab-inline-item" data-q-key="36"><span class="lab-inline-num" data-qn="36">36</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9319_1" id="ielts_reading_answer_9319_1" autocomplete="off"><span class="lab-feedback-slot"></span></span>. They discovered that activities designed for staff to have fun improved their <span class="lab-inline-item" data-q-key="37"><span class="lab-inline-num" data-qn="37">37</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9319_2" id="ielts_reading_answer_9319_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>, and that management involvement led to lower staff <span class="lab-inline-item" data-q-key="38"><span class="lab-inline-num" data-qn="38">38</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9319_3" id="ielts_reading_answer_9319_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>. They also found that the activities needed to fit with both the company’s <span class="lab-inline-item" data-q-key="39"><span class="lab-inline-num" data-qn="39">39</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9319_4" id="ielts_reading_answer_9319_4" autocomplete="off"><span class="lab-feedback-slot"></span></span> and the <span class="lab-inline-item" data-q-key="40"><span class="lab-inline-num" data-qn="40">40</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9319_5" id="ielts_reading_answer_9319_5" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;Of the staff. A balance was required between a degree of freedom and maintaining work standards.</p></div>
+                                        </div></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 14 Academic Reading Test 1","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-14-academic-reading-test-1/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_4","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_5","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_6","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_6","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_7","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_7","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9301_8","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9301_8","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9304_1","promptHtml":"\u003cspan> \u003cspan>Children with good self-control are known to be likely to do well at school later on.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9304_1_0","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9304_2","promptHtml":"\u003cspan> \u003cspan>The way a child plays may provide information about possible medical problems.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9304_2_0","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9304_3","promptHtml":"\u003cspan> \u003cspan>Playing with dolls was found to benefit girls’ writing more than boys’ writing.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9304_3_0","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9304_4","promptHtml":"\u003cspan> \u003cspan>Children had problems thinking up ideas when they first created the story with Lego.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9304_4_0","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9304_5","promptHtml":"\u003cspan> \u003cspan>People nowadays regard children’s play as less significant than they did in the past.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9304_5_0","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9306_1","promptHtml":"\u003cspan> \u003cspan>a description of how people misused a bike-sharing scheme\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9306_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9306_2","promptHtml":"\u003cspan> \u003cspan>an explanation of why a proposed bike-sharing scheme was turned down\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9306_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9306_3","promptHtml":"\u003cspan> \u003cspan>a reference to a person being unable to profit their work\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9306_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9306_4","promptHtml":"\u003cspan> \u003cspan>an explanation of the potential savings a bike-sharing scheme would bring\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9306_4","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9306_5","promptHtml":"\u003cspan> \u003cspan>a reference to the problems a bike-sharing scheme was intended to solve\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9306_5","limit":null},"23":{"key":"23","nums":[23],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9313_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9313_1","limit":null},"24":{"key":"24","nums":[24],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9313_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9313_2","limit":null},"25":{"key":"25","nums":[25],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9313_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9313_3","limit":null},"26":{"key":"26","nums":[26],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9313_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9313_4","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9315_1","promptHtml":"\u003cspan> \u003cspan>Hotel managers need to know what would encourage good staff to remain.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9315_1","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9315_2","promptHtml":"\u003cspan> \u003cspan>The actions of managers may make staff feel they shouldn’t move to a different employer.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9315_2","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9315_3","promptHtml":"\u003cspan> \u003cspan>Little is done in the hospitality industry to help workers improve their skills.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9315_3","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9315_4","promptHtml":"\u003cspan> \u003cspan>Staff are less likely to change jobs if cooperation is encouraged.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9315_4","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9315_5","promptHtml":"\u003cspan> \u003cspan>Dissatisfaction with pay is not the only reason why hospitality workers change jobs.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"}],"sourceAnswerId":"ielts_reading_answer_9315_5","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9317_1","promptHtml":"\u003cspan> \u003cspan>One reason for high staff turnover in the hospitality industry is poor morale.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9317_1_0","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9317_2","promptHtml":"\u003cspan> \u003cspan>Research has shown that staff have a tendency to dislike their workplace.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9317_2_0","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9317_3","promptHtml":"\u003cspan> \u003cspan>An improvement in working conditions and job security makes staff satisfied with their jobs.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9317_3_0","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9317_4","promptHtml":"\u003cspan> \u003cspan>Staff should be allowed to choose when they take breaks during the working day.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9317_4_0","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9319_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9319_1","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9319_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9319_2","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9319_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9319_3","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9319_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9319_4","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9319_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9319_5","limit":null},"19-20":{"key":"19-20","nums":[19,20],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_9309_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;of the following statements are made in the text about the Amsterdam bike-sharing scheme of 1999?\u003c/span>\u003c/span>","options":[{"value":"A","label":"It was initially opposed by a government department."},{"value":"B","label":"It failed when a partner in the scheme withdrew support."},{"value":"C","label":"It aimed to be more successful than the Copenhagen scheme."},{"value":"D","label":"It was made possible by a change in people’s attitudes."},{"value":"E","label":"It attracted interest from a range of bike designers."}],"sourceAnswerId":"ielts_reading_answer_9309_2_0","limit":2},"21-22":{"key":"21-22","nums":[21,22],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_9311_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;of the following statements are made in the text about Amsterdam today?\u003c/span>\u003c/span>","options":[{"value":"A","label":"The majority of residents would like to prevent all cars from entering the city."},{"value":"B","label":"There is little likelihood of the city having another bike-sharing scheme."},{"value":"C","label":"More trips in the city are made by bike than by any other form of transport."},{"value":"D","label":"A bike-sharing scheme would benefit residents who use public transport."},{"value":"E","label":"The city has a reputation as a place that welcomes cyclists."}],"sourceAnswerId":"ielts_reading_answer_9311_2_0","limit":2}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19-20","part":2},"20":{"key":"19-20","part":2},"21":{"key":"21-22","part":2},"22":{"key":"21-22","part":2},"23":{"key":"23","part":2},"24":{"key":"24","part":2},"25":{"key":"25","part":2},"26":{"key":"26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || '').match(/cambridge(?:_ielts)?_(\d+)(?:_academic_reading)?_test_(\d+)\.html$/);
+  return match ? 'ielts_score_cambridge_' + match[1] + '_reading_test_' + match[2] : '';
+}
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString('en-GB')
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

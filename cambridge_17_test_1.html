@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 17 Academic Reading Test 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 17 Academic Reading Test 1</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2><strong>The development of the London underground railway</strong></h2>
+<p>In the first half of the 1800s, London’s population grew at an astonishing rate, and the central area became increasingly congested. In addition, the expansion of the overground railway network resulted in more and more passengers arriving in the capital. However, in 1846, a Royal Commission decided that the railways should not be allowed to enter the City, the capital’s historic and business centre. The result was that the overground railway stations formed a ring around the City. The area within consisted of poorly built, overcrowded slums and the streets were full of horse-drawn traffic. Crossing the City became a nightmare. It could take an hour and a half to travel 8 km by horse-drawn carriage or bus. Numerous schemes were proposed to resolve these problems, but few succeeded.</p>
+<p>Amongst the most vocal advocates for a solution to London’s traffic problems was Charles Pearson, who worked as a solicitor for the City of London. He saw both social and economic advantages in building an underground railway that would link the overground railway stations together and clear London slums at the same time. His idea was to relocate the poor workers who lived in the inner-city slums to newly constructed suburbs, and to provide cheap rail travel for them to get to work. Pearson’s ideas gained support amongst some businessmen and in 1851 he submitted a plan to Parliament. It was rejected, but coincided with a proposal from another group for an underground connecting line, which Parliament passed.</p>
+<p>The two groups merged and established the Metropolitan Railway Company in August 1854. The company’s plan was to construct an underground railway line from the Great Western Railway’s (GWR) station at Paddington to the edge of the City at Farringdon Street - a distance of almost 5 km. The organisation had difficulty in raising the funding for such a radical and expensive scheme, not least because of the critical articles printed by the press. Objectors argued that the tunnels would collapse under the weight of traffic overhead, buildings would be shaken and passengers would be poisoned by the emissions from the train engines. However, Pearson and his partners persisted.</p>
+<p>The GWR, aware that the new line would finally enable them to run trains into the heart of the City, invested almost £250,000 in the scheme. Eventually, over a five-year period, £1m was raised. The chosen route ran beneath existing main roads to minimise the expense of demolishing buildings. Originally scheduled to be completed in 21 months, the construction of the underground line took three years. It was built just below street level using a technique known as ‘cut and cover’. A trench about ten metres wide and six metres deep was dug, and the sides temporarily held up with timber beams. Brick walls were then constructed, and finally a brick arch was added to create a tunnel. A two-metre-deep layer of soil was laid on top of the tunnel and the road above rebuilt.</p>
+<p>The Metropolitan line, which opened on 10 January 1863, was the world’s first underground railway. On its first day, almost 40,000 passengers were carried between Paddington and Farringdon, the journey taking about 18 minutes. By the end of the Metropolitan’s first year of operation, 9.5 million journeys had been made.</p>
+<p>Even as the Metropolitan began operation, the first extensions to the line were being authorised; these were built over the next five years, reaching Moorgate in the east of London and Hammersmith in the west. The original plan was to pull the trains with steam locomotives, using firebricks in the boilers to provide steam, but these engines were never introduced. Instead, the line used specially designed locomotives that were fitted with water tanks in which steam could be condensed. However, smoke and fumes remained a problem, even though ventilation shafts were added to the tunnels.</p>
+<p>Despite the extension of the underground railway, by the 1880s, congestion on London’s streets had become worse. The problem was partly that the existing underground lines formed a circuit around the centre of London and extended to the suburbs, but did not cross the capital’s centre. The ‘cut and cover’ method of construction was not an option in this part of the capital. The only alternative was to tunnel deep underground.</p>
+<p>Although the technology to create these tunnels existed, steam locomotives could not be used in such a confined space. It wasn’t until the development of a reliable electric motor, and a means of transferring power from the generator to a moving train, that the world’s first deep-level electric railway, the City &amp; South London, became possible. The line opened in 1890, and ran from the City to Stockwell, south of the River Thames. The trains were made up of three carriages and driven by electric engines. The carriages were narrow and had tiny windows just below the roof because it was thought that passengers would not want to look out at the tunnel walls. The line was not without its problems, mainly caused by an unreliable power supply. Although the City &amp; South London Railway was a great technical achievement, it did not make a profit. Then, in 1900, the Central London Railway, known as the ‘Tuppenny Tube’, began operation using new electric locomotives. It was very popular and soon afterwards new railways and extensions were added to the growing tube network. By 1907, the heart of today’s Underground system was in place.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2><strong>Stadiums: past, present and future</strong></h2>
+<p><strong>A</strong></p>
+<p>Stadiums are among the oldest forms of urban architecture: vast stadiums where the public could watch sporting events were at the centre of western city life as far back as the ancient Greek and Roman Empires, well before the construction of the great medieval cathedrals and the grand 19th- and 20th-century railway stations which dominated urban skylines in later eras.</p>
+<p>Today, however, stadiums are regarded with growing scepticism. Construction costs can soar above £1 billion, and stadiums finished for major events such as the Olympic Games or the FIFA World Cup have notably fallen into disuse and disrepair.</p>
+<p>But this need not be the case. History shows that stadiums can drive urban development and adapt to the culture of every age. Even today, architects and planners are finding new ways to adapt the mono-functional sports arenas which became emblematic of modernisation during the 20th century.</p>
+<p><strong>B</strong></p>
+<p>The amphitheatre* of Arles in southwest France, with a capacity of 25,000 spectators, is perhaps the best example of just how versatile stadiums can be. Built by the Romans in 90 AD, it became a fortress with four towers after the fifth century, and was then transformed into a village containing more than 200 houses. With the growing interest in conservation during the 19th century, it was converted back into an arena for the staging of bullfights, thereby returning the structure to its original use as a venue for public spectacles.</p>
+<p>Another example is the imposing arena of Verona in northern Italy, with space for 30,000 spectators, which was built 60 years before the Arles amphitheatre and 40 years before Rome’s famous Colosseum. It has endured the centuries and is currently considered one of the world’s prime sites for opera, thanks to its outstanding acoustics.</p>
+<p><strong>C</strong></p>
+<p>The area in the centre of the Italian town of Lucca, known as the Piazza dell’Anfiteatro, is yet another impressive example of an amphitheatre becoming absorbed into the fabric of the city. The site evolved in a similar way to Arles and was progressively filled with buildings from the Middle Ages until the 19th century, variously used as houses, a salt depot and a prison. But rather than reverting to an arena, it became a market square, designed by Romanticist architect Lorenzo Nottolini. Today, the ruins of the amphitheatre remain embedded in the various shops and residences surrounding the public square.</p>
+<p><strong>D</strong></p>
+<p>There are many similarities between modern stadiums and the ancient amphitheatres intended for games. But some of the flexibility was lost at the beginning of the 20th century, as stadiums were developed using new products such as steel and reinforced concrete, and made use of bright lights for night-time matches.</p>
+<p>Many such stadiums are situated in suburban areas, designed for sporting use only and surrounded by parking lots. These factors mean that they may not be as accessible to the general public, require more energy to run and contribute to urban heat.</p>
+<p><strong>E</strong></p>
+<p>But many of today’s most innovative architects see scope for the stadium to help improve the city. Among the current strategies, two seem to be having particular success: the stadium as an urban hub, and as a power plant.</p>
+<p>There’s a growing trend for stadiums to be equipped with public spaces and services that serve a function beyond sport, such as hotels, retail outlets, conference centres, restaurants and bars, children’s playgrounds and green space. Creating mixed-use developments such as this reinforces compactness and multi-functionality, making more efficient use of land and helping to regenerate urban spaces.</p>
+<p>This opens the space up to families and a wider cross-section of society, instead of catering only to sportspeople and supporters. There have been many examples of this in the UK: the mixed-use facilities at Wembley and Old Trafford have become a blueprint for many other stadiums in the world.</p>
+<p><strong>F</strong></p>
+<p>The phenomenon of stadiums as power stations has arisen from the idea that energy problems can be overcome by integrating interconnected buildings by means of a smart grid, which is an electricity supply network that uses digital communications technology to detect and react to local changes in usage, without significant energy losses. Stadiums are ideal for these purposes, because their canopies have a large surface area for fitting photovoltaic panels and rise high enough (more than 40 metres) to make use of micro wind turbines.</p>
+<p>Freiburg Mage Solar Stadium in Germany is the first of a new wave of stadiums as power plants, which also includes the Amsterdam Arena and the Kaohsiung Stadium. The latter, inaugurated in 2009, has 8,844 photovoltaic panels producing up to 1.14 GWh of electricity annually. This reduces the annual output of carbon dioxide by 660 tons and supplies up to 80 percent of the surrounding area when the stadium is not in use. This is proof that a stadium can serve its city, and have a decidedly positive impact in terms of reduction of CO2 emissions.</p>
+<p><strong>G</strong></p>
+<p>Sporting arenas have always been central to the life and culture of cities. In every era, the stadium has acquired new value and uses: from military fortress to residential village, public space to theatre and most recently a field for experimentation in advanced engineering. The stadium of today now brings together multiple functions, thus helping cities to create a sustainable future.</p>
+<p><em>*amphitheatre: (especially in Greek and Roman architecture) an open circular or oval building with a central space surrounded by tiers of seats for spectators, for the presentation of dramatic or sporting events</em></p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2><strong>To catch a king</strong></h2>
+<p><em>Anna Keay reviews Charles Spencers hook about the hunt for King Charles II during the English Civil War of the seventeenth century</em></p>
+<p>Charles Spencer’s latest book, To Catch a King, tells us the story of the hunt for King Charles II in the six weeks after his resounding defeat at the Battle of Worcester in September 1651. And what a story it is. After his father was executed by the Parliamentarians in 1649, the young Charles II sacrificed one of the very principles his father had died for and did a deal with the Scots, thereby accepting Presbyterianism* as the national religion in return for being crowned King of Scots. His arrival in Edinburgh prompted the English Parliamentary army to invade Scotland in a pre-emptive strike. This was followed by a Scottish invasion of England. The two sides finally faced one another at Worcester in the west of England in 1651. After being comprehensively defeated on the meadows outside the city by the Parliamentarian army, the 21-year-old king found himself the subject of a national manhunt, with a huge sum offered for his capture. Over the following six weeks he managed, through a series of heart-poundingly close escapes, to evade the Parliamentarians before seeking refuge in France. For the next nine years, the penniless and defeated Charles wandered around Europe with only a small group of loyal supporters.</p>
+<p>Years later, after his restoration as king, the 50-year-old Charles II requested a meeting with the writer and diarist Samuel Pepys. His intention when asking Pepys to commit his story to paper was to ensure that this most extraordinary episode was never forgotten. Over two three-hour sittings, the king related to him in great detail his personal recollections of the six weeks he had spent as a fugitive. As the king and secretary settled down (a scene that is surely a gift for a future scriptwriter), Charles commenced his story: ‘After the battle was so absolutely lost as to be beyond hope of recovery, I began to think of the best way of saving myself.’</p>
+<p>One of the joys of Spencer’s book, a result not least of its use of Charles II’s own narrative as well as those of his supporters, is just how close the reader gets to the action. The day-by-day retelling of the fugitives’ doings provides delicious details: the cutting of the king’s long hair with agricultural shears, the use of walnut leaves to dye his pale skin, and the day Charles spent lying on a branch of the great oak tree in Boscobel Wood as the Parliamentary soldiers scoured the forest floor below. Spencer draws out both the humour - such as the preposterous refusal of Charles’s friend Henry Wilmot to adopt disguise on the grounds that it was beneath his dignity - and the emotional tension when the secret of the king’s presence was cautiously revealed to his supporters.</p>
+<p>Charles’s adventures after losing the Battle of Worcester hide the uncomfortable truth that whilst almost everyone in England had been appalled by the execution of his father, they had not welcomed the arrival of his son with the Scots army, but had instead firmly bolted their doors. This was partly because he rode at the head of what looked like a foreign invasion force and partly because, after almost a decade of civil war, people were desperate to avoid it beginning again. This makes it all the more interesting that Charles II himself loved the story so much ever after. As well as retelling it to anyone who would listen, causing eye-rolling among courtiers, he set in train a series of initiatives to memorialise it. There was to be a new order of chivalry, the Knights of the Royal Oak. A series of enormous oil paintings depicting the episode were produced, including a two-metre-wide canvas of Boscobel Wood and a set of six similarly enormous paintings of the king on the run. In 1660, Charles II commissioned the artist John Michael Wright to paint a flying squadron of cherubs* carrying an oak tree to the heavens on the ceiling of his bedchamber. It is hard to imagine many other kings marking the lowest point in their life so enthusiastically, or indeed pulling off such an escape in the first place.</p>
+<p>Charles Spencer is the perfect person to pass the story on to a new generation. His pacey, readable prose steers deftly clear of modern idioms and elegantly brings to life the details of the great tale. He has even-handed sympathy for both the fugitive king and the fierce republican regime that hunted him, and he succeeds in his desire to explore far more of the background of the story than previous books on the subject have done. Indeed, the opening third of the book is about how Charles II found himself at Worcester in the first place, which for some will be reason alone to read To Catch a King.</p>
+<p>The tantalising question left, in the end, is that of what it all meant. Would Charles II have been a different king had these six weeks never happened? The days and nights spent in hiding must have affected him in some way. Did the need to assume disguises, to survive on wit and charm alone, to use trickery and subterfuge to escape from tight corners help form him? This is the one area where the book doesn’t quite hit the mark. Instead its depiction of Charles II in his final years as an ineffective, pleasure-loving monarch doesn’t do justice to the man (neither is it accurate), or to the complexity of his character. But this one niggle aside, To Catch a King is an excellent read, and those who come to it knowing little of the famous tale will find they have a treat in store.</p>
+<p><em>*Presbyterianism: part of the reformed Protestant religion</em></p>
+<p><em>*cherub: an image of angelic children used in paintings</em></p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-6</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the notes below.<p></p>
+<p>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</p>
+<h3><strong>The London underground railway</strong></h3>
+<p><strong>The problem</strong></p>
+<ul>
+<li>The <span class="lab-inline-item" data-q-key="1"><span class="lab-inline-num" data-qn="1">1</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7936_1" id="ielts_reading_answer_7936_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> of London increased rapidly between 1800 and 1850</li>
+<li>The streets were full of horse-drawn vehicles</li>
+</ul>
+<p><strong>The proposed solution</strong></p>
+<ul>
+<li>Charles Pearson, a solicitor, suggested building an underground railway</li>
+<li>Building the railway would make it possible to move people to better housing in the <span class="lab-inline-item" data-q-key="2"><span class="lab-inline-num" data-qn="2">2</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7936_2" id="ielts_reading_answer_7936_2" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>A number of <span class="lab-inline-item" data-q-key="3"><span class="lab-inline-num" data-qn="3">3</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7936_3" id="ielts_reading_answer_7936_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> agreed with Pearson’s idea</li>
+<li>The company initially had problems getting the <span class="lab-inline-item" data-q-key="4"><span class="lab-inline-num" data-qn="4">4</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7936_4" id="ielts_reading_answer_7936_4" autocomplete="off"><span class="lab-feedback-slot"></span></span> needed for the project</li>
+<li>Negative articles about the project appeared in the <span class="lab-inline-item" data-q-key="5"><span class="lab-inline-num" data-qn="5">5</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7936_5" id="ielts_reading_answer_7936_5" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+</ul>
+<p><strong>The construction</strong></p>
+<ul>
+<li>The chosen route did not require many buildings to be pulled down</li>
+<li>The ‘cut and cover’ method was used to construct the tunnels</li>
+<li>With the completion of the brick arch, the tunnel was covered with <span class="lab-inline-item" data-q-key="6"><span class="lab-inline-num" data-qn="6">6</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7936_6" id="ielts_reading_answer_7936_6" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+</ul>
+</div>
+                                        </div><div class="section-heading">Questions 7-13</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in the passage?</p>
+<p><em><strong>TRUE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the information</em></p>
+<p><em><strong>FALSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the information</em></p>
+<p><em><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if there is no information on this</em></p>
+                                        </div><section class="q-card" data-q-key="7"><span class="q-chip" data-qn="7" data-q-chip="7">7</span><div class="q-label"><span> <span>Other countries had built underground railways before the Metropolitan line opened.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_1" value="TRUE" id="ielts_reading_answer_7980_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_1" value="FALSE" id="ielts_reading_answer_7980_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_1" value="NOT GIVEN" id="ielts_reading_answer_7980_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="8"><span class="q-chip" data-qn="8" data-q-chip="8">8</span><div class="q-label"><span> <span>More people than predicted travelled on the Metropolitan line on the first day.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_2" value="TRUE" id="ielts_reading_answer_7980_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_2" value="FALSE" id="ielts_reading_answer_7980_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_2" value="NOT GIVEN" id="ielts_reading_answer_7980_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="9"><span class="q-chip" data-qn="9" data-q-chip="9">9</span><div class="q-label"><span> <span>The use of ventilation shafts failed to prevent pollution in the tunnels.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_3" value="TRUE" id="ielts_reading_answer_7980_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_3" value="FALSE" id="ielts_reading_answer_7980_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_3" value="NOT GIVEN" id="ielts_reading_answer_7980_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="10"><span class="q-chip" data-qn="10" data-q-chip="10">10</span><div class="q-label"><span> <span>A different approach from the ‘cut and cover’ technique was required in London’s central area.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_4" value="TRUE" id="ielts_reading_answer_7980_4_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_4" value="FALSE" id="ielts_reading_answer_7980_4_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_4" value="NOT GIVEN" id="ielts_reading_answer_7980_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="11"><span class="q-chip" data-qn="11" data-q-chip="11">11</span><div class="q-label"><span> <span>The windows on City &amp; South London trains were at eye level.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_5" value="TRUE" id="ielts_reading_answer_7980_5_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_5" value="FALSE" id="ielts_reading_answer_7980_5_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_5" value="NOT GIVEN" id="ielts_reading_answer_7980_5_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="12"><span class="q-chip" data-qn="12" data-q-chip="12">12</span><div class="q-label"><span> <span>The City &amp; South London Railway was a financial success.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_6" value="TRUE" id="ielts_reading_answer_7980_6_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_6" value="FALSE" id="ielts_reading_answer_7980_6_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_6" value="NOT GIVEN" id="ielts_reading_answer_7980_6_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="13"><span class="q-chip" data-qn="13" data-q-chip="13">13</span><div class="q-label"><span> <span>Trains on the ‘Tuppenny Tube’ nearly always ran on time.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_7" value="TRUE" id="ielts_reading_answer_7980_7_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_7" value="FALSE" id="ielts_reading_answer_7980_7_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7980_7" value="NOT GIVEN" id="ielts_reading_answer_7980_7_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-17</div><div class="section-copy">
+                                            <p>The passage has seven paragraphs, <strong>A-G</strong>.</p>
+<p>Which section contains the following information?</p>
+<p><strong><em>NB</em></strong><em>&nbsp;&nbsp; You may use any letter more than once.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>a mention of negative attitudes towards stadium building projects</span></span></div><select class="q-select" name="ielts_reading_answer_7981_1" id="ielts_reading_answer_7981_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>figures demonstrating the environmental benefits of a certain stadium</span></span></div><select class="q-select" name="ielts_reading_answer_7981_2" id="ielts_reading_answer_7981_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>examples of the wide range of facilities available at some new stadiums</span></span></div><select class="q-select" name="ielts_reading_answer_7981_3" id="ielts_reading_answer_7981_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>reference to the disadvantages of the stadiums built during a certain era</span></span></div><select class="q-select" name="ielts_reading_answer_7981_4" id="ielts_reading_answer_7981_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 18-22</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the summary below.</em><p></p>
+<p>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</p>
+<h3><strong>Roman amphitheatres</strong></h3>
+<p>The Roman stadium of Europe have proved very versatile. The amphitheatre of Arles, for example, was converted first into a <span class="lab-inline-item" data-q-key="18"><span class="lab-inline-num" data-qn="18">18</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7983_1" id="ielts_reading_answer_7983_1" autocomplete="off"><span class="lab-feedback-slot"></span></span>, then into a residential area and finally into an arena where spectators could watch <span class="lab-inline-item" data-q-key="19"><span class="lab-inline-num" data-qn="19">19</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7983_2" id="ielts_reading_answer_7983_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>. Meanwhile, the arena in Verona, one of the oldest Roman amphitheatres, is famous today as a venue where <span class="lab-inline-item" data-q-key="20"><span class="lab-inline-num" data-qn="20">20</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7983_3" id="ielts_reading_answer_7983_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> is performed. The site of Lucca’s amphitheatre has also been used for many purposes over the centuries, including the storage of <span class="lab-inline-item" data-q-key="21"><span class="lab-inline-num" data-qn="21">21</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7983_4" id="ielts_reading_answer_7983_4" autocomplete="off"><span class="lab-feedback-slot"></span></span>. It is now a market square with <span class="lab-inline-item" data-q-key="22"><span class="lab-inline-num" data-qn="22">22</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_7983_5" id="ielts_reading_answer_7983_5" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;and homes incorporated into the remains of the Roman amphitheatre.</p></div>
+                                        </div><div class="section-heading">Questions 23-26</div><div class="section-copy">
+                                            <p><em>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,&nbsp;<strong>A-E</strong>.</em></p>
+                                        </div><section class="q-card" data-q-key="23-24"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><span class="q-chip" data-qn="24" data-q-chip="24">24</span><div class="q-label"><span> <span>When comparing twentieth-century stadiums to ancient amphitheatres in Section D, which&nbsp;<strong>TWO</strong>&nbsp;negative features does the writer mention?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_2[]" value="A" data-limit="2" id="ielts_reading_answer_7985_2_0-0"><span class="option-letter">A</span><span>They are less imaginatively designed.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_2[]" value="B" data-limit="2" id="ielts_reading_answer_7985_2_0-1"><span class="option-letter">B</span><span>They are less spacious.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_2[]" value="C" data-limit="2" id="ielts_reading_answer_7985_2_0-2"><span class="option-letter">C</span><span>They are in less convenient locations.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_2[]" value="D" data-limit="2" id="ielts_reading_answer_7985_2_0-3"><span class="option-letter">D</span><span>They are less versatile.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_2[]" value="E" data-limit="2" id="ielts_reading_answer_7985_2_0-4"><span class="option-letter">E</span><span>They are made of less durable materials</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="25-26"><span class="q-chip" data-qn="25" data-q-chip="25">25</span><span class="q-chip" data-qn="26" data-q-chip="26">26</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;advantages of modern stadium design does the writer mention?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_4[]" value="A" data-limit="2" id="ielts_reading_answer_7985_4_0-0"><span class="option-letter">A</span><span>offering improved amenities for the enjoyment of sports events</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_4[]" value="B" data-limit="2" id="ielts_reading_answer_7985_4_0-1"><span class="option-letter">B</span><span>bringing community life back into the city environment</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_4[]" value="C" data-limit="2" id="ielts_reading_answer_7985_4_0-2"><span class="option-letter">C</span><span>facilitating research into solar and wind energy solutions</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_4[]" value="D" data-limit="2" id="ielts_reading_answer_7985_4_0-3"><span class="option-letter">D</span><span>enabling local residents to reduce their consumption of electricity</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_7985_4[]" value="E" data-limit="2" id="ielts_reading_answer_7985_4_0-4"><span class="option-letter">E</span><span>providing a suitable site for the installation of renewable power generators</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-31</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the summary using the list of phrases,&nbsp;<strong>A-J</strong>, below.</em><p></p>
+<p><strong>A&nbsp;</strong>&nbsp;&nbsp;military innovation&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>B&nbsp;&nbsp;</strong>&nbsp;large reward</p>
+<p><strong>C&nbsp;</strong>&nbsp;&nbsp;widespread conspiracy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>D&nbsp;&nbsp;</strong>&nbsp;relative safety</p>
+<p><strong>E&nbsp;&nbsp;</strong>&nbsp;new government&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>F&nbsp;&nbsp;&nbsp;</strong>decisive victory</p>
+<p><strong>G&nbsp;</strong>&nbsp;&nbsp;political debate&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>H&nbsp;&nbsp;</strong> strategic alliance</p>
+<p><strong>I&nbsp;&nbsp;&nbsp;</strong>&nbsp;popular solution&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>J&nbsp;&nbsp;&nbsp;</strong>&nbsp;religious conviction</p>
+<h3><strong>The story behind the hunt for Charles II</strong></h3>
+<p>Charles II’s father was executed by the Parliamentarian forces in 1649. Charles II then formed a <span class="lab-inline-item" data-q-key="27"><span class="lab-inline-num" data-qn="27">27</span><select class="lab-inline-select" name="ielts_reading_answer_7988_1" id="ielts_reading_answer_7988_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> with the Scots, and in order to become King of Scots, he abandoned an important <span class="lab-inline-item" data-q-key="28"><span class="lab-inline-num" data-qn="28">28</span><select class="lab-inline-select" name="ielts_reading_answer_7988_2" id="ielts_reading_answer_7988_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> that was held by his father and had contributed to his father’s death. The opposing sides then met outside Worcester in 1651. The battle led to a <span class="lab-inline-item" data-q-key="29"><span class="lab-inline-num" data-qn="29">29</span><select class="lab-inline-select" name="ielts_reading_answer_7988_3" id="ielts_reading_answer_7988_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> for the Parliamentarians and Charles had to flee for his life. A <span class="lab-inline-item" data-q-key="30"><span class="lab-inline-num" data-qn="30">30</span><select class="lab-inline-select" name="ielts_reading_answer_7988_4" id="ielts_reading_answer_7988_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> was offered for Charles’s capture, but after six weeks spent in hiding, he eventually managed to reach the <span class="lab-inline-item" data-q-key="31"><span class="lab-inline-num" data-qn="31">31</span><select class="lab-inline-select" name="ielts_reading_answer_7988_5" id="ielts_reading_answer_7988_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span>&nbsp;of continental Europe.</p></div>
+                                        </div><div class="section-heading">Questions 32-35</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in the passage?</p>
+<p><em><strong>YES</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the claims of the writer</em></p>
+<p><em><strong>NO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the claims of the writer</em></p>
+<p><em><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if it is impossible to say what the writer thinks about this</em></p>
+                                        </div><section class="q-card" data-q-key="32"><span class="q-chip" data-qn="32" data-q-chip="32">32</span><div class="q-label"><span> <span>Charles chose Pepys for the task because he considered him to be trustworthy.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_1" value="YES" id="ielts_reading_answer_7990_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_1" value="NO" id="ielts_reading_answer_7990_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_1" value="NOT GIVEN" id="ielts_reading_answer_7990_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="33"><span class="q-chip" data-qn="33" data-q-chip="33">33</span><div class="q-label"><span> <span>Charles’s personal recollection of the escape lacked sufficient detail.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_2" value="YES" id="ielts_reading_answer_7990_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_2" value="NO" id="ielts_reading_answer_7990_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_2" value="NOT GIVEN" id="ielts_reading_answer_7990_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="34"><span class="q-chip" data-qn="34" data-q-chip="34">34</span><div class="q-label"><span> <span>Charles indicated to Pepys that he had planned his escape before the battle.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_3" value="YES" id="ielts_reading_answer_7990_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_3" value="NO" id="ielts_reading_answer_7990_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_3" value="NOT GIVEN" id="ielts_reading_answer_7990_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="35"><span class="q-chip" data-qn="35" data-q-chip="35">35</span><div class="q-label"><span> <span>The inclusion of Charles’s account is a positive aspect of the book.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_4" value="YES" id="ielts_reading_answer_7990_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_4" value="NO" id="ielts_reading_answer_7990_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7990_4" value="NOT GIVEN" id="ielts_reading_answer_7990_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 36-40</div><div class="section-copy">
+                                            <p><em>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>, or&nbsp;<strong>D</strong>.</em></p>
+                                        </div><section class="q-card" data-q-key="36"><span class="q-chip" data-qn="36" data-q-chip="36">36</span><div class="q-label"><span> <span>What is the reviewer’s main purpose in the first paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_1" value="A" id="ielts_reading_answer_7992_1_0-0"><span class="option-letter">A</span><span>to describe what happened during the Battle of Worcester</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_1" value="B" id="ielts_reading_answer_7992_1_0-1"><span class="option-letter">B</span><span>to give an account of the circumstances leading to Charles II’s escape</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_1" value="C" id="ielts_reading_answer_7992_1_0-2"><span class="option-letter">C</span><span>to provide details of the Parliamentarians’ political views</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_1" value="D" id="ielts_reading_answer_7992_1_0-3"><span class="option-letter">D</span><span>to compare Charles II’s beliefs with those of his father</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="37"><span class="q-chip" data-qn="37" data-q-chip="37">37</span><div class="q-label"><span> <span>Why does the reviewer include examples of the fugitives’ behaviour in the third paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_2" value="A" id="ielts_reading_answer_7992_2_0-0"><span class="option-letter">A</span><span>to explain how close Charles II came to losing his life</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_2" value="B" id="ielts_reading_answer_7992_2_0-1"><span class="option-letter">B</span><span>to suggest that Charles II’s supporters were badly prepared</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_2" value="C" id="ielts_reading_answer_7992_2_0-2"><span class="option-letter">C</span><span>to illustrate how the events of the six weeks are brought to life</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_2" value="D" id="ielts_reading_answer_7992_2_0-3"><span class="option-letter">D</span><span>to argue that certain aspects are not as well known as they should be</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="38"><span class="q-chip" data-qn="38" data-q-chip="38">38</span><div class="q-label"><span> <span>What point does the reviewer make about Charles II in the fourth paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_3" value="A" id="ielts_reading_answer_7992_3_0-0"><span class="option-letter">A</span><span>He chose to celebrate what was essentially a defeat.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_3" value="B" id="ielts_reading_answer_7992_3_0-1"><span class="option-letter">B</span><span>He misunderstood the motives of his opponents.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_3" value="C" id="ielts_reading_answer_7992_3_0-2"><span class="option-letter">C</span><span>He aimed to restore people’s faith in the monarchy.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_3" value="D" id="ielts_reading_answer_7992_3_0-3"><span class="option-letter">D</span><span>He was driven by a desire to be popular.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="39"><span class="q-chip" data-qn="39" data-q-chip="39">39</span><div class="q-label"><span> <span>What does the reviewer say about Charles Spencer in the fifth paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_4" value="A" id="ielts_reading_answer_7992_4_0-0"><span class="option-letter">A</span><span>His decision to write the book comes as a surprise.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_4" value="B" id="ielts_reading_answer_7992_4_0-1"><span class="option-letter">B</span><span>He takes an unbiased approach to the subject matter.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_4" value="C" id="ielts_reading_answer_7992_4_0-2"><span class="option-letter">C</span><span>His descriptions of events would be better if they included more detail.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_4" value="D" id="ielts_reading_answer_7992_4_0-3"><span class="option-letter">D</span><span>He chooses language that is suitable for a twenty-first-century audience.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="40"><span class="q-chip" data-qn="40" data-q-chip="40">40</span><div class="q-label"><span> <span>When the reviewer says the book ‘doesn’t quite hit the mark’, she is making the point that</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_5" value="A" id="ielts_reading_answer_7992_5_0-0"><span class="option-letter">A</span><span>it overlooks the impact of events on ordinary people.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_5" value="B" id="ielts_reading_answer_7992_5_0-1"><span class="option-letter">B</span><span>it lacks an analysis of prevalent views on monarchy.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_5" value="C" id="ielts_reading_answer_7992_5_0-2"><span class="option-letter">C</span><span>it omits any references to the deceit practised by Charles II during his time in hiding.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_7992_5" value="D" id="ielts_reading_answer_7992_5_0-3"><span class="option-letter">D</span><span>it fails to address whether Charles II’s experiences had a lasting influence on him.</span></label></div><div class="lab-feedback-slot"></div></section></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 17 Academic Reading Test 1","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-17-academic-reading-test-1/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_7936_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7936_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_7936_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7936_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_7936_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7936_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_7936_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7936_4","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_7936_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7936_5","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_7936_6","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7936_6","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_7980_1","promptHtml":"\u003cspan> \u003cspan>Other countries had built underground railways before the Metropolitan line opened.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7980_1_0","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_7980_2","promptHtml":"\u003cspan> \u003cspan>More people than predicted travelled on the Metropolitan line on the first day.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7980_2_0","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_7980_3","promptHtml":"\u003cspan> \u003cspan>The use of ventilation shafts failed to prevent pollution in the tunnels.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7980_3_0","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_7980_4","promptHtml":"\u003cspan> \u003cspan>A different approach from the ‘cut and cover’ technique was required in London’s central area.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7980_4_0","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_7980_5","promptHtml":"\u003cspan> \u003cspan>The windows on City &amp; South London trains were at eye level.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7980_5_0","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_7980_6","promptHtml":"\u003cspan> \u003cspan>The City &amp; South London Railway was a financial success.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7980_6_0","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_7980_7","promptHtml":"\u003cspan> \u003cspan>Trains on the ‘Tuppenny Tube’ nearly always ran on time.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7980_7_0","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_7981_1","promptHtml":"\u003cspan> \u003cspan>a mention of negative attitudes towards stadium building projects\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_7981_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_7981_2","promptHtml":"\u003cspan> \u003cspan>figures demonstrating the environmental benefits of a certain stadium\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_7981_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_7981_3","promptHtml":"\u003cspan> \u003cspan>examples of the wide range of facilities available at some new stadiums\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_7981_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_7981_4","promptHtml":"\u003cspan> \u003cspan>reference to the disadvantages of the stadiums built during a certain era\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_7981_4","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_7983_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7983_1","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_7983_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7983_2","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_7983_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7983_3","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_7983_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7983_4","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_7983_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_7983_5","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_7988_1","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_7988_1","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_7988_2","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_7988_2","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_7988_3","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_7988_3","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_7988_4","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_7988_4","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_7988_5","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_7988_5","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7990_1","promptHtml":"\u003cspan> \u003cspan>Charles chose Pepys for the task because he considered him to be trustworthy.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7990_1_0","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7990_2","promptHtml":"\u003cspan> \u003cspan>Charles’s personal recollection of the escape lacked sufficient detail.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7990_2_0","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7990_3","promptHtml":"\u003cspan> \u003cspan>Charles indicated to Pepys that he had planned his escape before the battle.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7990_3_0","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7990_4","promptHtml":"\u003cspan> \u003cspan>The inclusion of Charles’s account is a positive aspect of the book.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_7990_4_0","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7992_1","promptHtml":"\u003cspan> \u003cspan>What is the reviewer’s main purpose in the first paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"to describe what happened during the Battle of Worcester"},{"value":"B","label":"to give an account of the circumstances leading to Charles II’s escape"},{"value":"C","label":"to provide details of the Parliamentarians’ political views"},{"value":"D","label":"to compare Charles II’s beliefs with those of his father"}],"sourceAnswerId":"ielts_reading_answer_7992_1_0","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7992_2","promptHtml":"\u003cspan> \u003cspan>Why does the reviewer include examples of the fugitives’ behaviour in the third paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"to explain how close Charles II came to losing his life"},{"value":"B","label":"to suggest that Charles II’s supporters were badly prepared"},{"value":"C","label":"to illustrate how the events of the six weeks are brought to life"},{"value":"D","label":"to argue that certain aspects are not as well known as they should be"}],"sourceAnswerId":"ielts_reading_answer_7992_2_0","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7992_3","promptHtml":"\u003cspan> \u003cspan>What point does the reviewer make about Charles II in the fourth paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"He chose to celebrate what was essentially a defeat."},{"value":"B","label":"He misunderstood the motives of his opponents."},{"value":"C","label":"He aimed to restore people’s faith in the monarchy."},{"value":"D","label":"He was driven by a desire to be popular."}],"sourceAnswerId":"ielts_reading_answer_7992_3_0","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7992_4","promptHtml":"\u003cspan> \u003cspan>What does the reviewer say about Charles Spencer in the fifth paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"His decision to write the book comes as a surprise."},{"value":"B","label":"He takes an unbiased approach to the subject matter."},{"value":"C","label":"His descriptions of events would be better if they included more detail."},{"value":"D","label":"He chooses language that is suitable for a twenty-first-century audience."}],"sourceAnswerId":"ielts_reading_answer_7992_4_0","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_7992_5","promptHtml":"\u003cspan> \u003cspan>When the reviewer says the book ‘doesn’t quite hit the mark’, she is making the point that\u003c/span>\u003c/span>","options":[{"value":"A","label":"it overlooks the impact of events on ordinary people."},{"value":"B","label":"it lacks an analysis of prevalent views on monarchy."},{"value":"C","label":"it omits any references to the deceit practised by Charles II during his time in hiding."},{"value":"D","label":"it fails to address whether Charles II’s experiences had a lasting influence on him."}],"sourceAnswerId":"ielts_reading_answer_7992_5_0","limit":null},"23-24":{"key":"23-24","nums":[23,24],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_7985_2[]","promptHtml":"\u003cspan> \u003cspan>When comparing twentieth-century stadiums to ancient amphitheatres in Section D, which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;negative features does the writer mention?\u003c/span>\u003c/span>","options":[{"value":"A","label":"They are less imaginatively designed."},{"value":"B","label":"They are less spacious."},{"value":"C","label":"They are in less convenient locations."},{"value":"D","label":"They are less versatile."},{"value":"E","label":"They are made of less durable materials"}],"sourceAnswerId":"ielts_reading_answer_7985_2_0","limit":2},"25-26":{"key":"25-26","nums":[25,26],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_7985_4[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;advantages of modern stadium design does the writer mention?\u003c/span>\u003c/span>","options":[{"value":"A","label":"offering improved amenities for the enjoyment of sports events"},{"value":"B","label":"bringing community life back into the city environment"},{"value":"C","label":"facilitating research into solar and wind energy solutions"},{"value":"D","label":"enabling local residents to reduce their consumption of electricity"},{"value":"E","label":"providing a suitable site for the installation of renewable power generators"}],"sourceAnswerId":"ielts_reading_answer_7985_4_0","limit":2}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23-24","part":2},"24":{"key":"23-24","part":2},"25":{"key":"25-26","part":2},"26":{"key":"25-26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || "").match(/cambridge_(\d+)_test_(\d+)\.html/i);
+  return match ? "ielts_score_cambridge_" + match[1] + "_reading_test_" + match[2] : "";
+}
+// Firebase initialization for score saving
+let firebaseDatabase = null;
+let firebaseAuth = null;
+let currentUser = null;
+
+async function initFirebaseForScoring() {
+  try {
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js');
+    const { getDatabase } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-database.js');
+    const { getAuth } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js');
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAW3dtKV7EAh3SOK71UIX0yWEonuBZ_T5A",
+      authDomain: "ieltslab-e049d.firebaseapp.com",
+      projectId: "ieltslab-e049d",
+      storageBucket: "ieltslab-e049d.firebasestorage.app",
+      messagingSenderId: "674420790977",
+      appId: "1:674420790977:web:89c5fdf8ea8e0c4b5b2640",
+      measurementId: "G-GYZ39NHTGH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    firebaseDatabase = getDatabase(app);
+    firebaseAuth = getAuth(app);
+    
+    // Get current user
+    if (firebaseAuth.currentUser) {
+      currentUser = firebaseAuth.currentUser;
+    }
+  } catch (e) {
+    console.log('Firebase init for scoring skipped:', e.message);
+  }
+}
+
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFirebaseForScoring();
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString("en-GB")
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

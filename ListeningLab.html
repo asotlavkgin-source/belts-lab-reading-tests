@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Lab | 30 Mock Tests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        .auth-check {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: #070708;
+            z-index: 9999;
+        }
+        .auth-check-spinner {
+            width: 50px; height: 50px;
+            border: 3px solid #1f1f22;
+            border-top-color: #00bfa5;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <style>
+        :root {
+            --black: #070708; --panel: #111113; --border: #1f1f22;
+            --teal: #00bfa5; --text: #dddde0; --muted: #7a7a82;
+        }
+        body { background: var(--black); color: var(--text); font-family: 'DM Sans', sans-serif; padding: 40px; }
+        .nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .back-btn { color: var(--muted); text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; border: 1px solid var(--border); padding: 8px 16px; border-radius: 4px; transition: 0.3s; }
+        .back-btn:hover { border-color: var(--teal); color: var(--teal); }
+        h1 { font-family: 'Bebas Neue', sans-serif; font-size: 50px; color: #fff; letter-spacing: 2px; }
+        h1 span { color: var(--teal); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--panel); border: 1px solid var(--border); padding: 25px; border-radius: 12px; position: relative; overflow: hidden; transition: 0.3s; }
+        .card:hover { border-color: var(--teal); transform: translateY(-5px); background: #141416; }
+        .card::before { content: '🎧'; position: absolute; right: -10px; bottom: -10px; font-size: 60px; opacity: 0.05; }
+        
+        .num { font-family: 'Space Mono', monospace; color: var(--teal); font-size: 10px; display: block; margin-bottom: 10px; }
+        h3 { font-size: 18px; margin-bottom: 8px; color: #fff; }
+        p { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+        .start-btn { display: block; text-align: center; background: var(--teal); color: #000; text-decoration: none; font-weight: 700; padding: 10px; border-radius: 4px; font-size: 12px; transition: 0.3s; }
+        .start-btn:hover { background: #00897b; }
+
+        /* Score badge */
+        .score-badge { display: flex; align-items: center; gap: 10px; background: #0d0d0f; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; }
+        .score-badge .band { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--teal); line-height: 1; }
+        .score-badge .score-info { display: flex; flex-direction: column; }
+        .score-badge .score-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+        .score-badge .score-raw { font-size: 13px; color: var(--text); font-weight: 700; }
+        .score-badge .score-date { font-size: 10px; color: var(--muted); margin-top: 2px; }
+        .card.completed { border-color: rgba(0,191,165,0.35); }
+        .card.completed::after { content: '✓ DONE'; position: absolute; top: 12px; right: 12px; font-family: 'Space Mono', monospace; font-size: 9px; color: var(--teal); background: rgba(0,191,165,0.12); border: 1px solid rgba(0,191,165,0.3); padding: 3px 7px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div id="auth-check" class="auth-check">
+        <div class="auth-check-spinner"></div>
+    </div>
+
+    <div class="nav-header">
+        <h1>LISTENING <span>LAB</span></h1>
+        <a href="ieltslab_with_auth.html" class="back-btn">← TERMINAL</a>
+    </div>
+
+    <div class="grid" id="test-grid">
+        </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAW3dtKV7EAh3SOK71UIX0yWEonuBZ_T5A",
+            authDomain: "ieltslab-e049d.firebaseapp.com",
+            projectId: "ieltslab-e049d",
+            storageBucket: "ieltslab-e049d.firebasestorage.app",
+            messagingSenderId: "674420790977",
+            appId: "1:674420790977:web:89c5fdf8ea8e0c4b5b2640",
+            measurementId: "G-GYZ39NHTGH"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // ── TEST MAP ────────────────────────────────────────────────
+        
+        const TEST_MAP = {
+            1:  { file: 'Listening tests /cambridge_20_test_1.html', storageKey: 'ielts_score_cambridge_20_listening_test_1',  name: 'Cambridge 20 — Test 1' },
+            2:  { file: 'Listening tests /cambridge_20_test_2.html', storageKey: 'ielts_score_cambridge_20_listening_test_2',  name: 'Cambridge 20 — Test 2' },
+            3:  { file: 'Listening tests /cambridge_20_test_3.html', storageKey: 'ielts_score_cambridge_20_listening_test_3',  name: 'Cambridge 20 — Test 3' },
+            4:  { file: 'Listening tests /cambridge_20_test_4.html', storageKey: 'ielts_score_cambridge_20_listening_test_4',  name: 'Cambridge 20 — Test 4' },
+            5:  { file: 'Listening tests /cambridge_19_test_1.html', storageKey: 'ielts_score_cambridge_19_listening_test_1',  name: 'Cambridge 19 — Test 1' },
+            6:  { file: 'Listening tests /cambridge_19_test_2.html', storageKey: 'ielts_score_cambridge_19_listening_test_2',  name: 'Cambridge 19 — Test 2' },
+            7:  { file: 'Listening tests /cambridge_19_test_3.html', storageKey: 'ielts_score_cambridge_19_listening_test_3',  name: 'Cambridge 19 — Test 3' },
+            8:  { file: 'Listening tests /cambridge_19_test_4.html', storageKey: 'ielts_score_cambridge_19_listening_test_4',  name: 'Cambridge 19 — Test 4' },
+            9:  { file: 'Listening tests /cambridge_18_test_1.html', storageKey: 'ielts_score_cambridge_18_listening_test_1',  name: 'Cambridge 18 — Test 1' },
+            10: { file: 'Listening tests /cambridge_18_test_2.html', storageKey: 'ielts_score_cambridge_18_listening_test_2',  name: 'Cambridge 18 — Test 2' },
+            11: { file: 'Listening tests /cambridge_18_test_3.html', storageKey: 'ielts_score_cambridge_18_listening_test_3',  name: 'Cambridge 18 — Test 3' },
+            12: { file: 'Listening tests /cambridge_18_test_4.html', storageKey: 'ielts_score_cambridge_18_listening_test_4',  name: 'Cambridge 18 — Test 4' },
+            13: { file: 'Listening tests /cambridge_17_test_1.html', storageKey: 'ielts_score_cambridge_17_listening_test_1',  name: 'Cambridge 17 — Test 1' },
+            14: { file: 'Listening tests /cambridge_17_test_2.html', storageKey: 'ielts_score_cambridge_17_listening_test_2',  name: 'Cambridge 17 — Test 2' },
+            15: { file: 'Listening tests /cambridge_17_test_3.html', storageKey: 'ielts_score_cambridge_17_listening_test_3',  name: 'Cambridge 17 — Test 3' },
+            16: { file: 'Listening tests /cambridge_17_test_4.html', storageKey: 'ielts_score_cambridge_17_listening_test_4',  name: 'Cambridge 17 — Test 4' },
+        };
+        
+
+        // ── RENDER CARDS ────────────────────────────────────────────
+        function initializeTests() {
+            const grid = document.getElementById('test-grid');
+            for (let i = 1; i <= 16; i++) {
+                const testNum  = i < 10 ? '0' + i : String(i);
+                const testMeta = TEST_MAP[i];
+
+                let scoreBadgeHTML = '';
+                let completedClass = '';
+                let btnLabel = 'BEGIN TEST';
+
+                try {
+                    const saved = localStorage.getItem(testMeta.storageKey);
+                    if (saved) {
+                        const rec = JSON.parse(saved);
+                        completedClass = 'completed';
+                        btnLabel = 'REVIEW / RETAKE';
+                        scoreBadgeHTML = `
+                            <div class="score-badge">
+                                <div class="band">${rec.band || '—'}</div>
+                                <div class="score-info">
+                                    <span class="score-label">Last Score</span>
+                                    <span class="score-raw">${rec.score} / ${rec.total || 40} correct</span>
+                                    <span class="score-date">${rec.date || ''}</span>
+                                </div>
+                            </div>`;
+                    }
+                } catch(e) { /* no saved score yet */ }
+
+                grid.innerHTML += `
+                    <div class="card ${completedClass}">
+                        <span class="num">AUDIO_SIMULATION_${testNum}</span>
+                        <h3>${testMeta.name}</h3>
+                        <p>40 Minutes • 4 Sections<br>Standard Academic/General</p>
+                        ${scoreBadgeHTML}
+                        <a href="${testMeta.file}" class="start-btn">${btnLabel}</a>
+                    </div>`;
+            }
+        }
+
+        // ── AUTH CHECK using Firebase ──
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('auth-check').remove();
+                initializeTests();
+            } else {
+                // Not logged in — redirect to main site
+                window.location.href = 'ieltslab_with_auth.html';
+            }
+        });
+    </script>
+</body>
+</html>

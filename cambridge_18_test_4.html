@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 18 Academic Reading Test 4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 18 Academic Reading Test 4</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2><strong>Green roofs</strong></h2>
+<p><strong>A</strong></p>
+<p>Rooftops covered with grass, vegetable gardens and lush foliage are now a common sight in many cities around the world. More and more private companies and city authorities are investing in green roofs, drawn to their wide-ranging benefits. Among the benefits are saving on energy costs, mitigating the risk of floods, making habitats for urban wildlife, tackling air pollution and even growing food. These increasingly radical urban designs can help cities adapt to the monumental problems they face, such as access to resources and a lack of green space due to development. But the involvement of city authorities, businesses and other institutions is crucial to ensuring their success – as is research investigating different options to suit the variety of rooftop spaces found in cities. The UK is relatively new to developing green roofs, and local governments and institutions are playing a major role in spreading the practice. London is home to much of the UK’s green roof market, mainly due to forward-thinking policies such as the London Plan, which has paved the way to more than doubling the area of green roofs in the capital.</p>
+<p><strong>B</strong></p>
+<p>Ongoing research is showcasing how green roofs in cities can integrate with ‘living walls’: environmentally friendly walls which are partially or completely covered with greenery, including a growing medium, such as soil or water. Research also indicates that green roofs can be integrated with drainage systems on the ground, such as street trees, so that the water is managed better and the built environment is made more sustainable. There is also evidence to demonstrate the social value of green roofs. Doctors are increasingly prescribing time spent gardening outdoors for patients dealing with anxiety and depression. And research has found that access to even the most basic green spaces can provide a better quality of life for dementia sufferers and help people avoid obesity.</p>
+<p><strong>C</strong></p>
+<p>In North America, green roofs have become mainstream, with a wide array of expansive, accessible and food-producing roofs installed in buildings. Again, city leaders and authorities have helped push the movement forward – only recently, San Francisco, USA, created a policy requiring new buildings to have green roofs. Toronto, Canada, has policies dating from the 1990s, encouraging the development of urban farms on rooftops. These countries also benefit from having newer buildings than in many parts of the world, which makes it easier to install green roofs. Being able to keep enough water at roof height and distribute it right across the rooftop is crucial to maintaining the plants on any green roof – especially on ‘edible roofs’ where fruit and vegetables are farmed. And it’s much easier to do this in newer buildings, which can typically hold greater weight, than to retro-fit old ones. Having a stronger roof also makes it easier to grow a greater variety of plants, since the soil can be deeper.</p>
+<p><strong>D</strong></p>
+<p>For green roofs to become the norm for new developments, there needs to be support from public authorities and private investors. Those responsible for maintaining buildings may have to acquire new skills, such as landscaping, and in some cases, volunteers may be needed to help out. Other considerations include installing drainage paths, meeting health and safety requirements and perhaps allowing access for the public, as well as planning restrictions and disruption from regular activities in and around the buildings during installation. To convince investors and developers that installing green roofs is worthwhile, economic arguments are still the most important. The term ‘natural capital’ has been developed to explain the economic value of nature; for example, measuring the money saved by installing natural solutions to protect against flood damage, adapt to climate change or help people lead healthier and happier lives.</p>
+<p><strong>E</strong></p>
+<p>As the expertise about green roofs grows, official standards have been developed to ensure that they are designed, constructed and maintained properly, and function well. Improvements in the science and technology underpinning green roof development have also led to new variations in the concept. For example, ‘blue roofs’ enable buildings to hold water over longer periods of time, rather than draining it away quickly – crucial in times of heavier rainfall. There are also combinations of green roofs with solar panels, and ‘brown roofs’ which are wilder in nature and maximise biodiversity. If the trend continues, it could create new jobs and a more vibrant and sustainable local food economy – alongside many other benefits. There are still barriers to overcome, but the evidence so far indicates that green roofs have the potential to transform cities and help them function sustainably long into the future. The success stories need to be studied and replicated elsewhere, to make green, blue, brown and food-producing roofs the norm in cities around the world.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2><strong>The growth mindset</strong></h2>
+<p>Over the past century, a powerful idea has taken root in the educational landscape. The concept of intelligence as something innate has been supplanted by the idea that intelligence is not fixed, and that, with the right training, we can be the authors of our own cognitive capabilities. Psychologist Alfred Binet, the developer of the first intelligence tests, was one of many 19th-century scientists who held that earlier view and sought to quantify cognitive ability. Then, in the early 20th century, progressive thinkers revolted against the notion that inherent ability is destiny. Instead, educators such as John Dewey argued that every child’s intelligence could be developed, given the right environment.</p>
+<p>‘Growth mindset theory’ is a relatively new – and extremely popular – version of this idea. In many schools today you will see hallways covered in motivational posters and hear speeches on the mindset of great sporting heroes who simply <em>believed</em> their way to the top. A major focus of the growth mindset in schools is coaxing students away from seeing failure as an indication of their ability, and towards seeing it as a chance to improve that ability. As educationalist Jeff Howard noted several decades ago: ‘Smart is not something that you just are, smart is something that you can get.’</p>
+<p>The idea of the growth mindset is based on the work of psychologist Carol Dweck in California in the 1990s. In one key experiment, Dweck divided a group of 10- to 12-year-olds into two groups. All were told that they had achieved a high score on a test but the first group were praised for their intelligence in achieving this, while the others were praised for their effort. The second group – those who had been instilled with a ‘growth mindset’ – were subsequently far more likely to put effort into future tasks. Meanwhile, the former took on only those tasks that would not risk their sense of worth. This group had inferred that success or failure is due to innate ability, and this ‘fixed mindset’ had led them to fear of failure and lack of effort. Praising ability actually made the students perform worse, while praising effort emphasised that change was possible.</p>
+<p>One of the greatest impediments to successfully implementing a growth mindset, however, is the education system itself: in many parts of the world, the school climate is obsessed with performance in the form of constant testing, analysing and ranking of students – a key characteristic of the fixed mindset. Nor is it unusual for schools to create a certain cognitive dissonance, when they applaud the benefits of a growth mindset but then hand out fixed target grades in lessons based on performance.</p>
+<p>Aside from the implementation problem, the original growth mindset research has also received harsh criticism. The statistician Andrew Gelman claims that ‘their research designs have enough degrees of freedom that they could take their data to support just about any theory at all’. Professor of Psychology Timothy Bates, who has been trying to replicate Dweck’s work, is finding that the results are repeatedly null. He notes that: ‘People with a growth mindset don’t cope any better with failure … Kids with the growth mindset aren’t getting better grades, either before or after our intervention study.’</p>
+<p>Much of this criticism is not lost on Dweck, and she deserves great credit for responding to it and adapting her work accordingly. In fact, she argues that her work has been misunderstood and misapplied in a range of ways. She has also expressed concerns that her theories are being misappropriated in schools by being conflated with the self-esteem movement: ‘For me the growth mindset is a tool for learning and improvement. It’s not just a vehicle for making children feel good.’</p>
+<p>But there is another factor at work here. The failure to translate the growth mindset into the classroom might reflect a misunderstanding of the nature of teaching and learning itself. Growth mindset supporters David Yeager and Gregory Walton claim that interventions should be delivered in a subtle way to maximise their effectiveness. They say that if adolescents perceive a teacher’s intervention as conveying that they are in need of help, this could undo its intended effects.</p>
+<p>A lot of what drives students is their innate beliefs and how they perceive themselves. There is a strong correlation between self-perception and achievement, but there is evidence to suggest that the actual effect of achievement on self-perception is stronger than the other way round. To stand up in a classroom and successfully deliver a good speech is a genuine achievement, and that is likely to be more powerfully motivating than vague notions of ‘motivation’ itself.</p>
+<p>Recent evidence would suggest that growth mindset interventions are not the elixir of student learning that its proponents claim it to be. The growth mindset appears to be a viable construct in the lab, which, when administered in the classroom via targeted interventions, doesn’t seem to work. It is hard to dispute that having faith in the capacity to change is a good attribute for students. Paradoxically, however, that aspiration is not well served by direct interventions that try to instil it.</p>
+<p>Motivational posters and talks are often a waste of time, and might well give students a deluded notion of what success actually means. Teaching concrete skills such as how to write an effective introduction to an essay then praising students’ effort in getting there is probably a far better way of improving confidence than telling them how unique they are, or indeed how capable they are of changing their own brains. Perhaps growth mindset works best as a philosophy and not an intervention.</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2><strong>Alfred Wegener: science, exploration and the theory of continental drift</strong></h2>
+<p><em>by Mott T Greene</em></p>
+<p><strong>Introduction</strong></p>
+<p>This is a book about the life and scientific work of Alfred Wegener, whose reputation today rests with his theory of continental displacements, better known as ‘continental drift’. Wegener proposed this theory in 1912 and developed it extensively for nearly 20 years. His book on the subject, <em>The Origin of Continents</em> and <em>Oceans</em>, went through four editions and was the focus of an international controversy in his lifetime and for some years after his death.</p>
+<p>Wegener’s basic idea was that many mysteries about the Earth’s history could be solved if one supposed that the continents moved laterally, rather than supposing that they remained fixed in place. Wegener showed in great detail how such continental movements were plausible and how they worked, using evidence from a large number of sciences including geology, geophysics, paleontology, and climatology. Wegener’s idea – that the continents move – is at the heart of the theory that guides Earth sciences today: namely plate tectonics. Plate tectonics is in many respects quite different from Wegener’s proposal, in the same way that modern evolutionary theory is very different from the ideas Charles Darwin proposed in the 1850s about biological evolution. Yet plate tectonics is a descendant of Alfred Wegener’s theory of continental drift, in quite the same way that modern evolutionary theory is a descendant of Darwin’s theory of natural selection.</p>
+<p>When I started writing about Wegener’s life and work, one of the most intriguing things about him for me was that, although he came up with a theory on continental drift, he was not a geologist. He trained as an astronomer and pursued a career in atmospheric physics. When he proposed the theory of continental displacements in 1912, he was a lecturer in physics and astronomy at the University of Marburg, in southern Germany. However, he was not an ‘unknown’. In 1906 he had set a world record (with his brother Kurt) for time aloft in a hot-air balloon: 52 hours. Between 1906 and 1908 he had taken part in a highly publicized and extremely dangerous expedition to the coast of northeast Greenland. He had also made a name for himself amongst a small circle of meteorologists and atmospheric physicists in Germany as the author of a textbook, <em>Thermodynamics of the Atmosphere</em> (1911), and of a number of interesting scientific papers.</p>
+<p>As important as Wegener’s work on continental drift has turned out to be, it was largely a sideline to his interest in atmospheric physics, geophysics, and paleoclimatology*, and thus I have been at great pains to put Wegener’s work on continental drift in the larger context of his other scientific work, and in the even larger context of atmospheric sciences in his lifetime. This is a ‘continental drift book’ only to the extent that Wegener was interested in that topic and later became famous for it. My treatment of his other scientific work is no less detailed, though I certainly have devoted more attention to the reception of his ideas on continental displacement, as they were much more controversial than his other work.</p>
+<p>Readers interested in the specific detail of Wegener’s career will see that he often stopped pursuing a given line of investigation (sometimes for years on end), only to pick it up later. I have tried to provide guideposts to his rapidly shifting interests by characterizing different phases of his life as careers in different sciences, which is reflected in the titles of the chapters. Thus, the index should be a sufficient guide for those interested in a particular aspect of Wegener’s life but perhaps not all of it. My own feeling, however, is that the parts do not make as much sense on their own as do all of his activities taken together. In this respect I urge readers to try to experience Wegener’s life as he lived it, with all the interruptions, changes of mind, and renewed efforts this entailed.</p>
+<p>Wegener left behind a few published works but, as was standard practice, these reported the results of his work – not the journey he took to reach that point. Only a few hundred of the many thousands of letters he wrote and received in his lifetime have survived and he didn’t keep notebooks or diaries that recorded his life and activities. He was not active (with a few exceptions) in scientific societies, and did not seek to find influence or advance his ideas through professional contacts and politics, spending most of his time at home in his study reading and writing, or in the field collecting observations.</p>
+<p>Some famous scientists, such as Newton, Darwin, and Einstein, left mountains of written material behind, hundreds of notebooks and letters numbering in the tens of thousands. Others, like Michael Faraday, left extensive journals of their thoughts and speculations, parallel to their scientific notebooks. The more such material a scientist leaves behind, the better chance a biographer has of forming an accurate picture of how a scientist’s ideas took shape and evolved.</p>
+<p>I am firmly of the opinion that most of us, Wegener included, are not in any real sense the authors of our own lives. We plan, think, and act, often with apparent freedom, but most of the time our lives ‘happen to us’, and we only retrospectively turn this happenstance into a coherent narrative of fulfilled intentions. This book, therefore, is a story both of the life and scientific work that Alfred Wegener planned and intended and of the life and scientific work that actually ‘happened to him’. These are, as I think you will soon see, not always the same thing.</p>
+<p>—————</p>
+<p>* Paleoclimatology – The study of past climates</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-5</div><div class="section-copy">
+                                            <p>The Reading Passage has five paragraphs, <strong>A-E</strong>.</p>
+<p>Which paragraph contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-E</strong>, in boxes on your answer sheet.</em></p>
+<p><strong><em>NB</em></strong><em>&nbsp;&nbsp; You may use any letter more than once.</em></p>
+                                        </div><section class="q-card" data-q-key="1"><span class="q-chip" data-qn="1" data-q-chip="1">1</span><div class="q-label"><span> <span>mention of several challenges to be overcome before a green roof can be installed</span></span></div><select class="q-select" name="ielts_reading_answer_10695_1" id="ielts_reading_answer_10695_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="2"><span class="q-chip" data-qn="2" data-q-chip="2">2</span><div class="q-label"><span> <span>reference to a city where green roofs have been promoted for many years</span></span></div><select class="q-select" name="ielts_reading_answer_10695_2" id="ielts_reading_answer_10695_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="3"><span class="q-chip" data-qn="3" data-q-chip="3">3</span><div class="q-label"><span> <span>a belief that existing green roofs should be used as a model for new ones</span></span></div><select class="q-select" name="ielts_reading_answer_10695_3" id="ielts_reading_answer_10695_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="4"><span class="q-chip" data-qn="4" data-q-chip="4">4</span><div class="q-label"><span> <span>examples of how green roofs can work in combination with other green urban initiatives</span></span></div><select class="q-select" name="ielts_reading_answer_10695_4" id="ielts_reading_answer_10695_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="5"><span class="q-chip" data-qn="5" data-q-chip="5">5</span><div class="q-label"><span> <span>the need to make a persuasive argument for the financial benefits of green roofs</span></span></div><select class="q-select" name="ielts_reading_answer_10695_5" id="ielts_reading_answer_10695_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 6-9</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the summary below.</em><p></p>
+<p><em>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</em></p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h3><strong>Advantages of green roofs</strong></h3>
+<p>City rooftops covered with greenery have many advantages. These include lessening the likelihood that floods will occur, reducing how much money is spent on <span class="lab-inline-item" data-q-key="6"><span class="lab-inline-num" data-qn="6">6</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_10724_1" id="ielts_reading_answer_10724_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> and creating environments that are suitable for wildlife. In many cases, they can also be used for producing <span class="lab-inline-item" data-q-key="7"><span class="lab-inline-num" data-qn="7">7</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_10724_2" id="ielts_reading_answer_10724_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>.</p>
+<p>There are also social benefits of green roofs. For example, the medical profession recommends <span class="lab-inline-item" data-q-key="8"><span class="lab-inline-num" data-qn="8">8</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_10724_3" id="ielts_reading_answer_10724_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> as an activity to help people cope with mental health issues. Studies have also shown that the availability of green spaces can prevent physical problems such as <span class="lab-inline-item" data-q-key="9"><span class="lab-inline-num" data-qn="9">9</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_10724_4" id="ielts_reading_answer_10724_4" autocomplete="off"><span class="lab-feedback-slot"></span></span>.</p></div>
+                                        </div><div class="section-heading">Questions 10-11</div><div class="section-copy">
+                                            <p><em>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,&nbsp;<strong>A-E</strong>.</em></p>
+<p><em>Write the correct letters in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="10-11"><span class="q-chip" data-qn="10" data-q-chip="10">10</span><span class="q-chip" data-qn="11" data-q-chip="11">11</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;advantages of using newer buildings for green roofs are mentioned in Paragraph C of the passage?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10727_2[]" value="A" data-limit="2" id="ielts_reading_answer_10727_2_0-0"><span class="option-letter">A</span><span>a longer growing season for edible produce</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10727_2[]" value="B" data-limit="2" id="ielts_reading_answer_10727_2_0-1"><span class="option-letter">B</span><span>more economical use of water</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10727_2[]" value="C" data-limit="2" id="ielts_reading_answer_10727_2_0-2"><span class="option-letter">C</span><span>greater water-storage capacity</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10727_2[]" value="D" data-limit="2" id="ielts_reading_answer_10727_2_0-3"><span class="option-letter">D</span><span>ability to cultivate more plant types</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10727_2[]" value="E" data-limit="2" id="ielts_reading_answer_10727_2_0-4"><span class="option-letter">E</span><span>a large surface area for growing plants</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 12-13</div><div class="section-copy">
+                                            <p><em>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,&nbsp;<strong>A-E</strong>.</em></p>
+<p><em>Write the correct letters in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="12-13"><span class="q-chip" data-qn="12" data-q-chip="12">12</span><span class="q-chip" data-qn="13" data-q-chip="13">13</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;aims of new variations on the concept of green roofs are mentioned in Paragraph E of the passage?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10729_2[]" value="A" data-limit="2" id="ielts_reading_answer_10729_2_0-0"><span class="option-letter">A</span><span>to provide habitats for a wide range of species</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10729_2[]" value="B" data-limit="2" id="ielts_reading_answer_10729_2_0-1"><span class="option-letter">B</span><span>to grow plants successfully even in the wettest climates</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10729_2[]" value="C" data-limit="2" id="ielts_reading_answer_10729_2_0-2"><span class="option-letter">C</span><span>to regulate the temperature of the immediate environment</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10729_2[]" value="D" data-limit="2" id="ielts_reading_answer_10729_2_0-3"><span class="option-letter">D</span><span>to generate power from a sustainable source</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_10729_2[]" value="E" data-limit="2" id="ielts_reading_answer_10729_2_0-4"><span class="option-letter">E</span><span>to collect water to supply other buildings</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-16</div><div class="section-copy">
+                                            <p><em>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>&nbsp;or&nbsp;<strong>D</strong>.</em></p>
+<p><em>Write the correct letter in boxes on your answer sheet</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>What can we learn from the first paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_1" value="A" id="ielts_reading_answer_10732_1_0-0"><span class="option-letter">A</span><span>where the notion of innate intelligence first began</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_1" value="B" id="ielts_reading_answer_10732_1_0-1"><span class="option-letter">B</span><span>when ideas about the nature of intelligence began to shift</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_1" value="C" id="ielts_reading_answer_10732_1_0-2"><span class="option-letter">C</span><span>how scientists have responded to changing views of intelligence</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_1" value="D" id="ielts_reading_answer_10732_1_0-3"><span class="option-letter">D</span><span>why thinkers turned away from the idea of intelligence being fixed</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>The second paragraph describes how schools encourage students to</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_2" value="A" id="ielts_reading_answer_10732_2_0-0"><span class="option-letter">A</span><span>identify their personal ambitions.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_2" value="B" id="ielts_reading_answer_10732_2_0-1"><span class="option-letter">B</span><span>help each other to realise their goals.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_2" value="C" id="ielts_reading_answer_10732_2_0-2"><span class="option-letter">C</span><span>have confidence in their potential to succeed.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_2" value="D" id="ielts_reading_answer_10732_2_0-3"><span class="option-letter">D</span><span>concentrate on where their particular strengths lie.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>In the third paragraph, the writer suggests that students with a fixed mindset</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_3" value="A" id="ielts_reading_answer_10732_3_0-0"><span class="option-letter">A</span><span>tend to be less competitive.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_3" value="B" id="ielts_reading_answer_10732_3_0-1"><span class="option-letter">B</span><span>generally have a low sense of self-esteem.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_3" value="C" id="ielts_reading_answer_10732_3_0-2"><span class="option-letter">C</span><span>will only work hard if they are given constant encouragement.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10732_3" value="D" id="ielts_reading_answer_10732_3_0-3"><span class="option-letter">D</span><span>are afraid to push themselves beyond what they see as their limitations.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 17-22</div><div class="section-copy">
+                                            <p><em>Look at the following statements and the list of people below.</em></p>
+<p><em>Match each statement with the correct person or people,&nbsp;<strong>A-E</strong>.</em></p>
+<p><em>Write the correct letter,&nbsp;<strong>A-E</strong>, in boxes on your answer sheet.</em></p>
+<p><strong><em>NB</em></strong><em>&nbsp;&nbsp; You may use any letter more than once.</em></p>
+<p><strong>List of People</strong></p>
+<p><strong>A&nbsp;&nbsp;</strong>&nbsp;Alfred Binet</p>
+<p><strong>B&nbsp;&nbsp;</strong>&nbsp;Carol Dweck</p>
+<p><strong>C&nbsp;&nbsp;</strong>&nbsp;Andrew Gelman</p>
+<p><strong>D&nbsp;&nbsp;</strong>&nbsp;Timothy Bates</p>
+<p><strong>E&nbsp;&nbsp;</strong>&nbsp;David Yeager and Gregory Walton</p>
+                                        </div><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>The methodology behind the growth mindset studies was not strict enough.</span></span></div><select class="q-select" name="ielts_reading_answer_10735_1" id="ielts_reading_answer_10735_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="18"><span class="q-chip" data-qn="18" data-q-chip="18">18</span><div class="q-label"><span> <span>The idea of the growth mindset has been incorrectly interpreted.</span></span></div><select class="q-select" name="ielts_reading_answer_10735_2" id="ielts_reading_answer_10735_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="19"><span class="q-chip" data-qn="19" data-q-chip="19">19</span><div class="q-label"><span> <span>Intellectual ability is an unchangeable feature of each individual.</span></span></div><select class="q-select" name="ielts_reading_answer_10735_3" id="ielts_reading_answer_10735_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="20"><span class="q-chip" data-qn="20" data-q-chip="20">20</span><div class="q-label"><span> <span>The growth mindset should be promoted without students being aware of it.</span></span></div><select class="q-select" name="ielts_reading_answer_10735_4" id="ielts_reading_answer_10735_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="21"><span class="q-chip" data-qn="21" data-q-chip="21">21</span><div class="q-label"><span> <span>The growth mindset is not simply about boosting students’ morale.</span></span></div><select class="q-select" name="ielts_reading_answer_10735_5" id="ielts_reading_answer_10735_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="22"><span class="q-chip" data-qn="22" data-q-chip="22">22</span><div class="q-label"><span> <span>Research shows that the growth mindset has no effect on academic achievement.</span></span></div><select class="q-select" name="ielts_reading_answer_10735_6" id="ielts_reading_answer_10735_6"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 23-26</div><div class="section-copy">
+                                            <p>Do the following statements agree with the views of the writer in The Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><strong><em>YES</em></strong><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if the statement agrees with the views of the writer</em></p>
+<p><strong><em>NO</em></strong><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if the statement contradicts the views of the writer</em></p>
+<p><strong><em>NOT</em></strong><em>&nbsp;<strong>GIVEN</strong>&nbsp;&nbsp;&nbsp; if it is impossible to say what the writer thinks about this</em></p>
+                                        </div><section class="q-card" data-q-key="23"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><div class="q-label"><span> <span>Dweck has handled criticisms of her work in an admirable way.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_1" value="YES" id="ielts_reading_answer_10739_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_1" value="NO" id="ielts_reading_answer_10739_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_1" value="NOT GIVEN" id="ielts_reading_answer_10739_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="24"><span class="q-chip" data-qn="24" data-q-chip="24">24</span><div class="q-label"><span> <span>Students’ self-perception is a more effective driver of self-confidence than actual achievement is.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_2" value="YES" id="ielts_reading_answer_10739_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_2" value="NO" id="ielts_reading_answer_10739_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_2" value="NOT GIVEN" id="ielts_reading_answer_10739_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="25"><span class="q-chip" data-qn="25" data-q-chip="25">25</span><div class="q-label"><span> <span>Recent evidence about growth mindset interventions has attracted unfair coverage in the media.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_3" value="YES" id="ielts_reading_answer_10739_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_3" value="NO" id="ielts_reading_answer_10739_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_3" value="NOT GIVEN" id="ielts_reading_answer_10739_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="26"><span class="q-chip" data-qn="26" data-q-chip="26">26</span><div class="q-label"><span> <span>Deliberate attempts to encourage students to strive for high achievement may have a negative effect.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_4" value="YES" id="ielts_reading_answer_10739_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_4" value="NO" id="ielts_reading_answer_10739_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10739_4" value="NOT GIVEN" id="ielts_reading_answer_10739_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-30</div><div class="section-copy">
+                                            <p>Do the following statements agree with the claims of the writer in The Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><strong><em>YES</em></strong><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the claims of the writer</em></p>
+<p><strong><em>NO</em></strong><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the claims of the writer</em></p>
+<p><strong><em>NOT</em></strong><em>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp;if it is impossible to say what the writer thinks about this</em></p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>Wegener’s ideas about continental drift were widely disputed while he was alive.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_1" value="YES" id="ielts_reading_answer_10741_1_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_1" value="NO" id="ielts_reading_answer_10741_1_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_1" value="NOT GIVEN" id="ielts_reading_answer_10741_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>The idea that the continents remained fixed in place was defended in a number of respected scientific publications.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_2" value="YES" id="ielts_reading_answer_10741_2_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_2" value="NO" id="ielts_reading_answer_10741_2_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_2" value="NOT GIVEN" id="ielts_reading_answer_10741_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>Wegener relied on a limited range of scientific fields to support his theory of continental drift</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_3" value="YES" id="ielts_reading_answer_10741_3_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_3" value="NO" id="ielts_reading_answer_10741_3_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_3" value="NOT GIVEN" id="ielts_reading_answer_10741_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>The similarities between Wegener’s theory of continental drift and modern-day plate tectonics are enormous.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_4" value="YES" id="ielts_reading_answer_10741_4_0-0"><span class="option-letter">YES</span><span>YES</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_4" value="NO" id="ielts_reading_answer_10741_4_0-1"><span class="option-letter">NO</span><span>NO</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10741_4" value="NOT GIVEN" id="ielts_reading_answer_10741_4_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 31-36</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper"><em>Complete the summary using the list of phrases,&nbsp;<strong>A-J</strong>, below.</em><p></p>
+<p><em>Write the correct letter,&nbsp;<strong>A-J</strong>, in boxes on your answer sheet.</em></p>
+<p><strong>A&nbsp;&nbsp;</strong>&nbsp;modest fame&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>B &nbsp;</strong>&nbsp;vast range</p>
+<p><strong>C &nbsp;</strong>&nbsp;record-breaking achievement</p>
+<p><strong>D&nbsp;&nbsp;</strong>&nbsp;research methods&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>E&nbsp;&nbsp;</strong>&nbsp;select group</p>
+<p><strong>F&nbsp;&nbsp;</strong>&nbsp;professional interests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>G&nbsp;</strong>&nbsp;&nbsp;scientific debate</p>
+<p><strong>H&nbsp;</strong>&nbsp;&nbsp;hazardous exploration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>I&nbsp;&nbsp;&nbsp;</strong>&nbsp;biographer’s perspective</p>
+<p><strong>J &nbsp;&nbsp;</strong>&nbsp;narrow investigation</p>
+<h3><strong>Wegener’s life and work</strong></h3>
+<p>One of the remarkable things about Wegener from a <span class="lab-inline-item" data-q-key="31"><span class="lab-inline-num" data-qn="31">31</span><select class="lab-inline-select" name="ielts_reading_answer_10746_1" id="ielts_reading_answer_10746_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> is that although he proposed a theory of continental drift, he was not a geologist. His <span class="lab-inline-item" data-q-key="32"><span class="lab-inline-num" data-qn="32">32</span><select class="lab-inline-select" name="ielts_reading_answer_10746_2" id="ielts_reading_answer_10746_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> were limited to atmospheric physics. However, at the time he proposed his theory of continental drift in 1912, he was already a person of <span class="lab-inline-item" data-q-key="33"><span class="lab-inline-num" data-qn="33">33</span><select class="lab-inline-select" name="ielts_reading_answer_10746_3" id="ielts_reading_answer_10746_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span>. Six years previously, there had been his <span class="lab-inline-item" data-q-key="34"><span class="lab-inline-num" data-qn="34">34</span><select class="lab-inline-select" name="ielts_reading_answer_10746_4" id="ielts_reading_answer_10746_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> of 52 hours in a hot-air balloon, followed by his well-publicised but <span class="lab-inline-item" data-q-key="35"><span class="lab-inline-num" data-qn="35">35</span><select class="lab-inline-select" name="ielts_reading_answer_10746_5" id="ielts_reading_answer_10746_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span> of Greenland’s coast. With the publication of his textbook on thermodynamics, he had also come to the attention of a <span class="lab-inline-item" data-q-key="36"><span class="lab-inline-num" data-qn="36">36</span><select class="lab-inline-select" name="ielts_reading_answer_10746_6" id="ielts_reading_answer_10746_6"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select><span class="lab-feedback-slot"></span></span>&nbsp;of German scientists.</p></div>
+                                        </div><div class="section-heading">Questions 37-40</div><div class="section-copy">
+                                            <p><em>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>&nbsp;or&nbsp;<strong>D</strong>.</em></p>
+<p><em>Write the correct letter in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="37"><span class="q-chip" data-qn="37" data-q-chip="37">37</span><div class="q-label"><span> <span>What is Mott T Greene doing in the fifth paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_1" value="A" id="ielts_reading_answer_10772_1_0-0"><span class="option-letter">A</span><span>describing what motivated him to write the book</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_1" value="B" id="ielts_reading_answer_10772_1_0-1"><span class="option-letter">B</span><span>explaining why it is desirable to read the whole book</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_1" value="C" id="ielts_reading_answer_10772_1_0-2"><span class="option-letter">C</span><span>suggesting why Wegener pursued so many different careers</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_1" value="D" id="ielts_reading_answer_10772_1_0-3"><span class="option-letter">D</span><span>indicating what aspects of Wegener’s life interested him most</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="38"><span class="q-chip" data-qn="38" data-q-chip="38">38</span><div class="q-label"><span> <span>What is said about Wegener in the sixth paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_2" value="A" id="ielts_reading_answer_10772_2_0-0"><span class="option-letter">A</span><span>He was not a particularly ambitious person.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_2" value="B" id="ielts_reading_answer_10772_2_0-1"><span class="option-letter">B</span><span>He kept a record of all his scientific observations.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_2" value="C" id="ielts_reading_answer_10772_2_0-2"><span class="option-letter">C</span><span>He did not adopt many of the scientific practices of the time.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_2" value="D" id="ielts_reading_answer_10772_2_0-3"><span class="option-letter">D</span><span>He enjoyed discussing new discoveries with other scientists.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="39"><span class="q-chip" data-qn="39" data-q-chip="39">39</span><div class="q-label"><span> <span>What does Greene say about some other famous scientists?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_3" value="A" id="ielts_reading_answer_10772_3_0-0"><span class="option-letter">A</span><span>Their published works had a greater impact than Wegener’s did.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_3" value="B" id="ielts_reading_answer_10772_3_0-1"><span class="option-letter">B</span><span>They had fewer doubts about their scientific ideas than Wegener did.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_3" value="C" id="ielts_reading_answer_10772_3_0-2"><span class="option-letter">C</span><span>Their scientific ideas were more controversial than Wegener’s.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_3" value="D" id="ielts_reading_answer_10772_3_0-3"><span class="option-letter">D</span><span>They are easier subjects to write about than Wegener.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="40"><span class="q-chip" data-qn="40" data-q-chip="40">40</span><div class="q-label"><span> <span>What is Greene’s main point in the final paragraph?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_4" value="A" id="ielts_reading_answer_10772_4_0-0"><span class="option-letter">A</span><span>It is not enough in life to have good intentions.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_4" value="B" id="ielts_reading_answer_10772_4_0-1"><span class="option-letter">B</span><span>People need to plan carefully if they want to succeed.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_4" value="C" id="ielts_reading_answer_10772_4_0-2"><span class="option-letter">C</span><span>People have little control over many aspects of their lives.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_10772_4" value="D" id="ielts_reading_answer_10772_4_0-3"><span class="option-letter">D</span><span>It is important that people ensure they have the freedom to act.</span></label></div><div class="lab-feedback-slot"></div></section></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 18 Academic Reading Test 4","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-4/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_10695_1","promptHtml":"\u003cspan> \u003cspan>mention of several challenges to be overcome before a green roof can be installed\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10695_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_10695_2","promptHtml":"\u003cspan> \u003cspan>reference to a city where green roofs have been promoted for many years\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10695_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_10695_3","promptHtml":"\u003cspan> \u003cspan>a belief that existing green roofs should be used as a model for new ones\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10695_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_10695_4","promptHtml":"\u003cspan> \u003cspan>examples of how green roofs can work in combination with other green urban initiatives\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10695_4","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":false,"type":"select","name":"ielts_reading_answer_10695_5","promptHtml":"\u003cspan> \u003cspan>the need to make a persuasive argument for the financial benefits of green roofs\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10695_5","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_10724_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_10724_1","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_10724_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_10724_2","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_10724_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_10724_3","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_10724_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_10724_4","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_10732_1","promptHtml":"\u003cspan> \u003cspan>What can we learn from the first paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"where the notion of innate intelligence first began"},{"value":"B","label":"when ideas about the nature of intelligence began to shift"},{"value":"C","label":"how scientists have responded to changing views of intelligence"},{"value":"D","label":"why thinkers turned away from the idea of intelligence being fixed"}],"sourceAnswerId":"ielts_reading_answer_10732_1_0","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_10732_2","promptHtml":"\u003cspan> \u003cspan>The second paragraph describes how schools encourage students to\u003c/span>\u003c/span>","options":[{"value":"A","label":"identify their personal ambitions."},{"value":"B","label":"help each other to realise their goals."},{"value":"C","label":"have confidence in their potential to succeed."},{"value":"D","label":"concentrate on where their particular strengths lie."}],"sourceAnswerId":"ielts_reading_answer_10732_2_0","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_10732_3","promptHtml":"\u003cspan> \u003cspan>In the third paragraph, the writer suggests that students with a fixed mindset\u003c/span>\u003c/span>","options":[{"value":"A","label":"tend to be less competitive."},{"value":"B","label":"generally have a low sense of self-esteem."},{"value":"C","label":"will only work hard if they are given constant encouragement."},{"value":"D","label":"are afraid to push themselves beyond what they see as their limitations."}],"sourceAnswerId":"ielts_reading_answer_10732_3_0","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_10735_1","promptHtml":"\u003cspan> \u003cspan>The methodology behind the growth mindset studies was not strict enough.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10735_1","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_10735_2","promptHtml":"\u003cspan> \u003cspan>The idea of the growth mindset has been incorrectly interpreted.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10735_2","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_10735_3","promptHtml":"\u003cspan> \u003cspan>Intellectual ability is an unchangeable feature of each individual.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10735_3","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_10735_4","promptHtml":"\u003cspan> \u003cspan>The growth mindset should be promoted without students being aware of it.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10735_4","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_10735_5","promptHtml":"\u003cspan> \u003cspan>The growth mindset is not simply about boosting students’ morale.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10735_5","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_10735_6","promptHtml":"\u003cspan> \u003cspan>Research shows that the growth mindset has no effect on academic achievement.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_10735_6","limit":null},"23":{"key":"23","nums":[23],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_10739_1","promptHtml":"\u003cspan> \u003cspan>Dweck has handled criticisms of her work in an admirable way.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10739_1_0","limit":null},"24":{"key":"24","nums":[24],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_10739_2","promptHtml":"\u003cspan> \u003cspan>Students’ self-perception is a more effective driver of self-confidence than actual achievement is.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10739_2_0","limit":null},"25":{"key":"25","nums":[25],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_10739_3","promptHtml":"\u003cspan> \u003cspan>Recent evidence about growth mindset interventions has attracted unfair coverage in the media.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10739_3_0","limit":null},"26":{"key":"26","nums":[26],"part":2,"inline":false,"type":"radio","name":"ielts_reading_answer_10739_4","promptHtml":"\u003cspan> \u003cspan>Deliberate attempts to encourage students to strive for high achievement may have a negative effect.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10739_4_0","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10741_1","promptHtml":"\u003cspan> \u003cspan>Wegener’s ideas about continental drift were widely disputed while he was alive.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10741_1_0","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10741_2","promptHtml":"\u003cspan> \u003cspan>The idea that the continents remained fixed in place was defended in a number of respected scientific publications.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10741_2_0","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10741_3","promptHtml":"\u003cspan> \u003cspan>Wegener relied on a limited range of scientific fields to support his theory of continental drift\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10741_3_0","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10741_4","promptHtml":"\u003cspan> \u003cspan>The similarities between Wegener’s theory of continental drift and modern-day plate tectonics are enormous.\u003c/span>\u003c/span>","options":[{"value":"YES","label":"YES"},{"value":"NO","label":"NO"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_10741_4_0","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_10746_1","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_10746_1","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_10746_2","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_10746_2","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_10746_3","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_10746_3","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_10746_4","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_10746_4","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_10746_5","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_10746_5","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":true,"type":"select","name":"ielts_reading_answer_10746_6","promptHtml":"","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"},{"value":"H","label":"H"},{"value":"I","label":"I"},{"value":"J","label":"J"}],"sourceAnswerId":"ielts_reading_answer_10746_6","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10772_1","promptHtml":"\u003cspan> \u003cspan>What is Mott T Greene doing in the fifth paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"describing what motivated him to write the book"},{"value":"B","label":"explaining why it is desirable to read the whole book"},{"value":"C","label":"suggesting why Wegener pursued so many different careers"},{"value":"D","label":"indicating what aspects of Wegener’s life interested him most"}],"sourceAnswerId":"ielts_reading_answer_10772_1_0","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10772_2","promptHtml":"\u003cspan> \u003cspan>What is said about Wegener in the sixth paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"He was not a particularly ambitious person."},{"value":"B","label":"He kept a record of all his scientific observations."},{"value":"C","label":"He did not adopt many of the scientific practices of the time."},{"value":"D","label":"He enjoyed discussing new discoveries with other scientists."}],"sourceAnswerId":"ielts_reading_answer_10772_2_0","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10772_3","promptHtml":"\u003cspan> \u003cspan>What does Greene say about some other famous scientists?\u003c/span>\u003c/span>","options":[{"value":"A","label":"Their published works had a greater impact than Wegener’s did."},{"value":"B","label":"They had fewer doubts about their scientific ideas than Wegener did."},{"value":"C","label":"Their scientific ideas were more controversial than Wegener’s."},{"value":"D","label":"They are easier subjects to write about than Wegener."}],"sourceAnswerId":"ielts_reading_answer_10772_3_0","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_10772_4","promptHtml":"\u003cspan> \u003cspan>What is Greene’s main point in the final paragraph?\u003c/span>\u003c/span>","options":[{"value":"A","label":"It is not enough in life to have good intentions."},{"value":"B","label":"People need to plan carefully if they want to succeed."},{"value":"C","label":"People have little control over many aspects of their lives."},{"value":"D","label":"It is important that people ensure they have the freedom to act."}],"sourceAnswerId":"ielts_reading_answer_10772_4_0","limit":null},"10-11":{"key":"10-11","nums":[10,11],"part":1,"inline":false,"type":"checkbox","name":"ielts_reading_answer_10727_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;advantages of using newer buildings for green roofs are mentioned in Paragraph C of the passage?\u003c/span>\u003c/span>","options":[{"value":"A","label":"a longer growing season for edible produce"},{"value":"B","label":"more economical use of water"},{"value":"C","label":"greater water-storage capacity"},{"value":"D","label":"ability to cultivate more plant types"},{"value":"E","label":"a large surface area for growing plants"}],"sourceAnswerId":"ielts_reading_answer_10727_2_0","limit":2},"12-13":{"key":"12-13","nums":[12,13],"part":1,"inline":false,"type":"checkbox","name":"ielts_reading_answer_10729_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;aims of new variations on the concept of green roofs are mentioned in Paragraph E of the passage?\u003c/span>\u003c/span>","options":[{"value":"A","label":"to provide habitats for a wide range of species"},{"value":"B","label":"to grow plants successfully even in the wettest climates"},{"value":"C","label":"to regulate the temperature of the immediate environment"},{"value":"D","label":"to generate power from a sustainable source"},{"value":"E","label":"to collect water to supply other buildings"}],"sourceAnswerId":"ielts_reading_answer_10729_2_0","limit":2}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10-11","part":1},"11":{"key":"10-11","part":1},"12":{"key":"12-13","part":1},"13":{"key":"12-13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23","part":2},"24":{"key":"24","part":2},"25":{"key":"25","part":2},"26":{"key":"26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || "").match(/cambridge_(\d+)_test_(\d+)\.html/i);
+  return match ? "ielts_score_cambridge_" + match[1] + "_reading_test_" + match[2] : "";
+}
+// Firebase initialization for score saving
+let firebaseDatabase = null;
+let firebaseAuth = null;
+let currentUser = null;
+
+async function initFirebaseForScoring() {
+  try {
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js');
+    const { getDatabase } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-database.js');
+    const { getAuth } = await import('https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js');
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAW3dtKV7EAh3SOK71UIX0yWEonuBZ_T5A",
+      authDomain: "ieltslab-e049d.firebaseapp.com",
+      projectId: "ieltslab-e049d",
+      storageBucket: "ieltslab-e049d.firebasestorage.app",
+      messagingSenderId: "674420790977",
+      appId: "1:674420790977:web:89c5fdf8ea8e0c4b5b2640",
+      measurementId: "G-GYZ39NHTGH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    firebaseDatabase = getDatabase(app);
+    firebaseAuth = getAuth(app);
+    
+    // Get current user
+    if (firebaseAuth.currentUser) {
+      currentUser = firebaseAuth.currentUser;
+    }
+  } catch (e) {
+    console.log('Firebase init for scoring skipped:', e.message);
+  }
+}
+
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFirebaseForScoring();
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString("en-GB")
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then(t => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>

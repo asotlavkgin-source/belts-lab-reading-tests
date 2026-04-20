@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 15 Academic Reading Test 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#060d10;
+  --panel:#0d171b;
+  --panel-2:#132126;
+  --panel-3:#0b1316;
+  --edge:#20373d;
+  --edge-2:#2a4950;
+  --text:#ecf3f2;
+  --muted:#98adaa;
+  --teal:#1fd4c2;
+  --teal-soft:rgba(31,212,194,.14);
+  --teal-strong:#7ff6dc;
+  --danger:#ff7587;
+  --ok:#31d67f;
+  --warn:#ffc46c;
+}
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(31,212,194,.12), transparent 28%),
+    linear-gradient(180deg, #04090b, #071114);
+  color:var(--text);
+  font-family:"Space Grotesk",sans-serif;
+}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit}
+.lab-shell{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(6,13,16,.92);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;flex-direction:column;gap:3px}
+.brand-mark{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--teal)}
+.brand-title{font-size:22px;font-weight:700}
+.top-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.timer{
+  min-width:102px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel-3);
+  border:1px solid var(--edge-2);
+  font:700 15px/1 "JetBrains Mono",monospace;
+  text-align:center;
+}
+.tool-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid var(--edge-2);
+  background:var(--panel-3);
+  color:var(--text);
+  cursor:pointer;
+}
+.tool-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tool-btn.primary{
+  background:linear-gradient(135deg,var(--teal),var(--teal-strong));
+  color:#041012;border:none;font-weight:700;
+}
+.tool-btn.done{
+  background:#17332c;color:var(--ok);border-color:#245443;
+}
+.part-tabs{
+  display:flex;gap:8px;overflow:auto;padding:10px 18px;
+  border-bottom:1px solid var(--edge);
+  background:rgba(9,15,18,.78);
+}
+.part-tab{
+  display:flex;gap:8px;align-items:center;
+  min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;
+}
+.part-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.part-count{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:#0a1718;border:1px solid rgba(31,212,194,.18);font:600 12px/1 "JetBrains Mono",monospace;
+}
+.layout{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 132px)}
+.passage-col,.question-col{padding:18px 18px 100px;overflow:auto}
+.passage-col{border-right:1px solid var(--edge)}
+.transcript-panel,.question-panel{display:none}
+.transcript-panel.active,.question-panel.active{display:block}
+.audio-card{
+  margin-bottom:14px;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);
+}
+audio{width:100%}
+.transcript-article,.section-copy{
+  padding:18px 20px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);line-height:1.82;
+}
+.transcript-article h2,.transcript-article h3{margin-top:0}
+.transcript-article img,.section-copy img{max-width:100%;height:auto;border-radius:14px;border:1px solid var(--edge-2)}
+.transcript-article table,.section-copy table{width:100%;border-collapse:collapse}
+.transcript-article td,.transcript-article th,.section-copy td,.section-copy th{
+  border:1px solid var(--edge-2);padding:8px 10px;vertical-align:top;
+}
+.transcript-empty{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);color:var(--muted);text-align:center}
+.section-heading{
+  margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--teal);
+  background:var(--teal-soft);border-radius:0 14px 14px 0;
+  font:700 13px/1.4 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--teal);
+}
+.listen-jump{
+  margin:0 0 12px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge-2);
+  background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.listen-jump:hover{border-color:var(--teal);color:var(--teal)}
+.section-copy{margin-bottom:14px}
+.q-card{
+  margin-bottom:12px;padding:16px;border-radius:20px;background:var(--panel);border:1px solid var(--edge);
+}
+.q-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:30px;padding:0 10px;margin-right:8px;margin-bottom:10px;
+  border-radius:999px;border:1px solid rgba(31,212,194,.26);
+  background:rgba(31,212,194,.07);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.q-chip.correct{background:rgba(49,214,127,.12);border-color:rgba(49,214,127,.4);color:var(--ok)}
+.q-chip.incorrect{background:rgba(255,117,135,.12);border-color:rgba(255,117,135,.34);color:var(--danger)}
+.q-label{margin:2px 0 14px;font-size:15px;line-height:1.7}
+.q-input,.q-select,.lab-inline-input,.lab-inline-select{
+  min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--edge-2);background:#081316;color:var(--text);outline:none;
+}
+.q-input,.q-select{width:min(320px,100%)}
+.q-input:focus,.q-select:focus,.lab-inline-input:focus,.lab-inline-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(31,212,194,.12)}
+.option-list{display:grid;gap:10px}
+.option-pill{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:11px 12px;border-radius:14px;border:1px solid var(--edge-2);background:var(--panel-3);cursor:pointer;
+}
+.option-pill.correct{border-color:rgba(49,214,127,.45);background:rgba(49,214,127,.08)}
+.option-pill.incorrect{border-color:rgba(255,117,135,.34);background:rgba(255,117,135,.08)}
+.option-pill.expected{box-shadow:inset 0 0 0 1px rgba(31,212,194,.38)}
+.option-letter{
+  display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+  border-radius:999px;background:rgba(31,212,194,.1);color:var(--teal);font:700 12px/1 "JetBrains Mono",monospace;
+}
+.group-note{margin-bottom:10px;color:var(--muted);font-size:13px}
+.lab-inline-item{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:2px 4px;border-radius:10px;background:rgba(31,212,194,.06)
+}
+.lab-inline-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;height:24px;padding:0 7px;border-radius:999px;border:1px solid rgba(31,212,194,.22);
+  font:700 11px/1 "JetBrains Mono",monospace;color:var(--teal);
+}
+.lab-inline-input{width:120px}
+.lab-inline-select{width:84px}
+.lab-feedback-slot{display:block;margin-top:10px}
+.feedback-pill{
+  display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:8px 10px;border-radius:12px;background:rgba(31,212,194,.08);border:1px solid rgba(31,212,194,.2);font-size:13px;
+}
+.feedback-pill strong{color:var(--teal)}
+.feedback-pill .explain-btn{
+  min-height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer;
+}
+.feedback-pill .explain-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:6px;overflow:auto;padding:10px 14px;
+  border-top:1px solid var(--edge);background:rgba(7,12,14,.94);backdrop-filter:blur(10px);
+}
+.nav-pill{
+  min-width:34px;height:34px;padding:0 8px;border-radius:11px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--muted);cursor:pointer;font:700 12px/1 "JetBrains Mono",monospace;
+}
+.nav-pill.active{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.nav-pill.done{color:var(--text)}
+.nav-pill.correct{border-color:rgba(49,214,127,.4);color:var(--ok);background:rgba(49,214,127,.12)}
+.nav-pill.incorrect{border-color:rgba(255,117,135,.34);color:var(--danger);background:rgba(255,117,135,.12)}
+.nav-sep{width:1px;height:26px;align-self:center;background:var(--edge-2);margin:0 2px}
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);z-index:80;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(760px,100%);max-height:88vh;overflow:auto;
+  padding:22px;border-radius:24px;background:linear-gradient(180deg,#101c1f,#0a1316);border:1px solid var(--edge);box-shadow:0 24px 80px rgba(0,0,0,.46);
+}
+.modal-title{margin:0 0 8px;font-size:28px}
+.modal-sub{margin:0 0 16px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.result-card{padding:14px;border-radius:16px;background:var(--panel-3);border:1px solid var(--edge)}
+.result-card strong{display:block;font-size:28px;color:var(--teal)}
+.result-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.result-table,.review-table{width:100%;border-collapse:collapse}
+.result-table th,.result-table td,.review-table th,.review-table td{padding:9px 10px;border-bottom:1px solid var(--edge);text-align:left}
+.result-table tr.correct-row td{color:var(--ok)}
+.result-table tr.incorrect-row td{color:var(--danger)}
+.review-actions,.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+.exp-mark{background:rgba(255,210,110,.3);color:inherit;border-radius:4px;padding:0 2px}
+.spinner{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:90;
+  background:rgba(0,0,0,.56);backdrop-filter:blur(8px)
+}
+.spinner.open{display:flex}
+.spinner-card{
+  padding:18px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--edge);font-weight:700
+}
+.hl-tools{
+  position:fixed;display:none;gap:6px;padding:8px;border-radius:14px;background:var(--panel);border:1px solid var(--edge-2);z-index:95;box-shadow:0 14px 28px rgba(0,0,0,.28)
+}
+.hl-tools.show{display:flex}
+.hl-btn{
+  min-height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--edge-2);background:var(--panel-3);color:var(--text);cursor:pointer
+}
+.hl-btn:hover{border-color:var(--teal);color:var(--teal)}
+.lab-highlight{background:#ffd15d;color:#081011;border-radius:3px}
+.lab-highlight-note{background:#8fe7bf;color:#081011;border-radius:3px}
+.note-pin{
+  width:22px;height:22px;margin-left:4px;border-radius:999px;border:1px solid var(--edge-2);background:var(--panel);color:var(--teal);font:700 10px/1 "JetBrains Mono",monospace;cursor:pointer
+}
+.note-bubble{
+  position:fixed;display:none;max-width:260px;padding:12px 14px;border-radius:14px;background:#0e191c;border:1px solid var(--edge-2);color:var(--text);z-index:96;box-shadow:0 18px 28px rgba(0,0,0,.32)
+}
+.note-bubble.show{display:block}
+.focus-mode .topbar,.focus-mode .part-tabs,.focus-mode .bottom-nav{display:none}
+.focus-mode .layout{min-height:100vh}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .passage-col{border-right:none;border-bottom:1px solid var(--edge)}
+  .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  .topbar{padding:12px}
+  .brand-title{font-size:18px}
+  .passage-col,.question-col{padding:12px 12px 92px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+  <div class="lab-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IELTS LAB</span>
+        <div class="brand-title">Cambridge IELTS 15 Academic Reading Test 1</div>
+      </div>
+      <div class="top-tools">
+        <div class="timer" id="lab-timer">00:00:00</div>
+        <button class="tool-btn" type="button" id="reset-btn">Reset</button>
+        <button class="tool-btn" type="button" id="review-btn">Review</button>
+        <button class="tool-btn" type="button" id="focus-btn">Focus</button>
+        <button class="tool-btn primary" type="button" id="submit-btn">Submit</button>
+      </div>
+    </header>
+
+    <nav class="part-tabs"><button class="part-tab active" type="button" data-part-tab="1"><span>Part 1</span><span class="part-count" data-part-count="1">0/13</span></button><button class="part-tab " type="button" data-part-tab="2"><span>Part 2</span><span class="part-count" data-part-count="2">0/13</span></button><button class="part-tab " type="button" data-part-tab="3"><span>Part 3</span><span class="part-count" data-part-count="3">0/14</span></button></nav>
+
+    <div class="layout">
+      <section class="passage-col"><section class="transcript-panel active" data-part-panel="1"><article class="transcript-article"><h2 id="nutmeg-–-a-valuable-spice"><strong>Nutmeg – a valuable spice</strong></h2>
+<p>The nutmeg tree, <em>Myristica fragrans</em>, is a large evergreen tree native to Southeast Asia. Until the late 18th century, it only grew in one place in the world: a small group of islands in the Banda Sea, part of the Moluccas – or Spice Islands – in northeastern Indonesia. The tree is thickly branched with dense foliage of tough, dark green oval leaves, and produces small, yellow, bell-shaped flowers and pale yellow pear-shaped fruits. The fruit is encased in a flesh husk. When the fruit is ripe, this husk splits into two halves along a ridge running the length of the fruit. Inside is a purple-brown shiny seed, 2-3 cm long by about 2 cm across, surrounded by a lacy red or crimson covering called an ‘aril’. These are the sources of the two spices nutmeg and mace, the former being produced from the dried seed and the latter from the aril.</p>
+<p>Nutmeg was a highly prized and costly ingredient in European cuisine in the Middle Ages, and was used as a flavouring, medicinal, and preservative agent. Throughout this period, the Arabs were the exclusive importers of the spice to Europe. They sold nutmeg for high prices to merchants based in Venice, but they never revealed the exact location of the source of this extremely valuable commodity. The Arab-Venetian dominance of the trade finally ended in 1512, when the Portuguese reached the Banda Islands and began exploiting its precious resources.</p>
+<p>Always in danger of competition from neighbouring Spain, the Portuguese began subcontracting their spice distribution to Dutch traders. Profits began to flow into the Netherlands, and the Dutch commercial fleet swiftly grew into one of the largest in the world. The Dutch quietly gained control of most of the shipping and trading of spices in Northern Europe. Then, in 1580, Portugal fell under Spanish rule, and by the end of the 16th century the Dutch found themselves locked out of the market. As prices for pepper, nutmeg, and other spices soared across Europe, they decided to fight back.</p>
+<p>In 1602, Dutch merchants founded the VOC, a trading corporation better known as the Dutch East India Company. By 1617, the VOC was the richest commercial operation in the world. The company had 50,000 employees worldwide, with a private army of 30,000 men and a fleet of 200 ships. At the same time, thousands of people across Europe were dying of the plague, a highly contagious and deadly disease. Doctors were desperate for a way to stop the spread of this disease, and they decided nutmeg held the cure. Everybody wanted nutmeg, and many were willing to spare no expense to have it. Nutmeg bought for a few pennies in Indonesia could be sold for 68,000 times its original cost on the streets of London. The only problem was the short supply. And that’s where the Dutch found their opportunity.</p>
+<p>The Banda Islands were ruled by local sultans who insisted on maintaining a neutral trading policy towards foreign powers. This allowed them to avoid the presence of Portuguese or Spanish troops on their soil, but it also left them unprotected from other invaders. In 1621, the Dutch arrived and took over. Once securely in control of the Bandas, the Dutch went to work protecting their new investment. They concentrated all nutmeg production into a few easily guarded areas, uprooting and destroying any trees outside the plantation zones. Anyone caught growing a nutmeg seedling or carrying seeds without the proper authority was severely punished. In addition, all exported nutmeg was covered with lime to make sure there was no chance a fertile seed which could be grown elsewhere would leave the islands. There was only one obstacle to Dutch domination. One of the Banda Islands, a sliver of land called Run, only 3 km long by less than 1 km wide, was under the control of the British. After decades of fighting for control of this tiny island, the Dutch and British arrived at a compromise settlement, the Treaty of Breda, in 1667. Intent on securing their hold over every nutmeg-producing island, the Dutch offered a trade: if the British would give them the island of Run, they would in turn give Britain a distant and much less valuable island in North America. The British agreed. That other island was Manhattan, which is how New Amsterdam became New York. The Dutch now had a monopoly over the nutmeg trade which would last for another century.</p>
+<p>Then, in 1770, a Frenchman named Pierre Poivre successfully smuggled nutmeg plants to safety in Mauritius, an island off the coast of Africa. Some of these were later exported to the Caribbean where they thrived, especially on the island of Grenada. Next, in 1778, a volcanic eruption in the Banda region caused a tsunami that wiped out half the nutmeg groves. Finally, in 1809, the British returned to Indonesia and seized the Banda Islands by force. They returned the islands to the Dutch in 1817, but not before transplanting hundreds of nutmeg seedlings to plantations in several locations across southern Asia. The Dutch nutmeg monopoly was over.</p>
+<p>Today, nutmeg is grown in Indonesia, the Caribbean, India, Malaysia, Papua New Guinea and Sri Lanka, and world nutmeg production is estimated to average between 10,000 and 12,000 tonnes per year.</p>
+</article></section><section class="transcript-panel " data-part-panel="2"><article class="transcript-article"><h2 id="driverless-cars"><strong>Driverless cars</strong></h2>
+<p><strong>A</strong></p>
+<p>The automotive sector is well used to adapting to automation in manufacturing. The implementation of robotic car manufacture from the 1970s onwards led to significant cost savings and improvements in the reliability and flexibility of vehicle mass production. A new challenge to vehicle production is now on the horizon and, again, it comes from automation. However, this time it is not to do with the manufacturing process, but with the vehicles themselves.</p>
+<p>Research projects on vehicle automation are not new. Vehicles with limited self-driving capabilities have been around for more than 50 years, resulting in significant contributions towards driver assistance systems. But since Google announced in 2010 that it had been trialling self-driving cars on the streets of California, progress in this field has quickly gathered pace.</p>
+<p><strong>B</strong></p>
+<p>There are many reasons why technology is advancing so fast. One frequently cited motive is safety; indeed, research at the UK’s Transport Research Laboratory has demonstrated that more than 90 percent of road collisions involve human error as a contributory factor, and it is the primary cause in the vast majority. Automation may help to reduce the incidence of this.</p>
+<p>Another aim is to free the time people spend driving for other purposes. If the vehicle can do some or all of the driving, it may be possible to be productive, to socialise or simply to relax while automation systems have responsibility for safe control of the vehicle. If the vehicle can do the driving, those who are challenged by existing mobility models – such as older or disabled travellers – may be able to enjoy significantly greater travel autonomy.</p>
+<p><strong>C</strong></p>
+<p>Beyond these direct benefits, we can consider the wider implications for transport and society, and how manufacturing processes might need to respond as a result. At present, the average car spends more than 90 percent of its life parked. Automation means that initiatives for car-sharing become much more viable, particularly in urban areas with significant travel demand. If a significant proportion of the population choose to use shared automated vehicles, mobility demand can be met by far fewer vehicles.</p>
+<p><strong>D</strong></p>
+<p>The Massachusetts Institute of Technology investigated automated mobility in Singapore, finding that fewer than 30 percent of the vehicles currently used would be required if fully automated car sharing could be implemented. If this is the case, it might mean that we need to manufacture far fewer vehicles to meet demand. However, the number of trips being taken would probably increase, partly because empty vehicles would have to be moved from one customer to the next.</p>
+<p>Modelling work by the University of Michigan Transportation Research Institute suggests automated vehicles might reduce vehicle ownership by 43 percent, but that vehicles’ average annual mileage double as a result. As a consequence, each vehicle would be used more intensively, and might need replacing sooner. This faster rate of turnover may mean that vehicle production will not necessarily decrease.</p>
+<p><strong>E</strong></p>
+<p>Automation may prompt other changes in vehicle manufacture. If we move to a model where consumers are tending not to own a single vehicle but to purchase access to a range of vehicle through a mobility provider, drivers will have the freedom to select one that best suits their needs for a particular journey, rather than making a compromise across all their requirements.</p>
+<p>Since, for most of the time, most of the seats in most cars are unoccupied, this may boost production of a smaller, more efficient range of vehicles that suit the needs of individuals. Specialised vehicles may then be available for exceptional journeys, such as going on a family camping trip or helping a son or daughter move to university.</p>
+<p><strong>F</strong></p>
+<p>There are a number of hurdles to overcome in delivering automated vehicles to our roads. These include the technical difficulties in ensuring that the vehicle works reliably in the infinite range of traffic, weather and road situations it might encounter; the regulatory challenges in understanding how liability and enforcement might change when drivers are no longer essential for vehicle operation; and the societal changes that may be required for communities to trust and accept automated vehicles as being a valuable part of the mobility landscape.</p>
+<p><strong>G</strong></p>
+<p>It’s clear that there are many challenges that need to be addressed but, through robust and targeted research, these can most probably be conquered within the next 10 years. Mobility will change in such potentially significant ways and in association with so many other technological developments, such as telepresence and virtual reality, that it is hard to make concrete predictions about the future. However, one thing is certain: change is coming, and the need to be flexible in response to this will be vital for those involved in manufacturing the vehicles that will deliver future mobility.</p>
+</article></section><section class="transcript-panel " data-part-panel="3"><article class="transcript-article"><h2 id="what-is-exploration?"><strong>What is exploration?</strong></h2>
+<p>We are all explores. Our desire to discover, and then share that new-found knowledge, is part of what makes us human – indeed, this has played an important part in our success as a species. Long before the first caveman slumped down beside the fire and grunted news that there were plenty of wildebeest over yonder, our ancestors had learnt the value of sending out scouts to investigate the unknown. This questing nature of ours undoubtedly helped our species spread around the globe, just as it nowadays no doubt helps the last nomadic Penan maintain their existence in the depleted forests of Borneo, and a visitor negotiate the subways of New York.</p>
+<p>Over the years, we’ve come to think of explorers as a peculiar breed – different from the rest of us, different from those of us who are merely ‘well travelled’, even; and perhaps there <em>is</em> a type of person more suited to seeking out the new, a type of caveman more inclined to risk venturing out. That, however, doesn’t take away from the fact that we all have this enquiring instinct, even today; and that in all sorts of professions – whether artist, marine biologist or astronomer – borders of the unknown are being tested each day.</p>
+<p>Thomas Hardy set some of his novels in Egdon Heath, a fictional area of uncultivated land, and used the landscape to suggest the desires and fears of his characters. He is delving into matters we all recognise because they are common to humanity. This is surely an act of exploration, and into a world as remote as the author chooses. Explorer and travel writer Peter Fleming talks of the moment when the explorer returns to the existence he has left behind with his loved ones. The traveller ‘who has for weeks or months seen himself only as a puny and irrelevant alien crawling laboriously over a country in which he has no roots and no background, suddenly encounters his other self, a relatively solid figure, with a place in the minds of certain people’.</p>
+<p>In this book about the exploration of the earth’s surface, I have confined myself to those whose travels were real and who also aimed at more than personal discovery. But that still left me with another problem: the word ‘explorer’ has become associated with a past era. We think back to a golden age, as if exploration peaked somehow in the 19th century – as if the process of discovery is now on the decline, though the truth is that we have named only one and a half million of this planet’s species, and there may be more than 10 million – and that’s not including bacteria. We have studied only 5 per cent of the species we know. We have scarcely mapped the ocean floors, and know even less about ourselves; we fully understand the workings of only 10 per cent of our brains.</p>
+<p>Here is how some of today’s ‘explorers’ define the word. Ran Fiennes, dubbed the ‘greatest living explorer’, said, ‘An explorer is someone who has done something that no human has done before – and also done something scientifically useful.’ Chris Bonington, a leading mountaineer, felt exploration was to be found in the act of physically touching the unknown: ‘You have to have gone somewhere new.’ Then Robin Hanbury-Tenison, a campaigner on behalf of remote so-called ‘tribal’ peoples, said, ‘A traveller simply records information about some far-off world, and reports back; but an explorer <em>changes </em>the world.’ Wilfred Thesiger, who crossed Arabia’s Empty Quarter in 1946, and belongs to an era of unmechanised travel now lost to the rest of us, told me, ‘If I’d gone across by camel when I could have gone by car, it would have been a stunt.’ To him, exploration meant bringing back information from a remote place regardless of any great self-discovery.</p>
+<p>Each definition is slightly different – and tends to reflect the field of endeavour of each pioneer. It was the same whoever I asked: the prominent historian would say exploration was a thing of the past, the cutting-edge scientist would say it was of the present. And so on. They each set their own particular criteria; the common factor in their approach being that they all had, unlike many of us who simply enjoy travel or discovering new things, both a very definite objective from the outset and also a desire to record their findings.</p>
+<p>I’d best declare my own bias. As a writer, I’m interested in the exploration of ideas. I’ve done a great many expeditions and each one was unique. I’ve lived for months alone with isolated groups of people all around the world, even two ‘uncontacted tribes’. But none of these things is of the slightest interest to anyone unless, through my books, I’ve found a new slant, explored a new idea. Why? Because the world has moved on. The time has long passed for the great continental voyages – another walk to the poles, another crossing of the Empty Quarter. We know how the land surface of our planet lies; exploration of it is now down to the details – the habits of microbes, say, or the grazing behaviour of buffalo. Aside from the deep sea and deep underground, it’s the era of specialists. However, this is to disregard the role the human mind has in conveying remote places; and this is what interests me: how a fresh interpretation, even of a well-travelled route, can give its readers new insights.</p>
+</article></section></section>
+      <section class="question-col">
+        <form id="lab-form"><section class="question-panel active" data-question-panel="1"><div class="section-heading">Questions 1-4</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the notes below.<p></p>
+<p>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h4><strong>The nutmeg tree and fruit</strong></h4>
+<ul>
+<li>the leaves of the tree are <span class="lab-inline-item" data-q-key="1"><span class="lab-inline-num" data-qn="1">1</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9185_1" id="ielts_reading_answer_9185_1" autocomplete="off"><span class="lab-feedback-slot"></span></span> in shape</li>
+<li>the <span class="lab-inline-item" data-q-key="2"><span class="lab-inline-num" data-qn="2">2</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9185_2" id="ielts_reading_answer_9185_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;surrounds the fruit and breaks open when the fruit is ripe</li>
+<li>the <span class="lab-inline-item" data-q-key="3"><span class="lab-inline-num" data-qn="3">3</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9185_3" id="ielts_reading_answer_9185_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;is used to produce the spice nutmeg</li>
+<li>the covering known as the aril is used to produce <span class="lab-inline-item" data-q-key="4"><span class="lab-inline-num" data-qn="4">4</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9185_4" id="ielts_reading_answer_9185_4" autocomplete="off"><span class="lab-feedback-slot"></span></span></li>
+<li>the tree has yellow flowers and fruit</li>
+</ul>
+</div>
+                                        </div><div class="section-heading">Questions 5-7</div><div class="section-copy">
+                                            <p>Do the following statements agree with the information given in the Reading Passage?</p>
+<p><em>In boxes on your answer sheet, write</em></p>
+<p><strong>TRUE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the information</p>
+<p><strong>FALSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the information</p>
+<p><strong>NOT</strong>&nbsp;<strong>GIVEN</strong>&nbsp; &nbsp; if there is no information on this</p>
+                                        </div><section class="q-card" data-q-key="5"><span class="q-chip" data-qn="5" data-q-chip="5">5</span><div class="q-label"><span> <span>In the Middle Ages, most Europeans knew where nutmeg was grown.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_1" value="TRUE" id="ielts_reading_answer_9187_1_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_1" value="FALSE" id="ielts_reading_answer_9187_1_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_1" value="NOT GIVEN" id="ielts_reading_answer_9187_1_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="6"><span class="q-chip" data-qn="6" data-q-chip="6">6</span><div class="q-label"><span> <span>The VOC was the world’s first major trading company.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_2" value="TRUE" id="ielts_reading_answer_9187_2_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_2" value="FALSE" id="ielts_reading_answer_9187_2_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_2" value="NOT GIVEN" id="ielts_reading_answer_9187_2_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="7"><span class="q-chip" data-qn="7" data-q-chip="7">7</span><div class="q-label"><span> <span>Following the Treaty of Breda, the Dutch had control of all the islands where nutmeg grew.</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_3" value="TRUE" id="ielts_reading_answer_9187_3_0-0"><span class="option-letter">TRUE</span><span>TRUE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_3" value="FALSE" id="ielts_reading_answer_9187_3_0-1"><span class="option-letter">FALSE</span><span>FALSE</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9187_3" value="NOT GIVEN" id="ielts_reading_answer_9187_3_0-2"><span class="option-letter">NOT GIVEN</span><span>NOT GIVEN</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 8-13</div><div class="section-copy">
+                                            <p>Complete the table below.</p>
+<p>Choose&nbsp;<strong>ONE WORD ONLY</strong>&nbsp;from the passage for each answer.</p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<table>
+<tbody>
+<tr>
+<td width="132">Middle Ages</td>
+<td width="414">Nutmeg was brought to Europe by the <span class="lab-inline-item" data-q-key="8"><span class="lab-inline-num" data-qn="8">8</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9189_1" id="ielts_reading_answer_9189_1" autocomplete="off"><span class="lab-feedback-slot"></span></span></td>
+</tr>
+<tr>
+<td width="132">16th century</td>
+<td width="414">European nations took control of the nutmeg trade</td>
+</tr>
+<tr>
+<td width="132">17th century</td>
+<td width="414">Demand for nutmeg grew, as it was believed to be effective against the disease known as the <span class="lab-inline-item" data-q-key="9"><span class="lab-inline-num" data-qn="9">9</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9189_2" id="ielts_reading_answer_9189_2" autocomplete="off"><span class="lab-feedback-slot"></span></span><p></p>
+<p>The Dutch</p>
+<p>– took control of the Banda Islands</p>
+<p>– restricted nutmeg production to a few areas</p>
+<p>– put <span class="lab-inline-item" data-q-key="10"><span class="lab-inline-num" data-qn="10">10</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9189_3" id="ielts_reading_answer_9189_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;on nutmeg to avoid it being cultivated outside the islands</p>
+<p>– finally obtained the island of <span class="lab-inline-item" data-q-key="11"><span class="lab-inline-num" data-qn="11">11</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9189_4" id="ielts_reading_answer_9189_4" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;from the British</p></td>
+</tr>
+<tr>
+<td width="132">Late 18th century</td>
+<td width="414">1770 – nutmeg plants were secretly taken to <span class="lab-inline-item" data-q-key="12"><span class="lab-inline-num" data-qn="12">12</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9189_5" id="ielts_reading_answer_9189_5" autocomplete="off"><span class="lab-feedback-slot"></span></span><p></p>
+<p>1778 – half the Banda Islands’ nutmeg plantations were destroyed by a <span class="lab-inline-item" data-q-key="13"><span class="lab-inline-num" data-qn="13">13</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9189_6" id="ielts_reading_answer_9189_6" autocomplete="off"><span class="lab-feedback-slot"></span></span></p></td>
+</tr>
+</tbody>
+</table>
+                                        </div></section><section class="question-panel " data-question-panel="2"><div class="section-heading">Questions 14-18</div><div class="section-copy">
+                                            <p>The Reading Passage has seven paragraphs, <strong>A-G</strong>.</p>
+<p>Which section contains the following information?</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-G</strong>, in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="14"><span class="q-chip" data-qn="14" data-q-chip="14">14</span><div class="q-label"><span> <span>reference to the amount of time when a car is not in use</span></span></div><select class="q-select" name="ielts_reading_answer_9191_1" id="ielts_reading_answer_9191_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="15"><span class="q-chip" data-qn="15" data-q-chip="15">15</span><div class="q-label"><span> <span>mention of several advantages of driverless vehicles for individual road-users</span></span></div><select class="q-select" name="ielts_reading_answer_9191_2" id="ielts_reading_answer_9191_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="16"><span class="q-chip" data-qn="16" data-q-chip="16">16</span><div class="q-label"><span> <span>reference to the opportunity of choosing the most appropriate vehicle for each trip</span></span></div><select class="q-select" name="ielts_reading_answer_9191_3" id="ielts_reading_answer_9191_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="17"><span class="q-chip" data-qn="17" data-q-chip="17">17</span><div class="q-label"><span> <span>an estimate of how long it will take to overcome a number of problems</span></span></div><select class="q-select" name="ielts_reading_answer_9191_4" id="ielts_reading_answer_9191_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="18"><span class="q-chip" data-qn="18" data-q-chip="18">18</span><div class="q-label"><span> <span>a suggestion that the use of driverless cars may have no effect on the number of vehicles manufactured</span></span></div><select class="q-select" name="ielts_reading_answer_9191_5" id="ielts_reading_answer_9191_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 19-22</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<p></p>
+<p>Choose&nbsp;<strong>NO MORE THAN TWO WORDS</strong>&nbsp;from the passage for each answer.</p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h4><strong>The impact of driverless cars</strong></h4>
+<p>Figures from the Transport Research Laboratory indicate that most motor accidents are partly due to <span class="lab-inline-item" data-q-key="19"><span class="lab-inline-num" data-qn="19">19</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9193_1" id="ielts_reading_answer_9193_1" autocomplete="off"><span class="lab-feedback-slot"></span></span>, so the introduction of driverless vehicles will result in greater safety. In addition to the direct benefits of automation, it may bring other advantages. For example, schemes for <span class="lab-inline-item" data-q-key="20"><span class="lab-inline-num" data-qn="20">20</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9193_2" id="ielts_reading_answer_9193_2" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;will be more workable, especially in towns and cities, resulting in fewer cars on the road.</p>
+<p>According to the University of Michigan Transportation Research Institute, there could be a 43 percent drop in <span class="lab-inline-item" data-q-key="21"><span class="lab-inline-num" data-qn="21">21</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9193_3" id="ielts_reading_answer_9193_3" autocomplete="off"><span class="lab-feedback-slot"></span></span> of cars. However, this would mean that the yearly <span class="lab-inline-item" data-q-key="22"><span class="lab-inline-num" data-qn="22">22</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9193_4" id="ielts_reading_answer_9193_4" autocomplete="off"><span class="lab-feedback-slot"></span></span>&nbsp;of each car would, on average, be twice as high as it currently is. this would lead to a higher turnover of vehicles, and therefore no reduction in automotive manufacturing.</p></div>
+                                        </div><div class="section-heading">Questions 23-24</div><div class="section-copy">
+                                            <p>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,&nbsp;<strong>A-E</strong>.</p>
+<p><em>Write the correct letters in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="23-24"><span class="q-chip" data-qn="23" data-q-chip="23">23</span><span class="q-chip" data-qn="24" data-q-chip="24">24</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;benefits of automated vehicles does the writer mention?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9195_2[]" value="A" data-limit="2" id="ielts_reading_answer_9195_2_0-0"><span class="option-letter">A</span><span>Car travellers could enjoy considerable cost savings.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9195_2[]" value="B" data-limit="2" id="ielts_reading_answer_9195_2_0-1"><span class="option-letter">B</span><span>It would be easier to find parking spaces in urban areas.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9195_2[]" value="C" data-limit="2" id="ielts_reading_answer_9195_2_0-2"><span class="option-letter">C</span><span>Travellers could spend journeys doing something other than driving.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9195_2[]" value="D" data-limit="2" id="ielts_reading_answer_9195_2_0-3"><span class="option-letter">D</span><span>People who find driving physically difficult could travel independently.</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9195_2[]" value="E" data-limit="2" id="ielts_reading_answer_9195_2_0-4"><span class="option-letter">E</span><span>A reduction in the number of cars would mean a reduction in pollution.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 25-26</div><div class="section-copy">
+                                            <p>Choose&nbsp;<strong>TWO</strong>&nbsp;letters,&nbsp;<strong>A-E</strong>.</p>
+<p><em>Write the correct letters in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="25-26"><span class="q-chip" data-qn="25" data-q-chip="25">25</span><span class="q-chip" data-qn="26" data-q-chip="26">26</span><div class="q-label"><span> <span>Which&nbsp;<strong>TWO</strong>&nbsp;challenges to automated vehicle development does the writer mention?</span></span></div><div class="group-note">Choose 2</div><div class="option-list"><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9197_2[]" value="A" data-limit="2" id="ielts_reading_answer_9197_2_0-0"><span class="option-letter">A</span><span>making sure the general public has confidence in automated vehicles</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9197_2[]" value="B" data-limit="2" id="ielts_reading_answer_9197_2_0-1"><span class="option-letter">B</span><span>managing the pace of transition from conventional to automated vehicles</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9197_2[]" value="C" data-limit="2" id="ielts_reading_answer_9197_2_0-2"><span class="option-letter">C</span><span>deciding how to compensate professional drivers who become redundant</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9197_2[]" value="D" data-limit="2" id="ielts_reading_answer_9197_2_0-3"><span class="option-letter">D</span><span>setting up the infrastructure to make roads suitable for automated vehicles</span></label><label class="option-pill"><input type="checkbox" name="ielts_reading_answer_9197_2[]" value="E" data-limit="2" id="ielts_reading_answer_9197_2_0-4"><span class="option-letter">E</span><span>getting automated vehicles to adapt to various different driving conditions</span></label></div><div class="lab-feedback-slot"></div></section></section><section class="question-panel " data-question-panel="3"><div class="section-heading">Questions 27-32</div><div class="section-copy">
+                                            <p>Choose the correct letter,&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>,&nbsp;<strong>C</strong>&nbsp;or&nbsp;<strong>D</strong>.</p>
+<p><em>Write the correct letter in boxes on your answer sheet.</em></p>
+                                        </div><section class="q-card" data-q-key="27"><span class="q-chip" data-qn="27" data-q-chip="27">27</span><div class="q-label"><span> <span>The writer refers to visitors to New York to illustrate the point that</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_1" value="A" id="ielts_reading_answer_9199_1_0-0"><span class="option-letter">A</span><span>exploration is an intrinsic element of being human.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_1" value="B" id="ielts_reading_answer_9199_1_0-1"><span class="option-letter">B</span><span>most people are enthusiastic about exploring.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_1" value="C" id="ielts_reading_answer_9199_1_0-2"><span class="option-letter">C</span><span>exploration can lead to surprising results.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_1" value="D" id="ielts_reading_answer_9199_1_0-3"><span class="option-letter">D</span><span>most people find exploration daunting.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="28"><span class="q-chip" data-qn="28" data-q-chip="28">28</span><div class="q-label"><span> <span>According to the second paragraph, what is the writer’s view of explorers?</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_2" value="A" id="ielts_reading_answer_9199_2_0-0"><span class="option-letter">A</span><span>Their discoveries have brought both benefits and disadvantages.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_2" value="B" id="ielts_reading_answer_9199_2_0-1"><span class="option-letter">B</span><span>Their main value is in teaching others.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_2" value="C" id="ielts_reading_answer_9199_2_0-2"><span class="option-letter">C</span><span>They act on an urge that is common to everyone.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_2" value="D" id="ielts_reading_answer_9199_2_0-3"><span class="option-letter">D</span><span>They tend to be more attracted to certain professions than to others.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="29"><span class="q-chip" data-qn="29" data-q-chip="29">29</span><div class="q-label"><span> <span>The writer refers to a description of Egdon Heath to suggest that</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_3" value="A" id="ielts_reading_answer_9199_3_0-0"><span class="option-letter">A</span><span>Hardy was writing about his own experience of exploration.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_3" value="B" id="ielts_reading_answer_9199_3_0-1"><span class="option-letter">B</span><span>Hardy was mistaken about the nature of exploration.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_3" value="C" id="ielts_reading_answer_9199_3_0-2"><span class="option-letter">C</span><span>Hardy’s aim was to investigate people’s emotional states.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_3" value="D" id="ielts_reading_answer_9199_3_0-3"><span class="option-letter">D</span><span>Hardy’s aim was to show the attraction of isolation.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="30"><span class="q-chip" data-qn="30" data-q-chip="30">30</span><div class="q-label"><span> <span>In the fourth paragraph, the writer refers to ‘a golden age’ to suggest that</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_4" value="A" id="ielts_reading_answer_9199_4_0-0"><span class="option-letter">A</span><span>the amount of useful information produced by exploration has decreased.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_4" value="B" id="ielts_reading_answer_9199_4_0-1"><span class="option-letter">B</span><span>fewer people are interested in exploring than in the 19th century.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_4" value="C" id="ielts_reading_answer_9199_4_0-2"><span class="option-letter">C</span><span>recent developments have made exploration less exciting.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_4" value="D" id="ielts_reading_answer_9199_4_0-3"><span class="option-letter">D</span><span>we are wrong to think that exploration is no longer necessary.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="31"><span class="q-chip" data-qn="31" data-q-chip="31">31</span><div class="q-label"><span> <span>In the sixth paragraph, when discussing the definition of exploration, the writer argues that</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_5" value="A" id="ielts_reading_answer_9199_5_0-0"><span class="option-letter">A</span><span>people tend to relate exploration to their own professional interests.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_5" value="B" id="ielts_reading_answer_9199_5_0-1"><span class="option-letter">B</span><span>certain people are likely to misunderstand the nature of exploration.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_5" value="C" id="ielts_reading_answer_9199_5_0-2"><span class="option-letter">C</span><span>the generally accepted definition has changed over time.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_5" value="D" id="ielts_reading_answer_9199_5_0-3"><span class="option-letter">D</span><span>historians and scientists have more valid definitions than the general public.</span></label></div><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="32"><span class="q-chip" data-qn="32" data-q-chip="32">32</span><div class="q-label"><span> <span>In the last paragraph, the writer explains that he is interested in</span></span></div><div class="option-list"><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_6" value="A" id="ielts_reading_answer_9199_6_0-0"><span class="option-letter">A</span><span>how someone’s personality is reflected in their choice of places to visit.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_6" value="B" id="ielts_reading_answer_9199_6_0-1"><span class="option-letter">B</span><span>the human ability to cast new light on places that may be familiar.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_6" value="C" id="ielts_reading_answer_9199_6_0-2"><span class="option-letter">C</span><span>how travel writing has evolved to meet changing demands.</span></label><label class="option-pill"><input type="radio" name="ielts_reading_answer_9199_6" value="D" id="ielts_reading_answer_9199_6_0-3"><span class="option-letter">D</span><span>the feelings that writers develop about the places that they explore.</span></label></div><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 33-37</div><div class="section-copy">
+                                            <p>Look at the following statements and the list of explorers below.</p>
+<p>Match each statement with the correct explorer,&nbsp;<strong>A-E</strong>.</p>
+<p><em>Write the correct letter,&nbsp;<strong>A-E</strong>, in boxes on your answer sheet.</em></p>
+<p><strong><em>NB</em></strong><em>&nbsp; You may use any letter more than once.</em></p>
+<p><strong>List of Explorers</strong></p>
+<p><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp; Peter Fleming</p>
+<p><strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp; Ran Fiennes</p>
+<p><strong>C</strong>&nbsp;&nbsp;&nbsp;&nbsp; Chris Bonington</p>
+<p><strong>D</strong>&nbsp;&nbsp;&nbsp;&nbsp; Robin Hanbury-Tenison</p>
+<p><strong>E</strong>&nbsp;&nbsp;&nbsp;&nbsp; Wilfred Thesiger</p>
+                                        </div><section class="q-card" data-q-key="33"><span class="q-chip" data-qn="33" data-q-chip="33">33</span><div class="q-label"><span> <span>He referred to the relevance of the form of transport used.</span></span></div><select class="q-select" name="ielts_reading_answer_9201_1" id="ielts_reading_answer_9201_1"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="34"><span class="q-chip" data-qn="34" data-q-chip="34">34</span><div class="q-label"><span> <span>He described feelings on coming back home after a long journey.</span></span></div><select class="q-select" name="ielts_reading_answer_9201_2" id="ielts_reading_answer_9201_2"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="35"><span class="q-chip" data-qn="35" data-q-chip="35">35</span><div class="q-label"><span> <span>He worked for the benefit of specific groups of people.</span></span></div><select class="q-select" name="ielts_reading_answer_9201_3" id="ielts_reading_answer_9201_3"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="36"><span class="q-chip" data-qn="36" data-q-chip="36">36</span><div class="q-label"><span> <span>He did not consider learning about oneself an essential part of exploration.</span></span></div><select class="q-select" name="ielts_reading_answer_9201_4" id="ielts_reading_answer_9201_4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><section class="q-card" data-q-key="37"><span class="q-chip" data-qn="37" data-q-chip="37">37</span><div class="q-label"><span> <span>He defined exploration as being both unique and of value to others.</span></span></div><select class="q-select" name="ielts_reading_answer_9201_5" id="ielts_reading_answer_9201_5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select><div class="lab-feedback-slot"></div></section><div class="section-heading">Questions 38-40</div><div class="section-copy">
+                                            <div class="ielts-reading-section-content-wrapper">Complete the summary below.<p></p>
+<p>Choose&nbsp;<strong>NO MORE THAN TWO WORDS</strong>&nbsp;from the passage for each answer.</p>
+<p><em>Write your answers in boxes on your answer sheet.</em></p>
+<h4><strong>The writer’s own bias</strong></h4>
+<p>The writer has experience of a large number of <span class="lab-inline-item" data-q-key="38"><span class="lab-inline-num" data-qn="38">38</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9204_1" id="ielts_reading_answer_9204_1" autocomplete="off"><span class="lab-feedback-slot"></span></span>, and was the first stranger that certain previously <span class="lab-inline-item" data-q-key="39"><span class="lab-inline-num" data-qn="39">39</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9204_2" id="ielts_reading_answer_9204_2" autocomplete="off"><span class="lab-feedback-slot"></span></span> people had encountered. He believes there is no need for further exploration of Earth’s <span class="lab-inline-item" data-q-key="40"><span class="lab-inline-num" data-qn="40">40</span><input class="lab-inline-input" type="text" name="ielts_reading_answer_9204_3" id="ielts_reading_answer_9204_3" autocomplete="off"><span class="lab-feedback-slot"></span></span>, except to answer specific questions such as how buffalo eat.</p></div>
+                                        </div></section></form>
+      </section>
+    </div>
+
+    <nav class="bottom-nav"><button class="nav-pill" type="button" data-q-target="1">1</button><button class="nav-pill" type="button" data-q-target="2">2</button><button class="nav-pill" type="button" data-q-target="3">3</button><button class="nav-pill" type="button" data-q-target="4">4</button><button class="nav-pill" type="button" data-q-target="5">5</button><button class="nav-pill" type="button" data-q-target="6">6</button><button class="nav-pill" type="button" data-q-target="7">7</button><button class="nav-pill" type="button" data-q-target="8">8</button><button class="nav-pill" type="button" data-q-target="9">9</button><button class="nav-pill" type="button" data-q-target="10">10</button><button class="nav-pill" type="button" data-q-target="11">11</button><button class="nav-pill" type="button" data-q-target="12">12</button><button class="nav-pill" type="button" data-q-target="13">13</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="14">14</button><button class="nav-pill" type="button" data-q-target="15">15</button><button class="nav-pill" type="button" data-q-target="16">16</button><button class="nav-pill" type="button" data-q-target="17">17</button><button class="nav-pill" type="button" data-q-target="18">18</button><button class="nav-pill" type="button" data-q-target="19">19</button><button class="nav-pill" type="button" data-q-target="20">20</button><button class="nav-pill" type="button" data-q-target="21">21</button><button class="nav-pill" type="button" data-q-target="22">22</button><button class="nav-pill" type="button" data-q-target="23">23</button><button class="nav-pill" type="button" data-q-target="24">24</button><button class="nav-pill" type="button" data-q-target="25">25</button><button class="nav-pill" type="button" data-q-target="26">26</button><div class="nav-sep"></div><button class="nav-pill" type="button" data-q-target="27">27</button><button class="nav-pill" type="button" data-q-target="28">28</button><button class="nav-pill" type="button" data-q-target="29">29</button><button class="nav-pill" type="button" data-q-target="30">30</button><button class="nav-pill" type="button" data-q-target="31">31</button><button class="nav-pill" type="button" data-q-target="32">32</button><button class="nav-pill" type="button" data-q-target="33">33</button><button class="nav-pill" type="button" data-q-target="34">34</button><button class="nav-pill" type="button" data-q-target="35">35</button><button class="nav-pill" type="button" data-q-target="36">36</button><button class="nav-pill" type="button" data-q-target="37">37</button><button class="nav-pill" type="button" data-q-target="38">38</button><button class="nav-pill" type="button" data-q-target="39">39</button><button class="nav-pill" type="button" data-q-target="40">40</button></nav>
+  </div>
+
+  <div class="modal" id="result-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Your Result</h2>
+      <p class="modal-sub">Checked live through the local Engnovate proxy.</p>
+      <div class="result-grid">
+        <div class="result-card"><strong id="result-band">—</strong><span>Band Score</span></div>
+        <div class="result-card"><strong id="result-correct">0</strong><span>Correct</span></div>
+        <div class="result-card"><strong id="result-wrong">0</strong><span>Wrong</span></div>
+        <div class="result-card"><strong id="result-total">40</strong><span>Total</span></div>
+        <div class="result-card"><strong id="result-time">00:00:00</strong><span>Timer</span></div>
+      </div>
+      <table class="result-table">
+        <thead><tr><th>#</th><th>Your Answer</th><th>Correct Answer</th></tr></thead>
+        <tbody id="result-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="result-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="review-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Current Answers</h2>
+      <p class="modal-sub">A quick review before submitting.</p>
+      <table class="review-table">
+        <thead><tr><th>#</th><th>Your Answer</th></tr></thead>
+        <tbody id="review-body"></tbody>
+      </table>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="review-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="explain-modal">
+    <div class="modal-card">
+      <h2 class="modal-title">Detailed Explanation</h2>
+      <div id="explain-content"></div>
+      <div class="modal-actions">
+        <button class="tool-btn" type="button" data-close-modal="explain-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spinner" id="spinner">
+    <div class="spinner-card" id="spinner-text">Checking answers...</div>
+  </div>
+
+  <div class="hl-tools" id="hl-tools">
+    <button class="hl-btn" type="button" id="hl-mark">Highlight</button>
+    <button class="hl-btn" type="button" id="hl-note">Note</button>
+    <button class="hl-btn" type="button" id="hl-clear">Clear</button>
+  </div>
+  <div class="note-bubble" id="note-bubble"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+  <script>const LAB_DATA = {"title":"Cambridge IELTS 15 Academic Reading Test 1","kind":"reading","sourceUrl":"https://engnovate.com/ielts-reading-tests/cambridge-ielts-15-academic-reading-test-1/","categoryType":"cambridge-academic","totalQuestions":40,"minutes":60,"apiBase":"http://127.0.0.1:8754","parts":[{"num":1,"min":1,"max":13,"count":13},{"num":2,"min":14,"max":26,"count":13},{"num":3,"min":27,"max":40,"count":14}],"keys":{"1":{"key":"1","nums":[1],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9185_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9185_1","limit":null},"2":{"key":"2","nums":[2],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9185_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9185_2","limit":null},"3":{"key":"3","nums":[3],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9185_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9185_3","limit":null},"4":{"key":"4","nums":[4],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9185_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9185_4","limit":null},"5":{"key":"5","nums":[5],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9187_1","promptHtml":"\u003cspan> \u003cspan>In the Middle Ages, most Europeans knew where nutmeg was grown.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9187_1_0","limit":null},"6":{"key":"6","nums":[6],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9187_2","promptHtml":"\u003cspan> \u003cspan>The VOC was the world’s first major trading company.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9187_2_0","limit":null},"7":{"key":"7","nums":[7],"part":1,"inline":false,"type":"radio","name":"ielts_reading_answer_9187_3","promptHtml":"\u003cspan> \u003cspan>Following the Treaty of Breda, the Dutch had control of all the islands where nutmeg grew.\u003c/span>\u003c/span>","options":[{"value":"TRUE","label":"TRUE"},{"value":"FALSE","label":"FALSE"},{"value":"NOT GIVEN","label":"NOT GIVEN"}],"sourceAnswerId":"ielts_reading_answer_9187_3_0","limit":null},"8":{"key":"8","nums":[8],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9189_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9189_1","limit":null},"9":{"key":"9","nums":[9],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9189_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9189_2","limit":null},"10":{"key":"10","nums":[10],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9189_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9189_3","limit":null},"11":{"key":"11","nums":[11],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9189_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9189_4","limit":null},"12":{"key":"12","nums":[12],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9189_5","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9189_5","limit":null},"13":{"key":"13","nums":[13],"part":1,"inline":true,"type":"text","name":"ielts_reading_answer_9189_6","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9189_6","limit":null},"14":{"key":"14","nums":[14],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9191_1","promptHtml":"\u003cspan> \u003cspan>reference to the amount of time when a car is not in use\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9191_1","limit":null},"15":{"key":"15","nums":[15],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9191_2","promptHtml":"\u003cspan> \u003cspan>mention of several advantages of driverless vehicles for individual road-users\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9191_2","limit":null},"16":{"key":"16","nums":[16],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9191_3","promptHtml":"\u003cspan> \u003cspan>reference to the opportunity of choosing the most appropriate vehicle for each trip\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9191_3","limit":null},"17":{"key":"17","nums":[17],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9191_4","promptHtml":"\u003cspan> \u003cspan>an estimate of how long it will take to overcome a number of problems\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9191_4","limit":null},"18":{"key":"18","nums":[18],"part":2,"inline":false,"type":"select","name":"ielts_reading_answer_9191_5","promptHtml":"\u003cspan> \u003cspan>a suggestion that the use of driverless cars may have no effect on the number of vehicles manufactured\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"},{"value":"F","label":"F"},{"value":"G","label":"G"}],"sourceAnswerId":"ielts_reading_answer_9191_5","limit":null},"19":{"key":"19","nums":[19],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9193_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9193_1","limit":null},"20":{"key":"20","nums":[20],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9193_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9193_2","limit":null},"21":{"key":"21","nums":[21],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9193_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9193_3","limit":null},"22":{"key":"22","nums":[22],"part":2,"inline":true,"type":"text","name":"ielts_reading_answer_9193_4","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9193_4","limit":null},"27":{"key":"27","nums":[27],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9199_1","promptHtml":"\u003cspan> \u003cspan>The writer refers to visitors to New York to illustrate the point that\u003c/span>\u003c/span>","options":[{"value":"A","label":"exploration is an intrinsic element of being human."},{"value":"B","label":"most people are enthusiastic about exploring."},{"value":"C","label":"exploration can lead to surprising results."},{"value":"D","label":"most people find exploration daunting."}],"sourceAnswerId":"ielts_reading_answer_9199_1_0","limit":null},"28":{"key":"28","nums":[28],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9199_2","promptHtml":"\u003cspan> \u003cspan>According to the second paragraph, what is the writer’s view of explorers?\u003c/span>\u003c/span>","options":[{"value":"A","label":"Their discoveries have brought both benefits and disadvantages."},{"value":"B","label":"Their main value is in teaching others."},{"value":"C","label":"They act on an urge that is common to everyone."},{"value":"D","label":"They tend to be more attracted to certain professions than to others."}],"sourceAnswerId":"ielts_reading_answer_9199_2_0","limit":null},"29":{"key":"29","nums":[29],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9199_3","promptHtml":"\u003cspan> \u003cspan>The writer refers to a description of Egdon Heath to suggest that\u003c/span>\u003c/span>","options":[{"value":"A","label":"Hardy was writing about his own experience of exploration."},{"value":"B","label":"Hardy was mistaken about the nature of exploration."},{"value":"C","label":"Hardy’s aim was to investigate people’s emotional states."},{"value":"D","label":"Hardy’s aim was to show the attraction of isolation."}],"sourceAnswerId":"ielts_reading_answer_9199_3_0","limit":null},"30":{"key":"30","nums":[30],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9199_4","promptHtml":"\u003cspan> \u003cspan>In the fourth paragraph, the writer refers to ‘a golden age’ to suggest that\u003c/span>\u003c/span>","options":[{"value":"A","label":"the amount of useful information produced by exploration has decreased."},{"value":"B","label":"fewer people are interested in exploring than in the 19th century."},{"value":"C","label":"recent developments have made exploration less exciting."},{"value":"D","label":"we are wrong to think that exploration is no longer necessary."}],"sourceAnswerId":"ielts_reading_answer_9199_4_0","limit":null},"31":{"key":"31","nums":[31],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9199_5","promptHtml":"\u003cspan> \u003cspan>In the sixth paragraph, when discussing the definition of exploration, the writer argues that\u003c/span>\u003c/span>","options":[{"value":"A","label":"people tend to relate exploration to their own professional interests."},{"value":"B","label":"certain people are likely to misunderstand the nature of exploration."},{"value":"C","label":"the generally accepted definition has changed over time."},{"value":"D","label":"historians and scientists have more valid definitions than the general public."}],"sourceAnswerId":"ielts_reading_answer_9199_5_0","limit":null},"32":{"key":"32","nums":[32],"part":3,"inline":false,"type":"radio","name":"ielts_reading_answer_9199_6","promptHtml":"\u003cspan> \u003cspan>In the last paragraph, the writer explains that he is interested in\u003c/span>\u003c/span>","options":[{"value":"A","label":"how someone’s personality is reflected in their choice of places to visit."},{"value":"B","label":"the human ability to cast new light on places that may be familiar."},{"value":"C","label":"how travel writing has evolved to meet changing demands."},{"value":"D","label":"the feelings that writers develop about the places that they explore."}],"sourceAnswerId":"ielts_reading_answer_9199_6_0","limit":null},"33":{"key":"33","nums":[33],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9201_1","promptHtml":"\u003cspan> \u003cspan>He referred to the relevance of the form of transport used.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_9201_1","limit":null},"34":{"key":"34","nums":[34],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9201_2","promptHtml":"\u003cspan> \u003cspan>He described feelings on coming back home after a long journey.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_9201_2","limit":null},"35":{"key":"35","nums":[35],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9201_3","promptHtml":"\u003cspan> \u003cspan>He worked for the benefit of specific groups of people.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_9201_3","limit":null},"36":{"key":"36","nums":[36],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9201_4","promptHtml":"\u003cspan> \u003cspan>He did not consider learning about oneself an essential part of exploration.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_9201_4","limit":null},"37":{"key":"37","nums":[37],"part":3,"inline":false,"type":"select","name":"ielts_reading_answer_9201_5","promptHtml":"\u003cspan> \u003cspan>He defined exploration as being both unique and of value to others.\u003c/span>\u003c/span>","options":[{"value":"A","label":"A"},{"value":"B","label":"B"},{"value":"C","label":"C"},{"value":"D","label":"D"},{"value":"E","label":"E"}],"sourceAnswerId":"ielts_reading_answer_9201_5","limit":null},"38":{"key":"38","nums":[38],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9204_1","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9204_1","limit":null},"39":{"key":"39","nums":[39],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9204_2","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9204_2","limit":null},"40":{"key":"40","nums":[40],"part":3,"inline":true,"type":"text","name":"ielts_reading_answer_9204_3","promptHtml":"","options":[],"sourceAnswerId":"ielts_reading_answer_9204_3","limit":null},"23-24":{"key":"23-24","nums":[23,24],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_9195_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;benefits of automated vehicles does the writer mention?\u003c/span>\u003c/span>","options":[{"value":"A","label":"Car travellers could enjoy considerable cost savings."},{"value":"B","label":"It would be easier to find parking spaces in urban areas."},{"value":"C","label":"Travellers could spend journeys doing something other than driving."},{"value":"D","label":"People who find driving physically difficult could travel independently."},{"value":"E","label":"A reduction in the number of cars would mean a reduction in pollution."}],"sourceAnswerId":"ielts_reading_answer_9195_2_0","limit":2},"25-26":{"key":"25-26","nums":[25,26],"part":2,"inline":false,"type":"checkbox","name":"ielts_reading_answer_9197_2[]","promptHtml":"\u003cspan> \u003cspan>Which&nbsp;\u003cstrong>TWO\u003c/strong>&nbsp;challenges to automated vehicle development does the writer mention?\u003c/span>\u003c/span>","options":[{"value":"A","label":"making sure the general public has confidence in automated vehicles"},{"value":"B","label":"managing the pace of transition from conventional to automated vehicles"},{"value":"C","label":"deciding how to compensate professional drivers who become redundant"},{"value":"D","label":"setting up the infrastructure to make roads suitable for automated vehicles"},{"value":"E","label":"getting automated vehicles to adapt to various different driving conditions"}],"sourceAnswerId":"ielts_reading_answer_9197_2_0","limit":2}},"questionMeta":{"1":{"key":"1","part":1},"2":{"key":"2","part":1},"3":{"key":"3","part":1},"4":{"key":"4","part":1},"5":{"key":"5","part":1},"6":{"key":"6","part":1},"7":{"key":"7","part":1},"8":{"key":"8","part":1},"9":{"key":"9","part":1},"10":{"key":"10","part":1},"11":{"key":"11","part":1},"12":{"key":"12","part":1},"13":{"key":"13","part":1},"14":{"key":"14","part":2},"15":{"key":"15","part":2},"16":{"key":"16","part":2},"17":{"key":"17","part":2},"18":{"key":"18","part":2},"19":{"key":"19","part":2},"20":{"key":"20","part":2},"21":{"key":"21","part":2},"22":{"key":"22","part":2},"23":{"key":"23-24","part":2},"24":{"key":"23-24","part":2},"25":{"key":"25-26","part":2},"26":{"key":"25-26","part":2},"27":{"key":"27","part":3},"28":{"key":"28","part":3},"29":{"key":"29","part":3},"30":{"key":"30","part":3},"31":{"key":"31","part":3},"32":{"key":"32","part":3},"33":{"key":"33","part":3},"34":{"key":"34","part":3},"35":{"key":"35","part":3},"36":{"key":"36","part":3},"37":{"key":"37","part":3},"38":{"key":"38","part":3},"39":{"key":"39","part":3},"40":{"key":"40","part":3}}};</script>
+  <script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (LAB_DATA.apiBase || window.location.origin)
+  : window.location.origin;
+
+function readingScoreStorageKey(){
+  const match = (window.location.pathname || '').match(/cambridge(?:_ielts)?_(\d+)(?:_academic_reading)?_test_(\d+)\.html$/);
+  return match ? 'ielts_score_cambridge_' + match[1] + '_reading_test_' + match[2] : '';
+}
+let timerSeconds = LAB_DATA.minutes * 60;
+let timerHandle = null;
+let activePart = LAB_DATA.parts[0] ? LAB_DATA.parts[0].num : 1;
+let lastRemoteResults = null;
+let selectionRange = null;
+let noteBubble = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initPartTabs();
+  initQuestionNav();
+  initListeningControls();
+  initReviewModal();
+  initSubmit();
+  initFocusMode();
+  initHighlighting();
+  restoreProgress();
+  updateProgress();
+  startTimer();
+});
+
+function cssEscape(value){
+  if(window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+  return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+}
+
+function formatClock(total){
+  const hours = Math.floor(total / 3600);
+  const mins = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return [hours, mins, secs].map(v => String(v).padStart(2, '0')).join(':');
+}
+
+function startTimer(){
+  stopTimer();
+  renderTimer();
+  timerHandle = setInterval(() => {
+    if(timerSeconds <= 0){
+      stopTimer();
+      renderTimer("TIME'S UP");
+      return;
+    }
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerHandle){
+    clearInterval(timerHandle);
+    timerHandle = null;
+  }
+}
+
+function resetTimer(){
+  timerSeconds = LAB_DATA.minutes * 60;
+  startTimer();
+}
+
+function renderTimer(forced){
+  document.getElementById('lab-timer').textContent = forced || formatClock(timerSeconds);
+}
+
+function initPartTabs(){
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.addEventListener('click', () => showPart(Number(button.dataset.partTab)));
+  });
+  showPart(activePart);
+}
+
+function showPart(part){
+  activePart = part;
+  document.querySelectorAll('[data-part-tab]').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.partTab) === part);
+  });
+  document.querySelectorAll('[data-part-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.partPanel) === part);
+  });
+  document.querySelectorAll('[data-question-panel]').forEach((panel) => {
+    panel.classList.toggle('active', Number(panel.dataset.questionPanel) === part);
+  });
+}
+
+function initQuestionNav(){
+  document.querySelectorAll('.nav-pill[data-q-target]').forEach((button) => {
+    button.addEventListener('click', () => focusQuestion(Number(button.dataset.qTarget)));
+  });
+}
+
+function focusQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return;
+  showPart(meta.part);
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('active'));
+  const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+  if(pill) pill.classList.add('active');
+  const anchor = document.querySelector('[data-qn="' + num + '"]');
+  if(anchor){
+    const target = anchor.closest('.q-card') || anchor;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function initListeningControls(){
+  document.querySelectorAll('.listen-jump').forEach((button) => {
+    button.addEventListener('click', () => {
+      const part = Number(button.dataset.part);
+      const audio = document.querySelector('audio[data-audio-part="' + part + '"]');
+      if(!audio) return;
+      const seconds = toSeconds(button.dataset.startTime || '00:00:00');
+      audio.currentTime = seconds;
+      audio.play();
+    });
+  });
+  document.querySelectorAll('audio[data-audio-part]').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio[data-audio-part]').forEach((other) => {
+        if(other !== audio) other.pause();
+      });
+    });
+  });
+  document.querySelectorAll('input[type="checkbox"][data-limit]').forEach((box) => {
+    box.addEventListener('change', () => enforceCheckboxLimit(box));
+  });
+  document.querySelectorAll('#lab-form input, #lab-form select, #lab-form textarea').forEach((field) => {
+    field.addEventListener('input', onFieldChange);
+    field.addEventListener('change', onFieldChange);
+  });
+}
+
+function toSeconds(value){
+  const parts = String(value).split(':').map(Number);
+  while(parts.length < 3) parts.unshift(0);
+  return parts[0] * 3600 + parts[1] * 60 + parts[2];
+}
+
+function enforceCheckboxLimit(changed){
+  const limit = Number(changed.dataset.limit || '0');
+  if(!limit) return;
+  const group = document.querySelectorAll('input[type="checkbox"][name="' + cssEscape(changed.name) + '"]');
+  const checked = Array.from(group).filter((input) => input.checked);
+  const disableUnchecked = checked.length >= limit;
+  Array.from(group).forEach((input) => {
+    if(!input.checked) input.disabled = disableUnchecked;
+  });
+}
+
+function onFieldChange(){
+  updateProgress();
+  saveProgress();
+}
+
+function getKeyMeta(key){
+  return LAB_DATA.keys[key];
+}
+
+function getValueByKey(key){
+  const meta = getKeyMeta(key);
+  if(!meta) return '';
+  const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+  if(!scope) return '';
+  if(meta.type === 'radio'){
+    const checked = scope.querySelector('input[type="radio"]:checked');
+    return checked ? checked.value : '';
+  }
+  if(meta.type === 'checkbox'){
+    return Array.from(scope.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+  if(meta.type === 'select'){
+    const select = scope.querySelector('select');
+    return select ? select.value : '';
+  }
+  const input = scope.querySelector('input[type="text"], textarea');
+  return input ? input.value.trim() : '';
+}
+
+function stringifyValue(value){
+  if(Array.isArray(value)) return value.join('/');
+  return value || '';
+}
+
+function getValueForQuestion(num){
+  const meta = LAB_DATA.questionMeta[String(num)];
+  if(!meta) return '';
+  const source = LAB_DATA.keys[meta.key];
+  const value = getValueByKey(meta.key);
+  if(source && source.type === 'checkbox' && Array.isArray(value) && Array.isArray(source.nums) && source.nums.length > 1){
+    const index = source.nums.indexOf(Number(num));
+    return index >= 0 ? (value[index] || '') : '';
+  }
+  return stringifyValue(value);
+}
+
+function updateProgress(){
+  LAB_DATA.parts.forEach((part) => {
+    let answered = 0;
+    for(let num = part.min; num <= part.max; num += 1){
+      const value = getValueForQuestion(num);
+      const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+      if(pill) {
+        pill.classList.toggle('done', Boolean(value));
+        if(!lastRemoteResults){
+          pill.classList.remove('correct', 'incorrect');
+        }
+      }
+      if(value) answered += 1;
+    }
+    const count = document.querySelector('[data-part-count="' + part.num + '"]');
+    if(count) count.textContent = answered + '/' + part.count;
+  });
+}
+
+function progressStorageKey(){
+  return 'engnovate-lab-progress:' + LAB_DATA.sourceUrl;
+}
+
+function collectSnapshot(){
+  const snapshot = {};
+  Object.keys(LAB_DATA.keys).forEach((key) => {
+    snapshot[key] = getValueByKey(key);
+  });
+  return snapshot;
+}
+
+function applySnapshot(snapshot){
+  if(!snapshot || typeof snapshot !== 'object') return;
+  Object.entries(snapshot).forEach(([key, value]) => {
+    const meta = getKeyMeta(key);
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!meta || !scope) return;
+    if(meta.type === 'radio'){
+      scope.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = value === input.value;
+      });
+    } else if(meta.type === 'checkbox'){
+      const values = Array.isArray(value) ? value : [];
+      scope.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = values.includes(input.value);
+      });
+      const first = scope.querySelector('input[type="checkbox"][data-limit]');
+      if(first) enforceCheckboxLimit(first);
+    } else if(meta.type === 'select'){
+      const select = scope.querySelector('select');
+      if(select) select.value = value || '';
+    } else {
+      const input = scope.querySelector('input[type="text"], textarea');
+      if(input) input.value = value || '';
+    }
+  });
+}
+
+function saveProgress(){
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify(collectSnapshot()));
+  } catch {}
+}
+
+function restoreProgress(){
+  try {
+    const raw = localStorage.getItem(progressStorageKey());
+    if(!raw) return;
+    applySnapshot(JSON.parse(raw));
+    updateProgress();
+  } catch {}
+}
+
+function initReviewModal(){
+  document.getElementById('review-btn').addEventListener('click', openReviewModal);
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.closeModal).classList.remove('open');
+    });
+  });
+}
+
+function openReviewModal(){
+  const body = document.getElementById('review-body');
+  let rows = '';
+  for(let num = 1; num <= LAB_DATA.totalQuestions; num += 1){
+    rows += '<tr><td>' + num + '</td><td>' + escapeHtml(getValueForQuestion(num) || '—') + '</td></tr>';
+  }
+  body.innerHTML = rows;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function initSubmit(){
+  document.getElementById('submit-btn').addEventListener('click', submitTest);
+  document.getElementById('reset-btn').addEventListener('click', resetTimer);
+}
+
+async function submitTest(){
+  const form = document.getElementById('lab-form');
+  const entries = Array.from(new FormData(form).entries());
+  openSpinner(true, 'Checking answers...');
+  try {
+    const res = await fetch(API_BASE + '/api/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceUrl: LAB_DATA.sourceUrl,
+        kind: LAB_DATA.kind,
+        entries,
+      }),
+    });
+    const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+    if(!payload.success) throw new Error(payload.error || 'Server error.');
+    if(!payload.remote || !payload.remote.success) {
+      const message = payload.remote && payload.remote.data && payload.remote.data.message
+        ? payload.remote.data.message
+        : 'Engnovate could not grade this test right now.';
+      throw new Error(message);
+    }
+    handleResults(payload.remote.data);
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'There was an error while checking answers.');
+  } finally {
+    openSpinner(false);
+  }
+}
+
+function clearPreviousResults(){
+  document.querySelectorAll('.q-chip').forEach((chip) => chip.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.nav-pill').forEach((pill) => pill.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.q-card, .lab-inline-item').forEach((el) => el.classList.remove('correct', 'incorrect'));
+  document.querySelectorAll('.lab-feedback-slot').forEach((slot) => { slot.innerHTML = ''; });
+  document.querySelectorAll('.option-pill').forEach((el) => el.classList.remove('correct', 'incorrect', 'expected'));
+  if(window.Mark){
+    document.querySelectorAll('.transcript-panel').forEach((panel) => {
+      new Mark(panel).unmark();
+    });
+  }
+}
+
+function handleResults(data){
+  clearPreviousResults();
+  lastRemoteResults = data.results || [];
+  stopTimer();
+  const correctCount = Number(data.correct_answer_count || 0);
+  const band = LAB_DATA.kind === 'listening'
+    ? listeningBand(correctCount)
+    : readingBand(correctCount, LAB_DATA.categoryType);
+
+  const grouped = new Map();
+  lastRemoteResults.forEach((result, index) => {
+    const num = index + 1;
+    const meta = LAB_DATA.questionMeta[String(num)];
+    if(!meta) return;
+    const key = meta.key;
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ num, result });
+    const chip = document.querySelector('.q-chip[data-q-chip="' + num + '"]');
+    const pill = document.querySelector('.nav-pill[data-q-target="' + num + '"]');
+    const className = result.is_correct ? 'correct' : 'incorrect';
+    if(chip) chip.classList.add(className);
+    if(pill) pill.classList.add(className);
+  });
+
+  grouped.forEach((items, key) => {
+    const scope = document.querySelector('[data-q-key="' + cssEscape(key) + '"]');
+    if(!scope) return;
+    const allCorrect = items.every((item) => item.result.is_correct);
+    const meta = getKeyMeta(key);
+    const combinedCorrectAnswers = Array.from(
+      new Set(
+        items
+          .map((item) => String(item.result.correct_answer || '').trim())
+          .filter(Boolean)
+      )
+    );
+    scope.classList.add(allCorrect ? 'correct' : 'incorrect');
+    const feedbackSlot = scope.querySelector('.lab-feedback-slot');
+    const last = items[items.length - 1];
+    if(feedbackSlot){
+      feedbackSlot.innerHTML = '<span class="feedback-pill"><strong>Answer:</strong> ' +
+        escapeHtml(combinedCorrectAnswers.join(' / ') || last.result.correct_answer || '—') +
+        ' <button type="button" class="explain-btn" data-explain-key="' + escapeHtml(key) + '">Explain</button></span>';
+    }
+    if(meta.type === 'radio' || meta.type === 'checkbox'){
+      const expected = (meta.type === 'checkbox' && combinedCorrectAnswers.length
+        ? combinedCorrectAnswers
+        : String(last.result.correct_answer || '').split(/[\/,]+/))
+        .map((s) => String(s).trim())
+        .filter(Boolean);
+      scope.querySelectorAll('.option-pill').forEach((pill) => {
+        const input = pill.querySelector('input');
+        if(!input) return;
+        if(expected.includes(input.value)) pill.classList.add('expected');
+        if(input.checked){
+          pill.classList.add(expected.includes(input.value) ? 'correct' : 'incorrect');
+        }
+      });
+    }
+    if(last.result.explanation){
+      highlightExplanation(meta.part, last.result.explanation);
+    }
+  });
+
+  bindExplainButtons();
+  renderResultModal(correctCount, band, lastRemoteResults);
+  document.getElementById('submit-btn').textContent = 'My Result';
+  document.getElementById('submit-btn').classList.add('done');
+  try {
+    const scoreKey = readingScoreStorageKey();
+    if(scoreKey){
+      localStorage.setItem(scoreKey, JSON.stringify({
+        score: correctCount,
+        band: band,
+        total: LAB_DATA.totalQuestions,
+        date: new Date().toLocaleDateString('en-GB')
+      }));
+    }
+  } catch(e) {}
+}
+
+function renderResultModal(correctCount, band, results){
+  const body = document.getElementById('result-body');
+  body.innerHTML = results.map((result, index) => {
+    const klass = result.is_correct ? 'correct-row' : 'incorrect-row';
+    return '<tr class="' + klass + '"><td>' + (index + 1) + '</td><td>' + escapeHtml(result.your_answer || '—') + '</td><td>' + escapeHtml(result.correct_answer || '—') + '</td></tr>';
+  }).join('');
+  document.getElementById('result-band').textContent = band;
+  document.getElementById('result-correct').textContent = String(correctCount);
+  document.getElementById('result-total').textContent = String(LAB_DATA.totalQuestions);
+  document.getElementById('result-wrong').textContent = String(Math.max(0, LAB_DATA.totalQuestions - correctCount));
+  document.getElementById('result-time').textContent = document.getElementById('lab-timer').textContent;
+  document.getElementById('result-modal').classList.add('open');
+}
+
+function bindExplainButtons(){
+  document.querySelectorAll('[data-explain-key]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const key = button.dataset.explainKey;
+      const meta = getKeyMeta(key);
+      if(!meta || !meta.sourceAnswerId) return;
+      button.disabled = true;
+      try {
+        const res = await fetch(API_BASE + '/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sourceUrl: LAB_DATA.sourceUrl,
+            kind: LAB_DATA.kind,
+            answerId: meta.sourceAnswerId,
+            partNumber: meta.part,
+          }),
+        });
+        const payload = await res.text().then((t) => t ? JSON.parse(t) : {}).catch(() => ({}));
+        if(!payload.success) throw new Error(payload.error || 'Server error.');
+        if(!payload.remote || !payload.remote.success || !payload.remote.data) {
+          throw new Error('Could not fetch the detailed explanation.');
+        }
+        document.getElementById('explain-content').innerHTML = String(payload.remote.data)
+          .split('\n')
+          .map((line) => '<p>' + escapeHtml(line) + '</p>')
+          .join('');
+        document.getElementById('explain-modal').classList.add('open');
+      } catch (error) {
+        alert(error instanceof Error ? error.message : 'Could not fetch the explanation.');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+}
+
+function listeningBand(score){
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 32) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 26) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 18) return '5.5';
+  if(score >= 16) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function readingBand(score, category){
+  if(/general/i.test(category || '')){
+    if(score >= 40) return '9';
+    if(score >= 39) return '8.5';
+    if(score >= 37) return '8';
+    if(score >= 36) return '7.5';
+    if(score >= 34) return '7';
+    if(score >= 32) return '6.5';
+    if(score >= 30) return '6';
+    if(score >= 27) return '5.5';
+    if(score >= 23) return '5';
+    if(score >= 19) return '4.5';
+    if(score >= 15) return '4';
+    return '3.5';
+  }
+  if(score >= 39) return '9';
+  if(score >= 37) return '8.5';
+  if(score >= 35) return '8';
+  if(score >= 33) return '7.5';
+  if(score >= 30) return '7';
+  if(score >= 27) return '6.5';
+  if(score >= 23) return '6';
+  if(score >= 19) return '5.5';
+  if(score >= 15) return '5';
+  if(score >= 13) return '4.5';
+  if(score >= 10) return '4';
+  return '3.5';
+}
+
+function openSpinner(open, text){
+  const spinner = document.getElementById('spinner');
+  spinner.classList.toggle('open', open);
+  if(text) document.getElementById('spinner-text').textContent = text;
+}
+
+function initFocusMode(){
+  document.getElementById('focus-btn').addEventListener('click', () => {
+    document.body.classList.toggle('focus-mode');
+  });
+}
+
+function highlightExplanation(partNumber, explanation){
+  if(!window.Mark || !explanation) return;
+  const panel = document.querySelector('.transcript-panel[data-part-panel="' + partNumber + '"]');
+  if(!panel) return;
+  const mark = new Mark(panel);
+  String(explanation).split('\n').map((line) => line.trim()).filter((line) => line.length > 4).forEach((line) => {
+    mark.mark(line, {
+      className: 'exp-mark',
+      separateWordSearch: false,
+      acrossElements: true,
+      diacritics: true,
+    });
+  });
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initHighlighting(){
+  noteBubble = document.getElementById('note-bubble');
+  const tools = document.getElementById('hl-tools');
+  document.addEventListener('mouseup', (event) => {
+    if(tools.contains(event.target)) return;
+    const selection = window.getSelection();
+    if(!selection || selection.isCollapsed || !selection.toString().trim()){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    const host = document.querySelector('.passage-col, .question-col');
+    if(!host || !document.body.contains(range.commonAncestorContainer)){
+      tools.classList.remove('show');
+      selectionRange = null;
+      return;
+    }
+    selectionRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    tools.style.left = Math.min(rect.left, window.innerWidth - 220) + 'px';
+    tools.style.top = Math.max(12, rect.top + window.scrollY - 52) + 'px';
+    tools.classList.add('show');
+  });
+
+  document.getElementById('hl-mark').addEventListener('click', () => applyRangeHighlight('lab-highlight'));
+  document.getElementById('hl-note').addEventListener('click', createSelectionNote);
+  document.getElementById('hl-clear').addEventListener('click', clearNearestHighlight);
+
+  document.addEventListener('click', (event) => {
+    const pin = event.target.closest('.note-pin');
+    if(pin){
+      showNote(pin);
+      return;
+    }
+    if(noteBubble && !event.target.closest('.note-bubble')){
+      noteBubble.classList.remove('show');
+    }
+  });
+}
+
+function applyRangeHighlight(className){
+  if(!selectionRange) return null;
+  let wrapper = null;
+  try {
+    wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.appendChild(selectionRange.extractContents());
+    selectionRange.insertNode(wrapper);
+  } catch {}
+  window.getSelection().removeAllRanges();
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+  return wrapper;
+}
+
+function createSelectionNote(){
+  if(!selectionRange) return;
+  const note = window.prompt('Add a note for this selection:');
+  if(!note) {
+    document.getElementById('hl-tools').classList.remove('show');
+    selectionRange = null;
+    return;
+  }
+  const wrapper = applyRangeHighlight('lab-highlight-note');
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  try {
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'note-pin';
+    marker.textContent = 'N';
+    marker.dataset.note = note;
+    const target = wrapper;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(marker, target.nextSibling);
+    }
+  } catch {}
+}
+
+function clearNearestHighlight(){
+  if(!selectionRange) return;
+  const start = selectionRange.startContainer.nodeType === 1 ? selectionRange.startContainer : selectionRange.startContainer.parentElement;
+  const highlight = start && start.closest ? start.closest('.lab-highlight, .lab-highlight-note') : null;
+  if(highlight){
+    const parent = highlight.parentNode;
+    while(highlight.firstChild) parent.insertBefore(highlight.firstChild, highlight);
+    parent.removeChild(highlight);
+    parent.normalize();
+  }
+  document.getElementById('hl-tools').classList.remove('show');
+  selectionRange = null;
+}
+
+function showNote(pin){
+  if(!noteBubble) return;
+  noteBubble.textContent = pin.dataset.note || '';
+  const rect = pin.getBoundingClientRect();
+  noteBubble.style.left = Math.min(rect.left, window.innerWidth - 280) + 'px';
+  noteBubble.style.top = rect.bottom + window.scrollY + 8 + 'px';
+  noteBubble.classList.add('show');
+}
+</script>
+</body>
+</html>
