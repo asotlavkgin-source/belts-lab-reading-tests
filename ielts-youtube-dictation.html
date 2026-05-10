@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Lab — YouTube Dictation</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0d12;
+  --surf: #11141c;
+  --surf2: #181c27;
+  --surf3: #1e2333;
+  --border: #232840;
+  --border2: #2e3450;
+  --accent: #4f8ef7;
+  --accent-dim: rgba(79,142,247,0.12);
+  --purple: #8b5cf6;
+  --green: #34d399;
+  --green-dim: rgba(52,211,153,0.1);
+  --amber: #fbbf24;
+  --amber-dim: rgba(251,191,36,0.1);
+  --red: #f87171;
+  --red-dim: rgba(248,113,113,0.1);
+  --text: #e2e8f8;
+  --text2: #7b88a8;
+  --text3: #3d4666;
+  --r: 12px;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Sora', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+
+/* ── HOME ── */
+#home{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem;position:relative;overflow:hidden}
+.glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(79,142,247,0.055) 0%,transparent 65%);top:-150px;left:50%;transform:translateX(-50%);pointer-events:none}
+.glow2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.04) 0%,transparent 65%);bottom:0;right:10%;pointer-events:none}
+
+.wordmark{display:flex;align-items:center;gap:10px;margin-bottom:3rem}
+.wm-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center}
+.wm-icon svg{width:16px;height:16px;fill:white}
+.wm-text{font-size:15px;font-weight:600;letter-spacing:0.04em;color:var(--text)}
+.wm-sub{font-size:11px;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase}
+
+.hero{text-align:center;max-width:540px;margin-bottom:2.5rem}
+.hero h1{font-size:38px;font-weight:700;line-height:1.18;margin-bottom:12px;background:linear-gradient(160deg,#e2e8f8 30%,#5a6a9a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:15px;color:var(--text2);line-height:1.7}
+
+.input-card{width:100%;max-width:540px;background:var(--surf);border:1px solid var(--border);border-radius:18px;padding:2rem}
+.input-lbl{font-size:11px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;display:block}
+.input-row{display:flex;gap:8px;margin-bottom:10px}
+.yt-input{flex:1;background:var(--surf2);border:1px solid var(--border);border-radius:var(--r);padding:13px 16px;font-family:var(--mono);font-size:13px;color:var(--text);outline:none;transition:border-color .2s}
+.yt-input:focus{border-color:var(--accent)}
+.yt-input::placeholder{color:var(--text3)}
+.go-btn{padding:13px 22px;background:linear-gradient(135deg,var(--accent),var(--purple));border:none;border-radius:var(--r);font-family:var(--sans);font-size:14px;font-weight:600;color:#fff;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .2s}
+.go-btn:hover{opacity:.88;transform:translateY(-1px)}
+.go-btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.status-bar{font-size:13px;padding:11px 14px;border-radius:9px;display:none;line-height:1.5}
+.status-bar.err{background:var(--red-dim);color:var(--red);border:1px solid rgba(248,113,113,0.2);display:block}
+.status-bar.load{background:var(--accent-dim);color:var(--accent);border:1px solid rgba(79,142,247,0.2);display:block}
+.status-bar.ok{background:var(--green-dim);color:var(--green);border:1px solid rgba(52,211,153,0.2);display:block}
+.tips{margin-top:1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tip{background:var(--surf2);border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:12px;color:var(--text2);display:flex;align-items:flex-start;gap:8px}
+.tip-icon{font-size:15px;flex-shrink:0}
+.spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(79,142,247,.25);border-top-color:var(--accent);border-radius:50%;animation:spin .65s linear infinite;vertical-align:middle;margin-right:7px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── EXERCISE ── */
+#exercise{display:none}
+.ex-nav{background:var(--surf);border-bottom:1px solid var(--border);padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.nav-left{display:flex;align-items:center;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text)}
+.nav-logo-icon{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center}
+.nav-logo-icon svg{width:11px;height:11px;fill:white}
+.nav-back{font-size:13px;color:var(--text2);background:none;border:1px solid var(--border);border-radius:8px;padding:5px 13px;cursor:pointer;font-family:var(--sans);transition:all .2s}
+.nav-back:hover{color:var(--text);border-color:var(--border2)}
+.nav-score{font-family:var(--mono);font-size:12px;color:var(--text2)}
+.nav-score span{color:var(--amber);font-weight:600}
+
+.ex-wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start}
+@media(max-width:780px){.ex-wrap{grid-template-columns:1fr}}
+
+/* left column */
+.ex-left{}
+.ex-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1rem}
+.badge{font-size:10px;font-weight:600;letter-spacing:.06em;padding:3px 10px;border-radius:20px;text-transform:uppercase}
+.bd-blue{background:rgba(79,142,247,.13);color:var(--accent);border:1px solid rgba(79,142,247,.2)}
+.bd-purple{background:rgba(139,92,246,.12);color:#a78bfa;border:1px solid rgba(139,92,246,.2)}
+.bd-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(52,211,153,.18)}
+.bd-amber{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(251,191,36,.2)}
+.ex-title{font-size:22px;font-weight:700;margin-bottom:1.5rem;line-height:1.3}
+
+/* score row */
+.score-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1.5rem}
+.sc{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:12px;text-align:center}
+.sc-v{font-size:22px;font-weight:700;font-family:var(--mono)}
+.sc-l{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+
+/* sentence cards */
+.section-label{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);margin-bottom:.8rem;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.sent-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.3rem;margin-bottom:9px;transition:border-color .2s,background .2s}
+.sent-card:hover:not(.done){border-color:var(--border2)}
+.sent-card.active{border-color:var(--accent);background:rgba(79,142,247,.03)}
+.sent-card.correct{border-color:var(--green);background:rgba(52,211,153,.03)}
+.sent-card.wrong{border-color:var(--red);background:rgba(248,113,113,.03)}
+.sent-card.revealed{border-color:var(--border2)}
+.sent-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.sent-num{font-size:11px;font-family:var(--mono);color:var(--text3)}
+.sent-play{width:28px;height:28px;border-radius:50%;background:var(--surf2);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.sent-play:hover{border-color:var(--accent);background:var(--accent-dim)}
+.sent-play svg{width:11px;height:11px;fill:var(--text2)}
+.sent-play:hover svg{fill:var(--accent)}
+.sent-input{width:100%;background:var(--surf2);border:1px solid var(--border);border-radius:9px;padding:10px 13px;font-family:var(--sans);font-size:14px;color:var(--text);outline:none;resize:none;min-height:40px;transition:border-color .2s;line-height:1.5}
+.sent-input:focus{border-color:var(--accent)}
+.sent-input:disabled{opacity:.6;cursor:default}
+.sent-actions{display:flex;gap:7px;margin-top:9px}
+.btn-check{padding:7px 16px;font-size:12px;font-family:var(--sans);font-weight:600;border:none;border-radius:7px;background:var(--accent);color:#fff;cursor:pointer;transition:all .2s}
+.btn-check:hover{background:#6aa0f9}
+.btn-show{padding:7px 14px;font-size:12px;font-family:var(--sans);font-weight:500;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text2);cursor:pointer;transition:all .2s}
+.btn-show:hover{border-color:var(--border2);color:var(--text)}
+.btn-replay{padding:7px 14px;font-size:12px;font-family:var(--sans);font-weight:500;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;display:none}
+.btn-replay:hover{border-color:var(--accent);color:var(--accent)}
+.feedback{margin-top:9px;font-size:13px;line-height:1.9;display:none}
+.feedback.show{display:block}
+.fb-perfect{color:var(--green);font-weight:500}
+.fb-miss{background:rgba(248,113,113,.18);color:var(--red);padding:1px 5px;border-radius:3px;text-decoration:line-through;margin-right:2px}
+.fb-fix{background:rgba(52,211,153,.14);color:var(--green);padding:1px 5px;border-radius:3px}
+.fb-hint{color:var(--text3);font-style:italic;font-size:12px}
+
+/* right column - video panel */
+.video-panel{position:sticky;top:72px}
+.video-wrap{border-radius:var(--r);overflow:hidden;background:#000;aspect-ratio:16/9;margin-bottom:12px;border:1px solid var(--border)}
+.video-wrap iframe{width:100%;height:100%;border:none;display:block}
+.video-controls{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:1rem}
+.vc-label{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;display:block}
+.speed-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.spd-btn{padding:5px 12px;font-size:12px;font-family:var(--mono);font-weight:500;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text2);cursor:pointer;transition:all .2s}
+.spd-btn:hover{border-color:var(--border2);color:var(--text)}
+.spd-btn.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.progress-info{font-size:12px;color:var(--text3);font-family:var(--mono)}
+.prog-bar-outer{height:4px;background:var(--border);border-radius:2px;margin-top:6px}
+.prog-bar-inner{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:2px;transition:width .4s}
+
+/* transcript panel */
+.transcript-panel{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:1.5rem}
+.transcript-head{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.2rem;cursor:pointer;user-select:none;transition:background .2s}
+.transcript-head:hover{background:var(--surf2)}
+.transcript-head h3{font-size:13px;font-weight:600;color:var(--text2)}
+.transcript-chevron{color:var(--text3);font-size:16px;transition:transform .25s}
+.transcript-chevron.open{transform:rotate(180deg)}
+.transcript-content{display:none;padding:1rem 1.2rem;border-top:1px solid var(--border);font-size:14px;line-height:2.1;color:var(--text2);max-height:320px;overflow-y:auto}
+.transcript-content.show{display:block}
+.transcript-content p{margin-bottom:3px}
+.transcript-content p.t-active{color:var(--accent);font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div id="home">
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="wordmark">
+    <div class="wm-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+    </div>
+    <div>
+      <div class="wm-text">IELTS Lab</div>
+      <div class="wm-sub">Dictation Practice</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Turn any YouTube video into a dictation exercise</h1>
+    <p>Paste a YouTube link. Claude extracts the subtitles and builds a full sentence-by-sentence listening exercise — just like Daily Dictation.</p>
+  </div>
+
+  <div class="input-card">
+    <span class="input-lbl">YouTube URL</span>
+    <div class="input-row">
+      <input class="yt-input" id="yt-url" type="text" placeholder="https://www.youtube.com/watch?v=..." />
+      <button class="go-btn" id="go-btn" onclick="startConvert()">Build Exercise</button>
+    </div>
+    <div class="status-bar" id="status"></div>
+    <div class="tips">
+      <div class="tip"><span class="tip-icon">✅</span><span>Works with any video that has English subtitles or captions</span></div>
+      <div class="tip"><span class="tip-icon">🎯</span><span>Sentence-by-sentence practice with instant feedback</span></div>
+      <div class="tip"><span class="tip-icon">🔁</span><span>Replay each sentence directly from the video</span></div>
+      <div class="tip"><span class="tip-icon">📊</span><span>Live score tracking as you go</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ EXERCISE PAGE ═══════════════ -->
+<div id="exercise">
+  <nav class="ex-nav">
+    <div class="nav-left">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        IELTS Lab
+      </div>
+      <button class="nav-back" onclick="goHome()">← New video</button>
+    </div>
+    <div class="nav-score" id="nav-score">Score: <span>—</span></div>
+  </nav>
+
+  <div class="ex-wrap">
+    <!-- LEFT -->
+    <div class="ex-left">
+      <div class="ex-meta" id="ex-meta"></div>
+      <div class="ex-title" id="ex-title"></div>
+
+      <div class="score-row">
+        <div class="sc"><div class="sc-v" id="sc-done"  style="color:var(--accent)">0</div><div class="sc-l">Done</div></div>
+        <div class="sc"><div class="sc-v" id="sc-right" style="color:var(--green)">0</div><div class="sc-l">Correct</div></div>
+        <div class="sc"><div class="sc-v" id="sc-total" style="color:var(--text2)">0</div><div class="sc-l">Total</div></div>
+        <div class="sc"><div class="sc-v" id="sc-pct"   style="color:var(--amber)">—</div><div class="sc-l">Score</div></div>
+      </div>
+
+      <div class="section-label">Sentences</div>
+      <div id="sent-list"></div>
+
+      <div class="transcript-panel">
+        <div class="transcript-head" onclick="toggleTranscript()">
+          <h3>Full transcript</h3>
+          <span class="transcript-chevron" id="t-chev">▼</span>
+        </div>
+        <div class="transcript-content" id="t-content"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="video-panel" id="video-panel">
+      <div class="video-wrap">
+        <iframe id="yt-player" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="video-controls">
+        <span class="vc-label">Playback speed</span>
+        <div class="speed-btns">
+          <button class="spd-btn" onclick="setSpeed(0.5)">0.5×</button>
+          <button class="spd-btn" onclick="setSpeed(0.75)">0.75×</button>
+          <button class="spd-btn active" onclick="setSpeed(1)">1×</button>
+          <button class="spd-btn" onclick="setSpeed(1.25)">1.25×</button>
+        </div>
+        <div class="progress-info">Progress: <span id="prog-text">0 / 0</span></div>
+        <div class="prog-bar-outer"><div class="prog-bar-inner" id="prog-bar" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════
+   STATE
+═══════════════════════════════════ */
+let sents = [];      // [{text, start, dur}]
+let ytId  = '';
+let done  = 0;
+let right = 0;
+let player= null;    // YT iframe API
+let curSpeed = 1;
+
+/* ═══════════════════════════════════
+   EXTRACT YOUTUBE ID
+═══════════════════════════════════ */
+function extractId(url) {
+  const m = url.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([a-zA-Z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+
+/* ═══════════════════════════════════
+   MAIN CONVERT FLOW
+═══════════════════════════════════ */
+async function startConvert() {
+  const url = document.getElementById('yt-url').value.trim();
+  ytId = extractId(url);
+  if (!ytId) { setStatus('Please enter a valid YouTube URL.','err'); return; }
+
+  setStatus('<span class="spin"></span>Claude is fetching subtitles and building your exercise…','load');
+  document.getElementById('go-btn').disabled = true;
+
+  const prompt = `I need you to fetch the subtitles/transcript of this YouTube video: https://www.youtube.com/watch?v=${ytId}
+
+Use your web search tool to find and retrieve the subtitles or transcript for this video.
+
+Then return ONLY a raw JSON object (no markdown, no backticks, no explanation before or after):
+{
+  "title": "video title",
+  "sentences": [
+    {"text": "sentence text here", "start": 0},
+    {"text": "next sentence", "start": 5}
+  ]
+}
+
+Rules:
+- Each sentence should be a natural, complete thought (not too short, not too long — 5 to 20 words ideally)
+- The "start" field is the approximate start time in seconds for that sentence in the video
+- Include ALL sentences from the transcript, nothing skipped
+- Clean up any subtitle artifacts like [Music] or (applause) — keep only spoken words
+- If you cannot find subtitles, still return the JSON but with an empty sentences array and note the issue in the title field`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 4000,
+        tools: [{type:'web_search_20250305', name:'web_search'}],
+        messages: [{role:'user', content: prompt}]
+      })
+    });
+
+    if (!res.ok) {
+      const e = await res.json().catch(()=>({}));
+      throw new Error(e.error?.message || 'API error '+res.status);
+    }
+
+    const data = await res.json();
+    const fullText = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('\n');
+
+    const jm = fullText.match(/\{[\s\S]*\}/);
+    if (!jm) throw new Error('No data returned. Try a video with English captions enabled.');
+
+    let parsed;
+    try { parsed = JSON.parse(jm[0]); }
+    catch(e) { throw new Error('Parse error — try again or try a different video.'); }
+
+    if (!parsed.sentences || parsed.sentences.length === 0)
+      throw new Error('No subtitles found for this video. Try one with English captions turned on.');
+
+    setStatus('Exercise ready!','ok');
+    setTimeout(()=>buildExercise(parsed), 400);
+
+  } catch(e) {
+    console.error(e);
+    setStatus('❌ '+e.message,'err');
+    document.getElementById('go-btn').disabled = false;
+  }
+}
+
+/* ═══════════════════════════════════
+   BUILD EXERCISE
+═══════════════════════════════════ */
+function buildExercise(data) {
+  sents = data.sentences;
+  done = 0; right = 0;
+
+  document.getElementById('home').style.display = 'none';
+  document.getElementById('exercise').style.display = 'block';
+  window.scrollTo(0,0);
+
+  document.getElementById('ex-title').textContent = data.title || 'YouTube Dictation';
+  document.getElementById('ex-meta').innerHTML =
+    `<span class="badge bd-blue">Listening</span>
+     <span class="badge bd-purple">Dictation</span>
+     <span class="badge bd-green">YouTube</span>
+     <span class="badge bd-amber">${sents.length} sentences</span>`;
+
+  document.getElementById('sc-total').textContent = sents.length;
+  document.getElementById('prog-text').textContent = `0 / ${sents.length}`;
+
+  // Embed YouTube player
+  document.getElementById('yt-player').src =
+    `https://www.youtube.com/embed/${ytId}?enablejsapi=1&rel=0`;
+
+  // Build sentence cards
+  const list = document.getElementById('sent-list');
+  list.innerHTML = '';
+  sents.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'sent-card';
+    card.id = `card${i}`;
+    const hasTime = typeof s.start === 'number' && s.start >= 0;
+    card.innerHTML = `
+      <div class="sent-top">
+        <span class="sent-num">${i+1} / ${sents.length}</span>
+        ${hasTime ? `<button class="sent-play" title="Play this sentence" onclick="playAt(${s.start})">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>` : ''}
+      </div>
+      <textarea class="sent-input" id="inp${i}" rows="2" placeholder="Type what you hear…"
+        onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();checkIt(${i})}"></textarea>
+      <div class="sent-actions">
+        <button class="btn-check" onclick="checkIt(${i})">Check ↵</button>
+        <button class="btn-show"  onclick="revealIt(${i})">Show answer</button>
+        ${hasTime ? `<button class="btn-replay" id="replay${i}" onclick="playAt(${s.start})">↺ Replay</button>` : ''}
+      </div>
+      <div class="feedback" id="fb${i}"></div>`;
+    list.appendChild(card);
+  });
+
+  // Transcript
+  document.getElementById('t-content').innerHTML =
+    sents.map((s,i)=>`<p id="tp${i}">${s.text}</p>`).join('');
+}
+
+/* ═══════════════════════════════════
+   CHECK / REVEAL
+═══════════════════════════════════ */
+function norm(s){ return s.toLowerCase().replace(/[^a-z0-9\s']/g,'').replace(/\s+/g,' ').trim(); }
+
+function checkIt(i) {
+  const inp = document.getElementById(`inp${i}`);
+  if (!inp || inp.disabled || !inp.value.trim()) return;
+  const user = inp.value.trim();
+  const corr = sents[i].text;
+  const uw = norm(user).split(' ');
+  const cw = norm(corr).split(' ');
+  const isOk = norm(user) === norm(corr);
+
+  done++;
+  if (isOk) right++;
+
+  const card = document.getElementById(`card${i}`);
+  card.className = 'sent-card done ' + (isOk ? 'correct' : 'wrong');
+
+  let html = isOk ? '<span class="fb-perfect">✓ Perfect!</span>' : '';
+  if (!isOk) {
+    cw.forEach((w, idx) => {
+      const u = uw[idx] || '';
+      html += norm(u)===norm(w) ? w+' ' : `<span class="fb-miss">${u||'—'}</span><span class="fb-fix">${w}</span> `;
+    });
+    for (let j=cw.length; j<uw.length; j++) html += `<span class="fb-miss">${uw[j]}</span> `;
+  }
+
+  const fb = document.getElementById(`fb${i}`);
+  fb.innerHTML = html.trim(); fb.classList.add('show');
+  inp.disabled = true;
+
+  const rb = document.getElementById(`replay${i}`);
+  if (rb) rb.style.display = 'inline-block';
+
+  updateScores();
+  highlightTranscript(i);
+}
+
+function revealIt(i) {
+  const inp = document.getElementById(`inp${i}`);
+  if (!inp) return;
+  const card = document.getElementById(`card${i}`);
+  card.className = 'sent-card done revealed';
+  inp.value = sents[i].text; inp.disabled = true;
+  const fb = document.getElementById(`fb${i}`);
+  fb.innerHTML = `<span class="fb-hint">Answer shown</span>`;
+  fb.classList.add('show');
+  const rb = document.getElementById(`replay${i}`);
+  if (rb) rb.style.display = 'inline-block';
+  highlightTranscript(i);
+}
+
+function updateScores() {
+  document.getElementById('sc-done').textContent  = done;
+  document.getElementById('sc-right').textContent = right;
+  const pct = done>0 ? Math.round(right/done*100) : 0;
+  document.getElementById('sc-pct').textContent   = done>0 ? pct+'%' : '—';
+  document.getElementById('nav-score').innerHTML  = `Score: <span>${done>0?pct+'%':'—'}</span>`;
+  document.getElementById('prog-text').textContent= `${done} / ${sents.length}`;
+  document.getElementById('prog-bar').style.width = `${Math.round(done/sents.length*100)}%`;
+}
+
+function highlightTranscript(i) {
+  document.querySelectorAll('#t-content p').forEach(p=>p.classList.remove('t-active'));
+  const tp = document.getElementById(`tp${i}`);
+  if (tp) tp.classList.add('t-active');
+}
+
+/* ═══════════════════════════════════
+   VIDEO CONTROLS
+═══════════════════════════════════ */
+function playAt(seconds) {
+  const iframe = document.getElementById('yt-player');
+  // postMessage to YT iframe API
+  iframe.contentWindow.postMessage(JSON.stringify({
+    event:'command', func:'seekTo', args:[seconds, true]
+  }), '*');
+  setTimeout(()=>{
+    iframe.contentWindow.postMessage(JSON.stringify({
+      event:'command', func:'playVideo', args:[]
+    }), '*');
+    // apply speed
+    iframe.contentWindow.postMessage(JSON.stringify({
+      event:'command', func:'setPlaybackRate', args:[curSpeed]
+    }), '*');
+  }, 300);
+}
+
+function setSpeed(s) {
+  curSpeed = s;
+  document.querySelectorAll('.spd-btn').forEach(b=>{
+    b.classList.toggle('active', parseFloat(b.textContent)===s);
+  });
+  const iframe = document.getElementById('yt-player');
+  iframe.contentWindow.postMessage(JSON.stringify({
+    event:'command', func:'setPlaybackRate', args:[s]
+  }), '*');
+}
+
+/* ═══════════════════════════════════
+   MISC
+═══════════════════════════════════ */
+function toggleTranscript() {
+  document.getElementById('t-content').classList.toggle('show');
+  document.getElementById('t-chev').classList.toggle('open');
+}
+
+function goHome() {
+  document.getElementById('exercise').style.display  = 'none';
+  document.getElementById('home').style.display = 'flex';
+  document.getElementById('status').style.display = 'none';
+  document.getElementById('go-btn').disabled = false;
+  document.getElementById('yt-player').src = '';
+}
+
+function setStatus(msg, type) {
+  const el = document.getElementById('status');
+  el.innerHTML = msg; el.className = 'status-bar '+type;
+}
+</script>
+</body>
+</html>
