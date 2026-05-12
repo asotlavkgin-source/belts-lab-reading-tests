@@ -1,0 +1,237 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap');
+
+  .love-page {
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .floating-heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(0) rotate(-10deg); opacity: 0.18; }
+    50%  { opacity: 0.28; }
+    100% { transform: translateY(-560px) rotate(10deg); opacity: 0; }
+  }
+
+  .bear-wrap {
+    font-size: 80px;
+    animation: bearBounce 2s ease-in-out infinite;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  @keyframes bearBounce {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50%      { transform: translateY(-10px) rotate(3deg); }
+  }
+
+  .question-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    color: #d63384;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+    text-shadow: 0 2px 8px rgba(214,51,132,0.15);
+  }
+
+  .sub-text {
+    font-size: 14px;
+    color: #c06;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 60px;
+  }
+
+  .btn-yes {
+    background: linear-gradient(135deg, #ff6fad, #ff3385);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 36px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255,51,133,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .btn-yes:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(255,51,133,0.5);
+  }
+  .btn-yes:active { transform: scale(0.97); }
+
+  .btn-no {
+    background: #fff0f6;
+    color: #e06;
+    border: 2px solid #ffb3d1;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    position: fixed;
+    transition: font-size 0.2s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    z-index: 999;
+  }
+
+  /* YES screen */
+  .yes-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+  }
+  @keyframes popIn {
+    0%   { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1);   opacity: 1; }
+  }
+  .yes-emoji { font-size: 90px; margin-bottom: 0.5rem; animation: spin 1s ease-out; }
+  @keyframes spin {
+    0%   { transform: rotate(-20deg) scale(0.5); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+  .yes-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    color: #d63384;
+    margin-bottom: 0.5rem;
+  }
+  .yes-msg {
+    font-size: 16px;
+    color: #c06;
+    opacity: 0.85;
+    font-weight: 600;
+    max-width: 280px;
+    line-height: 1.5;
+  }
+  .confetti-row { font-size: 28px; letter-spacing: 4px; margin-top: 1rem; animation: wave 1s ease-in-out infinite alternate; }
+  @keyframes wave {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+</style>
+
+<div class="love-page" id="main">
+
+  <!-- floating background hearts -->
+  <span class="floating-heart" style="left:5%;  animation-duration:6s;  animation-delay:0s;  font-size:18px;">🩷</span>
+  <span class="floating-heart" style="left:15%; animation-duration:8s;  animation-delay:1s;  font-size:24px;">💗</span>
+  <span class="floating-heart" style="left:30%; animation-duration:7s;  animation-delay:2s;  font-size:16px;">💕</span>
+  <span class="floating-heart" style="left:50%; animation-duration:9s;  animation-delay:0.5s;font-size:22px;">❤️</span>
+  <span class="floating-heart" style="left:65%; animation-duration:6.5s;animation-delay:3s;  font-size:14px;">💖</span>
+  <span class="floating-heart" style="left:80%; animation-duration:7.5s;animation-delay:1.5s;font-size:20px;">🩷</span>
+  <span class="floating-heart" style="left:90%; animation-duration:8.5s;animation-delay:4s;  font-size:26px;">💝</span>
+
+  <!-- question area -->
+  <div id="question-area">
+    <div class="bear-wrap">🐻</div>
+    <div class="question-text">Aisha,<br>do you love me? 🌸</div>
+    <div class="sub-text">think carefully before answering… 🤭</div>
+
+    <div class="btn-row">
+      <button class="btn-yes" onclick="sayYes()">💖 Yes!</button>
+      <button class="btn-no" id="noBtn" onmouseenter="runAway()" ontouchstart="runAway()">Nope 🙈</button>
+    </div>
+  </div>
+
+  <!-- yes screen -->
+  <div class="yes-screen" id="yes-area">
+    <div class="yes-emoji">🥰</div>
+    <div class="yes-title">I knew it! 💕</div>
+    <div class="yes-msg">You make my heart so full, Aisha. I love you more every single day. 🌹</div>
+    <div class="confetti-row">🎉💗🎊💖🎉</div>
+  </div>
+</div>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const page  = document.getElementById('main');
+  let noSize  = 16;
+  let escapes = 0;
+
+  function placeNoBtn() {
+    const pr = page.getBoundingClientRect();
+    const bw = noBtn.offsetWidth  || 110;
+    const bh = noBtn.offsetHeight || 44;
+    const maxX = pr.width  - bw  - 20;
+    const maxY = pr.height - bh  - 20;
+    const x = Math.random() * maxX + pr.left + 10;
+    const y = Math.random() * maxY + pr.top  + 10;
+    noBtn.style.left = x + 'px';
+    noBtn.style.top  = y + 'px';
+  }
+
+  function runAway() {
+    escapes++;
+    if (escapes % 3 === 0 && noSize > 9) {
+      noSize -= 2;
+      noBtn.style.fontSize = noSize + 'px';
+    }
+    placeNoBtn();
+  }
+
+  window.addEventListener('load', () => {
+    const pr = page.getBoundingClientRect();
+    noBtn.style.left = (pr.left + pr.width  - 160) + 'px';
+    noBtn.style.top  = (pr.top  + pr.height - 80)  + 'px';
+  });
+
+  function sayYes() {
+    document.getElementById('question-area').style.display = 'none';
+    const ys = document.getElementById('yes-area');
+    ys.style.display = 'flex';
+    noBtn.style.display = 'none';
+    burst();
+  }
+
+  function burst() {
+    const emojis = ['💗','💖','💕','🌸','🌹','✨','💝','🎀'];
+    for (let i = 0; i < 14; i++) {
+      setTimeout(() => {
+        const el = document.createElement('span');
+        el.style.cssText = `
+          position:fixed;
+          left:${Math.random()*90+5}%;
+          top:${Math.random()*80+10}%;
+          font-size:${Math.random()*24+18}px;
+          pointer-events:none;
+          animation:floatUp 1.8s ease-out forwards;
+          z-index:9999;
+        `;
+        el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(), 2000);
+      }, i * 120);
+    }
+  }
+</script>
