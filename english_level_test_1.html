@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Level Test (A1–C2)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .container { max-width: 680px; margin: 0 auto; }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+  }
+  .subtitle { font-size: 14px; color: #666; margin-bottom: 1.5rem; }
+
+  /* Progress */
+  .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 1.25rem; }
+  .progress-bar { flex: 1; background: #e5e5e5; border-radius: 4px; height: 6px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #378ADD; border-radius: 4px; transition: width 0.3s; }
+  .progress-label { font-size: 13px; color: #666; white-space: nowrap; }
+
+  /* Navigator */
+  .nav-grid { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 1.25rem; }
+  .nav-btn {
+    width: 30px; height: 30px; border-radius: 6px; font-size: 12px;
+    cursor: pointer; border: 1px solid #ddd; background: #fff; color: #666;
+    transition: all 0.15s;
+  }
+  .nav-btn:hover { border-color: #aaa; }
+  .nav-btn.answered { background: #f0f0f0; border-color: #bbb; color: #444; }
+  .nav-btn.current { font-weight: 600; }
+  /* level colors for current */
+  .nav-btn.cur-A1 { background: #E1F5EE; border-color: #9FE1CB; color: #085041; }
+  .nav-btn.cur-A2 { background: #EAF3DE; border-color: #C0DD97; color: #27500A; }
+  .nav-btn.cur-B1 { background: #E6F1FB; border-color: #B5D4F4; color: #0C447C; }
+  .nav-btn.cur-B2 { background: #EEEDFE; border-color: #CECBF6; color: #3C3489; }
+  .nav-btn.cur-C1 { background: #FAEEDA; border-color: #FAC775; color: #633806; }
+  .nav-btn.cur-C2 { background: #FAECE7; border-color: #F5C4B3; color: #712B13; }
+
+  /* Question card */
+  .card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .level-badge {
+    font-size: 12px; font-weight: 600; border-radius: 6px;
+    padding: 2px 10px; border: 1px solid;
+  }
+  .badge-A1 { background: #E1F5EE; border-color: #9FE1CB; color: #085041; }
+  .badge-A2 { background: #EAF3DE; border-color: #C0DD97; color: #27500A; }
+  .badge-B1 { background: #E6F1FB; border-color: #B5D4F4; color: #0C447C; }
+  .badge-B2 { background: #EEEDFE; border-color: #CECBF6; color: #3C3489; }
+  .badge-C1 { background: #FAEEDA; border-color: #FAC775; color: #633806; }
+  .badge-C2 { background: #FAECE7; border-color: #F5C4B3; color: #712B13; }
+  .cat-label { font-size: 12px; color: #999; }
+  .q-counter { font-size: 13px; color: #aaa; margin-left: auto; }
+
+  /* Audio box */
+  .audio-box {
+    background: #f0f6ff; border: 1px solid #c8ddf5; border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 12px;
+  }
+  .audio-label { font-size: 12px; color: #185FA5; font-weight: 500; margin-bottom: 6px; }
+  .audio-box audio { width: 100%; height: 36px; display: block; }
+
+  .question-text {
+    font-size: 15px; color: #1a1a1a; line-height: 1.65;
+    white-space: pre-line; margin-bottom: 16px;
+  }
+
+  .hint { font-size: 12px; color: #999; margin-bottom: 8px; }
+
+  /* Options */
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option-btn {
+    text-align: left; padding: 10px 14px; border-radius: 8px;
+    font-size: 14px; line-height: 1.5; cursor: pointer;
+    background: #f5f5f5; border: 1px solid #e0e0e0; color: #1a1a1a;
+    transition: all 0.15s; font-family: inherit;
+  }
+  .option-btn:hover { border-color: #bbb; background: #efefef; }
+  .option-btn.selected-A1 { background: #E1F5EE; border: 1.5px solid #9FE1CB; color: #085041; font-weight: 500; }
+  .option-btn.selected-A2 { background: #EAF3DE; border: 1.5px solid #C0DD97; color: #27500A; font-weight: 500; }
+  .option-btn.selected-B1 { background: #E6F1FB; border: 1.5px solid #B5D4F4; color: #0C447C; font-weight: 500; }
+  .option-btn.selected-B2 { background: #EEEDFE; border: 1.5px solid #CECBF6; color: #3C3489; font-weight: 500; }
+  .option-btn.selected-C1 { background: #FAEEDA; border: 1.5px solid #FAC775; color: #633806; font-weight: 500; }
+  .option-btn.selected-C2 { background: #FAECE7; border: 1.5px solid #F5C4B3; color: #712B13; font-weight: 500; }
+
+  .check-mark { margin-right: 8px; font-size: 12px; opacity: 0.3; }
+  .check-mark.on { opacity: 1; }
+
+  .text-input {
+    width: 100%; padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #ddd; font-size: 14px; font-family: inherit;
+    outline: none; transition: border-color 0.15s;
+  }
+  .text-input:focus { border-color: #378ADD; }
+
+  /* Navigation buttons */
+  .nav-row { display: flex; gap: 10px; align-items: center; }
+  .btn {
+    padding: 10px 18px; border-radius: 8px; font-size: 14px;
+    cursor: pointer; border: 1px solid #ddd; background: #fff;
+    color: #1a1a1a; font-family: inherit; transition: all 0.15s;
+  }
+  .btn:hover { background: #f0f0f0; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-primary {
+    background: #378ADD; color: #fff; border-color: #378ADD;
+    font-weight: 500; margin-left: auto;
+  }
+  .btn-primary:hover { background: #2a6fb5; }
+
+  /* Results */
+  .result-card {
+    border-radius: 12px; padding: 1.5rem;
+    margin-bottom: 1.5rem; text-align: center;
+    border: 1px solid;
+  }
+  .result-cefr-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .result-cefr { font-size: 52px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+  .result-name { font-size: 20px; margin-bottom: 12px; }
+  .result-desc { font-size: 14px; line-height: 1.6; max-width: 420px; margin: 0 auto; }
+
+  .score-row {
+    display: flex; gap: 0; background: #f5f5f5;
+    border-radius: 10px; padding: 1rem; margin-bottom: 1.5rem;
+  }
+  .score-cell { flex: 1; text-align: center; }
+  .score-divider { width: 1px; background: #e0e0e0; }
+  .score-label { font-size: 13px; color: #666; margin-bottom: 4px; }
+  .score-value { font-size: 28px; font-weight: 600; color: #1a1a1a; }
+  .score-denom { font-size: 16px; color: #999; }
+
+  .breakdown { margin-bottom: 1.5rem; }
+  .breakdown-title { font-size: 14px; font-weight: 500; color: #666; margin-bottom: 10px; }
+  .breakdown-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .breakdown-bar-bg { flex: 1; background: #e5e5e5; border-radius: 4px; height: 8px; overflow: hidden; }
+  .breakdown-bar { height: 100%; border-radius: 4px; transition: width 0.4s; }
+  .breakdown-score { font-size: 13px; color: #666; min-width: 40px; text-align: right; }
+
+  details { margin-bottom: 1.5rem; }
+  summary {
+    font-size: 14px; font-weight: 500; color: #666;
+    cursor: pointer; padding: 8px 0; user-select: none;
+  }
+  .review-item { border-bottom: 1px solid #eee; padding: 12px 0; }
+  .review-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .review-num { font-size: 12px; color: #aaa; min-width: 24px; }
+  .review-result { margin-left: auto; font-size: 18px; }
+  .review-result.correct { color: #1D9E75; }
+  .review-result.wrong { color: #D85A30; }
+  .review-q { font-size: 13px; color: #666; padding-left: 30px; line-height: 1.5; }
+  .review-correct { font-size: 12px; color: #1D9E75; padding-left: 30px; margin-top: 4px; }
+
+  .btn-retake {
+    width: 100%; padding: 12px; border-radius: 8px; font-size: 15px;
+    font-weight: 500; cursor: pointer; background: #fff;
+    border: 1px solid #ddd; font-family: inherit; transition: all 0.15s;
+  }
+  .btn-retake:hover { background: #f0f0f0; }
+
+  /* Result card colors */
+  .rc-A1 { background: #E1F5EE; border-color: #9FE1CB; color: #085041; }
+  .rc-A2 { background: #EAF3DE; border-color: #C0DD97; color: #27500A; }
+  .rc-B1 { background: #E6F1FB; border-color: #B5D4F4; color: #0C447C; }
+  .rc-B2 { background: #EEEDFE; border-color: #CECBF6; color: #3C3489; }
+  .rc-C1 { background: #FAEEDA; border-color: #FAC775; color: #633806; }
+  .rc-C2 { background: #FAECE7; border-color: #F5C4B3; color: #712B13; }
+
+  /* Breakdown bar colors */
+  .bar-A1 { background: #9FE1CB; }
+  .bar-A2 { background: #C0DD97; }
+  .bar-B1 { background: #B5D4F4; }
+  .bar-B2 { background: #CECBF6; }
+  .bar-C1 { background: #FAC775; }
+  .bar-C2 { background: #F5C4B3; }
+
+  @media (max-width: 500px) {
+    body { padding: 1rem 0.75rem; }
+    h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+
+<script>
+const QUESTIONS = [
+  { id:1,  level:"A1", cat:"Grammar",   type:"single", q:"Where do you live?\n\nI live ______ London.", opts:["in","into","on","at"], correct:[0] },
+  { id:2,  level:"A1", cat:"Listening", type:"single", q:"How old are you?\n\nThe speaker says they are:", opts:["I'm 37 years old.","I'm 47 years old.","I'm 73 years old.","I'm 7 years old."], correct:[1], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT002a.mp3" },
+  { id:3,  level:"A1", cat:"Grammar",   type:"single", q:"I have a sister. ______ name's Jessica.", opts:["His","She","He","Her"], correct:[3] },
+  { id:4,  level:"A1", cat:"Grammar",   type:"single", q:"______ five apples on the table.", opts:["Their is","There is","There are","Their are"], correct:[2] },
+  { id:5,  level:"A1", cat:"Grammar",   type:"multi",  q:"What are his hobbies?\n\nChoose TWO correct answers.", opts:["He likes playing tennis.","He likes to play tennis.","He tennis likes to play.","He tennis playing likes."], correct:[0,1] },
+  { id:6,  level:"A1", cat:"Grammar",   type:"single", q:"What is Jane doing now?", opts:["She has a book reading.","She reads a book.","She's reading a book.","She's a book reading."], correct:[2] },
+  { id:7,  level:"A1", cat:"Reading",   type:"multi",  q:"What time is it?\n\n[The clock shows 2:30]\n\nChoose TWO correct answers.", opts:["It's two thirty.","It's half past three.","It's half past two.","It's two hours thirty."], correct:[0,2] },
+  { id:8,  level:"A1", cat:"Listening", type:"single", q:"What are his daily routines?", opts:["He eats breakfast and leaves home at 8:30.","He doesn't eat breakfast and leaves home at 8:30.","He eats breakfast and leaves home at 8:15.","He doesn't eat breakfast and leaves home at 8:15."], correct:[3], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT008a.mp3" },
+  { id:9,  level:"A1", cat:"Grammar",   type:"single", q:"What did Helen do yesterday?\n\nShe went to the shopping mall, but she ______ any clothes.", opts:["no buys","didn't bought","doesn't buy","didn't buy"], correct:[3] },
+  { id:10, level:"A1", cat:"Grammar",   type:"single", q:"I ______ talk on the phone now, because I'm driving.", opts:["don't","no","not","can't"], correct:[3] },
+
+  { id:11, level:"A2", cat:"Vocabulary",type:"single", q:"Joe's mum has two brothers. His mum's brothers are Joe's ______.", opts:["uncles","aunts","cousins","nephews"], correct:[0] },
+  { id:12, level:"A2", cat:"Listening", type:"single", q:"Where is the post office?\n\n[Look at the map and listen, then choose the correct location]", opts:["C","D","B","A"], correct:[3], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT012a.mp3" },
+  { id:13, level:"A2", cat:"Grammar",   type:"single", q:"Living in the countryside is ______ than living in the city.", opts:["healthy","healthyer","healtheir","healthier"], correct:[3] },
+  { id:14, level:"A2", cat:"Speaking",  type:"multi",  q:"At the restaurant\n\nWhat would you like for your main course?\n\nChoose TWO correct answers.", opts:["I'd like the chicken salad, please.","Could I have the chicken salad, please?","I could've the chicken salad, please.","Could I've the chicken salad, please?"], correct:[0,1] },
+  { id:15, level:"A2", cat:"Vocabulary",type:"single", q:"Describing people\n\nAdam is ______ many sports and is a ______-known athlete.", opts:["interested in / well","interesting on / well","interesting on / good","interested in / good"], correct:[0] },
+  { id:16, level:"A2", cat:"Grammar",   type:"single", q:"Describing past experiences\n\nHe has ______.", opts:["to Japan went","been to Japan","to Japan been","went to Japan"], correct:[1] },
+  { id:17, level:"A2", cat:"Grammar",   type:"single", q:"How do you get to work?\n\nI ______ the bus to work, ______ I go by car.", opts:["take usually / but sometimes","take sometimes / but usually","usually take / but sometimes","sometimes take / but usually"], correct:[2] },
+  { id:18, level:"A2", cat:"Listening", type:"single", q:"What are his plans for the weekend?\n\nHe ______ buy a car.", opts:["'s going to","isn't going to","'s no going to","not going to"], correct:[1], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT018a.mp3" },
+  { id:19, level:"A2", cat:"Grammar",   type:"single", q:"They ______ when the phone rang.", opts:["were sleeping","were slept","have slept","are sleeping"], correct:[0] },
+  { id:20, level:"A2", cat:"Vocabulary",type:"multi",  q:"What did she do in the clothes shop?\n\nChoose TWO correct answers.", opts:["She took her jeans off and tried on a new dress.","She took off her jeans and tried a new dress on.","She took out her jeans and tried a new dress in.","She took her jeans out and tried in a new dress."], correct:[0,1] },
+
+  { id:21, level:"B1", cat:"Grammar",   type:"single", q:"We ______ to work, but now we take the train.", opts:["use to drive","used to drove","use to drove","used to drive"], correct:[3] },
+  { id:22, level:"B1", cat:"Listening", type:"single", q:"What would you like to do tonight?", opts:["I'd rather to go to the cinema.","I'd prefer to go to the cinema.","I'd prefer stay at home.","I'd rather stay at home."], correct:[3], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT022a.mp3" },
+  { id:23, level:"B1", cat:"Grammar",   type:"single", q:"I love to travel, but ______ to Australia since 2010.", opts:["I haven't been","I didn't went","I didn't been","I haven't went"], correct:[0] },
+  { id:24, level:"B1", cat:"Vocabulary",type:"multi",  q:"Sarah had an exam yesterday and she's really nervous about the results.\n\nChoose TWO words with a similar meaning to 'nervous'.", opts:["confident","anxious","positive","worried"], correct:[1,3] },
+  { id:25, level:"B1", cat:"Vocabulary",type:"single", q:"On the phone\n\nCustomer: 'I'd like to speak to the manager please.'\nReceptionist: 'I'm sorry I can't ______ now because she's in a meeting. Please give me your number and I'll ask her to ______.'", opts:["ring through you / phone back you","put you through / call you back","put through you / call back you","ring you through / phone you back"], correct:[1] },
+  { id:26, level:"B1", cat:"Grammar",   type:"single", q:"His wife ______ their weekend, before they spoke about it.", opts:["has already planned","had already planned","is already planning","did already plan"], correct:[1] },
+  { id:27, level:"B1", cat:"Vocabulary",type:"multi",  q:"Giving opinions\n\nJack: 'Wow! That was an awesome concert.'\nKaren: 'Yeah it was incredible. However, their first album is my favourite.'\n\nKaren agrees the concert was amazing, __________ their earlier music is still the best.\n\nChoose TWO correct answers.", opts:["since she thinks","although she feels that","but in her opinion","because she is sure that"], correct:[1,2] },
+  { id:28, level:"B1", cat:"Listening", type:"single", q:"Lifestyle choices\n\nIf he ______ more time, he ______ sport during the week.", opts:["would have / plays","has / plays","had / would have played","had / would play"], correct:[3], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT028a.mp3" },
+  { id:29, level:"B1", cat:"Grammar",   type:"single", q:"You were late for an important meeting. You ______ home earlier.", opts:["should had left","must had left","must have left","should have left"], correct:[3] },
+  { id:30, level:"B1", cat:"Vocabulary",type:"single", q:"She really hates cleaning her apartment, but she has no problem with the cooking.\n\nChoose the answer with a similar meaning.", opts:["can't mind / doesn't stand","can't stand / doesn't mind","doesn't stand / can't mind","doesn't mind / can't stand"], correct:[1] },
+
+  { id:31, level:"B2", cat:"Grammar",   type:"single", q:"Job opportunities\n\nBrother: 'Why didn't you accept that amazing job offer in New York last year?'\nSister: 'Because my home is in London.'\n\nChoose one correct answer.", opts:["If she had started the job, she would have moved abroad.","If she did started the job, she would have moved abroad.","If she had started the job, she would moved abroad.","If she has started the job, she would moved abroad."], correct:[0] },
+  { id:32, level:"B2", cat:"Listening", type:"single", q:"Does this theatre critic agree with the outstanding reviews?\n\nHe ______ exactly the same ______ of view.", opts:["has / place","doesn't have / place","has / point","doesn't have / point"], correct:[3], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT032a.mp3" },
+  { id:33, level:"B2", cat:"Vocabulary",type:"multi",  q:"I don't mind if you upgrade the software, ______ you back up the hard drive first.\n\nChoose TWO correct answers.", opts:["while","provided that","whereas","as long as"], correct:[1,3] },
+  { id:34, level:"B2", cat:"Grammar",   type:"single", q:"I ______ for the last few months, because I moved to Madrid and had to study Spanish.", opts:["'m not working","wouldn't have worked","haven't been working","haven't working"], correct:[2] },
+  { id:35, level:"B2", cat:"Vocabulary",type:"text",   q:"The suspect committed a crime and was found ______ of breaking the law.\n\nType the correct word:", correct:["guilty"] },
+  { id:36, level:"B2", cat:"Grammar",   type:"multi",  q:"I'm sure that ______ her first autobiography by the end of the year.\n\nChoose TWO answers with a similar meaning.", opts:["she's going to have finished","she'll be finished","she has finished","she'll have finished"], correct:[0,3] },
+  { id:37, level:"B2", cat:"Grammar",   type:"single", q:"The plane left ten minutes ago, but I couldn't fly because I didn't take my passport.\n\nIf I ______ my passport, I ______ on the plane right now.", opts:["hadn't forgotten / will be","had remembered / wouldn't be","had remembered / will be","hadn't forgotten / would be"], correct:[3] },
+  { id:38, level:"B2", cat:"Listening", type:"single", q:"Why did he miss her phone call this morning?\n\nHe explained that ______ an important presentation.", opts:["he'd been given","he'd been giving","he's been giving","he was given"], correct:[1], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT038a.mp3" },
+  { id:39, level:"B2", cat:"Reading",   type:"single", q:"Who is the team leader least impressed by?\n\nTeam notes: \"Overall the team has performed extremely well. Sarah is extremely motivated, Linda is disorganised but very passionate, Jason is quite pessimistic and fairly stubborn, and Max is incredibly enthusiastic.\"", opts:["Jason","Linda","Max","Sarah"], correct:[0] },
+  { id:40, level:"B2", cat:"Vocabulary",type:"text",   q:"Scientific reports state that the Earth's temperature is rising because of energy pollution, and experts believe we should be more environmentally friendly in order to limit ______ warming.\n\nType the correct word:", correct:["global"] },
+
+  { id:41, level:"C1", cat:"Grammar",   type:"single", q:"The Education Secretary negotiated with protesting teachers yesterday, and they have now insisted that she schedules a second meeting.\n\nThe politician ______ an agreement with the teachers yesterday.", opts:["can't have reached","shouldn't have reached","needn't have reached","must have reached"], correct:[3] },
+  { id:42, level:"C1", cat:"Vocabulary",type:"text",   q:"At the moment, we're finding it difficult to pay the bills, and a luxurious holiday is simply unaffordable. We're really struggling to make ______ meet.\n\nType the correct word:", correct:["ends"] },
+  { id:43, level:"C1", cat:"Listening", type:"single", q:"Homelessness ______ tackled adequately by the government.", opts:["is being","isn't going to be","is","isn't being"], correct:[3], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT042a.mp3" },
+  { id:44, level:"C1", cat:"Vocabulary",type:"multi",  q:"It is ______ difficult to ensure the protection of endangered species.\n\nChoose TWO correct answers.", opts:["absolutely","totally","incredibly","extremely"], correct:[2,3] },
+  { id:45, level:"C1", cat:"Vocabulary",type:"single", q:"They had no idea about their sister's medical problems, because she hadn't explained what was happening. She hasn't ______ about her poor health.\n\nChoose one answer with a similar meaning.", opts:["made the picture for them","taken the picture for them","kept them in the picture","given them their picture"], correct:[2] },
+  { id:46, level:"C1", cat:"Grammar",   type:"text",   q:"Ben dropped out of school when he was just sixteen, and became a millionaire before his 21st birthday.\n\n______ drop out of school when he was sixteen, but he also became a millionaire before his 21st birthday.\n\nType 4 words (includes NOT):", correct:["not only did he","not only did ben"] },
+  { id:47, level:"C1", cat:"Vocabulary",type:"single", q:"After being accepted for a scholarship at university, I was unsure whether it was a good idea to live on campus.\n\nI was ______ about living on campus.", opts:["changing two minds","in two minds","keeping it in mind","minding about"], correct:[1] },
+  { id:48, level:"C1", cat:"Listening", type:"multi",  q:"How can you respond to the problem in this phone call?\n\nChoose TWO most suitable responses.", opts:["I'm sorry you couldn't sleep.","I'm sorry to hear that.","I'm so sorry, and don't worry about work.","I understand if you feel sorry for yourself."], correct:[1,2], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT048a.mp3" },
+  { id:49, level:"C1", cat:"Grammar",   type:"text",   q:"We need an extended break from our stressful jobs.\n\n______ an extended break from our stressful jobs.\n\nType 4 words (includes WHAT):", correct:["what we need is"] },
+  { id:50, level:"C1", cat:"Vocabulary",type:"single", q:"Approximately €5,000,000 has already been donated to charity for last week's natural disaster.\n\nChoose one answer with a similar meaning to 'approximately'.", opts:["Somewhere on the subject of","Somewhere in the region of","Somewhere the range of","Somewhere the amount of"], correct:[1] },
+
+  { id:51, level:"C2", cat:"Listening", type:"single", q:"[Listen to the audio: The wife asks her husband about work — this audio covers questions 51–55]\n\nHe thinks that the management have been ______.", opts:["infectious","inconsiderate","hypocritical","flawless"], correct:[2], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT050a.mp3" },
+  { id:52, level:"C2", cat:"Listening", type:"text",   q:"What would he like to do next week (even though it is unlikely)?\n\nHe'd like to hand in his __________.\n\nType the correct word:", correct:["notice","resignation"], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT050a.mp3" },
+  { id:53, level:"C2", cat:"Grammar",   type:"single", q:"How does he feel about his retirement?\n\n______ I hadn't ______ my retirement.", opts:["If only / extended","Only if / delayed","Only if / extended","If only / delayed"], correct:[3], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT050a.mp3" },
+  { id:54, level:"C2", cat:"Vocabulary",type:"single", q:"He is describing how he feels tonight, and he would like to be more ______.", opts:["laid-back","laid-off","laid-down","laid-out"], correct:[0], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT050a.mp3" },
+  { id:55, level:"C2", cat:"Vocabulary",type:"single", q:"What would he like to do this evening?\n\nHe'd like to ______.", opts:["get off on the wrong foot","put his feet up","put his foot in it","put his foot down"], correct:[1], audio:"https://www.englishradar.com/wp-content/uploads/2016/05/ERLT050a.mp3" },
+
+  { id:56, level:"C2", cat:"Reading",   type:"single", q:"Reading — Does technology benefit language learning?\n\nA: Over the last decade, there has been an unprecedented growth in the development of technology for teaching languages, including interactive websites, mobile apps and classroom software. It is abundantly clear that one of the most dominant subject areas to experience this explosion is English language teaching.\n\nB: On a positive note, the majority of English teachers consider that technology can prove advantageous to language teachers and students alike. It was also acknowledged that it could provide a greater variety of activities and enable classes to be even more interactive.\n\nC: Regrettably, a large number have also reported that even though their schools had invested in developing the resources, they had not received an adequate orientation session of how such technology can be best used by teachers.\n\nD: Whilst it may be concluded that technology is of significant importance in the future of education, the provision of continuous training that harnesses the creativity and enthusiasm of teachers is essential.\n\nWhere does this extra paragraph best fit?\n\n\"Fortunately, many expressed that even without any training, they had previously considered that they might as well try it out, and it had often motivated students and achieved surprisingly good results.\"", opts:["D","B","C","A"], correct:[2] },
+  { id:57, level:"C2", cat:"Reading",   type:"text",   q:"From the text: \"It is abundantly clear that one of the most...\"\n\nComplete the similar expression:\n\"Without a shadow of (a) __________ one of the most...\"", correct:["doubt"] },
+  { id:58, level:"C2", cat:"Reading",   type:"single", q:"From the text: \"Regrettably, a large number...\"\n\nChoose one answer with a similar meaning to 'regrettably'.", opts:["Consequently","Seriously","Allegedly","Unfortunately"], correct:[3] },
+  { id:59, level:"C2", cat:"Reading",   type:"single", q:"From the text: \"they had previously considered that they might as well try it out\"\n\nChoose one answer with a similar meaning to 'they might as well'.", opts:["they found it difficult to","there was slight chance they would","there was no reason not to","they had no choice but to"], correct:[2] },
+  { id:60, level:"C2", cat:"Reading",   type:"single", q:"Which statement most accurately summarises the writer's opinion?", opts:["The writer considers that training teachers is of paramount importance for technology to reach its full potential.","The writer suggests that inadequate training is compensated by creative and enthusiastic teachers.","The writer is extremely cautious about the benefits of technology, but supports teachers.","The writer recognises that technology has a great deal of potential for language students."], correct:[0] },
+];
+
+const RESULT_LEVELS = [
+  { min:0,  max:9,  cefr:"A1", label:"Beginner",           desc:"You can understand and use familiar everyday expressions and very basic phrases." },
+  { min:10, max:19, cefr:"A2", label:"Elementary",         desc:"You can communicate in simple and routine tasks requiring a direct exchange of information." },
+  { min:20, max:29, cefr:"B1", label:"Intermediate",       desc:"You can deal with most situations likely to arise while travelling in an area where the language is spoken." },
+  { min:30, max:39, cefr:"B2", label:"Upper Intermediate", desc:"You can interact with a degree of fluency that makes regular interaction with native speakers quite possible." },
+  { min:40, max:49, cefr:"C1", label:"Advanced",           desc:"You can express ideas fluently and spontaneously without much obvious searching for expressions." },
+  { min:50, max:60, cefr:"C2", label:"Proficiency",        desc:"You can understand with ease virtually everything heard or read." },
+];
+
+// State
+let current = 0;
+let answers = {}; // id -> [] for single/multi, string for text
+let submitted = false;
+
+function getAnswer(q) {
+  if (answers[q.id] === undefined) return q.type === 'text' ? '' : [];
+  return answers[q.id];
+}
+
+function isCorrect(q, a) {
+  if (q.type === 'text') {
+    return q.correct.some(c => (a || '').trim().toLowerCase() === c.toLowerCase());
+  }
+  const arr = a || [];
+  const sorted = [...arr].sort((x,y)=>x-y);
+  const exp = [...q.correct].sort((x,y)=>x-y);
+  return sorted.length === exp.length && sorted.every((v,i) => v === exp[i]);
+}
+
+function getResult(score) {
+  return RESULT_LEVELS.find(r => score >= r.min && score <= r.max) || RESULT_LEVELS[0];
+}
+
+function answeredCount() {
+  return QUESTIONS.filter(q => {
+    const a = getAnswer(q);
+    return q.type === 'text' ? a.trim() !== '' : a.length > 0;
+  }).length;
+}
+
+function render() {
+  const app = document.getElementById('app');
+  if (submitted) {
+    app.innerHTML = renderResults();
+  } else {
+    app.innerHTML = renderTest();
+  }
+  attachEvents();
+}
+
+function renderResults() {
+  const score = QUESTIONS.filter(q => isCorrect(q, getAnswer(q))).length;
+  const result = getResult(score);
+  const pct = Math.round((score / QUESTIONS.length) * 100);
+
+  const breakdown = ["A1","A2","B1","B2","C1","C2"].map(lvl => {
+    const qs = QUESTIONS.filter(q => q.level === lvl);
+    const correct = qs.filter(q => isCorrect(q, getAnswer(q))).length;
+    return { lvl, correct, total: qs.length };
+  });
+
+  const reviewItems = QUESTIONS.map((q, i) => {
+    const a = getAnswer(q);
+    const ok = isCorrect(q, a);
+    const correctText = q.type === 'text' ? q.correct[0] : q.correct.map(ci => q.opts[ci]).join(', ');
+    return `
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-num">${i+1}.</span>
+          <span class="level-badge badge-${q.level}">${q.level}</span>
+          <span class="review-result ${ok ? 'correct' : 'wrong'}">${ok ? '✓' : '✗'}</span>
+        </div>
+        <div class="review-q">${escHtml(q.q.split('\n')[0])}</div>
+        ${!ok ? `<div class="review-correct">Correct: ${escHtml(correctText)}</div>` : ''}
+      </div>`;
+  }).join('');
+
+  const breakdownHtml = breakdown.map(({lvl, correct, total}) => {
+    const pct2 = total > 0 ? Math.round((correct/total)*100) : 0;
+    return `
+      <div class="breakdown-row">
+        <span class="level-badge badge-${lvl}">${lvl}</span>
+        <div class="breakdown-bar-bg">
+          <div class="breakdown-bar bar-${lvl}" style="width:${pct2}%"></div>
+        </div>
+        <span class="breakdown-score">${correct}/${total}</span>
+      </div>`;
+  }).join('');
+
+  return `
+    <h1>Your result</h1>
+    <p class="subtitle">English level test — ${QUESTIONS.length} questions</p>
+
+    <div class="result-card rc-${result.cefr}">
+      <div class="result-cefr-label">CEFR Level</div>
+      <div class="result-cefr">${result.cefr}</div>
+      <div class="result-name">${result.label}</div>
+      <div class="result-desc">${escHtml(result.desc)}</div>
+    </div>
+
+    <div class="score-row">
+      <div class="score-cell">
+        <div class="score-label">Score</div>
+        <div class="score-value">${score}<span class="score-denom">/${QUESTIONS.length}</span></div>
+      </div>
+      <div class="score-divider"></div>
+      <div class="score-cell">
+        <div class="score-label">Percentage</div>
+        <div class="score-value">${pct}%</div>
+      </div>
+    </div>
+
+    <div class="breakdown">
+      <div class="breakdown-title">Breakdown by level</div>
+      ${breakdownHtml}
+    </div>
+
+    <details>
+      <summary>Review all answers</summary>
+      <div style="margin-top:12px">${reviewItems}</div>
+    </details>
+
+    <button class="btn-retake" id="btn-retake">Retake test</button>
+  `;
+}
+
+function renderTest() {
+  const q = QUESTIONS[current];
+  const a = getAnswer(q);
+  const answered = answeredCount();
+  const progress = Math.round((answered / QUESTIONS.length) * 100);
+
+  // Nav grid
+  const navBtns = QUESTIONS.map((qn, i) => {
+    const ans = getAnswer(qn);
+    const hasAns = qn.type === 'text' ? (ans||'').trim() !== '' : ans.length > 0;
+    const isCur = i === current;
+    let cls = 'nav-btn';
+    if (isCur) cls += ` current cur-${qn.level}`;
+    else if (hasAns) cls += ' answered';
+    return `<button class="${cls}" data-idx="${i}">${i+1}</button>`;
+  }).join('');
+
+  // Audio
+  let audioHtml = '';
+  if (q.audio) {
+    audioHtml = `
+      <div class="audio-box">
+        <div class="audio-label">🔊 Listening — press play before answering</div>
+        <audio controls preload="auto" src="${q.audio}"></audio>
+      </div>`;
+  }
+
+  // Options
+  let optionsHtml = '';
+  if (q.type === 'single') {
+    optionsHtml = `<div class="options">` +
+      q.opts.map((opt, idx) => {
+        const sel = Array.isArray(a) && a.includes(idx);
+        const cls = sel ? `option-btn selected-${q.level}` : 'option-btn';
+        return `<button class="${cls}" data-opt="${idx}">${escHtml(opt)}</button>`;
+      }).join('') +
+    `</div>`;
+  } else if (q.type === 'multi') {
+    optionsHtml = `
+      <div class="hint">Select all correct answers</div>
+      <div class="options">` +
+      q.opts.map((opt, idx) => {
+        const sel = Array.isArray(a) && a.includes(idx);
+        const cls = sel ? `option-btn selected-${q.level}` : 'option-btn';
+        return `<button class="${cls}" data-opt="${idx}"><span class="check-mark ${sel?'on':''}">✓</span>${escHtml(opt)}</button>`;
+      }).join('') +
+    `</div>`;
+  } else {
+    optionsHtml = `<input class="text-input" id="text-input" type="text" value="${escHtml(a||'')}" placeholder="Type your answer here...">`;
+  }
+
+  return `
+    <h1>English level test</h1>
+    <p class="subtitle">A1 to C2 — 60 questions</p>
+
+    <div class="progress-row">
+      <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
+      <span class="progress-label">${answered}/${QUESTIONS.length} done</span>
+    </div>
+
+    <div class="nav-grid">${navBtns}</div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="level-badge badge-${q.level}">${q.level}</span>
+        <span class="cat-label">${q.cat}</span>
+        <span class="q-counter">${current+1} / ${QUESTIONS.length}</span>
+      </div>
+      ${audioHtml}
+      <div class="question-text">${escHtml(q.q)}</div>
+      ${optionsHtml}
+    </div>
+
+    <div class="nav-row">
+      <button class="btn" id="btn-back" ${current === 0 ? 'disabled' : ''}>← Back</button>
+      ${current < QUESTIONS.length - 1 ? `<button class="btn" id="btn-next">Next →</button>` : ''}
+      <button class="btn btn-primary" id="btn-submit">Submit (${answered}/${QUESTIONS.length})</button>
+    </div>
+  `;
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+function attachEvents() {
+  const q = QUESTIONS[current];
+
+  // Nav buttons
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      current = parseInt(btn.dataset.idx);
+      render();
+    });
+  });
+
+  if (submitted) {
+    const retake = document.getElementById('btn-retake');
+    if (retake) retake.addEventListener('click', () => {
+      answers = {}; submitted = false; current = 0; render();
+    });
+    return;
+  }
+
+  // Option buttons
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.opt);
+      if (q.type === 'single') {
+        answers[q.id] = [idx];
+      } else {
+        const cur = answers[q.id] || [];
+        if (cur.includes(idx)) answers[q.id] = cur.filter(i => i !== idx);
+        else answers[q.id] = [...cur, idx];
+      }
+      render();
+    });
+  });
+
+  // Text input
+  const ti = document.getElementById('text-input');
+  if (ti) {
+    ti.addEventListener('input', () => { answers[q.id] = ti.value; });
+    ti.focus();
+  }
+
+  // Back / Next
+  const back = document.getElementById('btn-back');
+  if (back) back.addEventListener('click', () => { current = Math.max(0, current-1); render(); });
+  const next = document.getElementById('btn-next');
+  if (next) next.addEventListener('click', () => { current = Math.min(QUESTIONS.length-1, current+1); render(); });
+
+  // Submit
+  const submit = document.getElementById('btn-submit');
+  if (submit) submit.addEventListener('click', () => {
+    submitted = true;
+    render();
+    window.scrollTo(0,0);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
